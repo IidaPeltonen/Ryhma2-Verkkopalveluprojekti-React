@@ -11,13 +11,11 @@ Montserrat (valikot, iso otsikko etusivulla, footer&header)
 PT Sans Caption (Leipäteksti, tää pitää testata käytännössä)
  */
 
-
-
 main {
   background: E5E5E5;
 }
 
-h1{
+h1 {
   font-family: Montserrat;
   font-size: x-large;
 }
@@ -25,4 +23,10 @@ h1{
 p {
   font-family: PT Sans Caption;
   font-size: large;
+}
+
+footer {
+  background-color: #555;
+  color: white;
+  padding: 15px;
 }
