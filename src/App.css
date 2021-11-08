@@ -17,10 +17,12 @@ main {
   background: E5E5E5;
 }
 
-h1, h2, h3 {
+h1{
   font-family: Montserrat;
+  font-size: x-large;
 }
 
 p {
   font-family: PT Sans Caption;
+  font-size: large;
 }
