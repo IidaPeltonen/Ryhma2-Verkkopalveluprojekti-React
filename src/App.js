@@ -1,4 +1,9 @@
 import './App.css';
+
+import paa from './img/paa.png';
+import karry from './img/karry.png';
+import logo from './img/logo.png';
+import lasi from './img/lasi.png';
 // <div classNameName="App">
 //   <header classNameName="App-header">
 //     <h1>KAUPPA!</h1>
@@ -91,81 +96,174 @@ function App() {
                     </li>
                     <li><a className="dropdown-item" href="#">Sign out</a></li>
                   </ul>
-                  
-                </div>
-                
-              </div>
-              
-            </div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
 
+                </div>
+
+              </div>
+
+            </div>
+
+
+           
+
+
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src='http://placehold.it/200' class="d-block w-100" alt="..."/>
+                </div>
+                <div class="carousel-item">
+                  <img src="http://placehold.it/200" class="d-block w-100" alt="..."/>
+                </div>
+                <div class="carousel-item">
+                  <img src="http://placehold.it/200" class="d-block w-100" alt="..."/>
+                </div>
+              </div>
+            </div>
+            t. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus dignissimos hic a, perspiciatis neque repellendus qui dolores nesciunt quam unde, molestias vitae quod quibusdam iure cupiditate adipisci at eius facilis.
+            
 
           </div>
           <footer className="container-fluid">
-        <p>Footer Text</p>
-      </footer>
+            <p>Footer Text</p>
+
+            {/* <div class="container my-5">
+
+  <footer class="bg-dark text-center text-lg-start text-white">
+    <!-- Grid container -->
+    <div class="container p-4">
+      <!--Grid row-->
+      <div class="row mt-4">
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">See other books</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white"><i class="fas fa-book fa-fw fa-sm me-2"></i>Bestsellers</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white"><i class="fas fa-book fa-fw fa-sm me-2"></i>All books</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white"><i class="fas fa-user-edit fa-fw fa-sm me-2"></i>Our authors</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Execution of the contract</h5>
+
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!" class="text-white"><i class="fas fa-shipping-fast fa-fw fa-sm me-2"></i>Supply</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white"><i class="fas fa-backspace fa-fw fa-sm me-2"></i>Returns</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white"><i class="far fa-file-alt fa-fw fa-sm me-2"></i>Regulations</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white"><i class="far fa-file-alt fa-fw fa-sm me-2"></i>Privacy policy</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Publishing house</h5>
+
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!" class="text-white">The BookStore</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">123 Street</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white">05765 NY</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white"><i class="fas fa-briefcase fa-fw fa-sm me-2"></i>Send us a book</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Write to us</h5>
+
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!" class="text-white"><i class="fas fa-at fa-fw fa-sm me-2"></i>Help in purchasing</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white"><i class="fas fa-shipping-fast fa-fw fa-sm me-2"></i>Check the order status</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white"><i class="fas fa-envelope fa-fw fa-sm me-2"></i>Join the newsletter</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      © 2021 Copyright:
+      <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+</div> */}
+          </footer>
 
         </div>
-        
+
       </div>
-      
+
     </div>
 
 

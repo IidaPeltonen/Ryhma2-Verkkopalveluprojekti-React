@@ -30,3 +30,8 @@ footer {
   color: white;
   padding: 15px;
 }
+
+.swipe{
+  overflow:auto;
+  white-space:nowrap;
+}
