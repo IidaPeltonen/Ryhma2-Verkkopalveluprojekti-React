@@ -14,10 +14,10 @@ function App() {
   return (
 
       <div className="row content">
-        <div className="container-fluid">
+        
           <div className="row flex-nowrap">
             <div className="col-auto col-md-2 col-xl-2 px-sm-2 px-0 sidenav-container">
-              <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 sidenav">
+              <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 ">
                 <div className="logo mt-3">
                   <img src={logo} />
                 </div>
@@ -213,7 +213,7 @@ function App() {
 
 
 
-        </div>
+        
 
       </div>
 

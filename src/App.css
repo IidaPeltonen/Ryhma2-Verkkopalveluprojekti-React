@@ -16,6 +16,10 @@ main {
   background: E5E5E5;
 }
 
+body {
+  margin-left:
+}
+
 h1 {
   font-family: Montserrat;
   font-size: x-large;
@@ -54,6 +58,7 @@ ul li a {
   font-size: 1.5rem;
   font-weight: normal;
   line-height: 2.5rem;
+  
 }
 
 .sidenav-container {
@@ -67,3 +72,5 @@ ul li a {
   background-color: #447f43; /* Black */
   padding-top: 20px;
 }
+
+
