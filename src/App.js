@@ -13,6 +13,8 @@ import lasi from './img/lasi.png';
 function App() {
   return (
 
+    // nav alkaa
+
 
     <div className="row content">
       <div className="row flex-nowrap">
@@ -49,6 +51,8 @@ function App() {
               </ul>
             </div>
             <hr />
+            {/* nav päättyy */}
+            {/* käyttäjäosuus */}
 
             {/* <div className="dropdown pb-4">
                   <a href="site5" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -67,6 +71,7 @@ function App() {
 
                 </div> */}
 
+            {/* käyttäjäosuus päättyy */}
           </div>
 
         </div>
@@ -94,7 +99,7 @@ function App() {
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto nesciunt illo eaque ab molestias dolores repudiandae libero voluptatum maxime necessitatibus cum doloremque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto nesciunt illo eaque ab molestias dolores repudiandae libero voluptatum maxime necessitatibus cum doloremque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto nesciunt illo eaque ab molestias dolores repudiandae libero voluptatum maxime necessitatibus cum doloremque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
-          ores repudiandae libero voluptatum maxime necessitatibus cum doloremque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
+              ores repudiandae libero voluptatum maxime necessitatibus cum doloremque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
               remque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
               Lorem ipsum d Lorem ipsum dolor sit amet cs dolores repudiandae libero voluptatum maxime n
               o nesciunt illo eaque ab molestias dolores repudiandae libero voluptatum maxime necessitatibus cum doloremque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
@@ -114,6 +119,7 @@ function App() {
             </p>
           </div>
 
+          {/* footer alkaa */}
 
           <div className="p-0 no-left-space-footer">
             <footer className="text-center text-lg-start text-white">
@@ -183,32 +189,15 @@ function App() {
                   </div>
                 </div>
               </div>
-
               <div className="text-center p-3">
                 © 2021 Copyright:
                 <a className="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
               </div>
-
             </footer>
-
+            {/* footer päättyy */}
           </div>
         </div>
-
-
-
-
-
-
-
-
-
       </div>
-
-      {/* <footer className="container-fluid">
-              <p>Footer Text</p>
-            </footer> */}
-
-
     </div>
 
 
