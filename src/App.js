@@ -118,7 +118,7 @@ function App() {
                   Lorem ipsum d Lorem ipsum dolor sit amet cs dolores repudiandae libero voluptatum maxime n
                 </p>
               </div>
-              <div className="container-fluid p-0 no-left-space">
+              <div className="container-fluid p-0 no-left-space-footer">
                 <footer className="bg-dark text-center text-lg-start text-white">
                   <div className="container p-4">
                     <div className="row mt-5">

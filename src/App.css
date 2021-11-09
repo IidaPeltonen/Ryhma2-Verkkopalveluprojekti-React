@@ -77,3 +77,9 @@ ul li a {
   margin-left: 10%;
   overflow-x: hidden;
 }
+
+.no-left-space-footer {
+  padding-left: 10%;
+  margin-left: 15%;
+  overflow-x: hidden;
+}
