@@ -19,7 +19,7 @@ main {
 
 h1 {
   font-family: Montserrat;
-  font-size: x-large;
+  font-size: 9rem;
 }
 
 p {
@@ -50,24 +50,23 @@ footer {
 
 
 ul li a {
-  color: #ffffff !important;
+  color: #ffffff;
   font-family: Montserrat;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: normal;
   line-height: 2.5rem;
   
 }
 
+.nav-link {
+  color:#FFFFFF;
+}
+
 .sidenav-container {
-  /* position: fixed;
-  width:50px;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  overflow-x: hidden; */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  
+  position: fixed;
   left:0;
-  background-color: #447f43; /* Black */
+  background-color: #447f43; 
   padding-top: 20px;
 }
 
@@ -75,11 +74,27 @@ ul li a {
 .no-left-space {
   padding-left: 10%;
   margin-left: 10%;
-  overflow-x: hidden;
 }
 
 .no-left-space-footer {
   padding-left: 10%;
   margin-left: 15%;
-  overflow-x: hidden;
+  
 }
+
+footer {
+  background-color: #214321;
+}
+
+.no-left-space-header {
+  padding-left: 10%;
+  margin-left: 15%;
+  
+}
+
+.header-style ul li a  {
+  color:red;
+}
+
+
+
