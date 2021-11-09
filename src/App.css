@@ -10,6 +10,7 @@ Sovitut fontit:
 Montserrat (valikot, iso otsikko etusivulla, footer&header)
 PT Sans Caption (Leipäteksti, tää pitää testata käytännössä)
  */
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap');
 
 main {
   background: E5E5E5;
@@ -31,7 +32,38 @@ footer {
   padding: 15px;
 }
 
-.swipe{
-  overflow:auto;
-  white-space:nowrap;
+.swipe {
+  overflow: auto;
+  white-space: nowrap;
+}
+
+/* logo */
+
+.logo img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+/* sivunavi */
+
+
+
+ul li a {
+  color: #ffffff !important;
+  font-family: Montserrat;
+  font-size: 1.5rem;
+  font-weight: normal;
+  line-height: 2.5rem;
+}
+
+.sidenav-container {
+  /* position: fixed;
+  width:50px;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden; */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  background-color: #447f43; /* Black */
+  padding-top: 20px;
 }
