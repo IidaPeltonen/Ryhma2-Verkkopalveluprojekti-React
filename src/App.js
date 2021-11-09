@@ -14,7 +14,6 @@ function App() {
   return (
 
       <div className="row content">
-        <div className="container-fluid">
           <div className="row flex-nowrap">
             <div className="col-auto col-md-2 col-xl-2 px-sm-2 px-0 sidenav-container">
               <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 sidenav">
@@ -49,6 +48,7 @@ function App() {
                 </ul>
                 </div>
                 <hr />
+
                 {/* <div className="dropdown pb-4">
                   <a href="site5" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                     <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" className="rounded-circle" />
@@ -70,8 +70,8 @@ function App() {
 
             </div>
 
-            <div classname="row g-0">
-              <div className="col-auto">
+            <div classname="row ">
+              <div className="col-auto no-left-space">
                 {/* content*/}
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto nesciunt illo eaque ab molestias dolores repudiandae libero voluptatum maxime necessitatibus cum doloremque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
                   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto nesciunt illo eaque ab molestias dolores repudiandae libero voluptatum maxime necessitatibus cum doloremque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
@@ -118,7 +118,7 @@ function App() {
                   Lorem ipsum d Lorem ipsum dolor sit amet cs dolores repudiandae libero voluptatum maxime n
                 </p>
               </div>
-              <div className="container-fluid p-0">
+              <div className="container-fluid p-0 no-left-space">
                 <footer className="bg-dark text-center text-lg-start text-white">
                   <div className="container p-4">
                     <div className="row mt-5">
@@ -211,9 +211,6 @@ function App() {
               <p>Footer Text</p>
             </footer> */}
 
-
-
-        </div>
 
       </div>
 
