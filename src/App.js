@@ -1,21 +1,28 @@
 import './App.css';
+import {useEffect,useState} from 'react';
+import axios from 'axios';
 
 import paa from './img/paa.png';
 import karry from './img/karry.png';
 import logo from './img/logo.png';
 import lasi from './img/lasi.png';
-// <div classNameName="App">
-//   <header classNameName="App-header">
-//     <h1>KAUPPAsite1</h1>
-//     <p>KAUPPAsite1</p>
-//   </header>
-// </div>
+
+const URL = 'http://localhost/kauppa';
+
 function App() {
+  const [kirjat, setKirjat] = useState([]);
+
+  useEffect(() => {
+    axios.get(URL)
+      .then((response) => {
+        setKirjat(response.data)
+      }).catch(error => {
+        alert(error);
+      })
+  }, [])
+
   return (
-
     // nav alkaa
-
-
     <div className="row content">
       <div className="row flex-nowrap">
         <div className="col-auto col-md-2 col-xl-2 px-sm-2 px-0 sidenav-container">
@@ -68,9 +75,7 @@ function App() {
                     </li>
                     <li><a className="dropdown-item" href="site4">Sign out</a></li>
                   </ul>
-
                 </div> */}
-
             {/* käyttäjäosuus päättyy */}
           </div>
 
@@ -93,31 +98,16 @@ function App() {
 
             </div>
             {/* content*/}
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto nesciunt illo eaque ab molestias dolores repudiandae libero voluptatum maxime necessitatibus cum doloremque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto nesciunt illo eaque ab molestias dolores repudiandae libero voluptatum maxime necessitatibus cum doloremque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto nesciunt illo eaque ab molestias dolores repudiandae libero voluptatum maxime necessitatibus cum doloremque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto nesciunt illo eaque ab molestias dolores repudiandae libero voluptatum maxime necessitatibus cum doloremque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto nesciunt illo eaque ab molestias dolores repudiandae libero voluptatum maxime necessitatibus cum doloremque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto nesciunt illo eaque ab molestias dolores repudiandae libero voluptatum maxime necessitatibus cum doloremque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
-              ores repudiandae libero voluptatum maxime necessitatibus cum doloremque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
-              remque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
-              Lorem ipsum d Lorem ipsum dolor sit amet cs dolores repudiandae libero voluptatum maxime n
-              o nesciunt illo eaque ab molestias dolores repudiandae libero voluptatum maxime necessitatibus cum doloremque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto nesciunt illo eaque ab molestias dolores repudiandae libero voluptatum maxime necessitatibus cum doloremque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto nesciunt illo eaque ab molestias dolores repudiandae libero voluptatum maxime necessitatibus cum doloremque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto nesciunt illo eaque ab molestias dolores repudiandae libero voluptatum maxime necessitatibus cum doloremque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
-              Lorem ipsum d Lorem ipsum dolor sit amet cs dolores repudiandae libero voluptatum maxime necessitatibus cum doloremque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
-              remque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
-              Lorem ipsum d Lorem ipsum dolor sit amet cs dolores repudiandae libero voluptatum maxime n
-              o nesciunt illo eaque ab molestias dolores repudiandae libero voluptatum maxime necessitatibus cum doloremque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto nesciunt illo eaque ab molestias dolores repudiandae libero voluptatum maxime necessitatibus cum doloremque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto nesciunt illo eaque ab molestias dolores repudiandae libero voluptatum maxime necessitatibus cum doloremque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto nesciunt illo eaque ab molestias dolores repudiandae libero voluptatum maxime necessitatibus cum doloremque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
-              Lorem ipsum d Lorem ipsum dolor sit amet cs dolores repudiandae libero voluptatum maxime necessitatibus cum doloremque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
-              remque perferendis sequi ea accusamus, deserunt, aliquam, voluptatem totam.
-              Lorem ipsum d Lorem ipsum dolor sit amet cs dolores repudiandae libero voluptatum maxime n
-            </p>
-          </div>
+            
+              <div className="container">
+                <ol>
+                  {kirjat?.map(kirjat => (
+                    <li key={kirjat.kirjaid}>{kirjat.kirjanimi}{kirjat.kirjailija}{kirjat.vuosi}{kirjat.kieli}{kirjat.kustantaja}{kirjat.trnro}{kirjat.kuvaus}{kirjat.hinta}{kirjat.saldo}</li>
+                  ))}
+                </ol>
+              </div>
+          
+           </div>
 
           {/* footer alkaa */}
 
