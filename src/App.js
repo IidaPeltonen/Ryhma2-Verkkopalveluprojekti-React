@@ -1,3 +1,38 @@
+// import './App.css';
+// import { useEffect, useState } from 'react';
+// import { Route } from 'react-router-dom';
+// import { Switch } from 'react-router-dom';
+// import Footer from './inc/Footer';
+// // import Slider from '.inc/body';
+// import Home from './Home';
+// import paa from './img/paa.png';
+// import karry from './img/karry.png';
+// import logo from './img/logo.png';
+// import lasi from './img/lasi.png';
+// import NavBar from './inc/NavBar';
+// import Header from './inc/Header';
+
+// function App() {
+
+//   return (
+//     <>
+//     <NavBar />  
+//     <Header />
+//       <div className="col-auto">
+//         <Switch>
+//           <Route path="/" component={Home} exact />
+//         </Switch>
+//       </div>
+//       <Footer />
+//     </>
+
+//   );
+// }
+
+// export default App;
+
+// Ylläoleva käyttöön, kun nav ym. toimii
+   
 import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -44,9 +79,6 @@ function App() {
               <li><a className="dropdown-item" href="#">Placeholder</a></li>
             </ul>
           </div>
-
-
-
           <ul className="list-group m-5">
             <li className="list-unstyled border-0 p-2"> <a href="" className="text-light text-decoration-none"><span
               className="ms-1 d-none d-sm-inline text-decoration-none">KIRJAT</span></a></li>

@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from '../img/logo.png';
+import './styles/NavBar.css';
 
 export default function NavBar() {
     return (
@@ -20,9 +21,6 @@ export default function NavBar() {
                         <li><a className="dropdown-item" href="#">Placeholder</a></li>
                     </ul>
                 </div>
-
-
-
                 <ul className="list-group m-5">
                     <li className="list-unstyled border-0 p-2"> <a href="" className="text-light text-decoration-none"><span
                         className="ms-1 d-none d-sm-inline text-decoration-none">KIRJAT</span></a></li>
@@ -34,6 +32,7 @@ export default function NavBar() {
                         className="ms-1 d-none d-sm-inline text-decoration-none">TILAUKSET</span></a></li>
                 </ul>
             </div>
+            
             <div className="col-12 col-sm-9 p-0">
                 <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
                     <a className="navbar-brand" href="#"></a>
