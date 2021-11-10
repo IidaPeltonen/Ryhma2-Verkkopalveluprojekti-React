@@ -1,5 +1,5 @@
 import './App.css';
-import {useEffect,useState} from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import paa from './img/paa.png';
@@ -23,177 +23,96 @@ function App() {
 
   return (
     // nav alkaa
-    <div className="row content">
-      <div className="row flex-nowrap">
-        <div className="col-auto col-md-2 col-xl-2 px-sm-2 px-0 sidenav-container">
-          <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 ">
-            <div className="logo mt-3">
-              <img src={logo} />
-            </div>
-            <div className="my-auto mx-auto">
-              {/* <a href="/" className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                  <span className="fs-5 d-none d-sm-inline">Menu</span>
-                </a> */}
-              <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                <li className="nav-item">
-                  <a href="site9" className="nav-link align-middle px-0">
-                    <i className="fs-4 bi-house"></i> <span className="ms-1 d-none d-sm-inline">KIRJAT</span>
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a href="site9" className="nav-link align-middle px-0">
-                    <i className="fs-4 bi-house"></i> <span className="ms-1 d-none d-sm-inline">TARJOUKSET</span>
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a href="site9" className="nav-link align-middle px-0">
-                    <i className="fs-4 bi-house"></i> <span className="ms-1 d-none d-sm-inline">UUTUUDET</span>
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a href="site9" className="nav-link align-middle px-0">
-                    <i className="fs-4 bi-house"></i> <span className="ms-1 d-none d-sm-inline">TILAUKSET</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <hr />
-            {/* nav päättyy */}
-            {/* käyttäjäosuus */}
-
-            {/* <div className="dropdown pb-4">
-                  <a href="site5" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" className="rounded-circle" />
-                    <span className="d-none d-sm-inline mx-1">loser</span>
-                  </a>
-                  <ul className="dropdown-menu dropdown-menu-dark text-small shadow">
-                    <li><a className="dropdown-item" href="site1">New project...</a></li>
-                    <li><a className="dropdown-item" href="site2">Settings</a></li>
-                    <li><a className="dropdown-item" href="site3">Profile</a></li>
-                    <li>
-                      <hr className="dropdown-divider" />
-                    </li>
-                    <li><a className="dropdown-item" href="site4">Sign out</a></li>
-                  </ul>
-                </div> */}
-            {/* käyttäjäosuus päättyy */}
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-2 d-none d-sm-block p-0 sidenav-container p-3 min-vh-100">
+          <div className="mt-3">
+            <img className="logo" src={logo} />
+          </div>
+          <div className="dropdown">
+            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              KIRJAT
+            </button>
+            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a className="dropdown-item" href="#">Kauhukirjallisuus</a></li>
+              <li><a className="dropdown-item" href="#">Romantiikka</a></li>
+              <li><a className="dropdown-item" href="#">Fantasia</a></li>
+              <li><a className="dropdown-item" href="#">Jännitys</a></li>
+              <li><a className="dropdown-item" href="#">Placeholder</a></li>
+            </ul>
           </div>
 
+
+
+          <ul className="list-group m-5">
+            <li className="list-unstyled border-0 p-2"> <a href="" className="text-light text-decoration-none"><span
+              className="ms-1 d-none d-sm-inline text-decoration-none">KIRJAT</span></a></li>
+            <li className="list-unstyled border-0 p-2"> <a href="" className="text-light text-decoration-none"><span
+              className="ms-1 d-none d-sm-inline text-decoration-none">TARJOUKSET</span></a></li>
+            <li className="list-unstyled border-0 p-2"> <a href="" className="text-light text-decoration-none"><span
+              className="ms-1 d-none d-sm-inline text-decoration-none">UUTUUDET</span></a></li>
+            <li className="list-unstyled border-0 p-2"> <a href="" className="text-light text-decoration-none"><span
+              className="ms-1 d-none d-sm-inline text-decoration-none">TILAUKSET</span></a></li>
+          </ul>
         </div>
-
-        <div classname="row ">
-
-          {/* header */}
-
-          <div className="col-auto no-left-space">
-            <div className="p-0 no-left-space-header">
+        <div className="col-12 col-sm-9 p-0">
+          <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+            <a className="navbar-brand" href="#"></a>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul className="list-group d-block d-sm-none">
+                <li className="list-unstyled border-0 p-2"> <a href=""> Product 1 </a></li>
+                <li className="list-unstyled border-0 p-2"> <a href=""> Product 2 </a></li>
+                <li className="list-unstyled border-0 p-2"> <a href=""> Product 3 </a></li>
+                <li className="list-unstyled border-0 p-2"> <a href=""> Product 4 </a></li>
+              </ul>
+            </div>
+          </nav>
+          <div className="col-auto">
+            <div className="p-0">
               <header className="header-style text-center text-lg-start">
                 <div className="container p-4">
                   <h1>KIRJAKAUPPA X</h1>
                 </div>
 
               </header>
-
-              {/* header päättyy */}
-
-            </div>
-            {/* content*/}
-            
               <div className="container">
                 <ol>
                   {kirjat?.map(kirjat => (
-                    <li key={kirjat.kirjaid}>{kirjat.kirjanimi}{kirjat.kirjailija}{kirjat.vuosi}{kirjat.kieli}{kirjat.kustantaja}{kirjat.trnro}{kirjat.kuvaus}{kirjat.hinta}{kirjat.saldo}</li>
+                    <li key={kirjat.kirjaid}>{kirjat.kirjanimi}{kirjat.kirjailija}{kirjat.vuosi}{kirjat.kieli}{kirjat.kustantaja}{kirjat.trnimi}{kirjat.kuvaus}{kirjat.hinta}{kirjat.saldo}</li>
                   ))}
                 </ol>
               </div>
-          
-           </div>
 
-          {/* footer alkaa */}
-
-          <div className="p-0 no-left-space-footer">
-            <footer className="text-center text-lg-start text-white">
-              <div className="container p-4">
-                <div className="row mt-5">
-                  <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 className="text-uppercase">See other books</h5>
-                    <ul className="list-unstyled mb-0">
-                      <li>
-                        <a href="site1" className="text-white"><i className="fas fa-book fa-fw fa-sm me-2"></i>Bestsellers</a>
-                      </li>
-                      <li>
-                        <a href="site1" className="text-white"><i className="fas fa-book fa-fw fa-sm me-2"></i>All books</a>
-                      </li>
-                      <li>
-                        <a href="site1" className="text-white"><i className="fas fa-user-edit fa-fw fa-sm me-2"></i>Our authors</a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 className="text-uppercase">Execution of the contract</h5>
-                    <ul className="list-unstyled">
-                      <li>
-                        <a href="site1" className="text-white"><i className="fas fa-shipping-fast fa-fw fa-sm me-2"></i>Supply</a>
-                      </li>
-                      <li>
-                        <a href="site1" className="text-white"><i className="fas fa-backspace fa-fw fa-sm me-2"></i>Returns</a>
-                      </li>
-                      <li>
-                        <a href="site1" className="text-white"><i className="far fa-file-alt fa-fw fa-sm me-2"></i>Regulations</a>
-                      </li>
-                      <li>
-                        <a href="site1" className="text-white"><i className="far fa-file-alt fa-fw fa-sm me-2"></i>Privacy policy</a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 className="text-uppercase">Publishing house</h5>
-                    <ul className="list-unstyled">
-                      <li>
-                        <a href="site1" className="text-white">The BookStore</a>
-                      </li>
-                      <li>
-                        <a href="site1" className="text-white">123 Street</a>
-                      </li>
-                      <li>
-                        <a href="site1" className="text-white">05765 NY</a>
-                      </li>
-                      <li>
-                        <a href="site1" className="text-white"><i className="fas fa-briefcase fa-fw fa-sm me-2"></i>Send us a book</a>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 className="text-uppercase">Write to us</h5>
-                    <ul className="list-unstyled">
-                      <li>
-                        <a href="site1" className="text-white"><i className="fas fa-at fa-fw fa-sm me-2"></i>Help in purchasing</a>
-                      </li>
-                      <li>
-                        <a href="site1" className="text-white"><i className="fas fa-shipping-fast fa-fw fa-sm me-2"></i>Check the order status</a>
-                      </li>
-                      <li>
-                        <a href="" className="text-white"><i className="fas fa-envelope fa-fw fa-sm me-2"></i>Join the newsletter</a>
-                      </li>
-                    </ul>
-                  </div>
+            </div>
+            <div className="container-fluid">
+              <footer className="row">
+                <div className="col-md-2 col-10">
+                  <p className="text-center ms-4 ">Yhteystiedot</p>
                 </div>
-              </div>
-              <div className="text-center p-3">
-                © 2021 Copyright:
-                <a className="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-              </div>
-            </footer>
-            {/* footer päättyy */}
+                <div className="col-md-2 col-10">
+                  <p className="text-center">Tietoa meistä</p>
+                </div>
+                <div className="col-md-2 col-10">
+                  <p className="text-center">UKK</p>
+                </div>
+                <div className="col-md-2 col-10">
+                  <p className="text-center">Rekisteriseloste</p>
+                </div>
+                <div className="col-md-2 col-10 ">
+                  <p className="text-center">Tilaa uutiskirje</p>
+                </div>
+              </footer>
+            </div>
+
           </div>
         </div>
       </div>
     </div>
-
-
-
-
-
+    
   );
 }
 

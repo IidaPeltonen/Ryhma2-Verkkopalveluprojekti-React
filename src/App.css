@@ -12,7 +12,7 @@ PT Sans Caption (Leipäteksti, tää pitää testata käytännössä)
  */
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap');
 
-main {
+/* main {
   background: E5E5E5;
 }
 
@@ -36,20 +36,20 @@ footer {
 .swipe {
   overflow: auto;
   white-space: nowrap;
-}
+} */
 
 /* logo */
 
-.logo img {
+/* .logo img {
   max-height: 100%;
   max-width: 100%;
-}
+} */
 
 /* sivunavi */
 
 
 
-ul li a {
+/* ul li a {
   color: #ffffff;
   font-family: Montserrat;
   font-size: 1.8rem;
@@ -64,37 +64,86 @@ ul li a {
 
 .sidenav-container {
   
-  position: fixed;
-  left:0;
   background-color: #447f43; 
   padding-top: 20px;
-}
-
-
-.no-left-space {
-  padding-left: 10%;
-  margin-left: 10%;
-}
-
-.no-left-space-footer {
-  padding-left: 10%;
-  margin-left: 15%;
-  
 }
 
 footer {
   background-color: #214321;
 }
 
-.no-left-space-header {
-  padding-left: 10%;
-  margin-left: 15%;
+.header-style ul li a  {
+  color:red;
+} */
+
+
+
+h1 {
+  font-family: Montserrat;
+  font-size: xx-large;
+}
+
+p {
+  font-family: PT Sans Caption;
+  font-size: large;
+}
+
+footer {
+  background-color: #555;
+  color: white;
+}
+
+/* logo */
+
+.logo {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+/* sivunavi */
+
+
+
+ul li {
+  color: #ffffff;
+  font-family: Montserrat;
+  font-size: large;
+  font-weight: normal;
+  line-height: 50px;
   
 }
+
+.nav-link {
+  color:#FFFFFF;
+}
+
+.sidenav-container {
+  background-color: #447f43; 
+  padding-top: 20px;
+}
+
+
+footer {
+  background-color: #214321;
+  min-height: 10vh;
+}
+
+
 
 .header-style ul li a  {
   color:red;
 }
 
+.btn-secondary {
+  background-color: #447f43 !important;
+  border-color: #FFFFFF;
+  font-family: Montserrat;
+}
+
+.btn-secondary:hover {
+  background-color: #447f43;
+  border-color: #FFFFFF;
+  font-family: Montserrat;
+}
 
 
