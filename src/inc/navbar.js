@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Navbar() {
+export default function NavBar() {
     return (
         <div className="row">
             <div className="col-2 d-none d-sm-block p-0 sidenav-container p-3 min-vh-100">
