@@ -1,6 +1,9 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Navbar from './inc/navbar';
+import Footer from './inc/footer';
+import Home from './Home';
 
 import paa from './img/paa.png';
 import karry from './img/karry.png';
