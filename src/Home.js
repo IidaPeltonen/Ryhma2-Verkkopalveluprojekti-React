@@ -13,6 +13,7 @@ export default function Home() {
     useEffect(() => {
       axios.get(URL)
         .then((response) => {
+          console.log(response);
           setKirjat(response.data)
         }).catch(error => {
           alert(error);
