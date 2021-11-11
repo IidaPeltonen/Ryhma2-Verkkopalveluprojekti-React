@@ -44,12 +44,13 @@ import paa from './img/paa.png';
 import karry from './img/karry.png';
 import logo from './img/logo.png';
 import lasi from './img/lasi.png';
+import piina from './piina.png';
 
 const URL = 'http://localhost/kauppa';
 
 function App() {
   const [kirjat, setKirjat] = useState([]);
-  const [kuva, setKuva] = useState('');
+  const [kuva, setKuva] = useState([]);
 
   useEffect(() => {
     axios.get(URL)
@@ -118,7 +119,9 @@ function App() {
               <div className="container">
                 <ol>
                   {kirjat?.map(kirjat => (
-                    <li key={kirjat.kirjaid}><b>{kirjat.kirjanimi}<br />{kirjat.kirjailija}</b><br />{kirjat.vuosi}<br />Kieli: {kirjat.kieli}<br />Kustantaja: {kirjat.kustantaja}<br />{kirjat.trnimi}<br />{kirjat.kuvaus}<br />Hinta: {kirjat.hinta}<br />Varastossa: {kirjat.saldo} kpl</li>
+
+                       <li key={kirjat.asid}>{kirjat.astunnus}{kirjat.asnimi}{kirjat.asosoite}{kirjat.postinro}{kirjat.puhelin}{kirjat.email}</li>
+
                   ))}
                 </ol>
               </div>
