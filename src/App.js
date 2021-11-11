@@ -9,7 +9,6 @@ import paa from './img/paa.png';
 import karry from './img/karry.png';
 import logo from './img/logo.png';
 import lasi from './img/lasi.png';
-import NavBar from './inc/NavBar';
 import Header from './inc/Header';
 
 function App() {
@@ -21,28 +20,30 @@ function App() {
           <div className="mt-3">
             <img className="logo" src={logo} />
           </div>
-          <div className="dropdown">
-            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              KIRJAT
-            </button>
-            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a className="dropdown-item" href="#">Kauhukirjallisuus</a></li>
-              <li><a className="dropdown-item" href="#">Romantiikka</a></li>
-              <li><a className="dropdown-item" href="#">Fantasia</a></li>
-              <li><a className="dropdown-item" href="#">Jännitys</a></li>
-              <li><a className="dropdown-item" href="#">Placeholder</a></li>
-            </ul>
+          <div className="valikko">
+            <div className="dropdown p-1">
+              <button className="btn btn-secondary dropdown-toggle ms-2 mt-5" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                KIRJAT
+              </button>
+              <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a className="dropdown-item" href="#">Kauhukirjallisuus</a></li>
+                <li><a className="dropdown-item" href="#">Romantiikka</a></li>
+                <li><a className="dropdown-item" href="#">Fantasia</a></li>
+                <li><a className="dropdown-item" href="#">Jännitys</a></li>
+                <li><a className="dropdown-item" href="#">Placeholder</a></li>
+              </ul>
+            </div>
+            <div className="col-2 col-md-1 ms-1">
+              <ul className="list-group ">
+                <li className="list-unstyled border-0 p-2"> <a href="" className="text-light text-decoration-none"><span
+                  className="ms-1 d-none d-sm-inline text-decoration-none">TARJOUKSET</span></a></li>
+                <li className="list-unstyled border-0 p-2"> <a href="" className="text-light text-decoration-none"><span
+                  className="ms-1 d-none d-sm-inline text-decoration-none">UUTUUDET</span></a></li>
+                <li className="list-unstyled border-0 p-2"> <a href="" className="text-light text-decoration-none"><span
+                  className="ms-1 d-none d-sm-inline text-decoration-none">TILAUKSET</span></a></li>
+              </ul>
+            </div>
           </div>
-          <ul className="list-group m-5">
-            <li className="list-unstyled border-0 p-2"> <a href="" className="text-light text-decoration-none"><span
-              className="ms-1 d-none d-sm-inline text-decoration-none">KIRJAT</span></a></li>
-            <li className="list-unstyled border-0 p-2"> <a href="" className="text-light text-decoration-none"><span
-              className="ms-1 d-none d-sm-inline text-decoration-none">TARJOUKSET</span></a></li>
-            <li className="list-unstyled border-0 p-2"> <a href="" className="text-light text-decoration-none"><span
-              className="ms-1 d-none d-sm-inline text-decoration-none">UUTUUDET</span></a></li>
-            <li className="list-unstyled border-0 p-2"> <a href="" className="text-light text-decoration-none"><span
-              className="ms-1 d-none d-sm-inline text-decoration-none">TILAUKSET</span></a></li>
-          </ul>
         </div>
         <div className="col-12 col-sm-9 p-0">
           <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -62,15 +63,15 @@ function App() {
           </nav>
           <div className="col-auto">
             <div className="p-0">
-            <Header />
-          <Switch>
-            <Route path="/" component={Home} exact />
-          </Switch>
-        <Footer />
+              <Header />
+              <Switch>
+                <Route path="/" component={Home} exact />
+              </Switch>
+              <Footer />
             </div>
           </div>
         </div>
-        
+
       </div>
     </div>
 

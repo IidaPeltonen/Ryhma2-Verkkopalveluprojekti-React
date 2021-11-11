@@ -12,71 +12,6 @@ PT Sans Caption (Leipäteksti, tää pitää testata käytännössä)
  */
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap');
 
-/* main {
-  background: E5E5E5;
-}
-
-
-h1 {
-  font-family: Montserrat;
-  font-size: 9rem;
-}
-
-p {
-  font-family: PT Sans Caption;
-  font-size: large;
-}
-
-footer {
-  background-color: #555;
-  color: white;
-  padding: 15px;
-}
-
-.swipe {
-  overflow: auto;
-  white-space: nowrap;
-} */
-
-/* logo */
-
-/* .logo img {
-  max-height: 100%;
-  max-width: 100%;
-} */
-
-/* sivunavi */
-
-
-
-/* ul li a {
-  color: #ffffff;
-  font-family: Montserrat;
-  font-size: 1.8rem;
-  font-weight: normal;
-  line-height: 2.5rem;
-  
-}
-
-.nav-link {
-  color:#FFFFFF;
-}
-
-.sidenav-container {
-  
-  background-color: #447f43; 
-  padding-top: 20px;
-}
-
-footer {
-  background-color: #214321;
-}
-
-.header-style ul li a  {
-  color:red;
-} */
-
-
 
 h1 {
   font-family: Montserrat;
@@ -102,8 +37,6 @@ footer {
 
 /* sivunavi */
 
-
-
 ul li {
   color: #ffffff;
   font-family: Montserrat;
@@ -128,10 +61,12 @@ footer {
   min-height: 10vh;
 }
 
-
-
 .header-style ul li a  {
   color:red;
+}
+
+.btn {
+  font-size: 1em;
 }
 
 .btn-secondary {
@@ -146,6 +81,11 @@ footer {
   font-family: Montserrat;
 }
 
+/* valikko-div */
+
+.valikko {
+margin-top:50%;
+}
 
 @media (min-width: 768px) {
 
