@@ -49,6 +49,7 @@ const URL = 'http://localhost/kauppa';
 
 function App() {
   const [kirjat, setKirjat] = useState([]);
+  const [kuva, setKuva] = useState('');
 
   useEffect(() => {
     axios.get(URL)
@@ -117,7 +118,7 @@ function App() {
               <div className="container">
                 <ol>
                   {kirjat?.map(kirjat => (
-                    <li key={kirjat.kirjaid}><b>{kirjat.kirjanimi}<br />{kirjat.kirjailija}</b><br />{kirjat.vuosi}<br />Kieli: {kirjat.kieli}<br />{kirjat.kustantaja}<br />{kirjat.trnimi}<br />{kirjat.kuvaus}<br />Hinta: {kirjat.hinta}€<br />Varastossa: {kirjat.saldo} kpl</li>
+                    <li key={kirjat.kirjaid}><b>{kirjat.kirjanimi}<br />{kirjat.kirjailija}</b><br />{kirjat.vuosi}<br />Kieli: {kirjat.kieli}<br />Kustantaja: {kirjat.kustantaja}<br />{kirjat.trnimi}<br />{kirjat.kuvaus}<br />Hinta: {kirjat.hinta}<br />Varastossa: {kirjat.saldo} kpl</li>
                   ))}
                 </ol>
               </div>
