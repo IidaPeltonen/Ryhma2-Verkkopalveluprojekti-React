@@ -29,8 +29,10 @@ export default function Home() {
     <>
       <ol>
         {kirjat?.map(kirjat => (
-          // <li key={kirjat.kirjaid}>{kirjat.kirjanimi}{kirjat.kirjailija}{kirjat.vuosi}{kirjat.kieli}{kirjat.kustantaja}{kirjat.trnimi}{kirjat.kuvaus}{kirjat.hinta}{kirjat.saldo}</li>
-          <li key={kirjat.kirjaid}><b>{kirjat.kirjanimi}<br />{kirjat.kirjailija}</b><br />{kirjat.vuosi}<br />Kieli: {kirjat.kieli}<br />Kustantaja: {kirjat.kustantaja}<br />{kirjat.trnimi}<br />{kirjat.kuvaus}<br />Hinta: {kirjat.hinta}<br />Varastossa: {kirjat.saldo} kpl </li>
+          <li key={kirjat.kirjaid}><img src={piina} /><b>{kirjat.kirjanimi}<br />{kirjat.kirjailija}</b><br />{kirjat.vuosi}<br />Kieli: {kirjat.kieli}<br />Kustantaja: {kirjat.kustantaja}<br />{kirjat.trnimi}<br />{kirjat.kuvaus}<br />Hinta: {kirjat.hinta}<br />Varastossa: {kirjat.saldo} kpl </li>
+          //<li key={kirjat.asid}>Asiakastunnus: {kirjat.astunnus}<br />Asiakkaan nimi: {kirjat.asnimi}<br />Asiakkaan osoite: {kirjat.asosoite}<br />Postinumero: {kirjat.postinro}<br />Postitoimipakka: {kirjat.postitmp}<br />E-mail: {kirjat.email}</li>
+          //<li key={kirjat.tilausid}>Asikas id: {kirjat.asid}<br />Tilauspvm: {kirjat.pvm}<br />Tilauksen tila: {kirjat.tila}</li>
+
         ))}
       </ol>
     </>
