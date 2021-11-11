@@ -117,7 +117,7 @@ function App() {
               <div className="container">
                 <ol>
                   {kirjat?.map(kirjat => (
-                    <li key={kirjat.kirjaid}>{kirjat.kirjanimi}{kirjat.kirjailija}{kirjat.vuosi}{kirjat.kieli}{kirjat.kustantaja}{kirjat.trnimi}{kirjat.kuvaus}{kirjat.hinta}{kirjat.saldo}</li>
+                    <li key={kirjat.kirjaid}><b>{kirjat.kirjanimi}<br />{kirjat.kirjailija}</b><br />{kirjat.vuosi}<br />Kieli: {kirjat.kieli}<br />{kirjat.kustantaja}<br />{kirjat.trnimi}<br />{kirjat.kuvaus}<br />Hinta: {kirjat.hinta}€<br />Varastossa: {kirjat.saldo} kpl</li>
                   ))}
                 </ol>
               </div>
