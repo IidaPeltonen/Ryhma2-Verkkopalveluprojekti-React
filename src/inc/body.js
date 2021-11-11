@@ -10,28 +10,28 @@ export default function Slider() {
             <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="9000">
                 <div class="carousel-inner row w-100 mx-auto" role="listbox">
                     <div class="carousel-item col-md-4 active">
-                        <img class="" src="" alt="slide 1">
+                        <img class="" src="" alt="slide 1" />
                     </div>
                     <div class="carousel-item col-md-4">
-                        <img class="img-fluid mx-auto d-block" src="./img/lasi.png" alt="slide 2">
+                        <img class="img-fluid mx-auto d-block" src="./img/lasi.png" alt="slide 2" />
                     </div>
                     <div class="carousel-item col-md-4">
-                        <img class="img-fluid mx-auto d-block" src="./img/lasi.png" alt="slide 3">
+                        <img class="img-fluid mx-auto d-block" src="./img/lasi.png" alt="slide 3" />
                     </div>
                     <div class="carousel-item col-md-4">
-                        <img class="img-fluid mx-auto d-block" src="./img/lasi.png" alt="slide 4">
+                        <img class="img-fluid mx-auto d-block" src="./img/lasi.png" alt="slide 4" />
                     </div>
                     <div class="carousel-item col-md-4">
-                        <img class="img-fluid mx-auto d-block" src="./img/lasi.png" alt="slide 5">
+                        <img class="img-fluid mx-auto d-block" src="./img/lasi.png" alt="slide 5" />
                     </div>
                     <div class="carousel-item col-md-4">
-                        <img class="img-fluid mx-auto d-block" src="./img/lasi.png" alt="slide 6">
+                        <img class="img-fluid mx-auto d-block" src="./img/lasi.png" alt="slide 6" />
                     </div>
                     <div class="carousel-item col-md-4">
-                        <img class="img-fluid mx-auto d-block" src="./img/lasi.png" alt="slide 7">
+                        <img class="img-fluid mx-auto d-block" src="./img/lasi.png" alt="slide 7" />
                     </div>
                     <div class="carousel-item col-md-4">
-                        <img class="img-fluid mx-auto d-block" src="./img/lasi.png" alt="slide 7">
+                        <img class="img-fluid mx-auto d-block" src="./img/lasi.png" alt="slide 7" />
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
