@@ -21,7 +21,7 @@ export default function NavBar() {
                   <Link className="nav-link active" aria-current="page" to="/">Etusivu</Link >
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="tietoja.html">Tietoja</a>
+                  <Link className="nav-link" to="/ukk">UKK</Link>
                 </li>
                 <li className="nav-item dropdown">
                   <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
