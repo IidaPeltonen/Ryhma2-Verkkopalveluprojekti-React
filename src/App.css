@@ -88,11 +88,6 @@ p {
   font-size: large;
 }
 
-footer {
-  background-color: #555;
-  color: white;
-}
-
 /* logo */
 
 .logo {
@@ -121,14 +116,6 @@ ul li {
   background-color: #447f43; 
   padding-top: 20px;
 }
-
-
-footer {
-  background-color: #214321;
-  min-height: 10vh;
-}
-
-
 
 .header-style ul li a  {
   color:red;
