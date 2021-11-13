@@ -8,6 +8,8 @@ export default function ContactUs() {
             <p>Kellosaarentie 12 <br/>
             60100<br/>
             Seinäjoki</p>
+            <p>040 1234567</p>
+            <p>info@kirjakauppax.fi</p>
         </div>
     )
 }
