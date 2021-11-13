@@ -9,6 +9,9 @@ import Header from './inc/Header'
 import Home from './Home';
 import ContactUs from './inc/ContactUs';
 import UKK from './inc/UKK';
+import Rekisteri from './inc/Rekisteri';
+import Uutiskirje from './inc/Uutiskirje';
+import AboutUs from './inc/AboutUs';
 
 
 const URL = 'http://localhost/kauppa';
@@ -67,8 +70,11 @@ function App() {
               <Header />
               <Switch>
                 <Route path="/" component={Home} exact />
-                <Route path="/" component={ContactUs} />
-                <Route path="/" component={UKK} />
+                <Route path="/contactus" component={ContactUs} />
+                <Route path="/aboutus" component={AboutUs} />
+                <Route path="/ukk" component={UKK} />
+                <Route path="/rekisteri" component={Rekisteri} />
+                <Route path="/uutiskirje" component={Uutiskirje} />
               </Switch>
               <Footer />
             </div>

@@ -15,13 +15,13 @@ export default function Footer() {
                 <Link className="text-center " to="/aboutus">Tietoa meistä</Link>
                 </div>
                 <div className="col-md-2 col-10">
-                <Link className="text-center " to="/ukk">Tietoa meistä</Link>
+                <Link className="text-center " to="/ukk">UKK</Link>
                 </div>
                 <div className="col-md-2 col-10">
-                  <p className="text-center">Rekisteriseloste</p>
+                <Link className="text-center " to="/rekisteri">Rekisteriseloste</Link>
                 </div>
                 <div className="col-md-2 col-10 ">
-                  <p className="text-center">Tilaa uutiskirje</p>
+                <Link className="text-center " to="/uutiskirje">Tilaa uutiskirje</Link>
                 </div>
               </footer>
         </div>
