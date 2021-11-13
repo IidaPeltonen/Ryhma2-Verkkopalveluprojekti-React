@@ -6,21 +6,21 @@ import './styles/Footer.css';
 export default function Footer() {
     return (
         <div>
-            <footer className="row">
-                <div className="col-md-2 col-10">
-                  <Link className="text-center " to="/contactus">Yhteystiedot</Link>
+            <footer className="row"  >
+                <div className="col-md-2 col-10 my-auto mx-auto">
+                  <Link to="/contactus">Yhteystiedot</Link>
                 </div>
-                <div className="col-md-2 col-10">
-                <Link className="text-center " to="/aboutus">Tietoa meistä</Link>
+                <div className="col-md-2 col-10 my-auto mx-auto">
+                <Link  to="/aboutus">Tietoa meistä</Link>
                 </div>
-                <div className="col-md-2 col-10">
-                <Link className="text-center " to="/ukk">UKK</Link>
+                <div className="col-md-2 col-10 my-auto mx-auto">
+                <Link  to="/ukk">UKK</Link>
                 </div>
-                <div className="col-md-2 col-10">
-                <Link className="text-center " to="/rekisteri">Rekisteriseloste</Link>
+                <div className="col-md-2 col-10 my-auto mx-auto">
+                <Link to="/rekisteri">Rekisteriseloste</Link>
                 </div>
-                <div className="col-md-2 col-10 ">
-                <Link className="text-center " to="/uutiskirje">Tilaa uutiskirje</Link>
+                <div className="col-md-2 col-10 my-auto mx-auto">
+                <Link to="/uutiskirje">Tilaa uutiskirje</Link>
                 </div>
               </footer>
         </div>

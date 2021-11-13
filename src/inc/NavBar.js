@@ -1,6 +1,6 @@
 import React from 'react'
 import logo from '../img/logo.png';
-import '../App.css';
+import './styles/NavBar.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import {useState,useEffect} from 'react';
@@ -27,8 +27,8 @@ export default function NavBar() {
     
     return (
       
-        
-        <nav className="navbar navbar-expand-md navbar-light">
+      <div className="row">
+        <nav id="id" className="navbar navbar-expand-md  ">
           <div className="container-fluid">
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#omaMenu"
               aria-controls="omaMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,5 +65,6 @@ export default function NavBar() {
             </div>
           </div>
         </nav>
+        </div>
     )
 }
