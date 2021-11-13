@@ -208,3 +208,30 @@ img {
 #hidden {
   visibility: hidden;
 }
+
+/* iidan testiä*/
+#karuselli {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#karuselli img {
+  object-fit: contain;
+  height: 400px;
+  width: 700px;
+}
+
+#karuselli figcaption {
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: xx-large;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+#karuselli a {
+  text-decoration: none;
+}
+
+#testi {
+  color: #000;
+}
+
