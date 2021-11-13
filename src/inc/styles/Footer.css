@@ -1,0 +1,12 @@
+footer {
+    background-color: #214321;
+    min-height: 10vh;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-family: Montserrat !important;
+    font-weight: normal;
+    line-height: 50px;
+}
