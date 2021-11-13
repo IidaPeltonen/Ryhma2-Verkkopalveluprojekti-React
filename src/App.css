@@ -76,6 +76,9 @@ footer {
   color:red;
 } */
 
+a {
+  color: black !important;
+}
 
 
 h1 {
@@ -100,7 +103,7 @@ p {
 
 
 ul li {
-  color: #ffffff;
+  color: #447f43;
   font-family: Montserrat;
   font-size: large;
   font-weight: normal;
@@ -109,7 +112,7 @@ ul li {
 }
 
 .nav-link {
-  color:#FFFFFF;
+  color: #447f43;
 }
 
 .sidenav-container {

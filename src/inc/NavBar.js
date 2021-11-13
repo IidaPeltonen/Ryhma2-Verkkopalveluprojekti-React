@@ -1,12 +1,30 @@
 import React from 'react'
 import logo from '../img/logo.png';
-import './styles/NavBar.css';
+import '../App.css';
 import { Link } from 'react-router-dom';
-import axios from 'axios'
+import axios from 'axios';
+import {useState,useEffect} from 'react';
 
 const URL = 'http://localhost/kauppa';
 
 export default function NavBar() {
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        axios.get(URL + '/tuoteKategoria.php')
+            .then((response)=> {
+                const json = response.data;
+                console.log(response);
+                setCategories(json);
+            }).catch(error => {
+                if (error.response === undefined) {
+                    alert(error);
+                } else {
+                    alert(error.response.data.error);
+                }
+            })
+    }, [])
+    
     return (
       
         
@@ -30,40 +48,17 @@ export default function NavBar() {
                     Kirjat
                   </a>
                   <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a className="dropdown-item" href="avaruusvisa.html">Avaruusvisa</a></li>
-                    <li>
+                    {categories.map(kirja => (
+                        <li>
+                            <Link>
+                            {kirja.trnimi}
+                            </Link>
+                        </li>
+                    ))}
+                   
+                   { <li>
                       <hr className="dropdown-divider" />
-                    </li>
-                    <li><a className="dropdown-item" href="elaimet.html">Eläinvisa</a></li>
-                    <li>
-
-                      <hr className="dropdown-divider" />
-                    </li>
-                    <li><a className="dropdown-item" href="elaimet2.html">Eläinvisa 2</a></li>
-                    <li>
-                      <hr className="dropdown-divider" />
-                    </li>
-                    <li><a className="dropdown-item" href="englantivisa.html">Englantivisa</a></li>
-                    <li>
-                      <hr className="dropdown-divider" />
-                    </li>
-                    <li><a className="dropdown-item" href="helppo_matikkavisa.html">Helppo matikkavisa</a></li>
-                    <li>
-                      <hr className="dropdown-divider" />
-                    </li>
-                    <li><a className="dropdown-item" href="historiavisa.html">Historiavisa</a></li>
-                    <li>
-                      <hr className="dropdown-divider" />
-                    </li>
-                    <li><a className="dropdown-item" href="maantieto.html">Maantietovisa</a></li>
-                    <li>
-                      <hr className="dropdown-divider" />
-                    </li>
-                    <li><a className="dropdown-item" href="matikka1.html">Matikkavisa</a></li>
-                    <li>
-                      <hr className="dropdown-divider" />
-                    </li>
-                    <li><a className="dropdown-item" href="ruotsivisa.html">Ruotsivisa</a></li>
+                    </li>}
                   </ul>
                 </li>
               </ul>
