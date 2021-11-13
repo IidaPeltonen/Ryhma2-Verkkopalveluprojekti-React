@@ -2,12 +2,13 @@ import React from 'react'
 import logo from '../img/logo.png';
 import './styles/NavBar.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios'
+
+const URL = 'http://localhost/kauppa';
 
 export default function NavBar() {
     return (
       
-
-
         
         <nav className="navbar navbar-expand-md navbar-light">
           <div className="container-fluid">
