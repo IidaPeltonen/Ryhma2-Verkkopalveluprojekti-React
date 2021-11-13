@@ -42,12 +42,12 @@ export default function NavBar() {
                 <li className="nav-item">
                   <Link className="nav-link" to="/ukk">UKK</Link>
                 </li>
-                <li className="nav-item dropdown">
+                <li className="nav-item dropdown" >
                   <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     Kirjat
                   </a>
-                  <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <ul id="alasveto" className="dropdown-menu" aria-labelledby="navbarDropdown">
                     {categories.map(kirja => (
                         <li>
                             <Link>
