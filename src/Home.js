@@ -5,7 +5,7 @@ import paa from './img/paa.png';
 import karry from './img/karry.png';
 import lasi from './img/lasi.png';
 import piina from './piina.png';
-
+import './App.css';
 
 export default function Home() {
 

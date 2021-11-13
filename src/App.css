@@ -200,3 +200,7 @@ ul li {
   }
 
 }
+
+img {
+  max-width: 250px;
+}
