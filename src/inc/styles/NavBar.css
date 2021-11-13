@@ -8,12 +8,26 @@ a {
     font-family: Montserrat !important;
 }
 
-navbar-toggler {
-    color: white;
-    background-color: white !important;
-}
-
 #alasveto {
     background-color: #447F43;
     border: none;
 }
+
+/* hamburger icon with a different color
+väri : stroke='rgba(255, 215, 0, 1)' */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.25rem #FFFFFF; 
+ }
+
+ .navbar-toggler {
+    border-color: #FFFFFF !important;
+}
+
+/* .logo {
+    max-height: 25%;
+    max-width: 25%;
+  } */
