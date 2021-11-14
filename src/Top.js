@@ -51,9 +51,10 @@ function Top () {
             Kieli: {top.kieli}<br />
             Kustantaja: {top.kustantaja}<br />
             Genre: {top.trnimi}<br />
-            {top.kuvaus}<br /> */}
+            {top.kuvaus}<br /> 
+            Varastossa: {top.saldo} kpl <br />*/}
               Hinta: {top.hinta} €<br />
-              Varastossa: {top.saldo} kpl <br />
+              Myyty: {top.SUM} kpl <br />
               <img id='pieni' src={karry} />
             </div>
           ))}
