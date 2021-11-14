@@ -6,7 +6,7 @@ export default function Header() {
         <div>
             <header className="header-style text-center text-lg-start">
                 <div className="container p-4">
-                    <h1>KIRJAKAUPPA X</h1>
+                    {/* <h1>KIRJAKAUPPA X</h1> */}
                 </div>
 
             </header>
