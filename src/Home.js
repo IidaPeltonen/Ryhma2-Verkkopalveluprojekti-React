@@ -77,7 +77,7 @@ function Home () {
             Kustantaja: {kirjat.kustantaja}<br />
             Genre: {kirjat.trnimi}<br />
             {kirjat.kuvaus}<br /> */}
-              Hinta: {kirjat.hinta} €<br />
+              Hinta: {kirjat.hinta}€<br />
               Varastossa: {kirjat.saldo} kpl <br />
               <img id='pieni' src={karry} />
             </div>
