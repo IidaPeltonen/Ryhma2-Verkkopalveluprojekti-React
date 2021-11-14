@@ -35,7 +35,9 @@ export default function NavBar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="col-2">
+          <Link to="/">
             <img className="img-fluid logo" src={logo}></img>
+            </Link >
           </div>
           <div className="collapse navbar-collapse" id="omaMenu">
             <ul className="navbar-nav">
