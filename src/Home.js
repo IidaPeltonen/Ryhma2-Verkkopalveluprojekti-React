@@ -41,7 +41,7 @@ function Home () {
         <Slide {...properties}>
           {kirjat?.map(kirjat => (
             <div key={kirjat.kirjaid}>
-              <img src={kirjat.kuva} />
+              <img id="kirja" src={kirjat.kuva} />
               <br />
               <b>
                 {kirjat.kirjanimi} <br />

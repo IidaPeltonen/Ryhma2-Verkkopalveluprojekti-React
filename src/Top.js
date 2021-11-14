@@ -40,7 +40,7 @@ function Top () {
           {kirjat?.map(top => (
             <div key={top.kirjaid}>
               {/* TÄHÄN TARVITAAN SIJOITUSNRO */}
-              <img src={top.kuva} />
+              <img id="kirja" src={top.kuva} />
               <br />
               <b>
                 {top.kirjanimi} <br />
