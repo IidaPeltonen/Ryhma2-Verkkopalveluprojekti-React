@@ -39,12 +39,13 @@ function Top () {
         <Slide {...propertiesTop}>
           {kirjat?.map(top => (
             <div key={top.kirjaid}>
+              {/* TÄHÄN TARVITAAN SIJOITUSNRO */}
               <img src={top.kuva} />
               <br />
               <b>
                 {top.kirjanimi} <br />
                 {top.kirjailija}
-              </b>{' '}
+              </b>
               <br />
               {/*Julkaisuvuosi: {top.vuosi} <br />
             Kieli: {top.kieli}<br />
