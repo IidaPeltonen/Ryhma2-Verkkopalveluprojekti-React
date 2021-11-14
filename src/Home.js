@@ -5,6 +5,7 @@ import paa from './img/paa.png'
 import karry from './img/karry.png'
 import lasi from './img/lasi.png'
 import './App.css'
+import Top from './Top';
 import { Slide } from 'react-slideshow-image'
 import 'react-slideshow-image/dist/styles.css'
 
@@ -34,32 +35,7 @@ function Home () {
 
   return (
     <div>
-      <h2>Myydyimmät kirjat</h2>
-      {/* tarvisisiko tämä osio siirtää omaan, nyt lukee vaan kaikki kirjat */}
-      <ol id='top7'>
-        <Slide {...properties}>
-          {kirjat?.map(kirjat => (
-            <div key={kirjat.kirjaid}>
-              <img src={kirjat.kuva} />
-              <br />
-              <b>
-                {kirjat.kirjanimi} <br />
-                {kirjat.kirjailija}
-              </b>{' '}
-              <br />
-              {/*Julkaisuvuosi: {kirjat.vuosi} <br />
-            Kieli: {kirjat.kieli}<br />
-            Kustantaja: {kirjat.kustantaja}<br />
-            Genre: {kirjat.trnimi}<br />
-            {kirjat.kuvaus}<br /> */}
-              Hinta: {kirjat.hinta} €<br />
-              Varastossa: {kirjat.saldo} kpl <br />
-              <img id='pieni' src={karry} />
-            </div>
-          ))}
-        </Slide>
-      </ol>
-      <br />
+  <Top />
       <h2>Kaikki kirjat</h2>
       <ol id='kaikki'>
         <Slide {...properties}>

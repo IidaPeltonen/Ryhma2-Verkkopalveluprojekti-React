@@ -5,7 +5,6 @@ import { Switch } from 'react-router-dom';
 import Footer from './inc/Footer';
 import logo from './img/logo.png';
 import Header from './inc/Header'
-// import Slider from '.inc/body';
 import Home from './Home';
 import NavBar from './inc/NavBar';
 import ContactUs from './inc/ContactUs';

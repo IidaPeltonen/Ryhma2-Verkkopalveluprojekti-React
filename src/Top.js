@@ -9,13 +9,13 @@ import { Slide } from 'react-slideshow-image'
 import 'react-slideshow-image/dist/styles.css'
 
 function Top () {
-  const URL = 'http://localhost/kauppa/index.php'
+  const URL = 'http://localhost/kauppa/Top.php'
   const [kirjat, setKirjat] = useState([])
 
-  const properties = {
+  const propertiesTop = {
     duration: 5000,
     slidesToShow: 5,
-    slidesToScroll: 4,
+    slidesToScroll: 2,
     autoplay: false,
     indicators: false,
     arrows: true
@@ -36,8 +36,8 @@ function Top () {
     <div>
       <h2>Myydyimmät kirjat</h2>
       <ol id='top7'>
-        <Slide {...properties}>
-          {top?.map(kirjat => (
+        <Slide {...propertiesTop}>
+          {kirjat?.map(top => (
             <div key={top.kirjaid}>
               <img src={top.kuva} />
               <br />
@@ -62,4 +62,4 @@ function Top () {
   )
 }
 
-export default Home
+export default Top
