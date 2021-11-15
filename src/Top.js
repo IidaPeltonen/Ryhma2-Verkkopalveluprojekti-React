@@ -14,8 +14,8 @@ function Top () {
 
   const propertiesTop = {
     duration: 5000,
-    slidesToShow: 5,
-    slidesToScroll: 2,
+    slidesToShow: 7,
+    slidesToScroll: 7,
     autoplay: false,
     indicators: false,
     arrows: true
@@ -38,8 +38,9 @@ function Top () {
       <ol id='top7'>
         <Slide {...propertiesTop}>
           {kirjat?.map(top => (
-            <div key={top.kirjaid}>
-              {/* TÄHÄN TARVITAAN SIJOITUSNRO */}
+            
+            <div key={top.kirjaid} >
+             <b> {top.rownum}. </b>
               <img id="kirja" src={top.kuva} />
               <br />
               <b>
@@ -56,7 +57,8 @@ function Top () {
               Hinta: {top.hinta} €<br />
               Myyty: {top.SUM} kpl <br />
               <img id='pieni' src={karry} />
-            </div>
+            </div>  
+            
           ))}
         </Slide>
       </ol>
