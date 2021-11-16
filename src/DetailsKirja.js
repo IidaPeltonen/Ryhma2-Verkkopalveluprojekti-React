@@ -1,4 +1,5 @@
 import React from 'react'
+import './App.css'
 
 export default function Detail(props) {
     return (
@@ -12,7 +13,7 @@ export default function Detail(props) {
             <p>Kieli: {props.kieli}</p>
             <p>Kustantaja: {props.kustantaja}</p>
             <p>Genre: {props.trnimi}</p>
-            <a href="#" onClick={props.close}>Takaisin listaukseen</a>
+            <button id="takaisin"><a href="#" id="takaisin" onClick={props.close}>Takaisin listaukseen</a></button>
         </div>
 
     )

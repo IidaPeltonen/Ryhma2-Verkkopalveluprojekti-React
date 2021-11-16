@@ -1,16 +1,17 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import paa from './img/paa.png'
-import karry from './img/karry.png'
-import lasi from './img/lasi.png'
-import './App.css'
 import { Slide } from 'react-slideshow-image'
 import 'react-slideshow-image/dist/styles.css'
+import karry from './img/karry.png'
+import './App.css'
+import DetailsKirja from './DetailsKirja';
+
 
 function Top () {
   const URL = 'http://localhost/kauppa/Top.php'
   const [kirjat, setKirjat] = useState([])
+  const [valittuKirja, setValittuKirja] = useState(null);
 
   const propertiesTop = {
     duration: 5000,
@@ -32,38 +33,50 @@ function Top () {
       })
   }, [])
 
-  return (
-    <div>
-      <h2>Myydyimmät kirjat</h2>
-      <ol id='top7'>
-        <Slide {...propertiesTop}>
-          {kirjat?.map(top => (
-            
-            <div key={top.kirjaid} >
-             <b> {top.rownum}. </b><br />
-              <img id="kirja" src={top.kuva} />
-              <br />
-              <b>
-                {top.kirjanimi} <br />
-                {top.kirjailija}
-              </b>
-              <br />
-              {/*Julkaisuvuosi: {top.vuosi} <br />
-            Kieli: {top.kieli}<br />
-            Kustantaja: {top.kustantaja}<br />
-            Genre: {top.trnimi}<br />
-            {top.kuvaus}<br /> 
-            Varastossa: {top.saldo} kpl <br />*/}
-              Hinta: {top.hinta} €<br />
-              Myyty: {top.SUM} kpl <br />
-              <img id='pieni' src={karry} />
-            </div>  
-            
-          ))}
-        </Slide>
-      </ol>
-    </div>
-  )
+  function close() {
+    setValittuKirja(null);
+  }
+
+  if (valittuKirja != null) {
+    return <DetailsKirja
+      kuva={valittuKirja.kuva}
+      kirjanimi={valittuKirja.kirjanimi}
+      kirjailija={valittuKirja.kirjailija}
+      vuosi={valittuKirja.vuosi}
+      kieli={valittuKirja.kieli}
+      kustantaja={valittuKirja.kustantaja}
+      trnimi={valittuKirja.trnimi}
+      kuvaus={valittuKirja.kuvaus} 
+      saldo={valittuKirja.saldo}
+      hinta={valittuKirja.hinta}
+      close={close}
+      />
+  } else {
+    return (
+      <div>
+        <h2>Myydyimmät kirjat</h2>
+        <ol id='top7'>
+          <Slide {...propertiesTop}>
+            {kirjat?.map(top => (
+              <div key={top.kirjaid} onClick={e => setValittuKirja(kirjat)}>
+              <b> {top.rownum}. </b><br />
+                <img id="kirja" src={top.kuva} />
+                <br />
+                <b>
+                  {top.kirjanimi} <br />
+                  {top.kirjailija}
+                </b>
+                <br />
+                Hinta: {top.hinta} €<br />
+                Myyty: {top.SUM} kpl <br />
+                <img id='pieni' src={karry} />
+              </div>  
+            ))}
+          </Slide>
+        </ol>
+      </div>
+    )
+}
 }
 
 export default Top

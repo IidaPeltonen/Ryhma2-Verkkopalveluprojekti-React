@@ -173,3 +173,8 @@ img {
   border-style:outset;
   border-width: thin;
 }
+
+#takaisin {
+  background-color: antiquewhite;
+  color: black;
+}
