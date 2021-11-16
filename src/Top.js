@@ -40,7 +40,7 @@ function Top () {
           {kirjat?.map(top => (
             
             <div key={top.kirjaid} >
-             <b> {top.rownum}. </b>
+             <b> {top.rownum}. </b><br />
               <img id="kirja" src={top.kuva} />
               <br />
               <b>
