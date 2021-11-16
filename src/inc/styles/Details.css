@@ -1,0 +1,52 @@
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap');
+
+a {
+  color: black !important;
+}
+
+h1 {
+  font-family: Montserrat;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+h2 {
+  font-family: Montserrat;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+p {
+  font-family: PT Sans Caption;
+  font-size: large;
+  font-weight: normal;
+}
+
+.btn-primary {
+    background-color: #447f43 !important;
+    border-color: #FFFFFF;
+    font-family: Montserrat;
+}
+
+#detail {
+    margin-top: 3em;
+    margin-left: 3em;
+    margin-right: 3em;
+    margin-bottom: 2em;
+}
+  
+#detailKuva {
+    max-width: 300px;
+    margin-left: 2em;
+}
+  
+#detailKarry {
+    max-width: 50px;
+    margin-bottom: 2em;
+}
+
+#center {
+    text-align: center;
+}
+

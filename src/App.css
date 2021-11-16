@@ -62,12 +62,6 @@ ul li {
   color:red;
 }
 
-.btn-primary {
-  background-color: #447f43 !important;
-  border-color: #FFFFFF;
-  font-family: Montserrat;
-}
-
 img {
   max-width: 150px;
   margin-bottom: 2em;
@@ -101,22 +95,5 @@ img {
   border-width: thin;
 }
 
-#detail {
-  text-align: center;
-  margin-bottom: 2em;
-}
 
-#detailKuva {
-  max-width: 300px;
-  margin-bottom: 2em;
-}
 
-#detailKarry {
-  max-width: 50px;
-  margin-bottom: 2em;
-}
-
-button {
-  color: black;
-  font-weight: bolder;
-}
