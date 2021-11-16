@@ -31,7 +31,7 @@ export default function Detail(props) {
             </div>
             <div className="col-4">
                 <p>Hinta: {props.hinta}€</p>
-                <img id="detailKarry" src={karry} alt="ostoskärry"></img><br />
+                <img id="detailKarry" src={karry} alt="ostoskarry"></img><br />
             </div>
 
         </div>
