@@ -36,7 +36,7 @@ export default function NavBar() {
           </button>
           <div className="col-2">
           <Link to="/">
-            <img className="img-fluid logo" src={logo}></img>
+            <img className="img-fluid logo" src={logo} alt="yrityksen logo"></img>
             </Link >
           </div>
           <div className="collapse navbar-collapse" id="omaMenu">

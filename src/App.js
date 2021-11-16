@@ -1,9 +1,7 @@
 import './App.css';
-import { useEffect, useState } from 'react';
 import { Route } from 'react-router-dom';
 import { Switch } from 'react-router-dom';
 import Footer from './inc/Footer';
-import logo from './img/logo.png';
 import Header from './inc/Header'
 import Home from './Home';
 import NavBar from './inc/NavBar';
@@ -12,9 +10,6 @@ import UKK from './inc/UKK';
 import Rekisteri from './inc/Rekisteri';
 import Uutiskirje from './inc/Uutiskirje';
 import AboutUs from './inc/AboutUs';
-
-
-const URL = 'http://localhost/kauppa';
 
 function App() {
 

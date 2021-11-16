@@ -6,7 +6,7 @@ export default function Detail(props) {
     return  (
         <div id="detail" className="row">
             <div className="col-5">
-                <img id="detailKuva" src={props.kuva}></img>
+                <img id="detailKuva" src={props.kuva} alt="kirjan kansikuva"></img>
             </div>
             <div className="col-1">
 
@@ -31,7 +31,7 @@ export default function Detail(props) {
             </div>
             <div className="col-4">
                 <p>Hinta: {props.hinta}€</p>
-                <img id="detailKarry" src={karry}></img><br />
+                <img id="detailKarry" src={karry} alt="ostoskärry"></img><br />
             </div>
 
         </div>

@@ -63,21 +63,16 @@ function Home () {
             <Slide {...properties}>
               {kirjat?.map(kirjat => (
                 <div key={kirjat.kirjaid} onClick={e => setValittuKirja(kirjat)}>
-                  <img id="kirja" src={kirjat.kuva} />
+                  <img id="kirja" src={kirjat.kuva} alt="kirjan kansikuva" />
                   <br />
                   <b>
                     {kirjat.kirjanimi} <br />
                     {kirjat.kirjailija}
-                  </b>{' '}
+                  </b>
                   <br />
-                  {/*Julkaisuvuosi: {kirjat.vuosi} <br />
-                Kieli: {kirjat.kieli}<br />
-                Kustantaja: {kirjat.kustantaja}<br />
-                Genre: {kirjat.trnimi}<br />
-                {kirjat.kuvaus}<br /> */}
                   Hinta: {kirjat.hinta}€<br />
                   Varastossa: {kirjat.saldo} kpl <br />
-                  <img id='pieni' src={karry} />
+                  <img id='pieni' src={karry} alt="ostoskärry"/>
                 </div>
               ))}
             </Slide>

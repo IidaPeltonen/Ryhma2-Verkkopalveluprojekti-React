@@ -60,7 +60,7 @@ function Top () {
             {kirjat?.map(top => (
               <div key={top.kirjaid} onClick={e => setValittuKirja(top)}>
               <b> {top.rownum}. </b><br />
-                <img id="kirja" src={top.kuva} />
+                <img id="kirja" src={top.kuva} alt="kirjan kansikuva"/>
                 <br />
                 <b>
                   {top.kirjanimi} <br />
@@ -69,7 +69,7 @@ function Top () {
                 <br />
                 Hinta: {top.hinta} €<br />
                 Myyty: {top.SUM} kpl <br />
-                <img id='pieni' src={karry} />
+                <img id="pieni" src={karry} alt="ostoskärry"/>
               </div>  
             ))}
           </Slide>
