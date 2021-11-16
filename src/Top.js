@@ -1,10 +1,10 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import { Slide } from 'react-slideshow-image'
-import 'react-slideshow-image/dist/styles.css'
-import karry from './img/karry.png'
-import './App.css'
+import { Slide } from 'react-slideshow-image';
+import 'react-slideshow-image/dist/styles.css';
+import karry from './img/karry.png';
+import './App.css';
 import DetailsKirja from './DetailsKirja';
 
 
@@ -51,14 +51,14 @@ function Top () {
       hinta={valittuKirja.hinta}
       close={close}
       />
-  } else {
+  } else    {
     return (
       <div>
         <h2>Myydyimmät kirjat</h2>
         <ol id='top7'>
           <Slide {...propertiesTop}>
             {kirjat?.map(top => (
-              <div key={top.kirjaid} onClick={e => setValittuKirja(kirjat)}>
+              <div key={top.kirjaid} onClick={e => setValittuKirja(top)}>
               <b> {top.rownum}. </b><br />
                 <img id="kirja" src={top.kuva} />
                 <br />
@@ -76,7 +76,7 @@ function Top () {
         </ol>
       </div>
     )
-}
+  }
 }
 
 export default Top
