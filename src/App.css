@@ -12,74 +12,9 @@ PT Sans Caption (Leipäteksti, tää pitää testata käytännössä)
  */
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap');
 
-/* main {
-  background: E5E5E5;
-}
-
-
-h1 {
-  font-family: Montserrat;
-  font-size: 9rem;
-}
-
-p {
-  font-family: PT Sans Caption;
-  font-size: large;
-}
-
-footer {
-  background-color: #555;
-  color: white;
-  padding: 15px;
-}
-
-.swipe {
-  overflow: auto;
-  white-space: nowrap;
-} */
-
-/* logo */
-
-/* .logo img {
-  max-height: 100%;
-  max-width: 100%;
-} */
-
-/* sivunavi */
-
-
-
-/* ul li a {
-  color: #ffffff;
-  font-family: Montserrat;
-  font-size: 1.8rem;
-  font-weight: normal;
-  line-height: 2.5rem;
-  
-}
-
-.nav-link {
-  color:#FFFFFF;
-}
-
-.sidenav-container {
-  
-  background-color: #447f43; 
-  padding-top: 20px;
-}
-
-footer {
-  background-color: #214321;
-}
-
-.header-style ul li a  {
-  color:red;
-} */
-
 a {
   color: black !important;
 }
-
 
 h1 {
   font-family: Montserrat;
@@ -99,14 +34,12 @@ p {
 }
 
 /* logo */
-
 .logo {
   max-height: 100%;
   max-width: 100%;
 }
 
 /* sivunavi */
-
 ul li {
   color: #447f43;
   font-family: Montserrat;
@@ -129,14 +62,8 @@ ul li {
   color:red;
 }
 
-.btn-secondary {
+.btn-primary {
   background-color: #447f43 !important;
-  border-color: #FFFFFF;
-  font-family: Montserrat;
-}
-
-.btn-secondary:hover {
-  background-color: #447f43;
   border-color: #FFFFFF;
   font-family: Montserrat;
 }
@@ -174,7 +101,22 @@ img {
   border-width: thin;
 }
 
-#takaisin {
-  background-color: antiquewhite;
+#detail {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+#detailKuva {
+  max-width: 300px;
+  margin-bottom: 2em;
+}
+
+#detailKarry {
+  max-width: 50px;
+  margin-bottom: 2em;
+}
+
+button {
   color: black;
+  font-weight: bolder;
 }
