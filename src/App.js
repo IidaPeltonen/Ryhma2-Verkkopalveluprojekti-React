@@ -1,6 +1,5 @@
 import './App.css';
-import { Route } from 'react-router-dom';
-import { Switch } from 'react-router-dom';
+import { Route, useLocation, Switch } from 'react-router-dom';
 import Footer from './inc/Footer';
 import Header from './inc/Header'
 import Home from './Home';
@@ -10,18 +9,37 @@ import UKK from './inc/UKK';
 import Rekisteri from './inc/Rekisteri';
 import Uutiskirje from './inc/Uutiskirje';
 import AboutUs from './inc/AboutUs';
+import {useState, useEffect} from 'react';
 
 const URL = 'http://localhost/kauppa'
 
 function App() {
+  const [category, setCategory] = useState(null);
 
+  let location = useLocation();
+
+  useEffect(() => {
+    if (location.state !== undefined) {
+      setCategory({trnimi: location.state.trnimi});
+      console.log(category)
+    }
+  }, [location.state])
 
   return (
     <div className="container-fluid">
-      <NavBar url={URL}/>
+      <NavBar url={URL} setCategory={setCategory}/>
       <Header />
       <Switch>
-        <Route path="/" component={Home} exact />
+        <Route
+          path="/"
+          render={() =>
+            <Home
+              url={URL}
+              category={category}
+            />
+          }
+          exact
+          />
         <Route path="/contactus" component={ContactUs} />
         <Route path="/aboutus" component={AboutUs} />
         <Route path="/ukk" component={UKK} />

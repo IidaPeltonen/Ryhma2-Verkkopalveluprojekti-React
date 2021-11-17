@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import uuid from 'react-uuid'
 
 
-export default function NavBar({url}) {
+export default function NavBar({url,setCategory}) {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -16,6 +16,8 @@ export default function NavBar({url}) {
         const json = response.data;
         console.log(response);
         setCategories(json);
+        setCategory(json);
+        console.log(json)
       }).catch(error => {
         if (error.response === undefined) {
           alert(error);
@@ -52,7 +54,14 @@ export default function NavBar({url}) {
                 <ul id="alasveto" className="dropdown-menu" aria-labelledby="navbarDropdown">
                   {categories.map(kirja => (
                     <li key = {uuid()}>
-                      <Link>
+                      <Link
+                        to={{
+                          pathname: '/',
+                          state: {
+                            trnimi: kirja.trnimi,
+                          }
+                        }}
+                        >
                         {kirja.trnimi}
                       </Link>
                     </li>
