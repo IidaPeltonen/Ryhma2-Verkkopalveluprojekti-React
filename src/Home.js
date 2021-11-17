@@ -10,10 +10,9 @@ import DetailsKirja from './DetailsKirja';
 
 
 
-function Home({ url, category }) {
+function Home({ url }) {
   const URL = 'http://localhost/kauppa/index.php'
   const [kirjat, setKirjat] = useState([])
-  const [products, setProducts] = useState([])
   const [valittuKirja, setValittuKirja] = useState(null);
 
   const properties = {
@@ -35,23 +34,6 @@ function Home({ url, category }) {
         alert(error)
       })
   }, [])
-
-  useEffect(() => {
-    if (category !== null) {
-      axios.get('http://localhost/kauppa/tuoteKategoriaTuotteet.php/' + category?.id)
-        .then((response) => {
-          const json = response.data;
-          setProducts(json);
-        }).catch(error => {
-          if (error.response === undefined) {
-            alert(error);
-          } else {
-            alert(error.response.data.error);
-          }
-        })
-    }
-  }, [category])
-
 
 
   function close() {
@@ -96,17 +78,7 @@ function Home({ url, category }) {
             ))}
           </Slide>
         </ol>
-        <div>
-          <h3>products for {category?.name}</h3>
-          {products.map(product => (
-            <div key={product.kirjaid}>
-
-              <p>{product.kirjanimi}</p>
-
-
-            </div>
-          ))}
-        </div>
+      
       </div>
 
     )

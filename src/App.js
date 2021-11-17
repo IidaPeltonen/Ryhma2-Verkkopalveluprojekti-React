@@ -10,6 +10,7 @@ import Rekisteri from './inc/Rekisteri';
 import Uutiskirje from './inc/Uutiskirje';
 import AboutUs from './inc/AboutUs';
 import {useState, useEffect} from 'react';
+import Category from './Category';
 
 const URL = 'http://localhost/kauppa'
 
@@ -19,9 +20,9 @@ function App() {
   let location = useLocation();
 
   useEffect(() => {
+    // console.log(category);
     if (location.state !== undefined) {
-      setCategory({id: location.state.id, name: location.state.name});
-      
+      setCategory({id: location.state.id, name: location.state.name});     
     }
   }, [location.state])
 
@@ -39,6 +40,14 @@ function App() {
             />
           }
           exact
+          />
+          <Route path="/category" 
+          render={() =>
+            <Category
+            url={URL}
+            category={category}
+            />
+          }
           />
         <Route path="/contactus" component={ContactUs} />
         <Route path="/aboutus" component={AboutUs} />
