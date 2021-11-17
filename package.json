@@ -13,6 +13,7 @@
     "react-scripts": "4.0.3",
     "react-slideshow": "0.0.1",
     "react-slideshow-image": "^3.6.0",
+    "react-uuid": "^1.0.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

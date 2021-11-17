@@ -4,14 +4,14 @@ import './styles/NavBar.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import uuid from 'react-uuid'
 
-const URL = 'http://localhost/kauppa';
 
-export default function NavBar() {
+export default function NavBar({url}) {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    axios.get(URL + '/tuoteKategoria.php')
+    axios.get(url + '/tuoteKategoria.php')
       .then((response) => {
         const json = response.data;
         console.log(response);
@@ -51,7 +51,7 @@ export default function NavBar() {
                 </a>
                 <ul id="alasveto" className="dropdown-menu" aria-labelledby="navbarDropdown">
                   {categories.map(kirja => (
-                    <li>
+                    <li key = {uuid()}>
                       <Link>
                         {kirja.trnimi}
                       </Link>

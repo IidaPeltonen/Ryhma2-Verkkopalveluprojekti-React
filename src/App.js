@@ -11,12 +11,14 @@ import Rekisteri from './inc/Rekisteri';
 import Uutiskirje from './inc/Uutiskirje';
 import AboutUs from './inc/AboutUs';
 
+const URL = 'http://localhost/kauppa'
+
 function App() {
 
 
   return (
     <div className="container-fluid">
-      <NavBar />
+      <NavBar url={URL}/>
       <Header />
       <Switch>
         <Route path="/" component={Home} exact />
