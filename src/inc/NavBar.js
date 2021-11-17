@@ -54,7 +54,7 @@ export default function NavBar({url,setCategory}) {
                     <li key = {category.id}>
                       <Link
                         to={{
-                          pathname: '/',
+                          pathname: '/category',
                           state: {
                             id: category.id,
                             name: category.name
