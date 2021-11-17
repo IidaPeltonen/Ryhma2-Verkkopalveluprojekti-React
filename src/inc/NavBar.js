@@ -41,9 +41,6 @@ export default function NavBar({url,setCategory}) {
           </div>
           <div className="collapse navbar-collapse" id="omaMenu">
             <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link className="nav-link" to="/ukk">UKK</Link>
-              </li>
               <li className="nav-item dropdown" >
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                   data-bs-toggle="dropdown" aria-expanded="false">

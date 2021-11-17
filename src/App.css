@@ -95,5 +95,22 @@ img {
   border-width: thin;
 }
 
+/* UKK-sivun accordion */
+
+.accordion, .accordion-header{
+  font-family: PT Sans Caption;
+  font-size: large;
+}
+
+.accordion-button:not(.collapsed){
+  color: black; 
+  background-color: #f2f2f2;
+  box-shadow: none;
+}
+
+.accordion-button:focus, .accordion-button.collapsed::after {
+  border-color: none;
+}
+
 
 
