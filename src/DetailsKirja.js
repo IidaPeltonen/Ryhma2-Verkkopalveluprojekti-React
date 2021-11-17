@@ -1,6 +1,7 @@
 import React from 'react'
 import './inc/styles/Details.css';
 import karry from './img/karry.png'
+import { Link } from 'react-router-dom';
 
 export default function Detail(props) {
     return  (
@@ -24,7 +25,7 @@ export default function Detail(props) {
 
             </div>
             <div className="col-3">
-                <button className="btn-primary"><a href="#" onClick={props.close}>Takaisin listaukseen</a></button>
+                <button className="btn-primary"><Link to="/" onClick={props.close}>Takaisin listaukseen</Link></button>
             </div>
             <div className="col-3">
 
