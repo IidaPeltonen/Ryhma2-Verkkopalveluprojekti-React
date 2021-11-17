@@ -45,7 +45,7 @@ function Top () {
       vuosi={valittuKirja.vuosi}
       kieli={valittuKirja.kieli}
       kustantaja={valittuKirja.kustantaja}
-      trnimi={valittuKirja.trnimi}
+      // trnimi={valittuKirja.trnimi}
       kuvaus={valittuKirja.kuvaus} 
       saldo={valittuKirja.saldo}
       hinta={valittuKirja.hinta}

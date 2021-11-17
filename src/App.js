@@ -20,8 +20,8 @@ function App() {
 
   useEffect(() => {
     if (location.state !== undefined) {
-      setCategory({trnimi: location.state.trnimi});
-      console.log(category)
+      setCategory({id: location.state.id, name: location.state.name});
+      
     }
   }, [location.state])
 

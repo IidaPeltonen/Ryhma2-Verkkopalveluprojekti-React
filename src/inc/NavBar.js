@@ -4,20 +4,18 @@ import './styles/NavBar.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import uuid from 'react-uuid'
 
 
 export default function NavBar({url,setCategory}) {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    axios.get(url + '/tuoteKategoria.php')
+    axios.get(url + '/tuoteKategoriaLinkit.php')
       .then((response) => {
         const json = response.data;
-        console.log(response);
         setCategories(json);
-        setCategory(json);
-        console.log(json)
+        setCategory(json[0]);
+        console.log(response);
       }).catch(error => {
         if (error.response === undefined) {
           alert(error);
@@ -52,17 +50,18 @@ export default function NavBar({url,setCategory}) {
                   Kirjat
                 </a>
                 <ul id="alasveto" className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  {categories.map(kirja => (
-                    <li key = {uuid()}>
+                  {categories.map(category => (
+                    <li key = {category.id}>
                       <Link
                         to={{
                           pathname: '/',
                           state: {
-                            trnimi: kirja.trnimi,
+                            id: category.id,
+                            name: category.name
                           }
                         }}
                         >
-                        {kirja.trnimi}
+                        {category.name}
                       </Link>
                     </li>
                   ))}
