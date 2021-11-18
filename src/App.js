@@ -1,5 +1,7 @@
 import './App.css';
 import { Route, useLocation, Switch } from 'react-router-dom';
+import Category from './Category';
+import './inc/styles/Details.css';
 import Footer from './inc/Footer';
 import Header from './inc/Header'
 import Home from './Home';
@@ -10,7 +12,9 @@ import Rekisteri from './inc/Rekisteri';
 import Uutiskirje from './inc/Uutiskirje';
 import AboutUs from './inc/AboutUs';
 import {useState, useEffect} from 'react';
-import Category from './Category';
+import { Link } from 'react-router-dom';
+import karry from './img/karry.png'
+import Order from './Order';
 
 const URL = 'http://localhost/kauppa'
 
@@ -23,21 +27,63 @@ function App() {
   useEffect(() => {
     if ('cart' in localStorage) {
       setCart(JSON.parse(localStorage.getItem('cart')));
+      console.log((JSON.parse(localStorage.getItem('cart'))))
+
     }
   }, [])
 
   useEffect(() => {
     // console.log(category);
     if (location.state !== undefined) {
-      setCategory({id: location.state.id, name: location.state.name});     
+      setCategory({id: location.state.id, name: location.state.name});  
+      
     }
   }, [location.state])
 
-  function addToCart(kirjat) {
-    const newCart = [...cart,kirjat];
+  function addToCart(kirja) {
+    const newCart = [...cart,kirja];
     setCart(newCart);
     localStorage.setItem('cart',JSON.stringify(cart));
+    
   }
+
+ function Detail(kirja, category) {
+    return  (
+        <div id="detail" className="row">
+            <div className="col-5">
+                <img id="detailKuva" src={kirja.kuva} alt="kirjan kansikuva"></img>
+            </div>
+            <div className="col-1">
+
+            </div>
+            <div className="col-6">
+                <h1 id="center">{kirja.kirjanimi}</h1>
+                <h2 id="center">{kirja.kirjailija}</h2>
+                <p>{kirja.kuvaus}</p>
+                <p>Julkaisuvuosi: {kirja.vuosi} </p>
+                <p>Kieli: {kirja.kieli}</p>
+                <p>Kustantaja: {kirja.kustantaja}</p>
+                <p>Genre: {category.name}</p>
+            </div>
+            <div className="col-1">
+
+            </div>
+            <div className="col-3">
+                <button className="btn-primary"><Link to="#" onClick={kirja.close}>Takaisin listaukseen</Link></button>
+            </div>
+            <div className="col-3">
+
+            </div>
+            <div className="col-4">
+                <p>Hinta: {kirja.hinta}€</p>
+                <img id="detailKarry" src={karry} alt="ostoskarry"></img><br />
+                <button className="btn btn-primary" type="button" onClick={e => addToCart(kirja)}>Add</button>
+            </div>
+
+        </div>
+
+    )
+}
 
   return (
     <div className="container-fluid">
@@ -51,6 +97,7 @@ function App() {
               url={URL}
               category={category}
               addToCart={addToCart}
+              Detail={Detail}
             />
           }
           exact
@@ -60,6 +107,16 @@ function App() {
             <Category
             url={URL}
             category={category}
+            addToCart={addToCart}
+            Detail={Detail}
+            />
+          }
+          />
+          <Route path="/order" 
+          render={() =>
+            <Order
+            url={URL}
+            cart={cart}
             />
           }
           />

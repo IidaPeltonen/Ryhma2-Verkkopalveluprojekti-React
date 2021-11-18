@@ -6,12 +6,12 @@ import 'react-slideshow-image/dist/styles.css';
 import karry from './img/karry.png'
 import './App.css';
 import Top from './Top';
-import DetailsKirja from './DetailsKirja';
+// import DetailsKirja from './DetailsKirja';
 
 
 
-function Home({url,category,addToCart}) {
-  const URL = 'http://localhost/kauppa/index.php'
+function Home({url,addToCart,Detail}) {
+  
   const [kirjat, setKirjat] = useState([])
   const [valittuKirja, setValittuKirja] = useState(null);
 
@@ -26,7 +26,7 @@ function Home({url,category,addToCart}) {
 
   useEffect(() => {
     axios
-      .get(URL)
+      .get(url)
       .then(response => {
         setKirjat(response.data)
       })
@@ -41,19 +41,21 @@ function Home({url,category,addToCart}) {
   }
 
   if (valittuKirja != null) {
-    return <DetailsKirja
+    return(
+    <Detail
       kuva={valittuKirja.kuva}
       kirjanimi={valittuKirja.kirjanimi}
       kirjailija={valittuKirja.kirjailija}
       vuosi={valittuKirja.vuosi}
       kieli={valittuKirja.kieli}
       kustantaja={valittuKirja.kustantaja}
-      // trnimi={valittuKirja.trnimi}
       kuvaus={valittuKirja.kuvaus}
       saldo={valittuKirja.saldo}
       hinta={valittuKirja.hinta}
       close={close}
     />
+    
+    )
   } else {
     return (
 
@@ -62,19 +64,19 @@ function Home({url,category,addToCart}) {
         <h2>Kaikki kirjat</h2>
         <ol id='kaikki'>
           <Slide {...properties}>
-            {kirjat?.map(kirjat => (
-              <div key={kirjat.kirjaid}>
-                <img id="kirja" src={kirjat.kuva} alt="kirjan kansikuva" onClick={e => setValittuKirja(kirjat)} />
+            {kirjat?.map(kirja => (
+              <div key={kirja.kirjaid}>
+                <img id="kirja" src={kirja.kuva} alt="kirjan kansikuva" onClick={e => setValittuKirja(kirja)} />
                 <br />
-                <b onClick={e => setValittuKirja(kirjat)}>
-                  {kirjat.kirjanimi}  <br />
-                  {kirjat.kirjailija}
+                <b onClick={e => setValittuKirja(kirja)}>
+                  {kirja.kirjanimi}  <br />
+                  {kirja.kirjailija}
                 </b>
                 <br />
-                Hinta: {kirjat.hinta}€<br />
-                Varastossa: {kirjat.saldo} kpl <br />
+                Hinta: {kirja.hinta}€<br />
+                Varastossa: {kirja.saldo} kpl <br />
                 <img id='pieni' src={karry} alt="ostoskärry" />
-                <button class="btn btn-primary" type="button" onClick={e => addToCart(kirjat)}>Add</button>
+                <button className="btn btn-primary" type="button" onClick={e => addToCart(kirja)}>Add</button>
               </div>   
             ))}
           </Slide>

@@ -1,13 +1,11 @@
 import React from 'react'
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-import DetailsKirja from './DetailsKirja';
 import karry from './img/karry.png';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
-import { Link } from 'react-router-dom';
 
-export default function Category({url, category}) {
+export default function Category({url,category,addToCart,Detail}) {
 
     const [products, setProducts] = useState([])
     const [valittuKirja, setValittuKirja] = useState(null);
@@ -44,21 +42,20 @@ export default function Category({url, category}) {
       }
     
       if (valittuKirja != null) {
-        return <div><DetailsKirja
+        return( <Detail
           kuva={valittuKirja.kuva}
           kirjanimi={valittuKirja.kirjanimi}
           kirjailija={valittuKirja.kirjailija}
           vuosi={valittuKirja.vuosi}
           kieli={valittuKirja.kieli}
           kustantaja={valittuKirja.kustantaja}
-          // category={category?.name}
           kuvaus={valittuKirja.kuvaus}
           saldo={valittuKirja.saldo}
           hinta={valittuKirja.hinta}
+
           close={close}
         />
-        <Link to="/category" onClick={close}>Takaisin listaukseen</Link>
-        </div>
+        )
       } else {
         return (
 
@@ -67,10 +64,10 @@ export default function Category({url, category}) {
         <ol id='kaikki'>
           <Slide {...properties}>
             {products.map(product => (
-              <div key={product.kirjaid} onClick={e => setValittuKirja(product)}>
-                <img id="kirja" src={product.kuva} alt="kirjan kansikuva" />
+              <div key={product.kirjaid}>
+                <img id="kirja" src={product.kuva} alt="kirjan kansikuva" onClick={e => setValittuKirja(product)} />
                 <br />
-                <b>
+                <b onClick={e => setValittuKirja(product)}>
                   {product.kirjanimi} <br />
                   {product.kirjailija}
                 </b>
@@ -78,6 +75,7 @@ export default function Category({url, category}) {
                 Hinta: {product.hinta}€<br />
                 Varastossa: {product.saldo} kpl <br />
                 <img id='pieni' src={karry} alt="ostoskärry" />
+                <button className="btn btn-primary" type="button" onClick={e => addToCart(product)}>Add</button>
               </div>
             ))}
           </Slide>
