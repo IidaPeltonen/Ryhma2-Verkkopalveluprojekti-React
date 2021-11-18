@@ -63,11 +63,11 @@ function Home({url,category,addToCart}) {
         <ol id='kaikki'>
           <Slide {...properties}>
             {kirjat?.map(kirjat => (
-              <div key={kirjat.kirjaid} onClick={e => setValittuKirja(kirjat)}>
-                <img id="kirja" src={kirjat.kuva} alt="kirjan kansikuva" />
+              <div key={kirjat.kirjaid}>
+                <img id="kirja" src={kirjat.kuva} alt="kirjan kansikuva" onClick={e => setValittuKirja(kirjat)} />
                 <br />
-                <b>
-                  {kirjat.kirjanimi} <br />
+                <b onClick={e => setValittuKirja(kirjat)}>
+                  {kirjat.kirjanimi}  <br />
                   {kirjat.kirjailija}
                 </b>
                 <br />
