@@ -4,9 +4,10 @@ import './styles/NavBar.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import Cart from './Cart';
 
 
-export default function NavBar({url,setCategory}) {
+export default function NavBar({url,setCategory,cart}) {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -68,6 +69,12 @@ export default function NavBar({url,setCategory}) {
                   </li>}
                 </ul>
               </li>
+            </ul>
+            <ul className="navbar-nav ms-auto">
+              <li className="nav-item">
+                <Cart cart={cart}/>
+              </li>
+
             </ul>
           </div>
         </div>

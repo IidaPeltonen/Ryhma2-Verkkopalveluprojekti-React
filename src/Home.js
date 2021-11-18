@@ -10,7 +10,7 @@ import DetailsKirja from './DetailsKirja';
 
 
 
-function Home({ url }) {
+function Home({url,category,addToCart}) {
   const URL = 'http://localhost/kauppa/index.php'
   const [kirjat, setKirjat] = useState([])
   const [valittuKirja, setValittuKirja] = useState(null);
@@ -74,11 +74,11 @@ function Home({ url }) {
                 Hinta: {kirjat.hinta}€<br />
                 Varastossa: {kirjat.saldo} kpl <br />
                 <img id='pieni' src={karry} alt="ostoskärry" />
-              </div>
+                <button class="btn btn-primary" type="button" onClick={e => addToCart(kirjat)}>Add</button>
+              </div>   
             ))}
           </Slide>
         </ol>
-      
       </div>
 
     )

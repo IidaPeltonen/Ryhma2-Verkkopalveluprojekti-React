@@ -16,8 +16,15 @@ const URL = 'http://localhost/kauppa'
 
 function App() {
   const [category, setCategory] = useState(null);
+  const [cart, setCart] = useState([]);
 
   let location = useLocation();
+
+  useEffect(() => {
+    if ('cart' in localStorage) {
+      setCart(JSON.parse(localStorage.getItem('cart')));
+    }
+  }, [])
 
   useEffect(() => {
     // console.log(category);
@@ -26,9 +33,15 @@ function App() {
     }
   }, [location.state])
 
+  function addToCart(kirjat) {
+    const newCart = [...cart,kirjat];
+    setCart(newCart);
+    localStorage.setItem('cart',JSON.stringify(cart));
+  }
+
   return (
     <div className="container-fluid">
-      <NavBar url={URL} setCategory={setCategory}/>
+      <NavBar url={URL} setCategory={setCategory} cart={cart}/>
       <Header />
       <Switch>
         <Route
@@ -37,6 +50,7 @@ function App() {
             <Home
               url={URL}
               category={category}
+              addToCart={addToCart}
             />
           }
           exact
