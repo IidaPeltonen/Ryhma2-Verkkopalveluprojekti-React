@@ -1,12 +1,14 @@
 import React from 'react'
+import uuid from 'react-uuid'
 
 export default function Order({ url, cart }) {
     return (
         <div>
             {cart.map(kirja => (
-            <div key={kirja.kirjaid}>
+            <div key={uuid()}>
                 {kirja.kirjanimi}
                 {kirja.hinta}
+                <img src={kirja.kuva}></img>
             </div>
             ))}
 

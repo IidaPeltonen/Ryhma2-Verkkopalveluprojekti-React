@@ -43,16 +43,16 @@ export default function Category({url,category,addToCart,Detail}) {
     
       if (valittuKirja != null) {
         return( <Detail
-          kuva={valittuKirja.kuva}
+          kirjaid={valittuKirja.kirjaid}
           kirjanimi={valittuKirja.kirjanimi}
           kirjailija={valittuKirja.kirjailija}
           vuosi={valittuKirja.vuosi}
           kieli={valittuKirja.kieli}
           kustantaja={valittuKirja.kustantaja}
+          kuva={valittuKirja.kuva}
           kuvaus={valittuKirja.kuvaus}
           saldo={valittuKirja.saldo}
           hinta={valittuKirja.hinta}
-
           close={close}
         />
         )

@@ -10,8 +10,8 @@ import Top from './Top';
 
 
 
-function Home({url,addToCart,Detail}) {
-  
+function Home({ url, addToCart, Detail }) {
+
   const [kirjat, setKirjat] = useState([])
   const [valittuKirja, setValittuKirja] = useState(null);
 
@@ -41,20 +41,21 @@ function Home({url,addToCart,Detail}) {
   }
 
   if (valittuKirja != null) {
-    return(
-    <Detail
-      kuva={valittuKirja.kuva}
-      kirjanimi={valittuKirja.kirjanimi}
-      kirjailija={valittuKirja.kirjailija}
-      vuosi={valittuKirja.vuosi}
-      kieli={valittuKirja.kieli}
-      kustantaja={valittuKirja.kustantaja}
-      kuvaus={valittuKirja.kuvaus}
-      saldo={valittuKirja.saldo}
-      hinta={valittuKirja.hinta}
-      close={close}
-    />
-    
+    return (
+      <Detail
+        kirjaid={valittuKirja.kirjaid}
+        kirjanimi={valittuKirja.kirjanimi}
+        kirjailija={valittuKirja.kirjailija}
+        vuosi={valittuKirja.vuosi}
+        kieli={valittuKirja.kieli}
+        kustantaja={valittuKirja.kustantaja}
+        kuva={valittuKirja.kuva}
+        kuvaus={valittuKirja.kuvaus}
+        saldo={valittuKirja.saldo}
+        hinta={valittuKirja.hinta}
+        close={close}
+      />
+
     )
   } else {
     return (
@@ -77,7 +78,7 @@ function Home({url,addToCart,Detail}) {
                 Varastossa: {kirja.saldo} kpl <br />
                 <img id='pieni' src={karry} alt="ostoskärry" />
                 <button className="btn btn-primary" type="button" onClick={e => addToCart(kirja)}>Add</button>
-              </div>   
+              </div>
             ))}
           </Slide>
         </ol>
