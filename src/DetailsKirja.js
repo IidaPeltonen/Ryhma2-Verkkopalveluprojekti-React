@@ -19,7 +19,7 @@ export default function Detail(props) {
                 <p>Julkaisuvuosi: {props.vuosi} </p>
                 <p>Kieli: {props.kieli}</p>
                 <p>Kustantaja: {props.kustantaja}</p>
-                {/* <p>Genre: {props.trnimi}</p> */}
+                {/*<p>Genre: {props.category?.name}</p>*/}
             </div>
             <div className="col-1">
 
