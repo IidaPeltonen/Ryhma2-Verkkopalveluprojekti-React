@@ -25,7 +25,7 @@ export default function Detail(props) {
 
             </div>
             <div className="col-3">
-                <button className="btn-primary"><Link to="/" onClick={props.close}>Takaisin listaukseen</Link></button>
+                <button className="btn-primary"><Link to="#" onClick={props.close}>Takaisin listaukseen</Link></button>
             </div>
             <div className="col-3">
 
