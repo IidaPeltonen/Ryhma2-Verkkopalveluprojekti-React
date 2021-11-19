@@ -68,8 +68,10 @@ function Top () {
                 <br />
                 Hinta: {top.hinta} €<br />
                 Myyty: {top.SUM} kpl <br />
-                <img id="pieni" src={karry} alt="ostoskärry"/>
-              </div>  
+                <div>
+                  <img id="pieni" src={karry} alt="ostoskärry"/>
+                </div>
+              </div>
             ))}
           </Slide>
         </ol>
