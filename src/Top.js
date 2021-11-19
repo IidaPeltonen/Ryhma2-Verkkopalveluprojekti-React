@@ -59,6 +59,7 @@ function Top () {
             {kirjat?.map(top => (
               <div key={top.kirjaid} onClick={e => setValittuKirja(top)}>
               <b> {top.rownum}. </b><br />
+              <div>
                 <img id="kirja" src={top.kuva} alt="kirjan kansikuva"/>
                 <br />
                 <b>
@@ -68,8 +69,9 @@ function Top () {
                 <br />
                 Hinta: {top.hinta} €<br />
                 Myyty: {top.SUM} kpl <br />
+                </div>
                 <div>
-                  <img id="pieni" src={karry} alt="ostoskärry"/>
+                <button className="btn" type="button"><img id='pieni' src={karry} alt="ostoskärry" /></button>
                 </div>
               </div>
             ))}
