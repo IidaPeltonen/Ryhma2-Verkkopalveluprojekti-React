@@ -1,7 +1,7 @@
 import React from 'react'
 import uuid from 'react-uuid'
 
-export default function Order({ url, cart }) {
+export default function Order({ url, cart, clear }) {
     return (
         <div>
             {cart.map(kirja => (
@@ -12,7 +12,7 @@ export default function Order({ url, cart }) {
             </div>
             ))}
 
-            <button className="btn btn-primary" type="button" onClick={e => localStorage.clear()}>Tyhjennä ostoskori</button>
+            <button className="btn btn-primary" type="button" onClick={e => clear() }>Tyhjennä ostoskori</button>
         </div>
     )
 

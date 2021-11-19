@@ -32,6 +32,12 @@ function App() {
     }
   }, [])
 
+  function clear() {
+
+    localStorage.clear()
+    window.location.reload(true)
+  }
+
   useEffect(() => {
     // console.log(category);
     if (location.state !== undefined) {
@@ -117,6 +123,7 @@ function App() {
             <Order
             url={URL}
             cart={cart}
+            clear={clear}
             />
           }
           />
