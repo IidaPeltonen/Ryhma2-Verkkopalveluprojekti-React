@@ -61,22 +61,26 @@ function Home({ url, addToCart, Detail }) {
     return (
 
       <div>
-        <Top />
+        <Top url={url} addToCart={addToCart} Detail={Detail} />
         <h2>Kaikki kirjat</h2>
         <ol id='kaikki'>
           <Slide {...properties}>
             {kirjat?.map(kirja => (
               <div key={kirja.kirjaid}>
-                <img id="kirja" src={kirja.kuva} alt="kirjan kansikuva" onClick={e => setValittuKirja(kirja)} />
-                <br />
-                <b onClick={e => setValittuKirja(kirja)}>
-                  {kirja.kirjanimi}  <br />
-                  {kirja.kirjailija}
-                </b>
-                <br />
-                Hinta: {kirja.hinta}€<br />
-                Varastossa: {kirja.saldo} kpl <br />
-                <button className="btn" type="button" onClick={e => addToCart(kirja)}><img id='pieni' src={karry} alt="ostoskärry" /></button>
+                <div onClick={e => setValittuKirja(kirja)}>
+                  <img id="kirja" src={kirja.kuva} alt="kirjan kansikuva" />
+                  <br />
+                  <b>
+                    {kirja.kirjanimi}  <br />
+                    {kirja.kirjailija}
+                  </b>
+                  <br />
+                  Hinta: {kirja.hinta}€<br />
+                  Varastossa: {kirja.saldo} kpl <br />
+                </div>
+                <div>
+                  <button className="btn" type="button" onClick={e => addToCart(kirja)}><img id='pieni' src={karry} alt="ostoskärry" /></button>
+                </div>
               </div>
             ))}
           </Slide>
