@@ -7,7 +7,7 @@ import 'react-slideshow-image/dist/styles.css';
 
 export default function Category({url,category,addToCart,Detail}) {
 
-    const [products, setProducts] = useState([])
+    const [kirjat, setKirjat] = useState([])
     const [valittuKirja, setValittuKirja] = useState(null);
 
     const properties = {
@@ -26,7 +26,7 @@ export default function Category({url,category,addToCart,Detail}) {
           axios.get(url + '/tuoteKategoriaTuotteet.php/'  + category?.id )
             .then((response) => {
               const json = response.data;
-              setProducts(json);
+              setKirjat(json);
             }).catch(error => {
               if (error.response === undefined) {
                 alert(error);
@@ -63,19 +63,22 @@ export default function Category({url,category,addToCart,Detail}) {
           <h2>{category?.name}</h2>
         <ol id='kaikki'>
           <Slide {...properties}>
-            {products.map(product => (
-              <div key={product.kirjaid}>
-                <img id="kirja" src={product.kuva} alt="kirjan kansikuva" onClick={e => setValittuKirja(product)} />
+            {kirjat.map(kirja => (
+              <div key={kirja.kirjaid}>
+                <div onClick={e => setValittuKirja(kirja)}>
+                <img id="kirja" src={kirja.kuva} alt="kirjan kansikuva"  />
                 <br />
-                <b onClick={e => setValittuKirja(product)}>
-                  {product.kirjanimi} <br />
-                  {product.kirjailija}
+                <b>
+                  {kirja.kirjanimi} <br />
+                  {kirja.kirjailija}
                 </b>
                 <br />
-                Hinta: {product.hinta}€<br />
-                Varastossa: {product.saldo} kpl <br />
-                <img id='pieni' src={karry} alt="ostoskärry" />
-                <button className="btn btn-primary" type="button" onClick={e => addToCart(product)}>Add</button>
+                Hinta: {kirja.hinta}€<br />
+                Varastossa: {kirja.saldo} kpl <br />
+                </div>
+                <div>
+                  <button className="btn" type="button" onClick={e => addToCart(kirja)}><img id='pieni' src={karry} alt="ostoskärry" /></button>
+                </div>
               </div>
             ))}
           </Slide>
