@@ -23,7 +23,7 @@ export default function Category({url,category,addToCart,Detail}) {
         
         if (category !== null) {
            
-          axios.get('http://localhost/kauppa/tuoteKategoriaTuotteet.php/'  + category?.id )
+          axios.get(url + '/tuoteKategoriaTuotteet.php/'  + category?.id )
             .then((response) => {
               const json = response.data;
               setProducts(json);
