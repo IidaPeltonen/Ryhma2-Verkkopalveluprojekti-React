@@ -1,10 +1,10 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import './App.css';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 import karry from './img/karry.png'
-import './App.css';
 import Top from './Top';
 // import DetailsKirja from './DetailsKirja';
 
