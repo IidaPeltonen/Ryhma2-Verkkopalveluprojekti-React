@@ -7,7 +7,6 @@ import karry from './img/karry.png';
 import './App.css';
 import DetailsKirja from './DetailsKirja';
 
-
 function Top () {
   const URL = 'http://localhost/kauppa/Top.php'
   const [kirjat, setKirjat] = useState([])
@@ -15,8 +14,8 @@ function Top () {
 
   const propertiesTop = {
     duration: 5000,
-    slidesToShow: 7,
-    slidesToScroll: 7,
+    slidesToShow: 5,
+    slidesToScroll: 2,
     autoplay: false,
     indicators: false,
     arrows: true
@@ -45,7 +44,6 @@ function Top () {
       vuosi={valittuKirja.vuosi}
       kieli={valittuKirja.kieli}
       kustantaja={valittuKirja.kustantaja}
-      // trnimi={valittuKirja.trnimi}
       kuvaus={valittuKirja.kuvaus} 
       saldo={valittuKirja.saldo}
       hinta={valittuKirja.hinta}

@@ -77,10 +77,11 @@ img {
 
 /* top-kirjojen blokki, en muista mikä tähän haluttiin taustaväriksi -iida */
 #top7 {
-  background-color: #B6D8B6;
+  background-color: #f2f2f2;
   padding: 1em;
   margin: 1em;
   text-align: center;
+  border-color: black;
 }
 
 /*kaikkien kirjojen blokki */
