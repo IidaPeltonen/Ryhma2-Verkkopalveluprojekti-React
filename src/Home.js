@@ -76,8 +76,7 @@ function Home({ url, addToCart, Detail }) {
                 <br />
                 Hinta: {kirja.hinta}€<br />
                 Varastossa: {kirja.saldo} kpl <br />
-                <img id='pieni' src={karry} alt="ostoskärry" />
-                <button className="btn btn-primary" type="button" onClick={e => addToCart(kirja)}>Add</button>
+                <button className="btn" type="button" onClick={e => addToCart(kirja)}><img id='pieni' src={karry} alt="ostoskärry" /></button>
               </div>
             ))}
           </Slide>

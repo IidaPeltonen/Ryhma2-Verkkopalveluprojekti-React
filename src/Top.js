@@ -1,10 +1,11 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import './App.css';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 import karry from './img/karry.png';
-import './App.css';
+
 import DetailsKirja from './DetailsKirja';
 
 function Top () {
@@ -51,7 +52,7 @@ function Top () {
       />
   } else    {
     return (
-      <div>
+      <div id="reuna">
         <h2>Myydyimmät kirjat</h2>
         <ol id='top7'>
           <Slide {...propertiesTop}>
