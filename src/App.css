@@ -84,6 +84,7 @@ img {
   border-color: black;
 }
 
+
 /*kaikkien kirjojen blokki */
 #kaikki {
   padding: 1em;
@@ -109,8 +110,12 @@ img {
   box-shadow: none;
 }
 
-.accordion-button:focus, .accordion-button.collapsed::after {
-  border-color: none;
+.accordion-button:focus, .accordion-button.collapsed::active {
+  border-color: none !important;
+}
+
+.collapse:focus {
+  border-color: none !important;
 }
 
 
