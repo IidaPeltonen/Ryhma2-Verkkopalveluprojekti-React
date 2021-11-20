@@ -1,6 +1,7 @@
 #id {
     background-color: #447F43 ;
     color: white !important;
+    height: 7em;
 }
 
 a {
@@ -32,7 +33,16 @@ väri : stroke='rgba(255, 215, 0, 1)' */
     border-color: #FFFFFF !important;
 }
 
-/* .logo {
-    max-height: 25%;
-    max-width: 25%;
-  } */
+/* Logon tyyli */
+
+img {
+    margin-bottom: 0;
+}
+
+.logo {
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    max-height: 6em;
+    
+  }

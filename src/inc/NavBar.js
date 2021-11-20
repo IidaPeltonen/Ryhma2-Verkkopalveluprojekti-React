@@ -29,7 +29,7 @@ export default function NavBar({url,setCategory,cart}) {
   return (
 
     <div className="row">
-      <nav id="id" className="navbar navbar-expand-md  ">
+      <nav id="id" className="navbar navbar-expand-md">
         <div className="container-fluid">
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#omaMenu"
             aria-controls="omaMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,7 +76,7 @@ export default function NavBar({url,setCategory,cart}) {
             <ul className="navbar-nav ms-auto">
             <li className="nav-item ms-2 me-2">
             <div className="input-group mb-3">
-            <input type="text" className="form-control" placeholder="Hae tästä" aria-label="Hakupainike" aria-describedby="button-addon2"></input>
+            <input type="text" className="form-control" placeholder="Hae tuotteita tästä" aria-label="Hakupainike" aria-describedby="button-addon2"></input>
             <button className ="btn btn-outline-secondary" type ="button" id="button-addon2">Hae</button>
           </div>
         </li>
