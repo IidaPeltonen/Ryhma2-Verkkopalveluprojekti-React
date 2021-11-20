@@ -68,7 +68,6 @@ function App() {
                 <p>Julkaisuvuosi: {kirja.vuosi} </p>
                 <p>Kieli: {kirja.kieli}</p>
                 <p>Kustantaja: {kirja.kustantaja}</p>
-                <p>Genre: {category.name}</p>
             </div>
             <div className="col-1">
 

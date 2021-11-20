@@ -35,8 +35,8 @@ export default function Footer() {
         <div className="col-md-2 col-10 my-auto mx-auto">
           <p>Tilaa uutiskirje</p>
           <div class="input-group mb-3">
-            <input type="email" value={uutiskirje} onChange={uutiskirjeenTilaus} class="form-control" placeholder="Sähköposti" aria-label="Sähköposti" aria-describedby="button-addon2"></input>
-            <button class ="btn btn-outline-secondary" type ="button" id="button-addon2" onClick={uutiskirjeenTyhjennys}>Lähetä</button>
+            <input type="email" value={uutiskirje} onChange={uutiskirjeenTilaus} className="form-control" placeholder="Sähköposti" aria-label="Sähköposti" aria-describedby="button-addon2"></input>
+            <button className ="btn btn-outline-secondary" type ="button" id="button-addon2" onClick={uutiskirjeenTyhjennys}>Lähetä</button>
           </div>
         </div>
       </footer>
