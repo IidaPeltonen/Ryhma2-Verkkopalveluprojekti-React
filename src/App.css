@@ -26,6 +26,7 @@ h2 {
   font-family: Montserrat;
   font-size: x-large;
   font-weight: bold;
+  text-decoration: underline;
 }
 
 p {
@@ -78,6 +79,10 @@ padding: 7px;
 border-radius: 10px;
 }
 
+#pieni:hover {
+  box-shadow: black;
+}
+
 
 
 /* top-kirjojen blokki, en muista mikä tähän haluttiin taustaväriksi -iida */
@@ -105,7 +110,7 @@ border-radius: 10px;
   border-width: thin;
 }
 
-/* UKK-sivun accordion */
+/* UKK- ja Rekisteri-sivujen accordion */
 
 .accordion, .accordion-header{
   font-family: PT Sans Caption;
@@ -125,6 +130,8 @@ border-radius: 10px;
 .accordion-button:focus {
   box-shadow: none !important;
 }
+
+/* Buttoneiden muotoilu */
 
 .btn {
   box-shadow: none !important;

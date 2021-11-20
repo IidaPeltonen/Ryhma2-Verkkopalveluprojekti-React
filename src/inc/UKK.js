@@ -3,7 +3,7 @@ import '../App.css'
 
 export default function UKK() {
     return (
-        <div className="col-md-3 ms-4 mb-4">
+        <div className="col-md-4 ms-4 mb-4">
             <h3 className="mb-3">Usein kysytyt kysymykset</h3>
             <div className="accordion" id="accordionExample">
                 <div className="accordion-item">

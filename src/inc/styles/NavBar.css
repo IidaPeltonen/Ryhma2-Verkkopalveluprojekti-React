@@ -10,7 +10,12 @@ a {
 
 #alasveto {
     background-color: #447F43;
-    border: none;
+    border: 2px white;
+    border-style:groove;
+}
+
+.dropdown-divider {
+    color: white;
 }
 
 /* hamburger icon with a different color

@@ -42,12 +42,12 @@ export default function NavBar({url,setCategory,cart}) {
           </div>
           <div className="collapse navbar-collapse" id="omaMenu">
             <ul className="navbar-nav">
-              <li className="nav-item dropdown" >
+              <li className="nav-item dropdown ms-2 me-2" >
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                   data-bs-toggle="dropdown" aria-expanded="false">
                   Kirjat
                 </a>
-                <ul id="alasveto" className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <ul id="alasveto" className="dropdown-menu ps-2 pe-2" aria-labelledby="navbarDropdown">
                   {categories.map(category => (
                     <li key = {category.id}>
                       <Link
@@ -61,17 +61,26 @@ export default function NavBar({url,setCategory,cart}) {
                         >
                         {category.name}
                       </Link>
+                      <hr className="dropdown-divider" />
                     </li>
                   ))}
-
-                  {<li>
-                    <hr className="dropdown-divider" />
-                  </li>}
                 </ul>
               </li>
+              <li className="nav-item ms-2 me-2">
+          <a className="nav-link" href="#">Uutuudet</a>
+        </li>
+        <li className="nav-item  ms-2 me-2">
+          <a className="nav-link" href="#">Tarjoukset</a>
+        </li>
             </ul>
             <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
+            <li className="nav-item ms-2 me-2">
+            <div className="input-group mb-3">
+            <input type="text" className="form-control" placeholder="Hae tästä" aria-label="Hakupainike" aria-describedby="button-addon2"></input>
+            <button className ="btn btn-outline-secondary" type ="button" id="button-addon2">Hae</button>
+          </div>
+        </li>
+              <li className="nav-item  ms-2 me-2">
                 <Cart cart={cart}/>
               </li>
 

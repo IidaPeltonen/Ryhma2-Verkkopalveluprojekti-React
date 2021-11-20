@@ -9,7 +9,6 @@ import NavBar from './inc/NavBar';
 import ContactUs from './inc/ContactUs';
 import UKK from './inc/UKK';
 import Rekisteri from './inc/Rekisteri';
-import Uutiskirje from './inc/Uutiskirje';
 import AboutUs from './inc/AboutUs';
 import {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
@@ -131,7 +130,6 @@ function App() {
         <Route path="/aboutus" component={AboutUs} />
         <Route path="/ukk" component={UKK} />
         <Route path="/rekisteri" component={Rekisteri} />
-        <Route path="/uutiskirje" component={Uutiskirje} />
       </Switch>
       <Footer />
     </div>

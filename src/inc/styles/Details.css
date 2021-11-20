@@ -29,6 +29,10 @@ p {
     font-family: Montserrat;
 }
 
+.btn-primary:hover {
+  outline: black !important;
+}
+
 #detail {
     margin-top: 3em;
     margin-left: 3em;
