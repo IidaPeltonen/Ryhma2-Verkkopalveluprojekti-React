@@ -15,7 +15,7 @@ export default function Order ({ url, cart, clear, removeFromCart }) {
           </td>
           <td>
             <a className='order' href='#' onClick={() => removeFromCart(kirja)}>
-              i
+              POISTA OSTOSKORISTA
             </a>
           </td>
         </tr>
