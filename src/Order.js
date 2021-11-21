@@ -8,6 +8,7 @@ export default function Order({ url, cart, clear }) {
             <div key={uuid()}>
                 {kirja.kirjanimi}
                 {kirja.hinta}
+                {kirja.hinta}
                 <img src={kirja.kuva}></img>
             </div>
             ))}
