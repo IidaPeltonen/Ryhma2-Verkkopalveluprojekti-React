@@ -44,9 +44,10 @@ function App () {
   }, [location.state])
 
   function addToCart (kirja) {
+    //kirja["amount"] = 1
     const newCart = [...cart, kirja]
     setCart(newCart)
-    localStorage.setItem('cart', JSON.stringify(cart))
+    localStorage.setItem('cart', JSON.stringify(newCart))
   }
 
   function removeFromCart (kirja) {
@@ -54,6 +55,16 @@ function App () {
     setCart(itemsWithoutRemoved)
     localStorage.setItem('kirja', JSON.stringify(itemsWithoutRemoved))
   }
+
+/* tämä muokkaisi ostoskorin määriä :   
+
+function updateAmount(amount, product) {
+    kirja.amount = amount;
+    const index = cart.findIndex((item => item.id === kirja.kirjaid));
+    const modifiedCart = Object.assign([...cart],{[index]: kirja});
+    setCart(modifiedCart);
+    localStorage.setItem('cart', JSON.stringify(modifiedCart));
+  } */
 
   function Detail (kirja, category) {
     return (
