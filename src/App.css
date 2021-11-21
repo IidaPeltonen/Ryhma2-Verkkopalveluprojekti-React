@@ -43,27 +43,12 @@ p {
   max-width: 100%;
 }
 
-/* sivunavi */
-ul li {
-  color: #447f43;
-  font-family: Montserrat;
-  font-size: large;
-  font-weight: normal;
-  line-height: 50px;
-  
-}
-
 .nav-link {
   color: #447f43;
 }
 
-.sidenav-container {
-  background-color: #447f43; 
-  padding-top: 20px;
-}
-
-.header-style ul li a  {
-  color:red;
+.header-style ul li a {
+  color: red;
 }
 
 img {
@@ -71,35 +56,29 @@ img {
   margin-bottom: 2em;
 }
 
-#hidden {
-  visibility: hidden;
-}
-
+/* ostoskärryn kuva */
 #pieni {
-max-width: 2em;
-background-color: #447F43;
-padding: 7px;
-border-radius: 10px;
+  max-width: 2em;
+  background-color: #447f43;
+  padding: 7px;
+  border-radius: 10px;
 }
 
 #pieni:hover {
   box-shadow: black;
 }
 
-
-
-/* top-kirjojen blokki, en muista mikä tähän haluttiin taustaväriksi -iida */
+/* top-kirjojen blokki */
 #top7 {
   background-color: #f2f2f2;
   padding: 1em;
   margin: 1em;
   text-align: center;
-  border-style:solid;
-  border-color:#0C400B;
+  border-style: solid;
+  border-color: #0c400b;
   border-width: 5px;
   border-radius: 10px;
 }
-
 
 /*kaikkien kirjojen blokki */
 #kaikki {
@@ -108,26 +87,27 @@ border-radius: 10px;
   text-align: center;
 }
 
+/* kirjan detail-tiedot*/
 #kirja {
-  border-style:outset;
+  border-style: outset;
   border-width: thin;
 }
 
 /* UKK- ja Rekisteri-sivujen accordion */
-
-.accordion, .accordion-header{
+.accordion,
+.accordion-header {
   font-family: PT Sans Caption;
   font-size: large;
 }
 
-.accordion-button:not(.collapsed){
-  color: black; 
+.accordion-button:not(.collapsed) {
+  color: black;
   background-color: #f2f2f2;
   box-shadow: none;
 }
 
 .accordion-button:not(.collapsed)::after {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
 .accordion-button:focus {
@@ -135,12 +115,11 @@ border-radius: 10px;
 }
 
 /* Buttoneiden muotoilu */
-
 .btn {
   box-shadow: none !important;
 }
 
 .no-underline {
   text-decoration: solid !important;
- color:white;
+  color: white;
 }
