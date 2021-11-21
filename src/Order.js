@@ -1,20 +1,21 @@
 import React from 'react'
 import uuid from 'react-uuid'
 
-export default function Order({ url, cart, clear }) {
+export default function Order({url, cart, clear, removeFromCart}) {
     return (
         <div>
             {cart.map(kirja => (
-            <div key={uuid()}>
-                {kirja.kirjanimi}
-                {kirja.hinta}
-                {kirja.hinta}
-                <img src={kirja.kuva}></img>
-            </div>
+            <tr key={uuid()}>
+                <td>{kirja.kirjanimi}</td>
+                <td>{kirja.hinta}</td>
+                <td><img src={kirja.kuva}></img></td>
+                <td><a className="order" href="#" onClick={() => removeFromCart(kirja)}>i</a></td>
+            </tr>
             ))}
+            </div>
 
-            <button className="btn btn-primary" type="button" onClick={e => clear() }>Tyhjennä ostoskori</button>
-        </div>
+           // <button className="btn btn-primary" type="button" onClick={e => clear() }>Tyhjennä ostoskori</button>
+       // </div>
     )
 
 

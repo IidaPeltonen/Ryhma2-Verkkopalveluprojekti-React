@@ -3,7 +3,7 @@ footer {
     min-height: 20vh;
 }
 
-a, p {
+footer a, p {
     color: white;
     text-decoration: none;
     font-family: Montserrat !important;

@@ -14,6 +14,7 @@ import {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import karry from './img/karry.png'
 import Order from './Order';
+import uuid from 'react-uuid';
 
 const URL = 'http://localhost/kauppa'
 
@@ -31,7 +32,7 @@ function App() {
     }
   }, [])
 
-  function clear() {
+   function clear() {
 
     localStorage.clear()
     window.location.reload(true)
@@ -49,7 +50,12 @@ function App() {
     const newCart = [...cart,kirja];
     setCart(newCart);
     localStorage.setItem('cart',JSON.stringify(cart));
-    
+  }
+
+  function removeFromCart(kirja) {
+    const itemsWithoutRemoved = cart.filter(item => item.id !== kirja.id);
+    setCart(itemsWithoutRemoved);
+    localStorage.setItem('cart',JSON.stringify(itemsWithoutRemoved));
   }
 
  function Detail(kirja, category) {
@@ -122,6 +128,7 @@ function App() {
             url={URL}
             cart={cart}
             clear={clear}
+            removeFromCart={removeFromCart}
             />
           }
           />
