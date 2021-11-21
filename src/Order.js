@@ -7,7 +7,7 @@ export default function Order ({ url, cart, clear, removeFromCart }) {
   return (
     <div>
       {cart.map(kirja => (
-        <tr key={kirja.kirjaid}>
+        <tr key={uuid()}>
           <td>{kirja.kirjanimi}</td>
           <td>{kirja.hinta}</td>
           <td>
