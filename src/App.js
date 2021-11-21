@@ -53,9 +53,9 @@ function App() {
   }
 
   function removeFromCart(kirja) {
-    const itemsWithoutRemoved = cart.filter(item => item.id !== kirja.id);
+    const itemsWithoutRemoved = cart.filter(item => item.id != kirja.kirjaid);
     setCart(itemsWithoutRemoved);
-    localStorage.setItem('cart',JSON.stringify(itemsWithoutRemoved));
+    localStorage.setItem('kirja',JSON.stringify(itemsWithoutRemoved));
   }
 
  function Detail(kirja, category) {
@@ -68,8 +68,8 @@ function App() {
 
             </div>
             <div className="col-6">
-                <h1 id="center">{kirja.kirjanimi}</h1>
-                <h2 id="center">{kirja.kirjailija}</h2>
+                <h1 id="centerh1">{kirja.kirjanimi}</h1>
+                <h2 id="centerh2">{kirja.kirjailija}</h2>
                 <p>{kirja.kuvaus}</p>
                 <p>Julkaisuvuosi: {kirja.vuosi} </p>
                 <p>Kieli: {kirja.kieli}</p>
@@ -79,7 +79,7 @@ function App() {
 
             </div>
             <div className="col-3">
-                <button className="btn-primary"><Link to="#" onClick={kirja.close}>Takaisin listaukseen</Link></button>
+                <button className="btn-primary"><Link className="backToList" to="#" onClick={kirja.close}>Takaisin listaukseen</Link></button>
             </div>
             <div className="col-3">
 

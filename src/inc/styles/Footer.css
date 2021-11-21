@@ -7,8 +7,8 @@ footer {
     color: white;
 }
 
-a {
-    color: white;
+footer div a {
+    color: white !important;
     text-decoration: none;
     font-family: Montserrat !important;
     font-weight: bold;

@@ -4,7 +4,7 @@
     height: 7em;
 }
 
-a {
+.valkoinen {
     color: white !important;
     font-family: Montserrat !important;
 }
@@ -35,14 +35,11 @@ väri : stroke='rgba(255, 215, 0, 1)' */
 
 /* Logon tyyli */
 
-img {
-    margin-bottom: 0;
-}
-
 .logo {
     border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     max-height: 6em;
+    margin-bottom: 0;
     
   }

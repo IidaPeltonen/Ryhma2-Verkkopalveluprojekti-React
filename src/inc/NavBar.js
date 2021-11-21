@@ -43,14 +43,14 @@ export default function NavBar({url,setCategory,cart}) {
           <div className="collapse navbar-collapse" id="omaMenu">
             <ul className="navbar-nav">
               <li className="nav-item dropdown ms-2 me-2" >
-                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                <a className="nav-link valkoinen dropdown-toggle" href="#" id="navbarDropdown" role="button"
                   data-bs-toggle="dropdown" aria-expanded="false">
                   Kirjat
                 </a>
                 <ul id="alasveto" className="dropdown-menu ps-2 pe-2" aria-labelledby="navbarDropdown">
                   {categories.map(category => (
                     <li key = {category.id}>
-                      <Link
+                      <Link className="valkoinen"
                         to={{
                           pathname: '/category',
                           state: {
@@ -67,10 +67,10 @@ export default function NavBar({url,setCategory,cart}) {
                 </ul>
               </li>
               <li className="nav-item ms-2 me-2">
-          <a className="nav-link" href="#">Uutuudet</a>
+          <a className="nav-link valkoinen" href="#">Uutuudet</a>
         </li>
         <li className="nav-item  ms-2 me-2">
-          <a className="nav-link" href="#">Tarjoukset</a>
+          <a className="nav-link valkoinen" href="#">Tarjoukset</a>
         </li>
             </ul>
             <ul className="navbar-nav ms-auto">
