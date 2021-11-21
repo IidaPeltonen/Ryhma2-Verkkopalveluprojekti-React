@@ -50,8 +50,8 @@ function App () {
     localStorage.setItem('cart', JSON.stringify(newCart))
   }
 
-  function removeFromCart (kirja) {
-    const itemsWithoutRemoved = cart.filter(item => item.id !== kirja.kirjaid)
+  function removeFromCart (poistettavaKirja) {
+    const itemsWithoutRemoved = cart.filter(kirja => kirja !== poistettavaKirja)
     setCart(itemsWithoutRemoved)
     localStorage.setItem('kirja', JSON.stringify(itemsWithoutRemoved))
   }

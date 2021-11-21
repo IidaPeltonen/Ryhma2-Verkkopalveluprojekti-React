@@ -21,9 +21,10 @@ export default function Order ({ url, cart, clear, removeFromCart }) {
         </tr>
       ))}
       <hr></hr>
-    </div>
+      <button className="btn btn-primary" type="button" onClick={e => clear() }>Tyhjennä ostoskori</button>
+     </div>
 
-    // <button className="btn btn-primary" type="button" onClick={e => clear() }>Tyhjennä ostoskori</button>
-    // </div>
+
+
   )
 }
