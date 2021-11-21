@@ -3,7 +3,11 @@ footer {
     min-height: 20vh;
 }
 
-footer a, p {
+#uutiskirje {
+    color: white;
+}
+
+a {
     color: white;
     text-decoration: none;
     font-family: Montserrat !important;

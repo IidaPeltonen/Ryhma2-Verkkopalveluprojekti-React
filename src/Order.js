@@ -12,6 +12,7 @@ export default function Order({url, cart, clear, removeFromCart}) {
                 <td><a className="order" href="#" onClick={() => removeFromCart(kirja)}>i</a></td>
             </tr>
             ))}
+                <hr></hr>
             </div>
 
            // <button className="btn btn-primary" type="button" onClick={e => clear() }>Tyhjennä ostoskori</button>

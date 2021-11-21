@@ -60,7 +60,7 @@ export default function Category({url,category,addToCart,Detail}) {
         return (
 
         <div>
-          <h2>{category?.name}</h2>
+          <h2 id="otsikko">{category?.name}</h2>
         <ol id='kaikki'>
           <Slide {...properties}>
             {kirjat.map(kirja => (
