@@ -50,7 +50,7 @@ function App () {
   }
 
   function removeFromCart (kirja) {
-    const itemsWithoutRemoved = cart.filter(item => item.id != kirja.kirjaid)
+    const itemsWithoutRemoved = cart.filter(item => item.id !== kirja.kirjaid)
     setCart(itemsWithoutRemoved)
     localStorage.setItem('kirja', JSON.stringify(itemsWithoutRemoved))
   }

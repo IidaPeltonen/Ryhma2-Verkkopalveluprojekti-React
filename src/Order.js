@@ -11,7 +11,7 @@ export default function Order ({ url, cart, clear, removeFromCart }) {
           <td>{kirja.kirjanimi}</td>
           <td>{kirja.hinta}</td>
           <td>
-            <img src={kirja.kuva}></img>
+            <img src={kirja.kuva} alt="kirjan kansikuva"></img>
           </td>
           <td>
             <a className='order' href='#' onClick={() => removeFromCart(kirja)}>
