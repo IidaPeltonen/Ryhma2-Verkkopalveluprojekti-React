@@ -62,7 +62,7 @@ function Home({ url, addToCart, Detail }) {
 
       <div>
         <Top url={url} addToCart={addToCart} Detail={Detail} />
-        <h2 className="ms-4">Kaikki kirjat</h2>
+        <h2 id="otsikko" className="ms-4">Kaikki kirjat</h2>
         <ol id='kaikki'>
           <Slide {...properties}>
             {kirjat?.map(kirja => (

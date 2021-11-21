@@ -33,7 +33,7 @@ export default function Footer() {
           <Link to="/rekisteri">Rekisteriseloste</Link>
         </div>
         <div className="col-md-2 col-10 my-auto mx-auto">
-          <p>Tilaa uutiskirje</p>
+          <p id="uutiskirje">Tilaa uutiskirje</p>
           <div className="input-group mb-3">
             <input type="email" value={uutiskirje} onChange={uutiskirjeenTilaus} className="form-control" placeholder="Sähköposti" aria-label="Sähköposti" aria-describedby="button-addon2"></input>
             <button className ="btn btn-outline-secondary" type ="button" id="button-addon2" onClick={uutiskirjeenTyhjennys}>Lähetä</button>

@@ -10,10 +10,12 @@ export default function Order({ url, cart, clear }) {
                 {kirja.hinta}
                 {kirja.hinta}
                 <img src={kirja.kuva}></img>
+                <hr></hr>
             </div>
             ))}
-
+            <div>
             <button className="btn btn-primary" type="button" onClick={e => clear() }>Tyhjennä ostoskori</button>
+            </div>
         </div>
     )
 

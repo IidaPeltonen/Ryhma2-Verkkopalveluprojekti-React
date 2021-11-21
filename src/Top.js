@@ -52,7 +52,7 @@ function Top({ url, addToCart, Detail }) {
   } else {
     return (
       <div id="reuna">
-        <h2 className="ms-4">Myydyimmät kirjat</h2>
+        <h2 id="otsikko" className="ms-4">Myydyimmät kirjat</h2>
         <ol id='top7'>
           <Slide {...propertiesTop}>
             {kirjat?.map(kirja => (
