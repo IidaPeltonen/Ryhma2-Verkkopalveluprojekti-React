@@ -13,7 +13,8 @@ PT Sans Caption (Leipäteksti, tää pitää testata käytännössä)
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap');
 
 a {
-  color: black !important;
+  text-decoration: none;
+  color: whitegit  !important;
 }
 
 h1 {
@@ -119,7 +120,9 @@ img {
   box-shadow: none !important;
 }
 
+/* Ostoskorin määrän näyttö */
+
 .no-underline {
-  text-decoration: solid !important;
+  text-decoration: none !important;
   color: white;
 }

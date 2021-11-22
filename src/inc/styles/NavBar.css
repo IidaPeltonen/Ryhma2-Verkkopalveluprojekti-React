@@ -9,6 +9,7 @@
     font-family: Montserrat !important;
     font-size: large;
     font-weight: bold;
+    text-decoration: none;
     
 }
 
@@ -52,10 +53,11 @@ väri : stroke='rgba(255, 215, 0, 1)' */
 .haku {
     color: white;
     border-color: #447F43;
-    border: 0.5px solid white;
+    border: 1px solid white;
 }
 
 .haku:hover {
     background-color: #f2f2f2;
     color: black !important;
 }
+
