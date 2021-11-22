@@ -16,11 +16,12 @@ export default function Order ({
   return (
     <div className='container'>
       <div className='row'>
+        <h1 id="keskita">Ostoskorisi</h1>
           <table>
             <tbody col="12">
               {cart.map((kirja, index) => (
                 //sum+=parseFloat(kirja.hinta);
-                <tr key={uuid()} col="12">
+                <tr key={uuid()}>
                   <td col='2'>
                     <img src={kirja.kuva} alt='kirjan kansikuva'></img>
                   </td> 
