@@ -14,7 +14,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import karry from './img/karry.png'
 import Order from './Order'
-import uuid from 'react-uuid'
+//import uuid from 'react-uuid'
 
 const URL = 'http://localhost/kauppa'
 
@@ -31,6 +31,7 @@ function App () {
     }
   }, [])
 
+  //ostoskorin tyhjennys kokonaan
   function clear () {
     localStorage.clear()
     window.location.reload(true)
@@ -43,29 +44,35 @@ function App () {
     }
   }, [location.state])
 
+  //tuotteen lisäys ostoskoriin
   function addToCart (kirja) {
-    //kirja["amount"] = 1
+    kirja["amount"] = 1
     const newCart = [...cart, kirja]
     setCart(newCart)
     localStorage.setItem('cart', JSON.stringify(newCart))
+    //console.log(amount);
+    console.log(kirja.amount);
   }
 
+  //tuotteen poisto ostoskorista
   function removeFromCart (poistettavaKirja) {
     const itemsWithoutRemoved = cart.filter(kirja => kirja !== poistettavaKirja)
     setCart(itemsWithoutRemoved)
     localStorage.setItem('kirja', JSON.stringify(itemsWithoutRemoved))
   }
 
-/* tämä muokkaisi ostoskorin määriä :   
-
-function updateAmount(amount, product) {
-    kirja.amount = amount;
-    const index = cart.findIndex((item => item.id === kirja.kirjaid));
-    const modifiedCart = Object.assign([...cart],{[index]: kirja});
+  //tämä muokkaisi ostoskorin määriä :   
+  function updateAmount(amount, muutettavaKirja) {
+    muutettavaKirja.amount = amount;
+    const index = cart.findIndex((kirja => kirja === muutettavaKirja));
+    const modifiedCart = Object.assign([...cart],{[index]: muutettavaKirja});
     setCart(modifiedCart);
     localStorage.setItem('cart', JSON.stringify(modifiedCart));
-  } */
 
+  } 
+
+
+  //yhden kirjan tiedot
   function Detail (kirja, category) {
     return (
       <div id='detail' className='row'>
@@ -142,6 +149,7 @@ function updateAmount(amount, product) {
               cart={cart}
               clear={clear}
               removeFromCart={removeFromCart}
+              updateAmount={updateAmount}
             />
           )}
         />
