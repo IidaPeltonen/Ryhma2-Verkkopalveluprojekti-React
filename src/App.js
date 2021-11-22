@@ -70,7 +70,7 @@ function App () {
   } 
 
   //yhden kirjan tiedot
-  function Detail (kirja, category) {
+  function Detail (kirja) {
     return (
       <div id='detail' className='row'>
         <div className='col-5'>
@@ -87,7 +87,7 @@ function App () {
         </div>
         <div className='col-1'></div>
         <div className='col-3'>
-          <button className='btn-primary'>
+          <button className='btn-primary p-2 btnBacktoList'>
             <Link className='backToList' to='#' onClick={kirja.close}>
               Takaisin listaukseen
             </Link>
@@ -99,11 +99,11 @@ function App () {
           <img id='detailKarry' src={karry} alt='ostoskarry'></img>
           <br />
           <button
-            className='btn btn-primary'
+            className='btn btn-primary backToList'
             type='button'
             onClick={e => addToCart(kirja)}
           >
-            Add
+           Lisää ostoskoriin
           </button>
         </div>
       </div>
