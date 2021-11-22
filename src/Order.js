@@ -3,8 +3,6 @@ import uuid from 'react-uuid'
 import './inc/styles/Order.css'
 import './App.css'
 
-
-
 export default function Order ({
   url,
   cart,
@@ -13,45 +11,49 @@ export default function Order ({
   updateAmount
 })
 {
-  function changeAmount(e,muutettavaKirja,index) {
-    updateAmount(e.target.value.muutettavaKirja);
+  function changeAmount(e, muutettavaKirja,index) {
+    updateAmount(e.target.value.kirja);
   } 
   return (
     <div>
-      {cart.map((kirja, index) => (
-        //sum+=parseFloat(kirja.hinta);
-        <tr key={uuid()}>
-          <td>{kirja.kirjanimi}</td>
-          <td>{kirja.hinta}</td>
-          <td>
-            <img src={kirja.kuva} alt='kirjan kansikuva'></img>
-          </td>
-          <td>
-            <input
-              style={{ width: '60p' }}
-              type='number'
-              step='1'
-              min='1'
-              onChange={e => changeAmount(e, kirja, index)}
-              value={kirja.amount}
-            />
-          </td>
-          <td>
-            <a className='order' href='#' onClick={() => removeFromCart(kirja)}>
-              POISTA OSTOSKORISTA
-            </a>
-          </td>
-        </tr>
-      ))} 
-      <hr></hr>
+      <table>
+        <tbody>
+        {cart.map((kirja, index) => (
+          //sum+=parseFloat(kirja.hinta);
+          <tr key={uuid()}>
+            <td>{kirja.kirjanimi}</td>
+            <td>{kirja.hinta}</td>
+            <td>
+              <img src={kirja.kuva} alt='kirjan kansikuva'></img>
+            </td>
+            <td>
+              <input
+                style={{ width: '60p' }}
+                type='number'
+                step='1'
+                min='1'
+                onChange={e => changeAmount(e, kirja, index)}
+                value={kirja.amount}
+              />
+            </td>
+            <td>
+              <a className='order' href='#' onClick={() => removeFromCart(kirja)}>
+                POISTA OSTOSKORISTA
+              </a>
+            </td>
+          </tr>
+        ))} 
+        <tr></tr>
+        </tbody>
+      </table>
       <button className='btn btn-primary' type='button' onClick={e => clear()}>
-        Tyhjennä ostoskori
-      </button>
+          Tyhjennä ostoskori
+        </button>
     </div>
  
   )}
 
-   /*  <table>
+  /*  /*  <table>
     <tbody>
       {cart.map((kirja, index) => {
         //sum+=parseFloat(kirja.hinta);

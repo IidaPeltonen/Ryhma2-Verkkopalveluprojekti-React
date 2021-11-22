@@ -50,7 +50,6 @@ function App () {
     const newCart = [...cart, kirja]
     setCart(newCart)
     localStorage.setItem('cart', JSON.stringify(newCart))
-    //console.log(amount);
     console.log(kirja.amount);
   }
 
@@ -62,15 +61,13 @@ function App () {
   }
 
   //tämä muokkaisi ostoskorin määriä :   
-  function updateAmount(amount, muutettavaKirja) {
-    muutettavaKirja.amount = amount;
-    const index = cart.findIndex((kirja => kirja === muutettavaKirja));
-    const modifiedCart = Object.assign([...cart],{[index]: muutettavaKirja});
-    setCart(modifiedCart);
-    localStorage.setItem('cart', JSON.stringify(modifiedCart));
-
+  function updateAmount(amount, muutettavaKirja, kirja) {
+    kirja.amount = amount;
+    const index = cart.findIndex((kirja => kirja.kirjaid === muutettavaKirja.kirjaid))
+    const modifiedCart = Object.assign([...cart],{[index]: kirja})
+    setCart(modifiedCart)
+    localStorage.setItem('cart', JSON.stringify(modifiedCart))
   } 
-
 
   //yhden kirjan tiedot
   function Detail (kirja, category) {
