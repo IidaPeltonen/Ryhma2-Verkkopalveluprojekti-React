@@ -2,6 +2,17 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './styles/Footer.css'
 import { useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+function notifyOk() {
+  toast("Onnistui!");
+}
+
+function notifyErr() {
+  toast("Kirjoita osoite!");
+}
 
 export default function Footer () {
   const [uutiskirje, setUutiskirje] = useState('')
@@ -31,6 +42,7 @@ export default function Footer () {
           <p id='uutiskirje'>Tilaa uutiskirje</p>
           <div className='input-group mb-3'>
             <input
+              id='maili'
               type='email'
               value={uutiskirje}
               onChange={uutiskirjeenTilaus}
@@ -39,14 +51,26 @@ export default function Footer () {
               aria-label='Sähköposti'
               aria-describedby='button-addon2'
             ></input>
+
             <button
               className='btn btn-outline-secondary'
               type='button'
               id='button-addon2'
-              onClick={uutiskirjeenTyhjennys}
+              onClick={function(event){uutiskirjeenTyhjennys();notifyOk()}}
             >
               Lähetä
             </button>
+            <ToastContainer
+                position="bottom-right"
+                autoClose={4000}
+                hideProgressBar={true}
+                newestOnTop={true}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
           </div>
         </div>
       </footer>
