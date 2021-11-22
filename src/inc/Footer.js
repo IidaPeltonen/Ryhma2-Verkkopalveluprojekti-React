@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 function notifyOk() {
-  toast("Onnistui!");
+  toast("🦄 Uutiskirje tilattu!");
 }
 
 function notifyErr() {
