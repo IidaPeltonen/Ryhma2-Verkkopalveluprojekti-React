@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 function notifyOk() {
-  toast("🦄 Uutiskirje tilattu!");
+  toast("Uutiskirje tilattu!");
 }
 
 function notifyErr() {
@@ -22,7 +22,17 @@ export default function Footer () {
   const uutiskirjeenTyhjennys = () => {
     setUutiskirje('')
   }
-
+  /* const uutiskirjeenTarkistus = () => {
+    //const osoite = document.getElementById("id");
+    //console.log(osoite);
+    if (osoite === "") {
+      notifyErr()
+    }
+    else {
+      notifyOk()
+    }
+  }
+ */
   return (
     <div>
       <footer className='row'>

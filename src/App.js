@@ -46,7 +46,7 @@ function App () {
 
   //tuotteen lisäys ostoskoriin
   function addToCart (kirja) {
-    kirja["amount"] = 1
+    kirja["amount"] = 100
     const newCart = [...cart, kirja]
     setCart(newCart)
     localStorage.setItem('cart', JSON.stringify(newCart))
