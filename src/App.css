@@ -123,3 +123,9 @@ img {
   text-decoration: solid !important;
   color: white;
 }
+
+/* ostoskorissa olevan kirjan kuva */
+#ostos {
+  max-width: 20px;
+}
+

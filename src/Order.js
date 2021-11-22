@@ -15,19 +15,20 @@ export default function Order ({
     updateAmount(e.target.value.kirja);
   } 
   return (
-    <div>
+    <div col="12">
       <table>
         <tbody>
         {cart.map((kirja, index) => (
           //sum+=parseFloat(kirja.hinta);
           <tr key={uuid()}>
-            <td>{kirja.kirjanimi}</td>
-            <td>{kirja.hinta}</td>
-            <td>
+            <td id="ostos" col="2">
               <img src={kirja.kuva} alt='kirjan kansikuva'></img>
             </td>
+            <td col="2">{kirja.kirjailija}</td>
+            <td col="2">{kirja.kirjanimi}</td>
+            <td col="2">{kirja.hinta}</td>
             <td>
-              <input
+              <input col="2"
                 style={{ width: '60p' }}
                 type='number'
                 step='1'
@@ -37,7 +38,7 @@ export default function Order ({
               />
             </td>
             <td>
-              <a className='order' href='#' onClick={() => removeFromCart(kirja)}>
+              <a col="2" className='order' href='#' onClick={() => removeFromCart(kirja)}>
                 POISTA OSTOSKORISTA
               </a>
             </td>
