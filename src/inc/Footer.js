@@ -40,7 +40,7 @@ export default function Footer () {
               aria-describedby='button-addon2'
             ></input>
             <button
-              className='btn btn-outline-secondary'
+              className='uutiskirje btn btn-outline-secondary'
               type='button'
               id='button-addon2'
               onClick={uutiskirjeenTyhjennys}

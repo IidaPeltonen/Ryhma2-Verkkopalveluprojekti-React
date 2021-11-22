@@ -5,6 +5,8 @@ footer {
 
 #uutiskirje {
     color: white;
+    font-size: normal;
+    font-weight: bold;
 }
 
 footer div a {
@@ -15,11 +17,11 @@ footer div a {
     line-height: 50px;
 }
 
-.btn {
+.uutiskirje {
     color: white;
 }
 
-.btn:hover {
+.uutiskirje:hover {
     background-color: #f2f2f2;
     color: black !important;
 }

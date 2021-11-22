@@ -7,6 +7,9 @@
 .valkoinen {
     color: white !important;
     font-family: Montserrat !important;
+    font-size: large;
+    font-weight: bold;
+    
 }
 
 #alasveto {
@@ -41,5 +44,18 @@ väri : stroke='rgba(255, 215, 0, 1)' */
     border-top-left-radius: 10px;
     max-height: 6em;
     margin-bottom: 0;
-    
   }
+
+  /* Hakupainike */
+
+  
+.haku {
+    color: white;
+    border-color: #447F43;
+    border: 0.5px solid white;
+}
+
+.haku:hover {
+    background-color: #f2f2f2;
+    color: black !important;
+}

@@ -110,7 +110,7 @@ export default function NavBar ({ url, setCategory, cart }) {
                     aria-describedby='button-addon2'
                   ></input>
                   <button
-                    className='btn btn-outline-secondary'
+                    className='haku btn btn-outline-secondary'
                     type='button'
                     id='button-addon2'
                   >
