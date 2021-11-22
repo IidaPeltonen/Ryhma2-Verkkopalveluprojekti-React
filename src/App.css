@@ -124,8 +124,8 @@ img {
   color: white;
 }
 
-/* ostoskorissa olevan kirjan kuva */
-#ostos {
-  max-width: 20px;
+#keskita {
+  text-align: center;
 }
+
 
