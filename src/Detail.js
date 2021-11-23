@@ -3,9 +3,16 @@ import './inc/styles/Details.css'
 // import './App.css';
 import { Link } from 'react-router-dom';
 import karry from './img/karry.png';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
  
  //yhden kirjan tiedot
  export default function Detail ({valittuKirja, addToCart, close}) {
+
+  function notify() {
+    toast("Kirja lisätty ostoskoriin!");
+  }
+
     return (
       <div id='detail' className='row'>
         <div className='col-5'>
@@ -31,15 +38,24 @@ import karry from './img/karry.png';
         <div className='col-3'></div>
         <div className='col-4'>
           <p>Hinta: {valittuKirja.hinta}€</p>
-          <img id='detailKarry' src={karry} alt='ostoskarry'></img>
-          <br />
           <button
-            className='btn btn-primary backToList'
-            type='button'
-            onClick={e => addToCart(valittuKirja)}
-          >
-           Lisää ostoskoriin
-          </button>
+                    className='btn'
+                    type='button'
+                    onClick={function(event){addToCart(valittuKirja);notify()}}
+                  >
+                    <img id='pieni' src={karry} alt='ostoskärry' />
+                  </button>
+                  <ToastContainer
+                    position="bottom-right"
+                    autoClose={4000}
+                    hideProgressBar={true}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                  />
         </div>
       </div>
     )

@@ -2,10 +2,16 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import karry from './img/karry.png'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Category ({ url, category, addToCart, Detail }) {
   const [kirjat, setKirjat] = useState([])
   const [valittuKirja, setValittuKirja] = useState(null)
+
+  function notify() {
+    toast("Kirja lisätty ostoskoriin!");
+  }
 
   useEffect(() => {
     if (category !== null) {
@@ -74,16 +80,21 @@ export default function Category ({ url, category, addToCart, Detail }) {
                   <button
                     className='btn'
                     type='button'
-                    onClick={e => addToCart(kirja)}
+                    onClick={function(event){addToCart(kirja);notify()}}
                   >
                     <img id='pieni' src={karry} alt='ostoskärry' />
                   </button>
-                </div>
-                <div className='col-4'>
-                
-                </div>
-                <div className='col-8'>
-                  
+                  <ToastContainer
+                    position="bottom-right"
+                    autoClose={4000}
+                    hideProgressBar={true}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                  />
                 </div>
               </div>
               <br /><br />
