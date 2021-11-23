@@ -8,11 +8,12 @@ export default function Order ({
   cart,
   clear,
   removeFromCart,
-  updateAmount 
+  updateAmount, 
+  changeAmount
 }) {
-  function changeAmount (e, product, index) {
-    updateAmount(e.target.value,product)
-  } 
+ /*  function changeAmount (e, product, index) {
+    updateAmount(e.target.value, product)
+  } */ 
   return (
     <div className='container'>
       <div className='row'>

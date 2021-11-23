@@ -68,6 +68,10 @@ function App () {
     localStorage.setItem('cart', JSON.stringify(modifiedCart))
   }
 
+  function changeAmount (e, product, index) {
+    updateAmount(e.target.value, product)
+  } 
+
   //yhden kirjan tiedot
   function Detail (kirja) {
     return (
@@ -145,7 +149,8 @@ function App () {
               cart={cart}
               clear={clear}
               removeFromCart={removeFromCart}
-            /*     updateAmount={updateAmount} */
+              updateAmount={updateAmount}
+              changeAmount={changeAmount}
             />
           )}
         />
