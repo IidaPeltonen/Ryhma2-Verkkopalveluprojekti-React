@@ -36,7 +36,8 @@ function Top({ url, addToCart, Detail }) {
   }
 
   if (valittuKirja != null) {
-    return (<Detail
+    return (
+     <Detail valittuKirja={valittuKirja} addToCart={addToCart}
       kuva={valittuKirja.kuva}
       kirjanimi={valittuKirja.kirjanimi}
       kirjailija={valittuKirja.kirjailija}

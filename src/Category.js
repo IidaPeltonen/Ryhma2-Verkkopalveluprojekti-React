@@ -42,7 +42,7 @@ export default function Category ({ url, category, addToCart, Detail }) {
 
   if (valittuKirja != null) {
     return (
-      <Detail
+      <Detail valittuKirja={valittuKirja} addToCart={addToCart} 
         kirjaid={valittuKirja.kirjaid}
         kirjanimi={valittuKirja.kirjanimi}
         kirjailija={valittuKirja.kirjailija}
