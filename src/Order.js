@@ -1,19 +1,30 @@
-import React from 'react'
-import uuid from 'react-uuid'
-import './inc/styles/Order.css'
-import './App.css'
+import React from 'react';
+import uuid from 'react-uuid';
+import { useState, useEffect } from 'react';
+import './inc/styles/Order.css';
+import './App.css';
 
-export default function Order ({
-  url,
-  cart,
-  clear,
-  removeFromCart,
-  updateAmount, 
-  changeAmount
-}) {
- /*  function changeAmount (e, product, index) {
-    updateAmount(e.target.value, product)
-  } */ 
+export default function Order ({url, cart, clear, removeFromCart, updateAmount, changeAmount}) {
+  const [inputs, setInputs] = useState([]);
+  const [inputIndex, setInputIndex] = useState(-1);
+
+  function changeAmount (e, product, index) {
+    updateAmount(e.target.value, product);
+    setInputIndex(index);
+  } 
+
+  useEffect(() => {
+    for (let i = 0;i<cart.length;i++) {
+      inputs[i] = React.createRef();
+    }
+  }, [cart.length])
+
+  useEffect(() => {
+    if (inputs.length > 0 && inputIndex > -1 && inputs[inputIndex.current] !== null) {
+      inputs[inputIndex].current.focus();
+    }
+  }, [cart])
+
   return (
     <div className='container'>
       <div className='row'>
@@ -32,6 +43,7 @@ export default function Order ({
                   <td>
                     <input
                       col='2'
+                      ref={inputs[index]}
                       style={{ width: '70px' }}
                       type='number'
                       step='1'

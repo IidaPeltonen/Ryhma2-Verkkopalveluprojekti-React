@@ -46,12 +46,18 @@ function App () {
 
   //tuotteen lisäys ostoskoriin
   function addToCart (product) {
-    product["amount"] = 1
-    const newCart = [...cart, product]
-    setCart(newCart)
-    localStorage.setItem('cart', JSON.stringify(newCart))
+    if (cart.some(item => item.kirjaid === product.kirjaid)) {
+      const existingProduct = cart.filter(item => item.kirjaid === product.kirjaid)
+      updateAmount(parseInt(existingProduct[0].amount) +1, product);
+    }
+    else {
+      product["amount"] = 1
+      const newCart = [...cart, product]
+      setCart(newCart)
+      localStorage.setItem('cart', JSON.stringify(newCart))
+    }
   }
- 
+    
  //tuotteen poisto ostoskorista
   function removeFromCart (product) {
     const itemsWithoutRemoved = cart.filter(item => item.kirjaid !== product.kirjaid)
@@ -59,7 +65,7 @@ function App () {
     localStorage.setItem('kirja', JSON.stringify(itemsWithoutRemoved))
   }
 
- //tämä muokkaisi ostoskorin määriä :   
+ //ostoskorin määrän muokkaus  
   function updateAmount(amount, product) {
     product.amount = amount;
     const index = cart.findIndex((item => item.kirjaid === product.kirjaid))
@@ -67,10 +73,6 @@ function App () {
     setCart(modifiedCart)
     localStorage.setItem('cart', JSON.stringify(modifiedCart))
   }
-
-  function changeAmount (e, product, index) {
-    updateAmount(e.target.value, product)
-  } 
 
   //yhden kirjan tiedot
   function Detail (kirja) {
@@ -150,7 +152,6 @@ function App () {
               clear={clear}
               removeFromCart={removeFromCart}
               updateAmount={updateAmount}
-              changeAmount={changeAmount}
             />
           )}
         />
@@ -164,4 +165,4 @@ function App () {
   )
 }
 
-export default App
+export default App;
