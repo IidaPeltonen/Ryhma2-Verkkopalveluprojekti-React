@@ -59,8 +59,8 @@ export default function Category ({ url, category, addToCart, Detail }) {
         <h2 id='otsikko'>{category?.name}</h2>
         <ol id='kaikki'>
           {kirjat.map(kirja => (
-            <div className='container'>
-              <div key={kirja.kirjaid} className='row table-responsive-md'>
+            <div className='container' key={kirja.kirjaid} d>
+              <div className='row table-responsive-md'>
                 <div className='col-2' onClick={e => setValittuKirja(kirja)}>
                   <img id='kirja' src={kirja.kuva} alt='kirjan kansikuva' />
                 </div>

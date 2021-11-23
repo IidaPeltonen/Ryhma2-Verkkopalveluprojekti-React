@@ -74,7 +74,7 @@ function App () {
 
    return (
     <div className='container-fluid'>
-      <NavBar url={URL} setCategory={setCategory} cart={cart} />
+      <NavBar url={URL} setCategory={setCategory} cart={cart} Detail={Detail} addToCart={addToCart} />
       <Header />
       <Switch>
         <Route

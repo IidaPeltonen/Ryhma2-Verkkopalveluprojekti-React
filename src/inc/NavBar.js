@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import Cart from './Cart'
+import SearchBar from './SearchBar'
 
-export default function NavBar ({ url, setCategory, cart }) {
+export default function NavBar ({ url, setCategory, cart, Detail, addToCart }) {
   const [categories, setCategories] = useState([])
+  const [kirjat, setKirjat] = useState([])
 
   useEffect(() => {
     axios
@@ -16,6 +18,22 @@ export default function NavBar ({ url, setCategory, cart }) {
         const json = response.data
         setCategories(json)
         setCategory(json[0])
+        console.log(response)
+      })
+      .catch(error => {
+        if (error.response === undefined) {
+          alert(error)
+        } else {
+          alert(error.response.data.error)
+        }
+      })
+  }, [])
+
+  useEffect(() => {
+    axios
+      .get(url)
+      .then(response => {
+        setKirjat(response.data)
         console.log(response)
       })
       .catch(error => {
@@ -100,24 +118,8 @@ export default function NavBar ({ url, setCategory, cart }) {
               </li>
             </ul>
             <ul className='navbar-nav ms-auto'>
-              <li className='nav-item ms-2 me-2'>
-                <div className='input-group mb-3'>
-                  <input
-                    type='text'
-                    className='form-control'
-                    placeholder='Hae tuotteita tästä'
-                    aria-label='Hakupainike'
-                    aria-describedby='button-addon2'
-                  ></input>
-                  <button
-                    className='haku btn btn-outline-secondary'
-                    type='button'
-                    id='button-addon2'
-                  >
-                    Hae
-                  </button>
-                </div>
-              </li>
+              {/* Tässä oli ennen nappeja, nyt tulostaa tuolta SearchBarista. SIellä on alkuperäinen koodi kyllä, josta itsekin yritin katsoa mallia, mutten osannut. */}
+              <SearchBar placeHolder="Hae tuotteita tästä" kirjat={kirjat} Detail={Detail} addToCart={addToCart} />
               <li className='nav-item  ms-2 me-2'>
                 <Cart cart={cart} />
               </li>
