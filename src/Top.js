@@ -52,9 +52,9 @@ function Top({ url, addToCart, Detail }) {
     )
   } else {
     return (
-      <div id="reuna">
+      <div id="reuna" className="container-fluid">
         <h2 id="otsikko" className="ms-4">Myydyimmät kirjat</h2>
-        <ol id='top7'>
+        <ol id='top7'className="row">
           <Slide {...propertiesTop}>
             {kirjat?.map(kirja => (
               <div key={kirja.kirjaid}>

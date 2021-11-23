@@ -125,10 +125,17 @@ img {
 .no-underline {
   text-decoration: none !important;
   color: white;
+  font-weight: bold;
+  position: fixed;
 }
 
 #keskita {
   text-align: center;
+}
+
+#ostoskarry {
+  height: 2em;
+  width: 2em;
 }
 
 

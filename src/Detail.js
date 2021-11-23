@@ -22,8 +22,8 @@ import karry from './img/karry.png';
         </div>
         <div className='col-1'></div>
         <div className='col-3'>
-          <button className='btn-primary p-2 btnBacktoList'>
-            <Link className='backToList' to='#' onClick={e => close(valittuKirja)}>
+          <button className='btn-primary p-2 backtoList'>
+            <Link className='backToList' to='/' onClick={e => close(valittuKirja)}>
               Takaisin listaukseen
             </Link>
           </button>
