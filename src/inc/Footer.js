@@ -10,9 +10,9 @@ function notifyOk() {
   toast("Uutiskirje tilattu!");
 }
 
-function notifyErr() {
+/* function notifyErr() {
   toast("Kirjoita osoite!");
-}
+} */
 
 export default function Footer () {
   const [uutiskirje, setUutiskirje] = useState('')

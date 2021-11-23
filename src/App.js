@@ -11,11 +11,8 @@ import UKK from './inc/UKK'
 import Rekisteri from './inc/Rekisteri'
 import AboutUs from './inc/AboutUs'
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import karry from './img/karry.png'
 import Order from './Order'
 import Detail from './Detail'
-//import uuid from 'react-uuid'
 
 const URL = 'http://localhost/kauppa'
 

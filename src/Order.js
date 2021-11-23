@@ -5,7 +5,7 @@ import './inc/styles/Order.css';
 import './App.css';
 
 const riviSumma = 0;
-const loppusumma = 0;
+//const loppusumma = 0;
 
 export default function Order ({url, cart, clear, removeFromCart, updateAmount}) {
   const [inputs, setInputs] = useState([]);

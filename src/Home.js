@@ -5,10 +5,10 @@ import './App.css'
 import { Slide } from 'react-slideshow-image'
 import 'react-slideshow-image/dist/styles.css'
 import karry from './img/karry.png'
-import Detail from './Detail'
+//import Detail from './Detail'
 import Top from './Top'
-import { Link } from 'react-router-dom'
-import {Route} from 'react-router-dom'
+//import { Link } from 'react-router-dom'
+//import {Route} from 'react-router-dom'
 
 function Home ({ url, addToCart, Detail }) {
   const [kirjat, setKirjat] = useState([])
@@ -40,7 +40,7 @@ function Home ({ url, addToCart, Detail }) {
 
   if (valittuKirja != null) {
     return (
-     
+      
       <Detail valittuKirja={valittuKirja} addToCart={addToCart}
       //MITEN TÄSSÄ SAADAAN SIIRTYMÄ OMALLE SIVULLE?
         kirjaid={valittuKirja.kirjaid}
