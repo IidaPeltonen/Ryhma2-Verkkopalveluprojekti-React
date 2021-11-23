@@ -19,10 +19,11 @@ import Order from './Order'
 const URL = 'http://localhost/kauppa'
 
 function App () {
-  const [category, setCategory] = useState(null)
-  const [cart, setCart] = useState([])
+  const [category, setCategory] = useState(null);
+  //const [searchPhrase, setsearchPhrase] = useState(''); muuuttuja hakua varten
+  const [cart, setCart] = useState([]);
 
-  let location = useLocation()
+  let location = useLocation();
 
   useEffect(() => {
     if ('cart' in localStorage) {
@@ -38,36 +39,34 @@ function App () {
   }
 
   useEffect(() => {
-    // console.log(category);
     if (location.state !== undefined) {
       setCategory({ id: location.state.id, name: location.state.name })
     }
   }, [location.state])
 
   //tuotteen lisäys ostoskoriin
-  function addToCart (kirja) {
-    kirja["amount"] = 1
-    const newCart = [...cart, kirja]
+  function addToCart (product) {
+    product["amount"] = 1
+    const newCart = [...cart, product]
     setCart(newCart)
     localStorage.setItem('cart', JSON.stringify(newCart))
-    console.log(kirja.amount);
   }
-
-  //tuotteen poisto ostoskorista
-  function removeFromCart (poistettavaKirja) {
-    const itemsWithoutRemoved = cart.filter(kirja => kirja !== poistettavaKirja)
+ 
+ //tuotteen poisto ostoskorista
+  function removeFromCart (product) {
+    const itemsWithoutRemoved = cart.filter(item => item.kirjaid !== product.kirjaid)
     setCart(itemsWithoutRemoved)
     localStorage.setItem('kirja', JSON.stringify(itemsWithoutRemoved))
   }
 
-  //tämä muokkaisi ostoskorin määriä :   
-  function updateAmount(amount, muutettavaKirja, kirja) {
-    kirja.amount = amount;
-    const index = cart.findIndex((kirja => kirja.kirjaid === muutettavaKirja.kirjaid))
-    const modifiedCart = Object.assign([...cart],{[index]: kirja})
+ //tämä muokkaisi ostoskorin määriä :   
+  function updateAmount(amount, product) {
+    product.amount = amount;
+    const index = cart.findIndex((item => item.kirjaid === product.kirjaid))
+    const modifiedCart = Object.assign([...cart],{[index]: product})
     setCart(modifiedCart)
     localStorage.setItem('cart', JSON.stringify(modifiedCart))
-  } 
+  }
 
   //yhden kirjan tiedot
   function Detail (kirja) {
@@ -146,7 +145,7 @@ function App () {
               cart={cart}
               clear={clear}
               removeFromCart={removeFromCart}
-              updateAmount={updateAmount}
+            /*     updateAmount={updateAmount} */
             />
           )}
         />

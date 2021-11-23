@@ -8,11 +8,11 @@ export default function Order ({
   cart,
   clear,
   removeFromCart,
-  updateAmount
+  updateAmount 
 }) {
-  function changeAmount (e, muutettavaKirja, index) {
-    updateAmount(e.target.value.kirja)
-  }
+  function changeAmount (e, product, index) {
+    updateAmount(e.target.value,product)
+  } 
   return (
     <div className='container'>
       <div className='row'>
@@ -44,7 +44,7 @@ export default function Order ({
                       col='2'
                       className='order'
                       href='#'
-                      onClick={() => removeFromCart(kirja)}
+                      onClick={() => removeFromCart(kirja)} 
                     >
                       POISTA OSTOSKORISTA
                     </a>
