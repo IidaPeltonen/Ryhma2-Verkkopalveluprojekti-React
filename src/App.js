@@ -14,6 +14,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import karry from './img/karry.png'
 import Order from './Order'
+import Detail from './Detail'
 //import uuid from 'react-uuid'
 
 const URL = 'http://localhost/kauppa'
@@ -31,7 +32,7 @@ function App () {
       console.log(JSON.parse(localStorage.getItem('cart')))
     }
   }, [])
-
+  
   //ostoskorin tyhjennys kokonaan
   function clear () {
     localStorage.clear()
@@ -62,7 +63,7 @@ function App () {
   function removeFromCart (product) {
     const itemsWithoutRemoved = cart.filter(item => item.kirjaid !== product.kirjaid)
     setCart(itemsWithoutRemoved)
-    localStorage.setItem('kirja', JSON.stringify(itemsWithoutRemoved))
+    localStorage.setItem('cart', JSON.stringify(itemsWithoutRemoved))
   }
 
  //ostoskorin määrän muokkaus  
@@ -74,48 +75,7 @@ function App () {
     localStorage.setItem('cart', JSON.stringify(modifiedCart))
   }
 
-  //yhden kirjan tiedot
-  function Detail (kirja) {
-    return (
-      <div id='detail' className='row'>
-        <div className='col-5'>
-          <img id='detailKuva' src={kirja.kuva} alt='kirjan kansikuva'></img>
-        </div>
-        <div className='col-1'></div>
-        <div className='col-6'>
-          <h1 id='centerh1'>{kirja.kirjanimi}</h1>
-          <h2 id='centerh2'>{kirja.kirjailija}</h2>
-          <p>{kirja.kuvaus}</p>
-          <p>Julkaisuvuosi: {kirja.vuosi} </p>
-          <p>Kieli: {kirja.kieli}</p>
-          <p>Kustantaja: {kirja.kustantaja}</p>
-        </div>
-        <div className='col-1'></div>
-        <div className='col-3'>
-          <button className='btn-primary p-2 btnBacktoList'>
-            <Link className='backToList' to='#' onClick={kirja.close}>
-              Takaisin listaukseen
-            </Link>
-          </button>
-        </div>
-        <div className='col-3'></div>
-        <div className='col-4'>
-          <p>Hinta: {kirja.hinta}€</p>
-          <img id='detailKarry' src={karry} alt='ostoskarry'></img>
-          <br />
-          <button
-            className='btn btn-primary backToList'
-            type='button'
-            onClick={e => addToCart(kirja)}
-          >
-           Lisää ostoskoriin
-          </button>
-        </div>
-      </div>
-    )
-  }
-
-  return (
+   return (
     <div className='container-fluid'>
       <NavBar url={URL} setCategory={setCategory} cart={cart} />
       <Header />
@@ -152,6 +112,14 @@ function App () {
               clear={clear}
               removeFromCart={removeFromCart}
               updateAmount={updateAmount}
+            />
+          )}
+        />
+        <Route
+          path='/detail'
+          render={() => (
+            <Detail
+              addToCart={addToCart}
             />
           )}
         />

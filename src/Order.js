@@ -4,7 +4,10 @@ import { useState, useEffect } from 'react';
 import './inc/styles/Order.css';
 import './App.css';
 
-export default function Order ({url, cart, clear, removeFromCart, updateAmount, changeAmount}) {
+const riviSumma = 0;
+const loppusumma = 0;
+
+export default function Order ({url, cart, clear, removeFromCart, updateAmount}) {
   const [inputs, setInputs] = useState([]);
   const [inputIndex, setInputIndex] = useState(-1);
 
@@ -33,6 +36,7 @@ export default function Order ({url, cart, clear, removeFromCart, updateAmount, 
             <tbody col="12">
               {cart.map((product, index) => (
                 //sum+=parseFloat(product.hinta);
+                //riviSumma+=(product.summa)
                 <tr key={uuid()}>
                   <td col='2'>
                     <img src={product.kuva} alt='kirjan kansikuva'></img>
@@ -44,7 +48,7 @@ export default function Order ({url, cart, clear, removeFromCart, updateAmount, 
                     <input
                       col='2'
                       ref={inputs[index]}
-                      style={{ width: '70px' }}
+                      style={{ width: '60px' }}
                       type='number'
                       step='1'
                       min='1'
@@ -52,6 +56,7 @@ export default function Order ({url, cart, clear, removeFromCart, updateAmount, 
                       value={product.amount}
                     />
                   </td>
+                  <td>Yhteensä: {riviSumma} </td>
                   <td>
                     <a
                       col='2'
@@ -83,35 +88,3 @@ export default function Order ({url, cart, clear, removeFromCart, updateAmount, 
   )
 }
 
-/*  /*  <table>
-    <tbody>
-      {cart.map((kirja, index) => {
-        //sum+=parseFloat(kirja.hinta);
-        return (
-          <tr key={uuid()}>
-            <td>{kirja.kirjanimi}</td>
-            <td>{kirja.hinta}</td>
-            <td>
-              <img src={kirja.kuva} alt='kirjan kansikuva'></img>
-            </td>
-            <td>
-              <input
-                style={{ width: '60p' }}
-                type='number'
-                step='1'
-                min='1'
-                onChange={e => changeAmount(e, kirja, index)}
-                value={kirja.amount}
-              />
-            </td>
-            <td>
-              <a className='order' href='#' onClick={() => removeFromCart(kirja)}>
-                POISTA OSTOSKORISTA
-              </a>
-            </td>
-          </tr>
-      )
-      })}
-  </tbody>
-  </table> 
-}*/

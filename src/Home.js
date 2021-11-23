@@ -5,6 +5,7 @@ import './App.css'
 import { Slide } from 'react-slideshow-image'
 import 'react-slideshow-image/dist/styles.css'
 import karry from './img/karry.png'
+import Detail from './Detail'
 import Top from './Top'
 
 function Home ({ url, addToCart, Detail }) {
@@ -37,7 +38,10 @@ function Home ({ url, addToCart, Detail }) {
 
   if (valittuKirja != null) {
     return (
-      <Detail
+      <Detail 
+      //MITEN TÄSSÄ SAADAAN SIIRTYMÄ OMALLE SIVULLE?
+        href='/detail'
+        addToCart={addToCart} 
         kirjaid={valittuKirja.kirjaid}
         kirjanimi={valittuKirja.kirjanimi}
         kirjailija={valittuKirja.kirjailija}
