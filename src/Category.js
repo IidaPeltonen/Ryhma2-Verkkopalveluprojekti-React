@@ -31,7 +31,9 @@ export default function Category ({ url, category, addToCart, Detail }) {
 
   if (valittuKirja != null) {
     return (
-      <Detail valittuKirja={valittuKirja} addToCart={addToCart} 
+      <Detail
+        valittuKirja={valittuKirja}
+        addToCart={addToCart}
         kirjaid={valittuKirja.kirjaid}
         kirjanimi={valittuKirja.kirjanimi}
         kirjailija={valittuKirja.kirjailija}
@@ -50,21 +52,25 @@ export default function Category ({ url, category, addToCart, Detail }) {
       <div>
         <h2 id='otsikko'>{category?.name}</h2>
         <ol id='kaikki'>
-          
-            {kirjat.map(kirja => (
-              <div key={kirja.kirjaid}>
-                <div onClick={e => setValittuKirja(kirja)}>
+          {kirjat.map(kirja => (
+            <div className='container'>
+              <div key={kirja.kirjaid} className='row table-responsive-md'>
+                <div className='col-2' onClick={e => setValittuKirja(kirja)}>
                   <img id='kirja' src={kirja.kuva} alt='kirjan kansikuva' />
-                  <br />
-                  <b>
-                    {kirja.kirjanimi} <br />
-                    {kirja.kirjailija}
-                  </b>
-                  <br />
-                  Hinta: {kirja.hinta}€<br />
-                  Varastossa: {kirja.saldo} kpl <br />
                 </div>
-                <div>
+                <div className='col-2'>
+                  <b>{kirja.kirjanimi}</b>
+                </div>
+                <div className='col-2'>
+                  <b>{kirja.kirjailija}</b>
+                </div>
+                <div className='col-4'>
+                  {kirja.kuvaus}
+                </div>
+                <div className='col-1'>
+                  <b>{kirja.hinta}€</b>
+                </div>
+                <div className='col-1'>
                   <button
                     className='btn'
                     type='button'
@@ -73,9 +79,17 @@ export default function Category ({ url, category, addToCart, Detail }) {
                     <img id='pieni' src={karry} alt='ostoskärry' />
                   </button>
                 </div>
+                <div className='col-4'>
+                
+                </div>
+                <div className='col-8'>
+                  
+                </div>
               </div>
-            ))}
-    
+              <br /><br />
+            </div>
+            
+          ))}
         </ol>
       </div>
     )
