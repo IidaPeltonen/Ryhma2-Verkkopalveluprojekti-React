@@ -5,7 +5,7 @@ import '../App.css'
 export default function Evasteet () {
   return (
     <div className='col-md-4 ms-4 mb-4'>
-      <h3 className='mb-3'>Evasteet</h3>
+      <h3 className='mb-3'>Evästeet</h3>
       <div className='accordion' id='accordionExample'>
         <div className='accordion-item'>
           <h2 className='accordion-header' id='headingOne'>
