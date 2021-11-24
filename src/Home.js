@@ -8,6 +8,7 @@ import { Slide } from 'react-slideshow-image'
 import 'react-slideshow-image/dist/styles.css'
 import karry from './img/karry.png'
 import Top from './Top'
+import { Route, Switch } from 'react-router-dom'
 
 function Home ({ url, addToCart, Detail }) {
   const [kirjat, setKirjat] = useState([])
@@ -43,6 +44,10 @@ function Home ({ url, addToCart, Detail }) {
 
   if (valittuKirja != null) {
     return (
+      <Switch>
+            <Route path='/detail' render={() => <Detail valittuKirja={valittuKirja} addToCart={addToCart} close={close}></Detail>} />
+      </Switch>
+    /* return (
       <Detail
         valittuKirja={valittuKirja}
         addToCart={addToCart}
@@ -59,6 +64,7 @@ function Home ({ url, addToCart, Detail }) {
         hinta={valittuKirja.hinta}
         close={close}
       />
+    ) */
     )
   } else {
     return (

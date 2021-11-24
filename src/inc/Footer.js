@@ -33,6 +33,9 @@ export default function Footer () {
           <Link to='/rekisteri'>Rekisteriseloste</Link>
         </div>
         <div className='col-md-2 col-10 my-auto mx-auto'>
+          <Link to='/evasteet'>Evästetiedot</Link>
+        </div>
+        <div className='col-md-2 col-10 my-auto mx-auto'>
           <p id='uutiskirje'>Tilaa uutiskirje</p>
           <div className='input-group mb-3'>
             <input
