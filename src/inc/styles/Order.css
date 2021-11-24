@@ -5,3 +5,7 @@
 .tyhjenna {
     font-weight: bold;
 }
+
+#roskis {
+    max-width: 40px;
+}

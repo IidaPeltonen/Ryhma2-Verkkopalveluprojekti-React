@@ -3,6 +3,7 @@ import uuid from 'react-uuid'
 import { useState, useEffect } from 'react'
 import './inc/styles/Order.css'
 import './App.css'
+import roskis from './img/roskis.png'
 
 const riviSumma = 0
 
@@ -74,14 +75,24 @@ export default function Order ({
                   Yhteensä: {riviSumma}{' '}
                 </td>
                 <td scope='col' className='align-middle'>
-                  <a
-                    className='order'
-                    href='#'
-                    onClick={() => removeFromCart(product)}
-                  >
-                    POISTA TUOTE
-                  </a>
+                  <button
+                      className='btn'
+                      type='button'
+                      onClick={() => removeFromCart(product)}
+                    >
+                      <img id='roskis' src={roskis} alt='roskakori' />
+                    </button>
                 </td>
+               {/*  <button
+                  className='btn'
+                  type='button'
+                  onClick={function (event) {
+                  addToCart(valittuKirja)
+                  notify()
+                  }}
+                >
+                <img id='pieni' src={karry} alt='ostoskärry' />
+                </button> */}
               </tr>
             ))}
             <tr></tr>
