@@ -119,7 +119,12 @@ export default function NavBar ({ url, setCategory, cart, Detail, addToCart }) {
             </ul>
             <ul className='navbar-nav ms-auto'>
               {/* Tässä oli ennen nappeja, nyt tulostaa tuolta SearchBarista. SIellä on alkuperäinen koodi kyllä, josta itsekin yritin katsoa mallia, mutten osannut. */}
-              <SearchBar placeHolder="Hae tuotteita tästä" kirjat={kirjat} Detail={Detail} addToCart={addToCart} />
+              <SearchBar
+                placeHolder='Hae tuotteita tästä'
+                kirjat={kirjat}
+                Detail={Detail}
+                addToCart={addToCart}
+              />
               <li className='nav-item  ms-2 me-2'>
                 <Cart cart={cart} />
               </li>

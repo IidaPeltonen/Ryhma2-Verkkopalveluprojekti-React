@@ -84,8 +84,7 @@ function Top ({ url, addToCart, Detail }) {
                   <button
                     className='btn'
                     type='button'
-                    onClick=
-                    {function (event) {
+                    onClick={function (event) {
                       addToCart(kirja)
                       notify()
                     }}
@@ -97,16 +96,16 @@ function Top ({ url, addToCart, Detail }) {
             ))}
           </Slide>
           <ToastContainer
-                    position="bottom-right"
-                    autoClose={4000}
-                    hideProgressBar={true}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                  />
+            position='bottom-right'
+            autoClose={4000}
+            hideProgressBar={true}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
         </ol>
       </div>
     )

@@ -5,14 +5,9 @@ import { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 function notifyOk() {
-  toast("Uutiskirje tilattu!");
+  toast("Uutiskirje tilattu, jos syötit toimivan osoiotteen! :)");
 }
-
-/* function notifyErr() {
-  toast("Kirjoita osoite!");
-} */
 
 export default function Footer () {
   const [uutiskirje, setUutiskirje] = useState('')
@@ -22,17 +17,6 @@ export default function Footer () {
   const uutiskirjeenTyhjennys = () => {
     setUutiskirje('')
   }
-  /* const uutiskirjeenTarkistus = () => {
-    //const osoite = document.getElementById("id");
-    //console.log(osoite);
-    if (osoite === "") {
-      notifyErr()
-    }
-    else {
-      notifyOk()
-    }
-  }
- */
   return (
     <div>
       <footer className='row'>
@@ -61,7 +45,6 @@ export default function Footer () {
               aria-label='Sähköposti'
               aria-describedby='button-addon2'
             ></input>
-
             <button
               className='uutiskirje btn btn-outline-secondary'
               type='button'

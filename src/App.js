@@ -17,11 +17,11 @@ import Detail from './Detail'
 const URL = 'http://localhost/kauppa'
 
 function App () {
-  const [category, setCategory] = useState(null);
+  const [category, setCategory] = useState(null)
   //const [searchPhrase, setsearchPhrase] = useState(''); muuuttuja hakua varten
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState([])
 
-  let location = useLocation();
+  let location = useLocation()
 
   useEffect(() => {
     if ('cart' in localStorage) {
@@ -29,7 +29,7 @@ function App () {
       console.log(JSON.parse(localStorage.getItem('cart')))
     }
   }, [])
-  
+
   //ostoskorin tyhjennys kokonaan
   function clear () {
     localStorage.clear()
@@ -45,36 +45,45 @@ function App () {
   //tuotteen lisäys ostoskoriin
   function addToCart (product) {
     if (cart.some(item => item.kirjaid === product.kirjaid)) {
-      const existingProduct = cart.filter(item => item.kirjaid === product.kirjaid)
-      updateAmount(parseInt(existingProduct[0].amount) +1, product);
-    }
-    else {
-      product["amount"] = 1
+      const existingProduct = cart.filter(
+        item => item.kirjaid === product.kirjaid
+      )
+      updateAmount(parseInt(existingProduct[0].amount) + 1, product)
+    } else {
+      product['amount'] = 1
       const newCart = [...cart, product]
       setCart(newCart)
       localStorage.setItem('cart', JSON.stringify(newCart))
     }
   }
-    
- //tuotteen poisto ostoskorista
+
+  //tuotteen poisto ostoskorista
   function removeFromCart (product) {
-    const itemsWithoutRemoved = cart.filter(item => item.kirjaid !== product.kirjaid)
+    const itemsWithoutRemoved = cart.filter(
+      item => item.kirjaid !== product.kirjaid
+    )
     setCart(itemsWithoutRemoved)
     localStorage.setItem('cart', JSON.stringify(itemsWithoutRemoved))
   }
 
- //ostoskorin määrän muokkaus  
-  function updateAmount(amount, product) {
-    product.amount = amount;
-    const index = cart.findIndex((item => item.kirjaid === product.kirjaid))
-    const modifiedCart = Object.assign([...cart],{[index]: product})
+  //ostoskorin määrän muokkaus
+  function updateAmount (amount, product) {
+    product.amount = amount
+    const index = cart.findIndex(item => item.kirjaid === product.kirjaid)
+    const modifiedCart = Object.assign([...cart], { [index]: product })
     setCart(modifiedCart)
     localStorage.setItem('cart', JSON.stringify(modifiedCart))
   }
 
-   return (
+  return (
     <div className='container-fluid'>
-      <NavBar url={URL} setCategory={setCategory} cart={cart} Detail={Detail} addToCart={addToCart} />
+      <NavBar
+        url={URL}
+        setCategory={setCategory}
+        cart={cart}
+        Detail={Detail}
+        addToCart={addToCart}
+      />
       <Header />
       <Switch>
         <Route
@@ -112,14 +121,7 @@ function App () {
             />
           )}
         />
-        <Route
-          path='/detail'
-          render={() => (
-            <Detail
-              addToCart={addToCart}
-            />
-          )}
-        />
+        <Route path='/detail' render={() => <Detail addToCart={addToCart} />} />
         <Route path='/contactus' component={ContactUs} />
         <Route path='/aboutus' component={AboutUs} />
         <Route path='/ukk' component={UKK} />
@@ -130,4 +132,4 @@ function App () {
   )
 }
 
-export default App;
+export default App

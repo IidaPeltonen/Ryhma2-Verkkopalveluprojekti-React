@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
 import './styles/SearchBar.css'
 
-
 export default function SearchBar({ placeHolder, kirjat, Detail, addToCart }) {
-
-
     const [filteredData, setFilteredData] = useState([])
     const [wordEntered, setWordEntered] = useState('')
     const [valittuKirja, setValittuKirja] = useState(null)
@@ -12,9 +9,7 @@ export default function SearchBar({ placeHolder, kirjat, Detail, addToCart }) {
 //  Jos syötetty searchWord sisältää samoja sanoja/kirjaimia jne. kuin mitä kirjanimiä tai kirjailijan nimiä tietokannassa on, newFilter suodattaa kaikki ne kirjat 
 //  joiden nimessä searchWord esiintyy. 
 //  Jos searchWord eli ts. inputissa ei ole mitään, filteredData-taulukko asetetaan tyhjäksi.
-
 //  Tän hakukomponentin saa vaihtaa paremmaksi, jos tuntuu siltä että tämä on huono.
-
 
     function handleFilter(e) {
         const searchWord = e.target.value
@@ -24,7 +19,6 @@ export default function SearchBar({ placeHolder, kirjat, Detail, addToCart }) {
             || 
             value.kirjailija.toLowerCase().includes(searchWord.toLowerCase())
         })
-
         if (searchWord === "") {
             setFilteredData([]);
         } else {
@@ -72,9 +66,7 @@ export default function SearchBar({ placeHolder, kirjat, Detail, addToCart }) {
                                 Hae
                             </button> 
                             /* ...muutoin ":" näytetään "Sulje" -nappi, eli tekstiä on kirjoitettu. clearInput poistaa kirjoitetun tekstin kentästä.*/
-                            
                             :
-                             
                             <button
                                 onClick={clearInput}
                                 className='haku btn btn-outline-secondary'
@@ -92,9 +84,7 @@ export default function SearchBar({ placeHolder, kirjat, Detail, addToCart }) {
                         <div className="input-group dataResult mb-3">
                             {filteredData?.slice(0, 4).map((kirja) => (
                                 <div key={kirja.kirjaid}>
-
                                     <p onClick={e => setValittuKirja(kirja)} >{kirja.kirjanimi}</p>
-
                                 </div>
                             ))}
                         </div>
@@ -104,9 +94,7 @@ export default function SearchBar({ placeHolder, kirjat, Detail, addToCart }) {
         )
     }
 }
-
 // ** Alkuperäinen hakunappi NavBarista **
-
 {/* <ul className='navbar-nav ms-auto'>
     <li className='nav-item ms-2 me-2'>
         <div className='input-group mb-3'>

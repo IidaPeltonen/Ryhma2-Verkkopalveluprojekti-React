@@ -2,22 +2,19 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { Slide } from 'react-slideshow-image'
 import 'react-slideshow-image/dist/styles.css'
 import karry from './img/karry.png'
-//import Detail from './Detail'
 import Top from './Top'
-//import { Link } from 'react-router-dom'
-//import {Route} from 'react-router-dom'
 
 function Home ({ url, addToCart, Detail }) {
   const [kirjat, setKirjat] = useState([])
   const [valittuKirja, setValittuKirja] = useState(null)
 
-  function notify() {
-    toast("Kirja lisätty ostoskoriin!");
+  function notify () {
+    toast('Kirja lisätty ostoskoriin!')
   }
 
   const properties = {
@@ -46,9 +43,10 @@ function Home ({ url, addToCart, Detail }) {
 
   if (valittuKirja != null) {
     return (
-      
-      <Detail valittuKirja={valittuKirja} addToCart={addToCart}
-      //MITEN TÄSSÄ SAADAAN SIIRTYMÄ OMALLE SIVULLE?
+      <Detail
+        valittuKirja={valittuKirja}
+        addToCart={addToCart}
+        //MITEN TÄSSÄ SAADAAN SIIRTYMÄ OMALLE SIVULLE?
         kirjaid={valittuKirja.kirjaid}
         kirjanimi={valittuKirja.kirjanimi}
         kirjailija={valittuKirja.kirjailija}
@@ -88,7 +86,11 @@ function Home ({ url, addToCart, Detail }) {
                   <button
                     className='btn'
                     type='button'
-                    onClick={function(event){addToCart(kirja);notify()}}                >
+                    onClick={function (event) {
+                      addToCart(kirja)
+                      notify()
+                    }}
+                  >
                     <img id='pieni' src={karry} alt='ostoskärry' />
                   </button>
                 </div>
@@ -96,16 +98,16 @@ function Home ({ url, addToCart, Detail }) {
             ))}
           </Slide>
           <ToastContainer
-                    position="bottom-right"
-                    autoClose={4000}
-                    hideProgressBar={true}
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                  />
+            position='bottom-right'
+            autoClose={4000}
+            hideProgressBar={true}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
         </ol>
       </div>
     )
