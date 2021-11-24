@@ -12,7 +12,8 @@ export default function SearchBar({ placeHolder, kirjat, Detail, addToCart }) {
 //  Jos syötetty searchWord sisältää samoja sanoja/kirjaimia jne. kuin mitä kirjanimiä tai kirjailijan nimiä tietokannassa on, newFilter suodattaa kaikki ne kirjat 
 //  joiden nimessä searchWord esiintyy. 
 //  Jos searchWord eli ts. inputissa ei ole mitään, filteredData-taulukko asetetaan tyhjäksi.
-// Tän saa vaihtaa paremmaksi, jos tuntuu siltä että tämä on huono.
+
+//  Tän hakukomponentin saa vaihtaa paremmaksi, jos tuntuu siltä että tämä on huono.
 
 
     function handleFilter(e) {
@@ -44,7 +45,7 @@ export default function SearchBar({ placeHolder, kirjat, Detail, addToCart }) {
     if (valittuKirja != null) {
         return (
             <Detail valittuKirja={valittuKirja} addtoCart={addToCart} close={close}
-            //MITEN TÄSSÄ SAADAAN SIIRTYMÄ OMALLE SIVULLE? Todella tärkeä, muuten yrittää mahduttaa koko detailin navbarin sisälle.
+            //MITEN TÄSSÄ SAADAAN SIIRTYMÄ OMALLE SIVULLE? Todella tärkeä, muuten yrittää mahduttaa koko detailin navbarin sisälle ja rikkoo oikeastaan koko systeemin.
             />
         )
     } else {
@@ -61,7 +62,7 @@ export default function SearchBar({ placeHolder, kirjat, Detail, addToCart }) {
                             aria-describedby='button-addon2'
                             onChange={handleFilter}
                         ></input> 
-                        {/* Näytetään Hae- nappi, kun hakukenttään kirjoitetaan hakua ja length = 0 eli sinne ei ole vielä kirjoitettu mitään */}
+                        {/* Näytetään "Hae"- nappi, kun hakukenttään ei olla kirjoitettu vielä mitään eli length === 0  */}
                         {filteredData.length === 0 ?
                             <button
                                 className='haku btn btn-outline-secondary'
