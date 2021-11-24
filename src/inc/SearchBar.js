@@ -73,7 +73,7 @@ export default function SearchBar({ placeHolder, kirjat, Detail, addToCart }) {
                                 type='button'
                                 id='button-addon2'
                             >
-                                Sulje
+                                Tyhjennä
                             </button>}
                     </div>
                 </li>
