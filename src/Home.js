@@ -2,6 +2,8 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Slide } from 'react-slideshow-image'
 import 'react-slideshow-image/dist/styles.css'
 import karry from './img/karry.png'
@@ -13,6 +15,10 @@ import Top from './Top'
 function Home ({ url, addToCart, Detail }) {
   const [kirjat, setKirjat] = useState([])
   const [valittuKirja, setValittuKirja] = useState(null)
+
+  function notify() {
+    toast("Kirja lisätty ostoskoriin!");
+  }
 
   const properties = {
     duration: 5000,
@@ -55,9 +61,6 @@ function Home ({ url, addToCart, Detail }) {
         hinta={valittuKirja.hinta}
         close={close}
       />
-      
-      
-      
     )
   } else {
     return (
@@ -85,14 +88,24 @@ function Home ({ url, addToCart, Detail }) {
                   <button
                     className='btn'
                     type='button'
-                    onClick={e => addToCart(kirja)}
-                  >
+                    onClick={function(event){addToCart(kirja);notify()}}                >
                     <img id='pieni' src={karry} alt='ostoskärry' />
                   </button>
                 </div>
               </div>
             ))}
           </Slide>
+          <ToastContainer
+                    position="bottom-right"
+                    autoClose={4000}
+                    hideProgressBar={true}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                  />
         </ol>
       </div>
     )
