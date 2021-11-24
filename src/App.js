@@ -121,7 +121,15 @@ function App () {
             />
           )}
         />
-        <Route path='/detail' render={() => <Detail addToCart={addToCart} />} />
+        <Route 
+          path='/detail' 
+          render={() => (
+            <Detail
+              url={URL}
+              addToCart={addToCart} 
+            />
+          )} 
+        />
         <Route path='/contactus' component={ContactUs} />
         <Route path='/aboutus' component={AboutUs} />
         <Route path='/ukk' component={UKK} />

@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 //yhden kirjan tiedot
-export default function Detail ({ valittuKirja, addToCart, close }) {
+export default function Detail ({ url, valittuKirja, addToCart, close }) {
   function notify () {
     toast('Kirja lisätty ostoskoriin!')
   }
