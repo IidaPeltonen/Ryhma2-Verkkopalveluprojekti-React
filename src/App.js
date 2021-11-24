@@ -9,6 +9,7 @@ import NavBar from './inc/NavBar'
 import ContactUs from './inc/ContactUs'
 import UKK from './inc/UKK'
 import Rekisteri from './inc/Rekisteri'
+import Evasteet from './inc/Evasteet'
 import AboutUs from './inc/AboutUs'
 import { useState, useEffect } from 'react'
 import Order from './Order'
@@ -126,6 +127,7 @@ function App () {
         <Route path='/aboutus' component={AboutUs} />
         <Route path='/ukk' component={UKK} />
         <Route path='/rekisteri' component={Rekisteri} />
+        <Route path='/evasteet' component={Evasteet} />
       </Switch>
       <Footer />
     </div>
