@@ -145,7 +145,6 @@ function App() {
           path='/detail'
           render={() => (
             <Detail
-              url={URL}
               kirja={kirja}
               addToCart={addToCart}
             />

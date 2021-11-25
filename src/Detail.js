@@ -3,9 +3,12 @@ import './inc/styles/Details.css'
 import karry from './img/karry.png'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { useHistory } from 'react-router-dom'
 
 //yhden kirjan tiedot
-export default function Detail ({ url, kirja, addToCart}) {
+export default function Detail ({  kirja, addToCart}) {
+
+  const history = useHistory();
   function notify () {
     toast('Kirja lisätty ostoskoriin!')
   }
@@ -29,17 +32,14 @@ export default function Detail ({ url, kirja, addToCart}) {
         <p>Kustantaja: {kirja.kustantaja}</p>
       </div>
       <div className='col-1'></div>
-     {/*  <div className='col-3'>
-        <button className='btn-primary p-2 backtoList'>
-          <Link
-            className='backToList'
-            to='/'
-            onClick={e => close(kirja)}
-          >
+      <div className='col-3'>
+        <button className='btn-primary p-2 backtoList' 
+        onClick={history.goBack}>
+          
             Takaisin listaukseen
-          </Link>
+          
         </button>
-      </div> */}
+      </div>
       <div className='col-3'></div>
       <div className='col-4'>
         <p>Hinta: {kirja.hinta}€</p>

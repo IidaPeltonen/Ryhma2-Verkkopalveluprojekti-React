@@ -51,10 +51,6 @@ export default function SearchBar({ placeHolder, kirja, url }) {
         setFilteredData([])
         setWordEntered('')
     }
-
-    function close() {
-        setValittuKirja(null)
-    }
     return (
         // <ul className='navbar-nav ms-auto'>
         <>
