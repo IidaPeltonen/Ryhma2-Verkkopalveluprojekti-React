@@ -16,7 +16,7 @@ export default function Detail ({ url, kirja, addToCart}) {
       <div className='col-5'>§
         <img
           id='detailKuva'
-          src={ki.kuva}
+          src={kirja.kuva}
           alt='kirjan kansikuva'
         ></img>
       </div>
