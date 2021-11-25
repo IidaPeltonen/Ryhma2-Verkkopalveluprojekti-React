@@ -44,9 +44,10 @@ export default function SearchBar({ placeHolder, kirjat, Detail, addToCart }) {
         )
     } else {
         return (
-            <ul className='navbar-nav ms-auto'>
-                <li className='nav-item ms-2 me-2'>
-                    <div className='input-group mb-3'>
+            // <ul className='navbar-nav ms-auto'>
+            <>
+                <li className='nav-item mt-1 ms-2 me-2'>
+                    <div className='search input-group mb-3'>
                         <input
                             type='text'
                             className='form-control'
@@ -77,8 +78,6 @@ export default function SearchBar({ placeHolder, kirjat, Detail, addToCart }) {
                             </button>}
                     </div>
                 </li>
-                {/* Täällä mapataan filteröity data. slice(0,4) määrittää, että ei voi näkyä kuin 4 hakutulosta */}
-                {/* ** Korjattavaa: Näyttää hakutulokset missä sattuu ja tulokset tulostuu hakukentän (siis inputin) päälle ja hakukenttä pomppii ** */}
                 <li>
                     {filteredData.length !== 0 && (
                         <div className="input-group dataResult mb-3">
@@ -90,7 +89,8 @@ export default function SearchBar({ placeHolder, kirjat, Detail, addToCart }) {
                         </div>
                     )}
                 </li>
-            </ul >
+                </>
+            // </ul >
         )
     }
 }

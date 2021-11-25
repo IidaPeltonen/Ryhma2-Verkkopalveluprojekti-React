@@ -124,6 +124,7 @@ export default function NavBar ({ url, setCategory, cart, Detail, addToCart }) {
                 kirjat={kirjat}
                 Detail={Detail}
                 addToCart={addToCart}
+                // className="nav-item"
               />
               <li className='nav-item  ms-2 me-2'>
                 <Cart cart={cart} />
