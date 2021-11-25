@@ -17,10 +17,11 @@ import Detail from './Detail'
 
 const URL = 'http://localhost/kauppa'
 
-function App () {
+function App() {
   const [category, setCategory] = useState(null)
   //const [searchPhrase, setsearchPhrase] = useState(''); muuuttuja hakua varten
   const [cart, setCart] = useState([])
+  const [kirja, setKirja] = useState([])
 
   let location = useLocation()
 
@@ -32,19 +33,36 @@ function App () {
   }, [])
 
   //ostoskorin tyhjennys kokonaan
-  function clear () {
+  function clear() {
     localStorage.clear()
     window.location.reload(true)
   }
 
   useEffect(() => {
     if (location.state !== undefined) {
-      setCategory({ id: location.state.id, name: location.state.name })
+      if (location.pathname === "/") {
+        setCategory({ id: location.state.id, name: location.state.name })
+      } else if (location.pathname === "/detail") {
+        setKirja({
+          id: location.state.id,
+          kirjanimi: location.state.kirjanimi,
+          kirjailija: location.kirja.kirjailija,
+          vuosi: location.kirja.vuosi,
+          kieli: location.kirja.kieli,
+          kustantaja: location.kirja.kustantaja,
+          kuvaus: location.kirja.kuvaus,
+          hinta:location.kirja.hinta,
+          saldo:location.kirja.saldo,
+          kuva: location.state.kuva,
+
+        })
+      }
+
     }
   }, [location.state])
 
   //tuotteen lisäys ostoskoriin
-  function addToCart (product) {
+  function addToCart(product) {
     if (cart.some(item => item.kirjaid === product.kirjaid)) {
       const existingProduct = cart.filter(
         item => item.kirjaid === product.kirjaid
@@ -59,7 +77,7 @@ function App () {
   }
 
   //tuotteen poisto ostoskorista
-  function removeFromCart (product) {
+  function removeFromCart(product) {
     const itemsWithoutRemoved = cart.filter(
       item => item.kirjaid !== product.kirjaid
     )
@@ -68,7 +86,7 @@ function App () {
   }
 
   //ostoskorin määrän muokkaus
-  function updateAmount (amount, product) {
+  function updateAmount(amount, product) {
     product.amount = amount
     const index = cart.findIndex(item => item.kirjaid === product.kirjaid)
     const modifiedCart = Object.assign([...cart], { [index]: product })
@@ -122,14 +140,15 @@ function App () {
             />
           )}
         />
-        <Route 
-          path='/detail' 
+        <Route
+          path='/detail'
           render={() => (
             <Detail
               url={URL}
-              addToCart={addToCart} 
+              kirja={kirja}
+              addToCart={addToCart}
             />
-          )} 
+          )}
         />
         <Route path='/contactus' component={ContactUs} />
         <Route path='/aboutus' component={AboutUs} />
