@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import { Slide } from 'react-slideshow-image'
 import 'react-slideshow-image/dist/styles.css'
 import karry from './img/karry.png'
+import { Link } from 'react-router-dom'
 
 function Top ({ url, addToCart, Detail }) {
   const [kirjat, setKirjat] = useState([])
@@ -40,25 +41,7 @@ function Top ({ url, addToCart, Detail }) {
     setValittuKirja(null)
   }
 
-  if (valittuKirja != null) {
-    return (
-      <Detail
-        valittuKirja={valittuKirja}
-        addToCart={addToCart}
-        kuva={valittuKirja.kuva}
-        kirjanimi={valittuKirja.kirjanimi}
-        kirjailija={valittuKirja.kirjailija}
-        vuosi={valittuKirja.vuosi}
-        kieli={valittuKirja.kieli}
-        kustantaja={valittuKirja.kustantaja}
-        kuvaus={valittuKirja.kuvaus}
-        saldo={valittuKirja.saldo}
-        hinta={valittuKirja.hinta}
-        close={close}
-      />
-    )
-  } else {
-    return (
+  return (
       <div id='reuna' className='container-fluid'>
         <h2 id='otsikko' className='ms-4'>
           Myydyimmät kirjat
@@ -66,6 +49,9 @@ function Top ({ url, addToCart, Detail }) {
         <ol id='top7' className='row'>
           <Slide {...propertiesTop}>
             {kirjat?.map(kirja => (
+              <Link to={{pathname: "/detail", state: {id: kirja.id, kirjanimi: kirja.kirjanimi, kirjailija: kirja.kirjailija,
+                vuosi: kirja.vuosi, kieli: kirja.kieli, kustantaja: kirja.kustantaja, kuvaus: kirja.kuvaus,
+                hinta: kirja.hinta, saldo: kirja.saldo, kuva: kirja.kuva}}}>
               <div key={kirja.kirjaid}>
                 <b> {kirja.rownum}. </b>
                 <br />
@@ -93,6 +79,7 @@ function Top ({ url, addToCart, Detail }) {
                   </button>
                 </div>
               </div>
+              </Link>
             ))}
           </Slide>
           <ToastContainer
@@ -110,6 +97,6 @@ function Top ({ url, addToCart, Detail }) {
       </div>
     )
   }
-}
+
 
 export default Top
