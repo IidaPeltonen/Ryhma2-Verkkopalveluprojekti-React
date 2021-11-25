@@ -12,7 +12,7 @@ export default function Detail ({ url, kirja, addToCart}) {
 
   return (
     <div id='detail' className='row'>
-      <div className='col-5'>§
+      <div className='col-5'>
         <img
           id='detailKuva'
           src={kirja.kuva}
