@@ -7,9 +7,8 @@ import { useState, useEffect } from 'react'
 import Cart from './Cart'
 import SearchBar from './SearchBar'
 
-export default function NavBar ({ url, setCategory, cart, Detail, addToCart }) {
+export default function NavBar ({ url, setCategory, cart, Detail, addToCart, kirja }) {
   const [categories, setCategories] = useState([])
-  const [kirjat, setKirjat] = useState([])
 
   useEffect(() => {
     axios
@@ -18,22 +17,6 @@ export default function NavBar ({ url, setCategory, cart, Detail, addToCart }) {
         const json = response.data
         setCategories(json)
         setCategory(json[0])
-        console.log(response)
-      })
-      .catch(error => {
-        if (error.response === undefined) {
-          alert(error)
-        } else {
-          alert(error.response.data.error)
-        }
-      })
-  }, [])
-
-  useEffect(() => {
-    axios
-      .get(url)
-      .then(response => {
-        setKirjat(response.data)
         console.log(response)
       })
       .catch(error => {
@@ -121,9 +104,8 @@ export default function NavBar ({ url, setCategory, cart, Detail, addToCart }) {
               {/* Tässä oli ennen nappeja, nyt tulostaa tuolta SearchBarista. SIellä on alkuperäinen koodi kyllä, josta itsekin yritin katsoa mallia, mutten osannut. */}
               <SearchBar
                 placeHolder='Hae tuotteita tästä'
-                kirjat={kirjat}
-                Detail={Detail}
-                addToCart={addToCart}
+                kirja={kirja}
+                url={url}
                 // className="nav-item"
               />
               <li className='nav-item  ms-2 me-2'>

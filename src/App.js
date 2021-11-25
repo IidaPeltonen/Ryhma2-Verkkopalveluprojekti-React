@@ -102,6 +102,7 @@ function App() {
         cart={cart}
         Detail={Detail}
         addToCart={addToCart}
+        kirja={kirja}
       />
       <Header />
       <Switch>
