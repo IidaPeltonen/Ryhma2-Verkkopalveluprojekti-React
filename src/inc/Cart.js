@@ -8,7 +8,7 @@ export default function Cart ({ cart }) {
    let maara = 0;
     for (let i = 0; i < cart.length; i++) {
       //lasketaan taulukon rivi, sieltä tuotteen amount ja lisätään se maaraan
-      maara+=cart[i].amount
+      maara+=parseInt(cart[i].amount)
     } 
   return (
     <div>
