@@ -30,7 +30,7 @@ export default function Detail ({ url, kirja, addToCart}) {
         <p>Kustantaja: {kirja.kustantaja}</p>
       </div>
       <div className='col-1'></div>
-      <div className='col-3'>
+     {/*  <div className='col-3'>
         <button className='btn-primary p-2 backtoList'>
           <Link
             className='backToList'
@@ -40,7 +40,7 @@ export default function Detail ({ url, kirja, addToCart}) {
             Takaisin listaukseen
           </Link>
         </button>
-      </div>
+      </div> */}
       <div className='col-3'></div>
       <div className='col-4'>
         <p>Hinta: {kirja.hinta}€</p>

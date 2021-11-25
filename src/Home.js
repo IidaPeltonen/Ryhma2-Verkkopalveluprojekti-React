@@ -8,7 +8,7 @@ import { Slide } from 'react-slideshow-image'
 import 'react-slideshow-image/dist/styles.css'
 import karry from './img/karry.png'
 import Top from './Top'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Link } from 'react-router-dom'
 
 function Home ({ url, addToCart, Detail }) {
   const [kirjat, setKirjat] = useState([])
