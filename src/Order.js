@@ -3,7 +3,6 @@ import uuid from 'react-uuid'
 import { useState, useEffect } from 'react'
 import './inc/styles/Order.css'
 import './App.css'
-import roskis from './img/roskis.png'
 
 const riviSumma = 0
 
@@ -86,16 +85,6 @@ export default function Order({
                     </svg>
                   </button>
                 </th>
-                {/*  <button
-                  className='btn'
-                  type='button'
-                  onClick={function (event) {
-                  addToCart(valittuKirja)
-                  notify()
-                  }}
-                >
-                <img id='pieni' src={karry} alt='ostoskärry' />
-                </button> */}
               </tr>
             ))}
             <tr></tr>

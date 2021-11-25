@@ -49,13 +49,13 @@ function Top ({ url, addToCart, Detail }) {
         <ol id='top7' className='row'>
           <Slide {...propertiesTop}>
             {kirjat?.map(kirja => (
-              <Link to={{pathname: "/detail", state: {id: kirja.id, kirjanimi: kirja.kirjanimi, kirjailija: kirja.kirjailija,
-                vuosi: kirja.vuosi, kieli: kirja.kieli, kustantaja: kirja.kustantaja, kuvaus: kirja.kuvaus,
-                hinta: kirja.hinta, saldo: kirja.saldo, kuva: kirja.kuva}}}>
               <div key={kirja.kirjaid}>
                 <b> {kirja.rownum}. </b>
                 <br />
                 <div onClick={e => setValittuKirja(kirja)}>
+                <Link to={{pathname: "/detail", state: {id: kirja.id, kirjanimi: kirja.kirjanimi, kirjailija: kirja.kirjailija,
+                vuosi: kirja.vuosi, kieli: kirja.kieli, kustantaja: kirja.kustantaja, kuvaus: kirja.kuvaus,
+                hinta: kirja.hinta, saldo: kirja.saldo, kuva: kirja.kuva}}}>
                   <img id='kirja' src={kirja.kuva} alt='kirjan kansikuva' />
                   <br />
                   <b>
@@ -65,6 +65,7 @@ function Top ({ url, addToCart, Detail }) {
                   <br />
                   Hinta: {kirja.hinta} €<br />
                   Myyty: {kirja.SUM} kpl <br />
+                  </Link>
                 </div>
                 <div>
                   <button
@@ -79,7 +80,6 @@ function Top ({ url, addToCart, Detail }) {
                   </button>
                 </div>
               </div>
-              </Link>
             ))}
           </Slide>
           <ToastContainer

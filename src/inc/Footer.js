@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function notifyOk() {
-  toast("Uutiskirje tilattu, jos syötit toimivan osoiotteen! :)");
+  toast("Uutiskirje tilattu, jos syötit toimivan osoitteen! :)");
 }
 
 export default function Footer () {
