@@ -10,11 +10,11 @@ import karry from './img/karry.png'
 import Top from './Top'
 import { Link } from 'react-router-dom'
 
-function Home ({ url, addToCart, Detail }) {
+function Home({ url, addToCart, Detail }) {
   const [kirjat, setKirjat] = useState([])
   const [valittuKirja, setValittuKirja] = useState(null)
 
-  function notify () {
+  function notify() {
     toast('Kirja lisätty ostoskoriin!')
   }
 
@@ -38,7 +38,7 @@ function Home ({ url, addToCart, Detail }) {
       })
   }, [])
 
-  function close () {
+  function close() {
     setValittuKirja(null)
   }
 
@@ -52,50 +52,54 @@ function Home ({ url, addToCart, Detail }) {
         <ol id='kaikki'>
           <Slide {...properties}>
             {kirjat?.map(kirja => (
-              <Link to={{pathname: "/detail", state: {id: kirja.id, kirjanimi: kirja.kirjanimi, kirjailija: kirja.kirjailija,
-                  vuosi: kirja.vuosi, kieli: kirja.kieli, kustantaja: kirja.kustantaja, kuvaus: kirja.kuvaus,
-                  hinta: kirja.hinta, saldo: kirja.saldo, kuva: kirja.kuva}}}>
-                <div key={kirja.kirjaid}>
-                  <div onClick={e => setValittuKirja(kirja)}>
-                    <img id='kirja' src={kirja.kuva} alt='kirjan kansikuva' />
-                    <br />
-                    <b>
-                      {kirja.kirjanimi} <br />
-                      {kirja.kirjailija}
-                    </b>
-                    <br />
-                    Hinta: {kirja.hinta}€<br />
-                    Varastossa: {kirja.saldo} kpl <br />
-                  </div>
-                  <div>
-                    <button
-                      className='btn'
-                      type='button'
-                      onClick={function (event) {
+              <div key={kirja.kirjaid}>
+                <div onClick={e => setValittuKirja(kirja)}>
+                  <Link to={{
+                    pathname: "/detail", state: {
+                      id: kirja.id, kirjanimi: kirja.kirjanimi, kirjailija: kirja.kirjailija,
+                      vuosi: kirja.vuosi, kieli: kirja.kieli, kustantaja: kirja.kustantaja, kuvaus: kirja.kuvaus,
+                      hinta: kirja.hinta, saldo: kirja.saldo, kuva: kirja.kuva
+                    }
+                  }}>
+                  <img id='kirja' src={kirja.kuva} alt='kirjan kansikuva' />
+                  <br />
+                  <b>
+                  {kirja.kirjanimi} <br />
+                  {kirja.kirjailija}
+                  </b>
+                  <br />
+                  Hinta: {kirja.hinta}€<br />
+                  Varastossa: {kirja.saldo} kpl <br />
+                  </Link>
+                </div>
+                <div>
+                  <button
+                    className='btn'
+                    type='button'
+                    onClick={function (event) {
                       addToCart(kirja)
                       notify()
-                      }}>
-                      <img id='pieni' src={karry} alt='ostoskärry' />
-                    </button>
-                  </div>
-                </div>  
-              </Link>
-            ))}         
-          </Slide>
-          <ToastContainer
-            position='bottom-right'
-            autoClose={4000}
-            hideProgressBar={true}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-          />
-        </ol>
-      </div>
-      </div>
+                    }}>
+                    <img id='pieni' src={karry} alt='ostoskärry' />
+                  </button>
+                </div>
+              </div>  
+            ))}
+        </Slide>
+        <ToastContainer
+          position='bottom-right'
+          autoClose={4000}
+          hideProgressBar={true}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      </ol>
+    </div>
+      </div >
     )
 }
 
