@@ -46,13 +46,13 @@ function App() {
         setKirja({
           id: location.state.id,
           kirjanimi: location.state.kirjanimi,
-          kirjailija: location.kirja.kirjailija,
-          vuosi: location.kirja.vuosi,
-          kieli: location.kirja.kieli,
-          kustantaja: location.kirja.kustantaja,
-          kuvaus: location.kirja.kuvaus,
-          hinta:location.kirja.hinta,
-          saldo:location.kirja.saldo,
+          kirjailija: location.state.kirjailija,
+          vuosi: location.state.vuosi,
+          kieli: location.state.kieli,
+          kustantaja: location.state.kustantaja,
+          kuvaus: location.state.kuvaus,
+          hinta:location.state.hinta,
+          saldo:location.state.saldo,
           kuva: location.state.kuva,
 
         })
