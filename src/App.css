@@ -92,6 +92,7 @@ img {
 #kirja {
   border-style: outset;
   border-width: thin;
+  border-color: black;
 }
 
 /* UKK- ja Rekisteri-sivujen accordion */

@@ -8,7 +8,7 @@ import { Slide } from 'react-slideshow-image'
 import 'react-slideshow-image/dist/styles.css'
 import karry from './img/karry.png'
 import Top from './Top'
-import { Route, Switch, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function Home ({ url, addToCart, Detail }) {
   const [kirjat, setKirjat] = useState([])
@@ -43,6 +43,7 @@ function Home ({ url, addToCart, Detail }) {
   }
 
   return (
+    <div>
       <div>
         <Top url={url} addToCart={addToCart} Detail={Detail} />
         <h2 id='otsikko' className='ms-4'>
@@ -93,6 +94,7 @@ function Home ({ url, addToCart, Detail }) {
             pauseOnHover
           />
         </ol>
+      </div>
       </div>
     )
 }

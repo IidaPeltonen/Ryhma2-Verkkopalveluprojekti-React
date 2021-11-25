@@ -1,6 +1,5 @@
 import React from 'react'
 import './inc/styles/Details.css'
-import { Link } from 'react-router-dom'
 import karry from './img/karry.png'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
