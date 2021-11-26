@@ -99,6 +99,15 @@ export default function NavBar ({ url, setCategory, cart, Detail, addToCart, kir
                   Tarjoukset
                 </a>
               </li>
+              <li className='nav-item  ms-2 me-2'>
+              <Link
+                        className='valkoinen'
+                        to={{
+                          pathname: '/admin'
+                        }}
+                      > Admin
+                      </Link>
+                      </li>
             </ul>
             <ul className='navbar-nav ms-auto'>
               {/* Tässä oli ennen nappeja, nyt tulostaa tuolta SearchBarista. SIellä on alkuperäinen koodi kyllä, josta itsekin yritin katsoa mallia, mutten osannut. */}

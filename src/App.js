@@ -14,6 +14,7 @@ import AboutUs from './inc/AboutUs'
 import { useState, useEffect } from 'react'
 import Order from './Order'
 import Detail from './Detail'
+import Admin from './Admin'
 
 const URL = 'http://localhost/kauppa'
 
@@ -147,6 +148,14 @@ function App() {
             <Detail
               kirja={kirja}
               addToCart={addToCart}
+            />
+          )}
+        />
+         <Route
+          path='/admin'
+          render={() => (
+            <Admin
+              
             />
           )}
         />
