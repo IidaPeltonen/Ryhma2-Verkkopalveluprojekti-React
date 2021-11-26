@@ -17,7 +17,6 @@ export default function NavBar ({ url, setCategory, cart, Detail, addToCart, kir
         const json = response.data
         setCategories(json)
         setCategory(json[0])
-        console.log(response)
       })
       .catch(error => {
         if (error.response === undefined) {

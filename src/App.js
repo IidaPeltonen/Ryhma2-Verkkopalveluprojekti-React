@@ -28,7 +28,6 @@ function App() {
   useEffect(() => {
     if ('cart' in localStorage) {
       setCart(JSON.parse(localStorage.getItem('cart')))
-      console.log(JSON.parse(localStorage.getItem('cart')))
     }
   }, [])
 
@@ -54,7 +53,6 @@ function App() {
           hinta:location.state.hinta,
           saldo:location.state.saldo,
           kuva: location.state.kuva,
-
         })
       }
 
