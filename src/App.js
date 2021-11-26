@@ -39,7 +39,7 @@ function App() {
 
   useEffect(() => {
     if (location.state !== undefined) {
-      if (location.pathname === "/") {
+      if (location.pathname === "/category") {
         setCategory({ id: location.state.id, name: location.state.name })
       } else if (location.pathname === "/detail") {
         setKirja({
