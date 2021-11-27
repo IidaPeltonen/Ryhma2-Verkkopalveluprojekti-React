@@ -50,7 +50,7 @@ function Home({ url, addToCart }) {
             {kirjat?.map(kirja => (
               <div key={kirja.kirjaid}>
                 <div onClick={e => setValittuKirja(kirja)}>
-                  <Link to={{
+                  <Link className='musta' to={{
                     pathname: "/detail", state: {
                       id: kirja.id, kirjanimi: kirja.kirjanimi, kirjailija: kirja.kirjailija,
                       vuosi: kirja.vuosi, kieli: kirja.kieli, kustantaja: kirja.kustantaja, kuvaus: kirja.kuvaus,

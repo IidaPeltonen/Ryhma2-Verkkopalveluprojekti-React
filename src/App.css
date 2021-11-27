@@ -141,3 +141,10 @@ img {
 .tyhjenna {
   font-weight: bold;
 }
+
+.musta {
+  color: black !important;
+    font-family: PT Sans Caption !important;
+    font-size: normal;
+    text-decoration: none; 
+}
