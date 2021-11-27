@@ -10,7 +10,7 @@ import karry from './img/karry.png'
 import Top from './Top'
 import { Link } from 'react-router-dom'
 
-function Home({ url, addToCart, Detail }) {
+function Home({ url, addToCart }) {
   const [kirjat, setKirjat] = useState([])
   const [valittuKirja, setValittuKirja] = useState(null)
 
@@ -38,14 +38,10 @@ function Home({ url, addToCart, Detail }) {
       })
   }, [])
 
-  function close() {
-    setValittuKirja(null)
-  }
-
   return (
     <div>
       <div>
-        <Top url={url} addToCart={addToCart} Detail={Detail} />
+        <Top url={url} addToCart={addToCart} />
         <h2 id='otsikko' className='ms-4'>
           Kaikki kirjat
         </h2>

@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Link } from 'react-router-dom'
 
-export default function Category({ url, category, addToCart, Detail }) {
+export default function Category({ url, category, addToCart}) {
   const [kirjat, setKirjat] = useState([])
   const [valittuKirja, setValittuKirja] = useState(null)
 
@@ -32,9 +32,6 @@ export default function Category({ url, category, addToCart, Detail }) {
     }
   }, [category])
 
-  function close() {
-    setValittuKirja(null)
-  }
   return (
     <div>
       <h2 id='otsikko'>{category?.name}</h2>

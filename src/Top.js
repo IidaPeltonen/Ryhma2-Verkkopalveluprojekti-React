@@ -9,7 +9,7 @@ import 'react-slideshow-image/dist/styles.css'
 import karry from './img/karry.png'
 import { Link } from 'react-router-dom'
 
-function Top ({ url, addToCart, Detail }) {
+function Top ({ url, addToCart }) {
   const [kirjat, setKirjat] = useState([])
   const [valittuKirja, setValittuKirja] = useState(null)
 
@@ -36,10 +36,6 @@ function Top ({ url, addToCart, Detail }) {
         alert(error)
       })
   }, [])
-
-  function close () {
-    setValittuKirja(null)
-  }
 
   return (
       <div id='reuna' className='container-fluid'>

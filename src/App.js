@@ -99,9 +99,6 @@ function App() {
         url={URL}
         setCategory={setCategory}
         cart={cart}
-        Detail={Detail}
-        addToCart={addToCart}
-        kirja={kirja}
       />
       <Header />
       <Switch>
@@ -112,7 +109,6 @@ function App() {
               url={URL}
               category={category}
               addToCart={addToCart}
-              Detail={Detail}
             />
           )}
           exact
@@ -124,7 +120,6 @@ function App() {
               url={URL}
               category={category}
               addToCart={addToCart}
-              Detail={Detail}
             />
           )}
         />

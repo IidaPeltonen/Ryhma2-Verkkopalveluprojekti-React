@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
 import Cart from './Cart'
 import SearchBar from './SearchBar'
 
-export default function NavBar ({ url, setCategory, cart, Detail, addToCart, kirja }) {
+export default function NavBar ({ url, setCategory, cart}) {
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
@@ -100,7 +100,7 @@ export default function NavBar ({ url, setCategory, cart, Detail, addToCart, kir
               </li>
               <li className='nav-item  ms-2 me-2'>
               <Link
-                        className='valkoinen'
+                        className='nav-link valkoinen'
                         to={{
                           pathname: '/admin'
                         }}
@@ -109,12 +109,9 @@ export default function NavBar ({ url, setCategory, cart, Detail, addToCart, kir
                       </li>
             </ul>
             <ul className='navbar-nav ms-auto'>
-              {/* Tässä oli ennen nappeja, nyt tulostaa tuolta SearchBarista. SIellä on alkuperäinen koodi kyllä, josta itsekin yritin katsoa mallia, mutten osannut. */}
               <SearchBar
                 placeHolder='Hae tuotteita tästä'
-                kirja={kirja}
                 url={url}
-                // className="nav-item"
               />
               <li className='nav-item  ms-2 me-2'>
                 <Cart cart={cart} />

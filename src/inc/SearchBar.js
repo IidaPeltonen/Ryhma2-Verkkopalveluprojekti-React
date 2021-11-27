@@ -3,7 +3,7 @@ import './styles/SearchBar.css'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-export default function SearchBar({ placeHolder, kirja, url }) {
+export default function SearchBar({ placeHolder, url }) {
     const [filteredData, setFilteredData] = useState([])
     const [wordEntered, setWordEntered] = useState('')
     const [valittuKirja, setValittuKirja] = useState([])
