@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css'
 function Kirja ({ url }) {
   const [kirjat, setKirjat] = useState([]);
   const [item, setItem] = useState('');
+  const [items, setItems] = useState('');
   const [kirjanimi, setKirjanimi] = useState('');
   const [kirjailija, setKirjailija] = useState('');
   const [vuosi, setVuosi] = useState('');
@@ -19,6 +20,8 @@ function Kirja ({ url }) {
   const [kuva, setKuva] = useState('');
   const [category_id, setCategory_id] = useState('');
 
+
+  //uuden tallennus
   function tallenna(e) {
     e.preventDefault();
     const json = JSON.stringify({kirjanimi:kirjanimi, kirjailija:kirjailija, vuosi:vuosi, kieli:kieli,
@@ -34,6 +37,22 @@ function Kirja ({ url }) {
     }).catch (error => {
       alert(error.response.data.error)
     })
+  }
+
+  //olemassaolevan poisto
+  function remove(id) {
+    const json= JSON.stringify({kirjaid:id})
+    axios.post(url + 'deleteKirja.php', json, {
+      headers: {
+        'Content-Type' : 'application/json'
+      }
+    })
+    .then((response) => {
+      const newListWithoutRemoved = kirjat.filter((item) => item.kirjaid !== id);
+      setItems(newListWithoutRemoved);
+    }).catch (error => {
+      alert(error.response ? error.response.data.error : error);
+    });
   }
 
   function notify () {
@@ -118,17 +137,7 @@ function Kirja ({ url }) {
                 <td id='notbold'>
                   {kirja.category_id}
                 </td>
-                <td >
-                  <button
-                    className='btn'
-                    type='button'
-                    onClick={function (event) {
-                      notify()
-                    }}
-                  >
-                    nappi
-                  </button>
-                </td>
+                <a href="#" className="delete" onClick={() => remove(kirja.kirjaid)}>Poista</a>
               </tr>
               </tbody>
             ))}
