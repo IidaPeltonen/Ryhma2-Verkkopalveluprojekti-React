@@ -17,7 +17,7 @@ import Admin from './Admin'
 import Kirja from './Kirja'
 
 
-const URL = 'http://localhost/kauppa'
+const URL = 'http://localhost/kauppa/'
 
 function App () {
   const [category, setCategory] = useState(null)

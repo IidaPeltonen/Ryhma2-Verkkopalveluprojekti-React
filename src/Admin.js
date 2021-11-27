@@ -104,10 +104,10 @@ function Resource (props) {
     <div className='container'>
       <div className='row table-responsive-md'>
         <table>
-          <tbody className='col-12'>
+          <tbody className='col'>
             <tr>
               <th scope='col' >
-                {content}!
+                {content}
               </th>
             </tr>
             <tr col-12>
@@ -146,7 +146,6 @@ function Resource (props) {
               <button col='6' onClick={logout}>Logout</button>
               </th>
             </tr>
-            
             <tr></tr>
             <tr></tr>
             <tr></tr>
