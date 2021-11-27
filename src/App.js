@@ -121,21 +121,9 @@ function App () {
         />
         <Route
           path='/detail'
-          render={() => (
-            <Detail 
-              kirja={kirja} 
-              addToCart={addToCart} 
-            />
-          )}
+          render={() => <Detail kirja={kirja} addToCart={addToCart} />}
         />
-        <Route 
-          path='/admin' 
-          render={() => (
-            <parseFloat 
-              Admin 
-            />
-          )} 
-        />
+        <Route path='/admin' render={() => < Admin />} />
         <Route path='/contactus' component={ContactUs} />
         <Route path='/aboutus' component={AboutUs} />
         <Route path='/ukk' component={UKK} />
