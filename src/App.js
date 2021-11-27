@@ -14,6 +14,8 @@ import { useState, useEffect } from 'react'
 import Order from './Order'
 import Detail from './Detail'
 import Admin from './Admin'
+import Kirja from './Kirja'
+
 
 const URL = 'http://localhost/kauppa'
 
@@ -119,6 +121,14 @@ function App () {
             />
           )}
         />
+        <Route 
+          path='/kirja' 
+          render={() => (
+          <Kirja
+            url={URL}
+          />
+          )}
+        />
         <Route
           path='/detail'
           render={() => <Detail kirja={kirja} addToCart={addToCart} />}
@@ -129,6 +139,7 @@ function App () {
         <Route path='/ukk' component={UKK} />
         <Route path='/rekisteri' component={Rekisteri} />
         <Route path='/evasteet' component={Evasteet} />
+        
       </Switch>
       <Footer />
     </div>

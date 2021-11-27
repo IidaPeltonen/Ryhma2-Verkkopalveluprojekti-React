@@ -16,5 +16,12 @@ input {
 }
 
 button {
+    margin-top: 2rem;
     margin-bottom: 2rem;
 }
+
+#notbold {
+    font-weight: light !important;
+}
+
+

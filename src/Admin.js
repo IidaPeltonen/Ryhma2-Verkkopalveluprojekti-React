@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './inc/styles/Admin.css'
+import { Link } from 'react-router-dom'
 
 let loginUrl = 'http://localhost/kauppa/login.php'
 let resUrl = 'http://localhost/kauppa/resources.php'
@@ -100,9 +101,58 @@ function Resource (props) {
   }
 
   return (
-    <div>
-      <p>Personal content: {content}</p>
-      <button onClick={logout}>Logout</button>
+    <div className='container'>
+      <div className='row table-responsive-md'>
+        <table>
+          <tbody className='col-12'>
+            <tr>
+              <th scope='col' >
+                {content}!
+              </th>
+            </tr>
+            <tr col-12>
+              <th scope='col' id='notbold'>
+                Mitä haluat tehdä?
+              </th>
+            </tr>
+            <tr col-12>
+              <th scope='col' id='notbold'>
+              <Link
+                    to={{
+                      pathname: '/kirja',
+                    }}
+                  >
+                * Lisää, muokkaa tai poista kirja *
+                </Link>
+              </th>
+            </tr>
+            <tr>
+              <th scope='col' id='notbold'>
+                * Lisää, muokkaa tai poista tuoteryhmä *
+              </th>
+            </tr>
+            <tr>
+              <th scope='col' id='notbold'>
+                * Lisää, muokkaa tai poista asiakas *
+              </th>
+            </tr>
+            <tr>
+              <th scope='col' id='notbold'>
+                 * Lisää, muokkaa tai poista pääkäyttäjä *
+              </th>
+            </tr>
+            <tr col-12>
+              <th scopes='col'>
+              <button col='6' onClick={logout}>Logout</button>
+              </th>
+            </tr>
+            
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }
