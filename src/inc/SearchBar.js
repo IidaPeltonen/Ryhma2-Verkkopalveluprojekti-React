@@ -115,24 +115,4 @@ export default function SearchBar({ placeHolder, kirja, url }) {
     )
 }
 
-// ** Alkuperäinen hakunappi NavBarista **
-{/* <ul className='navbar-nav ms-auto'>
-    <li className='nav-item ms-2 me-2'>
-        <div className='input-group mb-3'>
-            <input
-                type='text'
-                className='form-control'
-                placeholder='Hae tuotteita tästä'
-                aria-label='Hakupainike'
-                aria-describedby='button-addon2'
-            ></input>
-            <button
-                className='haku btn btn-outline-secondary'
-                type='button'
-                id='button-addon2'
-            >
-                Hae
-            </button>
-        </div>
-    </li>
-</ul> */}
+
