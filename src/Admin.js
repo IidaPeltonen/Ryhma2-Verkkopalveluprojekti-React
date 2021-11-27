@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+import './inc/styles/Admin.css';
 
 let loginUrl = "http://localhost/kauppa/login.php";
 let resUrl = "http://localhost/kauppa/resources.php";
@@ -47,9 +48,9 @@ function Admin() {
     return (
       <div>
         <form onSubmit={login}>
-          <label>Username:</label>
+          <label>Käyttäjätunnus:</label>
           <input type='text' value={username} onChange={e=>setUsername(e.target.value)}></input>
-          <label>Password:</label>
+          <label>Salasana:</label>
           <input type='password' value={pw} onChange={e=>setPw(e.target.value)}></input>
           <input type='submit' value="Login"></input>
         </form>

@@ -1,0 +1,20 @@
+form {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+}
+
+p {
+    font-family: PT Sans Caption;
+    font-size: large;
+}
+
+input {
+    font-family: PT Sans Caption;
+    font-size: large;
+    margin: 1rem;
+}
+
+button {
+    margin-bottom: 2rem;
+}
