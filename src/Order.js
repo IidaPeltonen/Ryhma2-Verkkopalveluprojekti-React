@@ -2,7 +2,7 @@ import React from 'react'
 import uuid from 'react-uuid'
 import { useState, useEffect } from 'react'
 import './inc/styles/Order.css'
-import './App.css'
+//import './App.css'
 
 const riviSumma = 0
 
@@ -38,14 +38,13 @@ export default function Order({
   }, [cart])
 
   return (
-    <div className='container'>
+      <div className='container'>
       <div className='row table-responsive-md'>
         <h1 id='keskita'>Ostoskorisi</h1>
         <table className='table'>
           <tbody className='col-12'>
             {cart.map((product, index) => (
-              //sum+=parseFloat(product.hinta);
-              //riviSumma+=(product.summa)
+              //riviSumma+=parseFloat(product.hinta) MITEN TÄMÄ SAADAAN TOIMIMAAN?=
               <tr key={uuid()}>
                 <th scope='col' className='align-middle'>
                   <img src={product.kuva} alt='kirjan kansikuva'></img>
@@ -71,7 +70,7 @@ export default function Order({
                   />
                 </th>
                 <th scope='col' className='align-middle'>
-                  Yhteensä: {riviSumma}{' '}
+                  Yhteensä: {riviSumma}
                 </th>
                 <th scope='col' className='align-middle'>
                   <button
