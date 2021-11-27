@@ -2,7 +2,6 @@ import React from 'react'
 import uuid from 'react-uuid'
 import { useState, useEffect } from 'react'
 import './inc/styles/Order.css'
-//import './App.css'
 
 const riviSumma = 0
 
@@ -44,21 +43,21 @@ export default function Order({
         <table className='table'>
           <tbody className='col-12'>
             {cart.map((product, index) => (
-              //riviSumma+=parseFloat(product.hinta) MITEN TÄMÄ SAADAAN TOIMIMAAN?=
+              //riviSumma+=parseFloat(product.hinta) MITEN TÄMÄ SAADAAN TOIMIMAAN?
               <tr key={uuid()}>
                 <th scope='col' className='align-middle'>
                   <img src={product.kuva} alt='kirjan kansikuva'></img>
                 </th>
-                <th scope='col' className='align-middle'>
+                <th scope='col' className='align-middle' id='notbold'>
                   {product.kirjailija}
                 </th>
-                <th scope='col' className='align-middle'>
+                <th scope='col' className='align-middle' id='notbold'>
                   {product.kirjanimi}
                 </th>
-                <th scope='col' className='align-middle'>
+                <th scope='col' className='align-middle' id='notbold'>
                   {product.hinta}€
                 </th>
-                <th scope='col' className='align-middle'>
+                <th scope='col' className='align-middle' id='notbold'>
                   <input
                     ref={inputs[index]}
                     style={{ width: '60px' }}
@@ -69,7 +68,7 @@ export default function Order({
                     value={product.amount}
                   />
                 </th>
-                <th scope='col' className='align-middle'>
+                <th scope='col' className='align-middle' id='notbold'>
                   Yhteensä: {riviSumma}
                 </th>
                 <th scope='col' className='align-middle'>
