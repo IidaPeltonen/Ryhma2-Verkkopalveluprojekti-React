@@ -101,8 +101,6 @@ export default function Category ({ url, category, addToCart }) {
                     pauseOnHover
                   />
                 </th>
-                <br />
-                <br />
               </tr>
             ))}
           </tbody>
