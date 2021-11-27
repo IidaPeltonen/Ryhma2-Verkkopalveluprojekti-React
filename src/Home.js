@@ -10,11 +10,11 @@ import karry from './img/karry.png'
 import Top from './Top'
 import { Link } from 'react-router-dom'
 
-function Home({ url, addToCart }) {
+function Home ({ url, addToCart }) {
   const [kirjat, setKirjat] = useState([])
   const [valittuKirja, setValittuKirja] = useState(null)
 
-  function notify() {
+  function notify () {
     toast('Kirja lisätty ostoskoriin!')
   }
 
@@ -50,22 +50,33 @@ function Home({ url, addToCart }) {
             {kirjat?.map(kirja => (
               <div key={kirja.kirjaid}>
                 <div onClick={e => setValittuKirja(kirja)}>
-                  <Link className='musta' to={{
-                    pathname: "/detail", state: {
-                      id: kirja.id, kirjanimi: kirja.kirjanimi, kirjailija: kirja.kirjailija,
-                      vuosi: kirja.vuosi, kieli: kirja.kieli, kustantaja: kirja.kustantaja, kuvaus: kirja.kuvaus,
-                      hinta: kirja.hinta, saldo: kirja.saldo, kuva: kirja.kuva
-                    }
-                  }}>
-                  <img id='kirja' src={kirja.kuva} alt='kirjan kansikuva' />
-                  <br />
-                  <b>
-                  {kirja.kirjanimi} <br />
-                  {kirja.kirjailija}
-                  </b>
-                  <br />
-                  Hinta: {kirja.hinta}€<br />
-                  Varastossa: {kirja.saldo} kpl <br />
+                  <Link
+                    className='musta'
+                    to={{
+                      pathname: '/detail',
+                      state: {
+                        id: kirja.id,
+                        kirjanimi: kirja.kirjanimi,
+                        kirjailija: kirja.kirjailija,
+                        vuosi: kirja.vuosi,
+                        kieli: kirja.kieli,
+                        kustantaja: kirja.kustantaja,
+                        kuvaus: kirja.kuvaus,
+                        hinta: kirja.hinta,
+                        saldo: kirja.saldo,
+                        kuva: kirja.kuva
+                      }
+                    }}
+                  >
+                    <img id='kirja' src={kirja.kuva} alt='kirjan kansikuva' />
+                    <br />
+                    <b>
+                      {kirja.kirjanimi} <br />
+                      {kirja.kirjailija}
+                    </b>
+                    <br />
+                    Hinta: {kirja.hinta}€<br />
+                    Varastossa: {kirja.saldo} kpl <br />
                   </Link>
                 </div>
                 <div>
@@ -75,28 +86,29 @@ function Home({ url, addToCart }) {
                     onClick={function (event) {
                       addToCart(kirja)
                       notify()
-                    }}>
+                    }}
+                  >
                     <img id='pieni' src={karry} alt='ostoskärry' />
                   </button>
                 </div>
-              </div>  
+              </div>
             ))}
-        </Slide>
-        <ToastContainer
-          position='bottom-right'
-          autoClose={4000}
-          hideProgressBar={true}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
-      </ol>
+          </Slide>
+          <ToastContainer
+            position='bottom-right'
+            autoClose={4000}
+            hideProgressBar={true}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+        </ol>
+      </div>
     </div>
-      </div >
-    )
+  )
 }
 
 export default Home

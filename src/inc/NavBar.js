@@ -1,13 +1,13 @@
 import React from 'react'
 import logo from '../img/logo.png'
-import './styles/NavBar.css'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import Cart from './Cart'
+import './styles/NavBar.css'
 import SearchBar from './SearchBar'
 
-export default function NavBar ({ url, setCategory, cart}) {
+export default function NavBar ({ url, setCategory, cart }) {
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
@@ -99,20 +99,19 @@ export default function NavBar ({ url, setCategory, cart}) {
                 </a>
               </li>
               <li className='nav-item  ms-2 me-2'>
-              <Link
-                        className='nav-link valkoinen'
-                        to={{
-                          pathname: '/admin'
-                        }}
-                      > Admin
-                      </Link>
-                      </li>
+                <Link
+                  className='nav-link valkoinen'
+                  to={{
+                    pathname: '/admin'
+                  }}
+                >
+                  {' '}
+                  Admin
+                </Link>
+              </li>
             </ul>
             <ul className='navbar-nav ms-auto'>
-              <SearchBar
-                placeHolder='Hae tuotteita tästä'
-                url={url}
-              />
+              <SearchBar placeHolder='Hae tuotteita tästä' url={url} />
               <li className='nav-item  ms-2 me-2'>
                 <Cart cart={cart} />
               </li>

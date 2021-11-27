@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import '../App.css'
-import karry from '../img/karry.png'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../App.css';
+import karry from '../img/karry.png';
 
 export default function Cart ({ cart }) {
    //lasketaan kaikki ostoskorin itemit etusivun näkymää varten

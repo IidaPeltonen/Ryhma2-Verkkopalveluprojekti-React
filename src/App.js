@@ -1,7 +1,6 @@
 import './App.css'
 import { Route, useLocation, Switch } from 'react-router-dom'
 import Category from './Category'
-import './inc/styles/Details.css'
 import Footer from './inc/Footer'
 import Header from './inc/Header'
 import Home from './Home'
@@ -18,12 +17,10 @@ import Admin from './Admin'
 
 const URL = 'http://localhost/kauppa'
 
-function App() {
+function App () {
   const [category, setCategory] = useState(null)
-  //const [searchPhrase, setsearchPhrase] = useState(''); muuuttuja hakua varten
   const [cart, setCart] = useState([])
   const [kirja, setKirja] = useState([])
-
   let location = useLocation()
 
   useEffect(() => {
@@ -33,16 +30,16 @@ function App() {
   }, [])
 
   //ostoskorin tyhjennys kokonaan
-  function clear() {
+  function clear () {
     localStorage.clear()
     window.location.reload(true)
   }
 
   useEffect(() => {
     if (location.state !== undefined) {
-      if (location.pathname === "/category") {
+      if (location.pathname === '/category') {
         setCategory({ id: location.state.id, name: location.state.name })
-      } else if (location.pathname === "/detail") {
+      } else if (location.pathname === '/detail') {
         setKirja({
           id: location.state.id,
           kirjanimi: location.state.kirjanimi,
@@ -51,17 +48,16 @@ function App() {
           kieli: location.state.kieli,
           kustantaja: location.state.kustantaja,
           kuvaus: location.state.kuvaus,
-          hinta:location.state.hinta,
-          saldo:location.state.saldo,
-          kuva: location.state.kuva,
+          hinta: location.state.hinta,
+          saldo: location.state.saldo,
+          kuva: location.state.kuva
         })
       }
-
     }
   }, [location.state])
 
   //tuotteen lisäys ostoskoriin
-  function addToCart(product) {
+  function addToCart (product) {
     if (cart.some(item => item.kirjaid === product.kirjaid)) {
       const existingProduct = cart.filter(
         item => item.kirjaid === product.kirjaid
@@ -76,7 +72,7 @@ function App() {
   }
 
   //tuotteen poisto ostoskorista
-  function removeFromCart(product) {
+  function removeFromCart (product) {
     const itemsWithoutRemoved = cart.filter(
       item => item.kirjaid !== product.kirjaid
     )
@@ -85,7 +81,7 @@ function App() {
   }
 
   //ostoskorin määrän muokkaus
-  function updateAmount(amount, product) {
+  function updateAmount (amount, product) {
     product.amount = amount
     const index = cart.findIndex(item => item.kirjaid === product.kirjaid)
     const modifiedCart = Object.assign([...cart], { [index]: product })
@@ -95,32 +91,20 @@ function App() {
 
   return (
     <div className='container-fluid'>
-      <NavBar
-        url={URL}
-        setCategory={setCategory}
-        cart={cart}
-      />
+      <NavBar url={URL} setCategory={setCategory} cart={cart} />
       <Header />
       <Switch>
         <Route
           path='/'
           render={() => (
-            <Home
-              url={URL}
-              category={category}
-              addToCart={addToCart}
-            />
+            <Home url={URL} category={category} addToCart={addToCart} />
           )}
           exact
         />
         <Route
           path='/category'
           render={() => (
-            <Category
-              url={URL}
-              category={category}
-              addToCart={addToCart}
-            />
+            <Category url={URL} category={category} addToCart={addToCart} />
           )}
         />
         <Route
@@ -138,19 +122,19 @@ function App() {
         <Route
           path='/detail'
           render={() => (
-            <Detail
-              kirja={kirja}
-              addToCart={addToCart}
+            <Detail 
+              kirja={kirja} 
+              addToCart={addToCart} 
             />
           )}
         />
-         <Route
-          path='/admin'
+        <Route 
+          path='/admin' 
           render={() => (
-            <Admin
-              
+            <parseFloat 
+              Admin 
             />
-          )}
+          )} 
         />
         <Route path='/contactus' component={ContactUs} />
         <Route path='/aboutus' component={AboutUs} />

@@ -37,7 +37,6 @@ väri : stroke='rgba(255, 215, 0, 1)' */
 }
 
 /* Logon tyyli */
-
 .logo {
     border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -47,8 +46,6 @@ väri : stroke='rgba(255, 215, 0, 1)' */
   }
 
   /* Hakupainike */
-
-  
 .haku {
     color: white;
     border-color: #447F43;

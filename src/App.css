@@ -8,7 +8,7 @@ E5E5E5 (mainin tausta)
 
 Sovitut fontit:
 Montserrat (valikot, iso otsikko etusivulla, footer&header)
-PT Sans Caption (Leipäteksti, tää pitää testata käytännössä)
+PT Sans Caption (Leipäteksti)
  */
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap');
 
@@ -144,7 +144,7 @@ img {
 
 .musta {
   color: black !important;
-    font-family: PT Sans Caption !important;
-    font-size: normal;
-    text-decoration: none; 
+  font-family: PT Sans Caption !important;
+  font-size: normal;
+  text-decoration: none;
 }

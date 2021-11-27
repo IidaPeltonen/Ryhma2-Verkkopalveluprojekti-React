@@ -2,11 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './styles/Footer.css'
 import { useState } from 'react'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
-function notifyOk() {
-  toast("Uutiskirje tilattu, jos syötit toimivan osoitteen! :)");
+function notifyOk () {
+  toast('Uutiskirje tilattu, jos syötit toimivan osoitteen! :)')
 }
 
 export default function Footer () {
@@ -52,20 +52,23 @@ export default function Footer () {
               className='uutiskirje btn btn-outline-secondary'
               type='button'
               id='button-addon2'
-              onClick={function(event){uutiskirjeenTyhjennys();notifyOk()}}
+              onClick={function (event) {
+                uutiskirjeenTyhjennys()
+                notifyOk()
+              }}
             >
               Lähetä
             </button>
             <ToastContainer
-                position="bottom-right"
-                autoClose={4000}
-                hideProgressBar={true}
-                newestOnTop={true}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
+              position='bottom-right'
+              autoClose={4000}
+              hideProgressBar={true}
+              newestOnTop={true}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
             />
           </div>
         </div>

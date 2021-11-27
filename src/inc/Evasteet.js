@@ -1,6 +1,5 @@
-import React from 'react'
-import '../App.css'
-
+import React from 'react';
+import '../App.css';
 
 export default function Evasteet () {
   return (
@@ -27,16 +26,18 @@ export default function Evasteet () {
             data-bs-parent='#accordionExample'
           >
             <div className='accordion-body'>
-              <p>Tämä verkkosivusto käyttää evästeitä, jotta voimme 
-                  tarjota sinulle parhaimman mahdollisen kokemuksen käyttäessäsi 
-                  verkkosivujamme. Evästeiden käyttö antaa meille lisäksi 
-                  mahdollisuuden parantaa palveluamme ja varmistaa, että löydät 
-                  tarvitsemasi tehokkaammalla tavalla. Alta löydät lisätietoa evästeistä ja 
-                  yksityiskohtaisen kuvauksen siitä, miten käytämme niitä. Evästeiden käyttö 
-                  voi johtaa henkilötietojen käsittelyyn, joten suosittelemme, 
-                  että luet myös Tietosuojakäytäntömme, joka kuvaa henkilötietojen käsittelyä 
-                  ja henkilökohtaisia oikeuksiasi.</p>
-           
+              <p>
+                Tämä verkkosivusto käyttää evästeitä, jotta voimme tarjota
+                sinulle parhaimman mahdollisen kokemuksen käyttäessäsi
+                verkkosivujamme. Evästeiden käyttö antaa meille lisäksi
+                mahdollisuuden parantaa palveluamme ja varmistaa, että löydät
+                tarvitsemasi tehokkaammalla tavalla. Alta löydät lisätietoa
+                evästeistä ja yksityiskohtaisen kuvauksen siitä, miten käytämme
+                niitä. Evästeiden käyttö voi johtaa henkilötietojen käsittelyyn,
+                joten suosittelemme, että luet myös Tietosuojakäytäntömme, joka
+                kuvaa henkilötietojen käsittelyä ja henkilökohtaisia
+                oikeuksiasi.
+              </p>
             </div>
           </div>
         </div>
@@ -61,19 +62,24 @@ export default function Evasteet () {
           >
             <div className='accordion-body'>
               <p>
-                Eväste on pienikokoinen tekstitiedosto, jonka vierailemasi verkkosivu pyytää tallentamaan 
-                laitteellesi. Näiden avulla pystymme tunnistamaan henkilökohtaiset selainasetuksesi ja sisäänkirjautumistietosi.
+                Eväste on pienikokoinen tekstitiedosto, jonka vierailemasi
+                verkkosivu pyytää tallentamaan laitteellesi. Näiden avulla
+                pystymme tunnistamaan henkilökohtaiset selainasetuksesi ja
+                sisäänkirjautumistietosi.
               </p>
               <p>
-              Istuntoevästeitä käytetään esimerkiksi silloin, kun täytät lomakkeen. 
-              Tämä tarkoittaa, että tietosi tallennetaan väliaikaisesti, 
-              jos olet täyttänyt ne sivulla ja sinun täytyy palata edelliselle sivulle.
+                Istuntoevästeitä käytetään esimerkiksi silloin, kun täytät
+                lomakkeen. Tämä tarkoittaa, että tietosi tallennetaan
+                väliaikaisesti, jos olet täyttänyt ne sivulla ja sinun täytyy
+                palata edelliselle sivulle.
               </p>
               <p>
-              Nämä tiedot tallennetaan, jotta sinun ei tarvitse tehdä samoja valintoja joka kerta, 
-              kun vierailet sivustolla. "Local storage" on toinen tapa tallentaa samantyyppisiä tietoja 
-              ja asetuksia paikallisesti laitteellesi. Yksi ero evästeisiin on, 
-              että tallennetut tiedot eivät sisälly automaattisesti palvelinkutsuihin.
+                Nämä tiedot tallennetaan, jotta sinun ei tarvitse tehdä samoja
+                valintoja joka kerta, kun vierailet sivustolla. "Local storage"
+                on toinen tapa tallentaa samantyyppisiä tietoja ja asetuksia
+                paikallisesti laitteellesi. Yksi ero evästeisiin on, että
+                tallennetut tiedot eivät sisälly automaattisesti
+                palvelinkutsuihin.
               </p>
             </div>
           </div>
@@ -98,16 +104,16 @@ export default function Evasteet () {
             data-bs-parent='#accordionExample'
           >
             <div className='accordion-body'>
-            Käytämme evästeitä ja tietojen paikallista tallennusta parantaaksemme verkkosivustomme toimivuutta 
-            ja tarjoaksemme juuri sinulle sopivaa sisältöä ja etuja. Käytämme sekä ensimmäisen 
-            että kolmannen osapuolen evästeitä automatisoitujen verkkomainosten luomiseen. 
-            Nämä evästeet keräävät tietoa siitä, mistä tuotteista olet esim. aiemmin ollut kiinnostunut. 
-            Näitä tietoja käytetään kohdistetussa mainonnassa.
+              Käytämme evästeitä ja tietojen paikallista tallennusta
+              parantaaksemme verkkosivustomme toimivuutta ja tarjoaksemme juuri
+              sinulle sopivaa sisältöä ja etuja. Käytämme sekä ensimmäisen että
+              kolmannen osapuolen evästeitä automatisoitujen verkkomainosten
+              luomiseen. Nämä evästeet keräävät tietoa siitä, mistä tuotteista
+              olet esim. aiemmin ollut kiinnostunut. Näitä tietoja käytetään
+              kohdistetussa mainonnassa.
             </div>
           </div>
         </div>
-       
-        
       </div>
     </div>
   )

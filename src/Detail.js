@@ -6,9 +6,8 @@ import 'react-toastify/dist/ReactToastify.css'
 import { useHistory } from 'react-router-dom'
 
 //yhden kirjan tiedot
-export default function Detail ({  kirja, addToCart}) {
-
-  const history = useHistory();
+export default function Detail ({ kirja, addToCart }) {
+  const history = useHistory()
   function notify () {
     toast('Kirja lisätty ostoskoriin!')
   }
@@ -16,11 +15,7 @@ export default function Detail ({  kirja, addToCart}) {
   return (
     <div id='detail' className='row'>
       <div className='col-5'>
-        <img
-          id='detailKuva'
-          src={kirja.kuva}
-          alt='kirjan kansikuva'
-        ></img>
+        <img id='detailKuva' src={kirja.kuva} alt='kirjan kansikuva'></img>
       </div>
       <div className='col-1'></div>
       <div className='col-6'>
@@ -33,11 +28,8 @@ export default function Detail ({  kirja, addToCart}) {
       </div>
       <div className='col-1'></div>
       <div className='col-3'>
-        <button className='btn-primary p-2 backtoList' 
-        onClick={history.goBack}>
-          
-            Takaisin listaukseen
-          
+        <button className='btn-primary p-2 backtoList' onClick={history.goBack}>
+          Takaisin listaukseen
         </button>
       </div>
       <div className='col-3'></div>
