@@ -5,99 +5,104 @@ import './App.css'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-function Kirja({url}) {
-    const [kirjat, setKirjat] = useState([])
+function Kirja ({ url }) {
+  const [kirjat, setKirjat] = useState([])
 
-    function notify () {
-        toast('Uusi kirja lisätty!')
-    }
+  function notify () {
+    toast('Uusi kirja lisätty!')
+  }
 
-    useEffect(() => {
-        axios
-          .get(url)
-          .then(response => {
-            setKirjat(response.data)
-          })
-          .catch(error => {
-            alert(error)
-          })
-      }, [])
+  useEffect(() => {
+    axios
+      .get(url)
+      .then(response => {
+        setKirjat(response.data)
+      })
+      .catch(error => {
+        alert(error)
+      })
+  }, [])
 
-   
-
-    return (    
-     <div className='container'>
+  return (
+    <div className='container'>
       <div className='row table-responsive-md'>
         <h2 id='otsikko keskita'>Kaikki kirjat</h2>
         <table id='kaikki' className='table'>
-        <tbody className='col-12'>
+          <tbody className='col-12'>
+            <th scope='col'>Nimi</th>
+            <th scope='col'>Kirjailija</th>
+            <th scope='col'>Julkaisuvuosi</th>
+            <th scope='col'>Kieli</th>
+            <th scope='col'>Kustantaja</th>
+            <th scope='col'>Kuvaus</th>
+            <th scope='col'>Hinta</th>
+            <th scope='col'>Saldo</th>
+            <th scope='col'>Kuvan osoite</th>
+            <th scope='col'>Kategoria</th>
             {kirjat?.map(kirja => (
-            <tr key={kirja.kirjaid}>
+              <tr key={kirja.kirjaid}>
                 <th scope='col'>
-                    <tr>{kirja.kirjanimi}</tr>
-                </th>
-                <th scope='col' >
-                    <tr>{kirja.kirjailija}</tr>
-                </th>
-                <th scope='col' >
-                    <tr>{kirja.hinta}</tr>
-                </th>
-                <th scope='col' >
-                    <tr>{kirja.vuosi}</tr>
-                </th>
-                <th scope='col' >
-                    Kieli
-                    <tr>{kirja.kieli}</tr>
+                  <tr>{kirja.kirjanimi}</tr>
                 </th>
                 <th scope='col'>
-                    <tr>{kirja.kustantaja}</tr>
+                  <tr>{kirja.kirjailija}</tr>
                 </th>
-                <th scope='col' >
-                    <tr>{kirja.kuvaus}</tr>
+                <th scope='col'>
+                  <tr>{kirja.hinta}</tr>
                 </th>
-                <th scope='col' >
-                    <tr>{kirja.hinta}</tr>
+                <th scope='col'>
+                  <tr>{kirja.vuosi}</tr>
                 </th>
-                <th scope='col' >
-                    <tr>{kirja.saldo}</tr>
+                <th scope='col'>
+                  Kieli
+                  <tr>{kirja.kieli}</tr>
                 </th>
-                <th scope='col' >
-                    Kuva
+                <th scope='col'>
+                  <tr>{kirja.kustantaja}</tr>
                 </th>
-                <th scope='col' >
-                    <tr>{kirja.category_id}</tr>
+                <th scope='col'>
+                  <tr>{kirja.kuvaus}</tr>
                 </th>
-                <th scope='col' >
-                    <button
+                <th scope='col'>
+                  <tr>{kirja.hinta}</tr>
+                </th>
+                <th scope='col'>
+                  <tr>{kirja.saldo}</tr>
+                </th>
+                <th scope='col'>Kuva</th>
+                <th scope='col'>
+                  <tr>{kirja.category_id}</tr>
+                </th>
+                <th scope='col'>
+                  <button
                     className='btn'
                     type='button'
                     onClick={function (event) {
-                    notify()
+                      notify()
                     }}
-                >
-                     nappi
-                    </button>
+                  >
+                    nappi
+                  </button>
                 </th>
-            </tr>
+              </tr>
             ))}
 
             <ToastContainer
-                position='bottom-right'
-                autoClose={4000}
-                hideProgressBar={true}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
+              position='bottom-right'
+              autoClose={4000}
+              hideProgressBar={true}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
             />
-        </tbody>
+          </tbody>
         </table>
-        </div>
-        </div>
-
-    )
+      </div>
+    </div>
+  )
 }
 
 export default Kirja
