@@ -159,3 +159,183 @@ function Kirja ({ url }) {
 }
 
 export default Kirja
+
+
+/* TÄLLÄ EI TOIMI -IIDA
+import React from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import './App.css'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
+function Kirja ({ url }) {
+  const [items, setItems] = useState([])
+  const [item, setItem] = useState('')
+  const [kirjanimi, setKirjanimi] = useState('')
+  const [kirjailija, setKirjailija] = useState('')
+  const [vuosi, setVuosi] = useState('')
+  const [kieli, setKieli] = useState('')
+  const [kustantaja, setKustantaja] = useState('')
+  const [kuvaus, setKuvaus] = useState('')
+  const [hinta, setHinta] = useState('')
+  const [saldo, setSaldo] = useState('')
+  const [kuva, setKuva] = useState('')
+  const [category_id, setCategory_id] = useState('')
+  const [editItem, setEditItem] = useState(null);
+  const [editKirjanimi, setEditKirjanimi] = useState('')
+  const [editKirjailija, setEditKirjailija] = useState('')
+  const [editVuosi, setEditVuosi] = useState('')
+  const [editKieli, setEditKieli] = useState('')
+  const [editKustantaja, setEditKustantaja] = useState('')
+  const [editKuvaus, setEditKuvaus] = useState('')
+  const [editHinta, setEditHinta] = useState('')
+  const [editSaldo, setEditSaldo] = useState('')
+  const [editKuva, setEditKuva] = useState('')
+  //const [editCategory_id, setEditCategory_id] = useState('');
+
+  useEffect(() => {
+    axios
+      .get(url)
+      .then(response => {
+        setItems(response.data)
+      })
+      .catch(error => {
+        alert(error)
+      })
+  }, [])
+
+   //uuden tallennus
+  function tallenna (e) {
+    e.preventDefault()
+    const json = JSON.stringify({
+      kirjanimi: kirjanimi,
+      kirjailija: kirjailija,
+      vuosi: vuosi,
+      kieli: kieli,
+      kustantaja: kustantaja,
+      kuvaus: kuvaus,
+      hinta: hinta,
+      saldo: saldo,
+      kuva: kuva,
+      category_id: category_id
+    })
+    axios
+      .post(url + 'addKirja.php', json, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => {
+        setItems(items => [...items, response.data])
+        setItem('')
+      })
+      .catch(error => {
+        alert(error.response.data.error)
+      })
+  }
+
+  //olemassaolevan poisto
+  function remove (id) {
+    const json = JSON.stringify({ kirjaid: id })
+    axios
+      .post(url + 'deleteKirja.php', json, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => {
+        const newListWithoutRemoved = items.filter(item => item.kirjaid !== id)
+        setItems(newListWithoutRemoved)
+      })
+      .catch(error => {
+        alert(error.response ? error.response.data.error : error)
+      })
+  }
+
+   //olemassaolevan päivitys
+  function setEditedItem(item) {
+    setEditItem(item);
+    setEditKirjanimi(item?.kirjanimi);
+    setEditKirjailija(item?.kirjailija);
+    setEditVuosi(item?.vuosi);
+    setEditKieli(item?.kieli);
+    setEditKustantaja(item?.kustantaja);
+    setEditKuvaus(item?.kuvaus);
+    setEditHinta(item?.hinta);
+    setEditSaldo(item?.saldo);
+    setEditKuva(item?.kuva);
+  }
+
+  function paivita(e) {
+    e.preventDefault();
+    const json= JSON.stringify({kirjaid:editItem.kirjaid, kirjanimi:editKirjanimi, kirjailija:editKirjailija, 
+        vuosi:editVuosi,kieli:editKieli, kustantaja:editKustantaja, kuvaus:editKuvaus, hinta: editHinta, 
+        saldo:editSaldo,kuva:editKuva })
+    axios.post(url + 'updateKirja.php', json, {
+      headers: {
+        'Content-Type' : 'application/json'
+      }
+    })
+   .then((response) => {
+        items[(items.findIndex(item => item.kirjaid === editItem.kirjaid))].kirjanimi = editKirjanimi; 
+        items[(items.findIndex(item => item.kirjaid === editItem.kirjaid))].kirjailija = editKirjailija;
+        items[(items.findIndex(item => item.kirjaid === editItem.kirjaid))].vuosi = editVuosi;
+        items[(items.findIndex(item => item.kirjaid === editItem.kirjaid))].kieli = editKieli;
+        items[(items.findIndex(item => item.kirjaid === editItem.kirjaid))].kustantaja=editKustantaja;
+        items[(items.findIndex(item => item.kirjaid === editItem.kirjaid))].kuvaus=editKuvaus;
+        items[(items.findIndex(item => item.kirjaid === editItem.kirjaid))].hinta=editHinta;
+        items[(items.findIndex(item => item.kirjaid === editItem.kirjaid))].saldo=editSaldo;
+        items[(items.findIndex(item => item.kirjaid === editItem.kirjaid))].kuva=editKuva;
+      setItems([...items]);
+      setEditedItem(null);
+    }).catch (error => {
+      alert(error.response ? error.response.data.error : error);
+    });
+  }   
+
+  //toaster
+  function notify () {
+    toast('Uusi kirja lisätty!')
+  }
+
+  return (
+    <div className='container'>
+      <h2 id='otsikko keskita'>Kaikki kirjat</h2>
+        <form onSubmit={tallenna}>
+          <label>Lisää kirja</label>
+          <input value={item} placeholder='item' onChange={e => setItem(e.target.value)} />
+          <input value={kirjanimi} placeholder='nimi' onChange={e => setKirjanimi(e.target.value)} />
+          <input value={kirjailija} placeholder='kirjailija' onChange={e => setKirjailija(e.target.value)} />
+          <input value={vuosi} placeholder='vuosi' onChange={e => setVuosi(e.target.value)} />
+          <input value={kieli} placeholder='kieli' onChange={e => setKieli(e.target.value)} />
+          <input value={kustantaja} placeholder='kustantaja' onChange={e => setKustantaja(e.target.value)} />
+          <input value={kuvaus} placeholder='kuvaus' onChange={e => setKuvaus(e.target.value)} />
+          <input value={hinta} placeholder='hinta' onChange={e => setHinta(e.target.value)} />
+          <input value={saldo} placeholder='saldo' onChange={e => setSaldo(e.target.value)} />
+          <input value={kuva} placeholder='https://www.students.oamk.fi/~n0peii00/kuvia/tyhja.png' onChange={e => setKuva(e.target.value)} />
+          <input value={category_id} placeholder='category_id' onChange={e => setCategory_id(e.target.value)} />
+          <button>Tallenna</button>
+        </form>
+        <ol>
+          {items?.map(item => (
+            <li key={item.kirjaid}>
+            
+              <a className="delete" onClick={() => remove(item.kirjaid)} href="#">
+                Poista
+             </a>&nbsp;
+                {editItem === null &&
+                <a className="edit" onClick={() => setEditedItem(item)} href="#">
+                  Muokkaa
+                </a> 
+              }
+              </li>
+          ))}
+          </ol>
+          </div>
+  );
+            }
+              
+
+export default Kirja
+ */
