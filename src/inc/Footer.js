@@ -19,6 +19,8 @@ export default function Footer () {
   }
   return (
     <div>
+      
+      
       <footer className='row'>
         <div className='col-md-2 col-10 my-auto mx-auto'>
           <Link to='/contactus'>Yhteystiedot</Link>
