@@ -143,7 +143,7 @@ function Resource (props) {
             </tr>
             <tr col-12>
               <th scopes='col'>
-              <button col='6' onClick={logout}>Logout</button>
+              <button className="logout" col='6' onClick={logout}>Logout</button>
               </th>
             </tr>
             <tr></tr>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import './App.css'
+import './inc/styles/Admin.css'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -77,16 +77,16 @@ function Kirja ({ url }) {
         <h2 id='otsikko keskita'>Kaikki kirjat</h2>
         <form onSubmit={tallenna}>
         <label>Lisää kirja</label>
-        <input value={kirjanimi} placeholder="nimi" onChange={e => setKirjanimi(e.target.value)} />
-        <input value={kirjailija} placeholder = "kirjailija" onChange={e => setKirjailija(e.target.value)} />
-        <input value={vuosi} placeholder = "vuosi" onChange={e => setVuosi(e.target.value)} />
-        <input value={kieli} placeholder = "kieli" onChange={e => setKieli(e.target.value)} />
-        <input value={kustantaja} placeholder = "kustantaja" onChange={e => setKustantaja(e.target.value)} />
-        <input value={kuvaus} placeholder = "kuvaus" onChange={e => setKuvaus(e.target.value)} />
-        <input value={hinta} placeholder = "hinta" onChange={e => setHinta(e.target.value)} />
-        <input value={saldo} placeholder = "saldo" onChange={e => setSaldo(e.target.value)} />
-        <input value={kuva} placeholder = "https://www.students.oamk.fi/~n0peii00/kuvia/tyhja.png" onChange={e => setKuva(e.target.value)} />
-        <input value={category_id} placeholder = "category_id" onChange={e => setCategory_id(e.target.value)} />
+        <input className="muokkaus" value={kirjanimi} placeholder="nimi" onChange={e => setKirjanimi(e.target.value)} />
+        <input className="muokkaus" value={kirjailija} placeholder = "kirjailija" onChange={e => setKirjailija(e.target.value)} />
+        <input className="muokkaus" value={vuosi} placeholder = "vuosi" onChange={e => setVuosi(e.target.value)} />
+        <input className="muokkaus" value={kieli} placeholder = "kieli" onChange={e => setKieli(e.target.value)} />
+        <input className="muokkaus" value={kustantaja} placeholder = "kustantaja" onChange={e => setKustantaja(e.target.value)} />
+        <input className="muokkaus" value={kuvaus} placeholder = "kuvaus" onChange={e => setKuvaus(e.target.value)} />
+        <input className="muokkaus" value={hinta} placeholder = "hinta" onChange={e => setHinta(e.target.value)} />
+        <input className="muokkaus" value={saldo} placeholder = "saldo" onChange={e => setSaldo(e.target.value)} />
+        <input className="muokkaus" value={kuva} placeholder = "https://www.students.oamk.fi/~n0peii00/kuvia/tyhja.png" onChange={e => setKuva(e.target.value)} />
+        <input className="muokkaus" value={category_id} placeholder = "category_id" onChange={e => setCategory_id(e.target.value)} />
         <button>Tallenna</button>
       </form>
         <table id='kaikki' className='table col-12'>
