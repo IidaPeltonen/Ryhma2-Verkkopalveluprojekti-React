@@ -196,7 +196,7 @@ function Kirja({ url }) {
   }
 
   return (
-    <div className='container'>
+    <div className='container-fluid'>
       <h2 id='otsikko keskita'>Kaikki kirjat</h2>
       <form onSubmit={tallenna}>
         <label>Lisää kirja</label>

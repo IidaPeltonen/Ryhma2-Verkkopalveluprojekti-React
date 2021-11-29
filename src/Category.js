@@ -6,6 +6,8 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Link } from 'react-router-dom'
 import './inc/styles/Order.css'
+import './App.css'
+
 
 export default function Category ({ url, category, addToCart }) {
   const [kirjat, setKirjat] = useState([])
@@ -36,7 +38,7 @@ export default function Category ({ url, category, addToCart }) {
   return (
     <div className='container'>
       <div className='row table-responsive-md'>
-        <h2 id='otsikko keskita'>{category?.name}</h2>
+        <h2 id='heading'>{category?.name}</h2>
         <table id='kaikki' className='table'>
           <tbody className='col-12'>
             {kirjat.map(kirja => (
