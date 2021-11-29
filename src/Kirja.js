@@ -30,7 +30,7 @@ function Kirja({ url }) {
     })
     axios.post(url + 'addKirja.php', json, {
       headers: {
-        'Content-Type': 'applicationJ/json'
+        'Content-Type': 'application/json'
       }
     })
       .then((response) => {
