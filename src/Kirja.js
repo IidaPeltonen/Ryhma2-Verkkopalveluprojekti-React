@@ -250,6 +250,7 @@ function Kirja({ url }) {
           value={category_id}
           onChange={e => setCategory_id(e.target.value)}
         >
+          <option>Valitse</option>
           {categories.map(category => (
             <option key={category.id}>
               {category.id} {category.name}
@@ -286,8 +287,8 @@ function Kirja({ url }) {
               <td id='notbold'>{editItem?.id !== item.kirjaid && item.saldo}</td>
               <td id='notbold'>{editItem?.id !== item.kirjaid && item.kuva}</td>
               <td id='notbold'>{editItem?.id !== item.kirjaid && item.category_id}</td>
-              <td id='notbold'>{editItem?.kirjaid === item.kirjaid && ( 
-               <form onSubmit={paivita}>
+              <td id='notbold'>{editItem?.kirjaid === item.kirjaid && (
+                <form onSubmit={paivita}>
                   <input
                     placeholder='Kirjan nimi'
                     value={editKirjanimi}
@@ -339,6 +340,7 @@ function Kirja({ url }) {
                     value={editCategory_id}
                     onChange={e => setEditCategory_id(e.target.value)}
                   >
+                    <option>Valitse</option>
                     {categories.map(category => (
                       <option key={category.id}>
                         {category.id} {category.name}
