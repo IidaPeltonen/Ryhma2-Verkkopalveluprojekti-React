@@ -1,12 +1,13 @@
 import React from 'react'
 import uuid from 'react-uuid'
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import './inc/styles/Order.css'
 
 //yhden rivinn summa
 const riviSumma = 0
 
-export default function Order ({
+export default function Order({
   url,
   cart,
   clear,
@@ -16,7 +17,7 @@ export default function Order ({
   const [inputs, setInputs] = useState([])
   const [inputIndex, setInputIndex] = useState(-1)
 
-  function changeAmount (e, product, index) {
+  function changeAmount(e, product, index) {
     updateAmount(e.target.value, product)
     setInputIndex(index)
   }
@@ -48,6 +49,28 @@ export default function Order ({
               <tr key={uuid()}>
                 <th scope='col' className='align-middle'>
                   <img src={product.kuva} alt='kirjan kansikuva'></img>
+                  <Link
+                    className='musta'
+                    to={{
+                      pathname: '/detail',
+                      state: {
+                        id: product.id,
+                        kirjanimi: product.kirjanimi,
+                        kirjailija: product.kirjailija,
+                        vuosi: product.vuosi,
+                        kieli: product.kieli,
+                        kustantaja: product.kustantaja,
+                        kuvaus: product.kuvaus,
+                        hinta: product.hinta,
+                        saldo: product.saldo,
+                        kuva: product.kuva
+                      }
+                    }}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#447f43" class="bi bi-info-square" viewBox="0 0 16 16">
+                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                    <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                    </svg></Link>
+                    
                 </th>
                 <th scope='col' className='align-middle' id='notbold'>
                   {product.kirjailija}
