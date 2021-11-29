@@ -7,16 +7,16 @@ import 'react-toastify/dist/ReactToastify.css'
 
 function User ({ url }) {
   const [users, setUsers] = useState([])
-  const [user, setUser] = ('');
-  const [firstname, setFirstname] = ('');
-  const [lastname, setLastname] = ('');
-  const [username, setUsername] = ('');
-  const [password, setPassword] = ('');
+  const [user, setUser] = useState('');
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [editUser, setEditUser] = useState(null)
-  const [editFirstname, setEditFirstname] = ('');
-  const [editLastname, setEditLastname] = ('');
-  const [EditUsername, setEditUsername] = ('');
-  const [EditPassword, setEditPassword] = ('');
+  const [editFirstname, setEditFirstname] = useState('');
+  const [editLastname, setEditLastname] = useState('');
+  const [EditUsername, setEditUsername] = useState('');
+  const [EditPassword, setEditPassword] = useState('');
   
   useEffect(() => {
     axios
@@ -174,6 +174,7 @@ function User ({ url }) {
                 <input
                   placeholder='Salasana'
                   value={password}
+                  type='password'
                   onChange={e => setEditPassword(e.target.value)}
                 ></input>
                 <button>Tallenna</button>
