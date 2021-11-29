@@ -5,7 +5,7 @@ import './App.css'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-function Asiakas ({ url }) {
+function Asiakas({ url }) {
   const [asiakkaat, setAsiakkaat] = useState([])
   const [asiakas, setAsiakas] = useState('');
   const [astunnus, setAstunnus] = useState('');
@@ -23,7 +23,7 @@ function Asiakas ({ url }) {
   const [EditPostitmp, setEditPostitmp] = useState('');
   const [EditPuhelin, setEditPuhelin] = useState('');
   const [EditEmail, setEditEmail] = useState('');
-  
+
   useEffect(() => {
     axios
       .get(url + 'indexAsiakas.php')
@@ -36,18 +36,18 @@ function Asiakas ({ url }) {
       })
   }, [])
 
-  
+
   //uuden tallennus
-  function tallenna (e) {
+  function tallenna(e) {
     e.preventDefault()
     const json = JSON.stringify({
-        astunnus: astunnus,
-        asnimi: asnimi,
-        asosoite: asosoite,
-        postinro: postinro,
-        postitmp: postitmp,
-        puhelin: puhelin,
-        email: email
+      astunnus: astunnus,
+      asnimi: asnimi,
+      asosoite: asosoite,
+      postinro: postinro,
+      postitmp: postitmp,
+      puhelin: puhelin,
+      email: email
     })
     axios
       .post(url + 'addAsiakas.php', json, {
@@ -65,7 +65,7 @@ function Asiakas ({ url }) {
   }
 
   //olemassaolevan poisto
-  function remove (asid) {
+  function remove(asid) {
     const json = JSON.stringify({ asid: asid })
     axios
       .post(url + 'deleteAsiakas.php', json, {
@@ -74,8 +74,8 @@ function Asiakas ({ url }) {
         }
       })
       .then(() => {
-        const newListWithoutRemoved = asiakkaat.filter(asiakas => 
-            asiakas.asid !== asid)
+        const newListWithoutRemoved = asiakkaat.filter(asiakas =>
+          asiakas.asid !== asid)
         setAsiakkaat(newListWithoutRemoved)
       })
       .catch(error => {
@@ -84,7 +84,7 @@ function Asiakas ({ url }) {
   }
 
   //olemassaolevan päivitys
-  function setEditedAsiakas (asiakas) {
+  function setEditedAsiakas(asiakas) {
     setEditAsiakas(asiakas)
     setEditAstunnus(asiakas?.astunnus)
     setEditAsnimi(asiakas?.asnimi)
@@ -95,8 +95,8 @@ function Asiakas ({ url }) {
     setEditPostinro(asiakas?.postinro)
     setEditEmail(asiakas?.email)
   }
-  
-  function paivita (e) {
+
+  function paivita(e) {
     e.preventDefault()
     const json = JSON.stringify({
       asid: editAsiakas.asid,
@@ -116,25 +116,25 @@ function Asiakas ({ url }) {
       })
       .then(() => {
         asiakkaat[
-            asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
+          asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
         ].firstname = editAstunnus
         asiakkaat[
-            asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
+          asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
         ].lastname = editAsnimi
         asiakkaat[
-            asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
+          asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
         ].username = EditAsosoite
         asiakkaat[
-            asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
+          asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
         ].password = EditPostinro
         asiakkaat[
-            asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
+          asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
         ].password = EditPostitmp
         asiakkaat[
-            asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
+          asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
         ].password = EditPuhelin
         asiakkaat[
-            asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
+          asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
         ].password = EditEmail
         setAsiakkaat([...asiakkaat])
         setEditedAsiakas(null)
@@ -234,6 +234,7 @@ function Asiakas ({ url }) {
                   onChange={e => setEditEmail(e.target.value)}
                 ></input>
                 <button>Tallenna</button>
+                <button type="button" onClick={() => setEditedAsiakas(null)}>Peruuta</button>
               </form>
             )}
             <button className='delete' onClick={() => remove(asiakas.asid)}>
@@ -247,7 +248,7 @@ function Asiakas ({ url }) {
           </li>
         ))}
       </ol>
-      </div>
+    </div>
   )
 }
 

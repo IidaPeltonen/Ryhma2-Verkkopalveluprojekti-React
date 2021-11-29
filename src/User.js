@@ -5,7 +5,7 @@ import './App.css'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-function User ({ url }) {
+function User({ url }) {
   const [users, setUsers] = useState([])
   const [user, setUser] = useState('');
   const [firstname, setFirstname] = useState('');
@@ -17,7 +17,7 @@ function User ({ url }) {
   const [editLastname, setEditLastname] = useState('');
   const [editUsername, setEditUsername] = useState('');
   const [editPassword, setEditPassword] = useState('');
-  
+
   useEffect(() => {
     axios
       .get(url + 'indexUser.php')
@@ -30,15 +30,15 @@ function User ({ url }) {
       })
   }, [])
 
-  
+
   //uuden tallennus
-  function tallenna (e) {
+  function tallenna(e) {
     e.preventDefault()
     const json = JSON.stringify({
-        firstname: firstname,
-        lastname: lastname,
-        username: username,
-        password: password
+      firstname: firstname,
+      lastname: lastname,
+      username: username,
+      password: password
     })
     axios
       .post(url + 'addUser.php', json, {
@@ -56,8 +56,8 @@ function User ({ url }) {
   }
 
   //olemassaolevan poisto
-  function remove (userid) {
-    const json = JSON.stringify({ userid: userid })
+  function remove(id) {
+    const json = JSON.stringify({ userid: id })
     axios
       .post(url + 'deleteUser.php', json, {
         headers: {
@@ -65,8 +65,8 @@ function User ({ url }) {
         }
       })
       .then(response => {
-        const newListWithoutRemoved = users.filter(user => 
-            user.userid !== userid)
+        const newListWithoutRemoved = users.filter(user =>
+          user.userid !== id)
         setUsers(newListWithoutRemoved)
       })
       .catch(error => {
@@ -75,15 +75,15 @@ function User ({ url }) {
   }
 
   //olemassaolevan päivitys
-  function setEditedUser (user) {
+  function setEditedUser(user) {
     setEditUser(user)
     setEditFirstname(user?.firstname)
     setEditLastname(user?.lastname)
     setEditUsername(user?.username)
     setEditPassword(user?.password)
   }
-  
-  function paivita (e) {
+
+  function paivita(e) {
     e.preventDefault()
     const json = JSON.stringify({
       userid: editUser.userid,
@@ -103,13 +103,13 @@ function User ({ url }) {
           users.findIndex(user => user.userid === editUser.userid)
         ].firstname = editFirstname
         users[
-            users.findIndex(user => user.userid === editUser.userid)
+          users.findIndex(user => user.userid === editUser.userid)
         ].lastname = editLastname
         users[
-            users.findIndex(user => user.userid === editUser.userid)
+          users.findIndex(user => user.userid === editUser.userid)
         ].username = editUsername
         users[
-            users.findIndex(user => user.userid === editUser.userid)
+          users.findIndex(user => user.userid === editUser.userid)
         ].password = editPassword
         setUsers([...users])
         setEditedUser(null)
@@ -153,7 +153,6 @@ function User ({ url }) {
             <p>{editUser?.userid !== user.userid && user.lastname}</p>
             <p>{editUser?.userid !== user.userid && user.username}</p>
             <p>{editUser?.userid !== user.userid && user.password}</p>
-            <p>{editUser?.userid !== user.userid && user.kustantaja}</p>
             {editUser?.userid === user.userid && (
               <form onSubmit={paivita}>
                 <input
@@ -177,6 +176,7 @@ function User ({ url }) {
                   onChange={e => setEditPassword(e.target.value)}
                 ></input>
                 <button>Tallenna</button>
+                <button type="button" onClick={() => setEditedUser(null)}>Peruuta</button>
               </form>
             )}
             <button className='delete' onClick={() => remove(user.userid)}>
@@ -190,7 +190,7 @@ function User ({ url }) {
           </li>
         ))}
       </ol>
-      </div>
+    </div>
   )
 }
 
