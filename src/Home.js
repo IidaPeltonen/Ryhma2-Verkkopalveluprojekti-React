@@ -42,56 +42,60 @@ function Home ({ url, addToCart }) {
     <div>
       <div>
         <Top url={url} addToCart={addToCart} />
-        <h2 id='otsikko' className='ms-4'>
+        <h2 id='heading' className='ms-4'>
           Kaikki kirjat
         </h2>
         <ol id='kaikki'>
           <Slide {...properties}>
             {kirjat?.map(kirja => (
               <div key={kirja.kirjaid}>
-                <div onClick={e => setValittuKirja(kirja)}>
-                  <Link
-                    className='musta'
-                    to={{
-                      pathname: '/detail',
-                      state: {
-                        id: kirja.id,
-                        kirjanimi: kirja.kirjanimi,
-                        kirjailija: kirja.kirjailija,
-                        vuosi: kirja.vuosi,
-                        kieli: kirja.kieli,
-                        kustantaja: kirja.kustantaja,
-                        kuvaus: kirja.kuvaus,
-                        hinta: kirja.hinta,
-                        saldo: kirja.saldo,
-                        kuva: kirja.kuva
-                      }
-                    }}
-                  >
-                    <img id='kirja' src={kirja.kuva} alt='kirjan kansikuva' />
-                    <br />
-                    <b>
-                      {kirja.kirjanimi} <br />
-                      {kirja.kirjailija}
-                    </b>
-                    <br />
-                    Hinta: {kirja.hinta}€<br />
-                    Varastossa: {kirja.saldo} kpl <br />
-                  </Link>
+                <div className="row"
+                style={{display: 'flex'}}> 
+                
+                  <div onClick={e => setValittuKirja(kirja)}>
+                    <Link
+                      className='musta'
+                      to={{
+                        pathname: '/detail',
+                        state: {
+                          id: kirja.id,
+                          kirjanimi: kirja.kirjanimi,
+                          kirjailija: kirja.kirjailija,
+                          vuosi: kirja.vuosi,
+                          kieli: kirja.kieli,
+                          kustantaja: kirja.kustantaja,
+                          kuvaus: kirja.kuvaus,
+                          hinta: kirja.hinta,
+                          saldo: kirja.saldo,
+                          kuva: kirja.kuva
+                        }
+                      }}
+                    >
+                      <img id='kirja' src={kirja.kuva} alt='kirjan kansikuva' />
+                      <br />
+                      <b>
+                        {kirja.kirjanimi} <br />
+                        {kirja.kirjailija}
+                      </b>
+                      <br />
+                      Hinta: {kirja.hinta}€<br />
+                      Varastossa: {kirja.saldo} kpl <br />
+                    </Link>
+                  </div>
+                  <div>
+                    <button
+                      className='btn'
+                      type='button'
+                      onClick={function (event) {
+                        addToCart(kirja)
+                        notify()
+                      }}
+                    >
+                      <img id='pieni' src={karry} alt='ostoskärry' />
+                    </button>
+                  </div>
+                  </div>
                 </div>
-                <div>
-                  <button
-                    className='btn'
-                    type='button'
-                    onClick={function (event) {
-                      addToCart(kirja)
-                      notify()
-                    }}
-                  >
-                    <img id='pieni' src={karry} alt='ostoskärry' />
-                  </button>
-                </div>
-              </div>
             ))}
           </Slide>
           <ToastContainer
