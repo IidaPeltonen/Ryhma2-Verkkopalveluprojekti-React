@@ -348,6 +348,7 @@ function Kirja({ url }) {
                     ))}
                   </select>
                   <button>Tallenna</button>
+                  <button type="button" onClick={() => setEditedItem(null)}>Peruuta</button>
                 </form>
               )}
                 <button className='delete' onClick={() => remove(item.kirjaid)}>
