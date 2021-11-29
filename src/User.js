@@ -15,8 +15,8 @@ function User ({ url }) {
   const [editUser, setEditUser] = useState(null)
   const [editFirstname, setEditFirstname] = useState('');
   const [editLastname, setEditLastname] = useState('');
-  const [EditUsername, setEditUsername] = useState('');
-  const [EditPassword, setEditPassword] = useState('');
+  const [editUsername, setEditUsername] = useState('');
+  const [editPassword, setEditPassword] = useState('');
   
   useEffect(() => {
     axios
@@ -89,8 +89,8 @@ function User ({ url }) {
       userid: editUser.userid,
       firstname: editFirstname,
       lastname: editLastname,
-      username: EditUsername,
-      password: EditPassword
+      username: editUsername,
+      password: editPassword
     })
     axios
       .post(url + 'updateUser.php', json, {
@@ -107,10 +107,10 @@ function User ({ url }) {
         ].lastname = editLastname
         users[
             users.findIndex(user => user.userid === editUser.userid)
-        ].username = EditUsername
+        ].username = editUsername
         users[
             users.findIndex(user => user.userid === editUser.userid)
-        ].password = EditPassword
+        ].password = editPassword
         setUsers([...users])
         setEditedUser(null)
       })
@@ -168,13 +168,12 @@ function User ({ url }) {
                 ></input>
                 <input
                   placeholder='Käyttäjätunnus'
-                  value={username}
+                  value={editUsername}
                   onChange={e => setEditUsername(e.target.value)}
                 ></input>
                 <input
                   placeholder='Salasana'
-                  value={password}
-                  type='password'
+                  value={editPassword}
                   onChange={e => setEditPassword(e.target.value)}
                 ></input>
                 <button>Tallenna</button>

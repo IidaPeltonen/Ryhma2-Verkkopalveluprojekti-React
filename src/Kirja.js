@@ -5,6 +5,7 @@ import './App.css'
 import './inc/styles/Admin.css'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import tyhja from './img/tyhja.png'
 
 function Kirja({ url }) {
   const [items, setItems] = useState([])
@@ -17,7 +18,7 @@ function Kirja({ url }) {
   const [kuvaus, setKuvaus] = useState('')
   const [hinta, setHinta] = useState('')
   const [saldo, setSaldo] = useState('')
-  const [kuva, setKuva] = useState('')
+  const [kuva, setKuva] = useState('https://www.students.oamk.fi/~n0peii00/kuvia/tyhja.png')
   const [categories, setCategories] = useState([])
   const [category_name, setCategory_name] = useState('')
   const [category_id, setCategory_id] = useState('')
@@ -150,6 +151,7 @@ function Kirja({ url }) {
         }
       })
       .then(response => {
+        <br></br>
         items[
           items.findIndex(item => item.kirjaid === editItem.kirjaid)
         ].kirjanimi = editKirjanimi
@@ -279,13 +281,13 @@ function Kirja({ url }) {
               <td id='notbold'>{editItem?.id !== item.kirjaid && item.vuosi}</td>
               <td id='notbold'>{editItem?.id !== item.kirjaid && item.kieli}</td>
               <td id='notbold'>{editItem?.id !== item.kirjaid && item.kustantaja}</td>
-              <td id='notbold'>{editItem?.id !== item.kirjaid && item.kuvaus}</td>{' '}
+              <td id='notbold'>{editItem?.id !== item.kirjaid && item.kuvaus}</td>
               <td id='notbold'>{editItem?.id !== item.kirjaid && item.hinta}</td>
               <td id='notbold'>{editItem?.id !== item.kirjaid && item.saldo}</td>
               <td id='notbold'>{editItem?.id !== item.kirjaid && item.kuva}</td>
               <td id='notbold'>{editItem?.id !== item.kirjaid && item.category_id}</td>
-              <td id='notbold'>{editItem?.kirjaid === item.kirjaid && (
-                <form onSubmit={paivita}>
+              <td id='notbold'>{editItem?.kirjaid === item.kirjaid && ( 
+               <form onSubmit={paivita}>
                   <input
                     placeholder='Kirjan nimi'
                     value={editKirjanimi}
@@ -329,6 +331,7 @@ function Kirja({ url }) {
                   <input
                     placeholder='Kuvan osoite'
                     value={editKuva}
+
                     onChange={e => setEditKuva(e.target.value)}
                   ></input>
                   <select

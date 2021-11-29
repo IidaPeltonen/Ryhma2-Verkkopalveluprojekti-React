@@ -133,7 +133,13 @@ function Resource (props) {
             </tr>
             <tr>
               <th scope='col' id='notbold'>
+              <Link
+                    to={{
+                      pathname: '/asiakas',
+                    }}
+                  >
                 * Lisää, muokkaa tai poista asiakas *
+              </Link>
               </th>
             </tr>
             <tr>
