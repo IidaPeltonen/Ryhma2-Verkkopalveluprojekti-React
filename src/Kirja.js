@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
+import './inc/styles/Admin.css'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
@@ -255,19 +256,95 @@ function Kirja ({ url }) {
         </select>
         <button>Tallenna</button>
       </form>
-      <ol>
+      <table id='kaikki' className='table col-12'>
+          <thead>
+            <tr>
+              <th scope='col'>Nimi</th>
+              <th scope='col'>Kirjailija</th>
+              <th scope='col'>Hinta</th>
+              <th scope='col'>Julkaisuvuosi</th>
+              <th scope='col'>Kieli</th>
+              <th scope='col'>Kustantaja</th>
+              <th scope='col'>Kuvaus</th>
+              <th scope='col'>Saldo</th>
+              <th scope='col'>Kuvan osoite</th>
+              <th scope='col'>Kategoria</th>
+            </tr>
+          </thead>
         {items?.map(item => (
-          <li key={item.kirjaid}>
-            <p>{editItem?.id !== item.kirjaid && item.kirjanimi}</p>
-            <p>{editItem?.id !== item.kirjaid && item.kirjailija}</p>
-            <p>{editItem?.id !== item.kirjaid && item.vuosi}</p>
-            <p>{editItem?.id !== item.kirjaid && item.kieli}</p>
-            <p>{editItem?.id !== item.kirjaid && item.kustantaja}</p>
-            <p>{editItem?.id !== item.kirjaid && item.kuvaus}</p>{' '}
-            <p>{editItem?.id !== item.kirjaid && item.hinta}</p>
-            <p>{editItem?.id !== item.kirjaid && item.saldo}</p>
-            <p>{editItem?.id !== item.kirjaid && item.kuva}</p>
-            <p>{editItem?.id !== item.kirjaid && item.category_id}</p>
+          <tbody key={item.kirjaid}>
+            <tr>
+            <td id='notbold'>{editItem?.id !== item.kirjaid && item.kirjanimi}</td>
+            <td id='notbold'>{editItem?.id !== item.kirjaid && item.kirjailija}</td>
+            <td id='notbold'>{editItem?.id !== item.kirjaid && item.vuosi}</td>
+            <td id='notbold'>{editItem?.id !== item.kirjaid && item.kieli}</td>
+            <td id='notbold'>{editItem?.id !== item.kirjaid && item.kustantaja}</td>
+            <td id='notbold'>{editItem?.id !== item.kirjaid && item.kuvaus}</td>{' '}
+            <td id='notbold'>{editItem?.id !== item.kirjaid && item.hinta}</td>
+            <td id='notbold'>{editItem?.id !== item.kirjaid && item.saldo}</td>
+            <td id='notbold'>{editItem?.id !== item.kirjaid && item.kuva}</td>
+            <td id='notbold'>{editItem?.id !== item.kirjaid && item.category_id}</td>
+            <td id='notbold'>{editItem?.kirjaid === item.kirjaid && (
+              <form onSubmit={paivita}>
+                <input
+                  placeholder='Kirjan nimi'
+                  value={editKirjanimi}
+                  onChange={e => setEditKirjanimi(e.target.value)}
+                ></input>
+                <input
+                  placeholder='Kirjailija'
+                  value={editKirjailija}
+                  onChange={e => setEditKirjailija(e.target.value)}
+                ></input>
+                <input
+                  placeholder='Vuosi'
+                  value={editVuosi}
+                  onChange={e => setEditVuosi(e.target.value)}
+                ></input>
+                <input
+                  placeholder='Kieli'
+                  value={editKieli}
+                  onChange={e => setEditKieli(e.target.value)}
+                ></input>
+                <input
+                  placeholder='Kustantaja'
+                  value={editKustantaja}
+                  onChange={e => setEditKustantaja(e.target.value)}
+                ></input>
+                <input
+                  placeholder='Kuvaus'
+                  value={editKuvaus}
+                  onChange={e => setEditKuvaus(e.target.value)}
+                ></input>
+                <input
+                  placeholder='Hinta'
+                  value={editHinta}
+                  onChange={e => setEditHinta(e.target.value)}
+                ></input>
+                <input
+                  placeholder='Saldo'
+                  value={editSaldo}
+                  onChange={e => setEditSaldo(e.target.value)}
+                ></input>
+                <input
+                  placeholder='Kuvan osoite'
+                  value={editKuva}
+                  onChange={e => setEditKuva(e.target.value)}
+                ></input>
+                <select
+                  placeholder='Category_id'
+                  value={editCategory_id}
+                  onChange={e => setEditCategory_id(e.target.value)}
+                >
+                  {categories.map(category => (
+                    <option>
+                      {category.id} {category.name}
+                    </option>
+                  ))}
+                </select>
+                <button>Tallenna</button>
+              </form>
+            )}
             {editItem?.kirjaid === item.kirjaid && (
               <form onSubmit={paivita}>
                 <input
@@ -337,9 +414,11 @@ function Kirja ({ url }) {
                 Muokkaa
               </button>
             )}
-          </li>
+            </td>
+            </tr>
+          </tbody>
         ))}
-      </ol>
+      </table>
     </div>
   )
 }
