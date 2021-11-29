@@ -123,7 +123,7 @@ function Resource (props) {
                     }}
                   >
                 * Lisää, muokkaa tai poista kirja *
-                </Link>
+              </Link>
               </th>
             </tr>
             <tr>
@@ -138,12 +138,23 @@ function Resource (props) {
             </tr>
             <tr>
               <th scope='col' id='notbold'>
-                 * Lisää, muokkaa tai poista pääkäyttäjä *
+                <Link
+                    to={{
+                      pathname: '/user',
+                    }}
+                >
+                * Lisää, muokkaa tai poista pääkäyttäjä *
+                </Link>
+              </th>
+            </tr>
+            <tr>
+              <th scope='col' id='notbold'>
+                 * Lisää, muokkaa tai poista tilaus *
               </th>
             </tr>
             <tr col-12>
               <th scopes='col'>
-              <button className="logout" col='6' onClick={logout}>Logout</button>
+              <button className="logout" col='6' onClick={logout}>Kirjaudu ulos</button>
               </th>
             </tr>
             <tr></tr>

@@ -15,6 +15,7 @@ import Order from './Order'
 import Detail from './Detail'
 import Admin from './Admin'
 import Kirja from './Kirja'
+import User from './User'
 
 
 const URL = 'http://localhost/kauppa/'
@@ -125,6 +126,14 @@ function App () {
           path='/kirja' 
           render={() => (
           <Kirja
+            url={URL}
+          />
+          )}
+        />
+        <Route 
+          path='/user' 
+          render={() => (
+          <User
             url={URL}
           />
           )}
