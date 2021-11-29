@@ -29,7 +29,7 @@ h2 {
   font-weight: bold;
 }
 
-#otsikko {
+#heading {
   text-decoration: underline;
 }
 
@@ -147,5 +147,30 @@ img {
   font-family: PT Sans Caption !important;
   font-size: normal;
   text-decoration: none;
+}
+
+.row{
+  display: flex;
+  margin-right: -15px;
+  margin-bottom: -15px;
+  margin-left: -15px;
+  flex-wrap: wrap;
+  align-content: stretch;
+}
+
+.col{
+  margin-bottom: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
+  flex: 1;
+  max-width: 50%;
+  flex-basis: 50%;
+}
+
+.heading {
+  margin-bottom: 24px;
+  font-size: 48px;
+  line-height: 1.1;
+  font-weight: 600;
 }
 

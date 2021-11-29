@@ -39,56 +39,61 @@ function Top ({ url, addToCart }) {
 
   return (
     <div id='reuna' className='container-fluid'>
-      <h2 id='otsikko' className='ms-4'>
+      <h2 id='heading' className='ms-4'>
         Myydyimmät kirjat
       </h2>
       <ol id='top7' className='row'>
         <Slide {...propertiesTop}>
           {kirjat?.map(kirja => (
             <div key={kirja.kirjaid}>
-              <b> {kirja.rownum}. </b>
-              <br />
-              <div onClick={e => setValittuKirja(kirja)}>
-                <Link
-                  className='musta'
-                  to={{
-                    pathname: '/detail',
-                    state: {
-                      id: kirja.id,
-                      kirjanimi: kirja.kirjanimi,
-                      kirjailija: kirja.kirjailija,
-                      vuosi: kirja.vuosi,
-                      kieli: kirja.kieli,
-                      kustantaja: kirja.kustantaja,
-                      kuvaus: kirja.kuvaus,
-                      hinta: kirja.hinta,
-                      saldo: kirja.saldo,
-                      kuva: kirja.kuva
-                    }
-                  }}
-                >
-                  <img id='kirja' src={kirja.kuva} alt='kirjan kansikuva' />
-                  <br />
-                  <b>
-                    {kirja.kirjanimi} <br />
-                    {kirja.kirjailija}
-                  </b>
-                  <br />
-                  Hinta: {kirja.hinta} €<br />
-                  Myyty: {kirja.SUM} kpl <br />
-                </Link>
-              </div>
-              <div>
-                <button
-                  className='btn'
-                  type='button'
-                  onClick={function (event) {
-                    addToCart(kirja)
-                    notify()
-                  }}
-                >
-                  <img id='pieni' src={karry} alt='ostoskärry' />
-                </button>
+
+              <div className="row"
+                style={{display: 'flex'}}>   
+                <b> {kirja.rownum}. </b>
+                <br />
+                <div onClick={e => setValittuKirja(kirja)}>
+                  <Link
+                    className='musta'
+                    to={{
+                      pathname: '/detail',
+                      state: {
+                        id: kirja.id,
+                        kirjanimi: kirja.kirjanimi,
+                        kirjailija: kirja.kirjailija,
+                        vuosi: kirja.vuosi,
+                        kieli: kirja.kieli,
+                        kustantaja: kirja.kustantaja,
+                        kuvaus: kirja.kuvaus,
+                        hinta: kirja.hinta,
+                        saldo: kirja.saldo,
+                        kuva: kirja.kuva
+                      }
+                    }}
+                  >
+                    <img id='kirja' src={kirja.kuva} alt='kirjan kansikuva' />
+                    <br />
+                    <b>
+                      {kirja.kirjanimi} <br />
+                      {kirja.kirjailija}
+                    </b>
+                    <br />
+                    Hinta: {kirja.hinta} €<br />
+                    Myyty: {kirja.SUM} kpl <br />
+                  </Link>
+                </div>
+                <div>
+                  <button
+                    className='btn'
+                    type='button'
+                    onClick={function (event) {
+                      addToCart(kirja)
+                      notify()
+                    }}
+                  >
+                    <img id='pieni' src={karry} alt='ostoskärry' />
+                  </button>
+                </div>
+            
               </div>
             </div>
           ))}
