@@ -326,7 +326,6 @@ function Kirja ({ url }) {
                     </option>
                   ))}
                 </select>
-
                 <button>Tallenna</button>
               </form>
             )}
