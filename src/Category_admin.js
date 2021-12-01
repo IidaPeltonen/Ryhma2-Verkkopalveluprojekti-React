@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
+import './inc/styles/Admin.css'
 
 function CategoryAdmin({ url }) {
   const [kategoria, setKategoria] = useState('')
   const [kategoriat, setKategoriat] = useState([]);
-
+  const [editCategory, setEditCategory] = useState(null)
+  const [editName, setEditName] = useState('');
   const [name, setName] = useState('');
 
 
@@ -42,79 +44,85 @@ function CategoryAdmin({ url }) {
         alert(error.response.data.error)
       })
   }
-/*
-  //olemassaolevan poisto
-  function remove(id) {
-    const json = JSON.stringify({ userid: id })
+
+   //olemassaolevan poisto
+   function remove(id) {
+    const json = JSON.stringify({ id: id })
     axios
-      .post(url + 'deleteUser.php', json, {
+      .post(url + 'deleteTuoteKategoria.php', json, {
         headers: {
           'Content-Type': 'application/json'
         }
       })
       .then(response => {
-        const newListWithoutRemoved = users.filter(user =>
-          user.userid !== id)
-        setUsers(newListWithoutRemoved)
+        const newListWithoutRemoved = kategoriat.filter(kategoria =>
+          kategoria.id !== id)
+        setKategoriat(newListWithoutRemoved)
       })
       .catch(error => {
         alert(error.response ? error.response.data.error : error)
       })
   }
-
   //olemassaolevan päivitys
-  function setEditedUser(user) {
-    setEditUser(user)
-    setEditFirstname(user?.firstname)
-    setEditLastname(user?.lastname)
-    setEditUsername(user?.username)
-    setEditPassword(user?.password)
-  }
+  function setEditedCategory(kategoria) {
+    setEditCategory(kategoria)
+    setEditName(kategoria?.name)  }
 
   function paivita(e) {
     e.preventDefault()
     const json = JSON.stringify({
-      userid: editUser.userid,
-      firstname: editFirstname,
-      lastname: editLastname,
-      username: editUsername,
-      password: editPassword
+      id: editCategory.id,
+      name: editName,
+
     })
     axios
-      .post(url + 'updateUser.php', json, {
+      .post(url + 'updateTuoteKategoria.php', json, {
         headers: {
           'Content-Type': 'application/json'
         }
       })
       .then(response => {
-        users[
-          users.findIndex(user => user.userid === editUser.userid)
-        ].firstname = editFirstname
-        users[
-          users.findIndex(user => user.userid === editUser.userid)
-        ].lastname = editLastname
-        users[
-          users.findIndex(user => user.userid === editUser.userid)
-        ].username = editUsername
-        users[
-          users.findIndex(user => user.userid === editUser.userid)
-        ].password = editPassword
-        setUsers([...users])
-        setEditedUser(null)
+        kategoriat[
+          kategoriat.findIndex(kategoria => kategoria.id === editCategory.id)
+        ].name = editName
+        setKategoriat([...kategoriat])
+        setEditedCategory(null)
       })
       .catch(error => {
         alert(error.response ? error.response.data.error : error)
       })
   }
-*/
   return (
     <div className='container'>
-      <h2 id='otsikko keskita'>Tuoteryhmät</h2>
+      <h2 id='otsikko keskita'>Kaikki pääkäyttäjät</h2>
+      <form onSubmit={tallenna}>
+        <label>Lisää pääkäyttäjä</label>
+        <input
+          value={firstname}
+          placeholder='etunimi'
+          onChange={e => setFirstname(e.target.value)}
+        />
+        <input
+          value={lastname}
+          placeholder='sukunimi'
+          onChange={e => setLastname(e.target.value)}
+        />
+        <input
+          value={username}
+          placeholder='käyttäjätunnus'
+          onChange={e => setUsername(e.target.value)}
+        />
+        <input
+          value={password}
+          placeholder='salasana'
+          onChange={e => setPassword(e.target.value)}
+        />
+        <button>Tallenna</button>
+      </form>
       <ol>
-        {kategoriat?.map(kategoria => (
-          <li key={kategoria.id}>
-              <p>{kategoria.name}</p>
-           {/* <p>{editUser?.userid !== user.userid && user.firstname}</p>
+        {users?.map(user => (
+          <li key={user.userid}>
+            <p>{editUser?.userid !== user.userid && user.firstname}</p>
             <p>{editUser?.userid !== user.userid && user.lastname}</p>
             <p>{editUser?.userid !== user.userid && user.username}</p>
             <p>{editUser?.userid !== user.userid && user.password}</p>
@@ -151,8 +159,27 @@ function CategoryAdmin({ url }) {
               <button className='edit' onClick={() => setEditedUser(user)}>
                 Muokkaa
               </button>
-            )} */}
+            )}
           </li>
+        ))}
+      </ol>
+    </div>
+  )
+}
+
+  return (
+    <div className='container'>
+      <h2 id='otsikko keskita'>Tuoteryhmät</h2>
+      <ol>
+        {kategoriat?.map(kategoria => (
+          <li key={kategoria.id}>
+              <p>{kategoria.name}</p> 
+              <button className='delete' onClick={() => remove(kategoria.id)}>
+              Poista
+            </button>
+          </li>
+          
+          
         ))}
       </ol>
       <form onSubmit={tallenna}>
@@ -161,7 +188,7 @@ function CategoryAdmin({ url }) {
         type="text"
           value={name}
           placeholder='nimi'
-          onChange={e => setKategoria(e.target.value)}
+          onChange={e => setName(e.target.value)}
         />
         <button>Tallenna</button>
       </form>
