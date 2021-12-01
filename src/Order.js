@@ -49,6 +49,7 @@ export default function Order({
           <tbody className='col-12'>
             {cart.map((product, index) => (
             //riviSumma = (product.hinta * product.amount)
+            
               <tr key={uuid()}>
                 <th scope='col' className='align-middle'>
                   <img src={product.kuva} alt='kirjan kansikuva'></img>
@@ -98,6 +99,7 @@ export default function Order({
                 <th scope='col' className='align-middle' id='notbold'>
                   Yhteensä: {(product.amount * product.hinta).toFixed(2)}€
                 </th>
+               
                 <th scope='col' className='align-middle'>
                   <button
                     className='btn'
