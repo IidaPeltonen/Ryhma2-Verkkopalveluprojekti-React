@@ -6,7 +6,7 @@ import './inc/styles/Order.css'
 
 //yhden rivin summa
 
-let loppusumma = 0
+
 
 //riviSumma: (product.hinta * (product.amount)),
 
@@ -19,6 +19,7 @@ export default function Order({
 }){
   const [inputs, setInputs] = useState([])
   const [inputIndex, setInputIndex] = useState(-1)
+  const [finished, setFinished] = useState(false)
 
   function changeAmount(e, product, index) {
     updateAmount(e.target.value, product)
@@ -41,15 +42,26 @@ export default function Order({
     }
   }, [cart])
 
+  let riviSumma = 0
+  let loppuSumma = 0
+
+  if (finished === false) {
   return (
     <div className='container'>
       <div className='row table-responsive-md'>
         <h1 id='keskita'>Ostoskorisi</h1>
         <table className='table'>
           <tbody className='col-12'>
+<<<<<<< HEAD
             {cart.map((product, index) => (
             //riviSumma = (product.hinta * product.amount)
             
+=======
+            {cart.map((product, index) => {
+            riviSumma=(product.hinta * product.amount)
+            loppuSumma+=parseFloat(riviSumma)
+            return (
+>>>>>>> 277e037e6d731b191648d0e213fe897fe72f41e3
               <tr key={uuid()}>
                 <th scope='col' className='align-middle'>
                   <img src={product.kuva} alt='kirjan kansikuva'></img>
@@ -68,7 +80,7 @@ export default function Order({
                         hinta: product.hinta,
                         saldo: product.saldo,
                         kuva: product.kuva
-                      }
+                    }
                     }}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#447f43" className="bi bi-info-square ms-5" viewBox="0 0 16 16">
                     <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
@@ -97,7 +109,7 @@ export default function Order({
                   />
                 </th>
                 <th scope='col' className='align-middle' id='notbold'>
-                  Yhteensä: {(product.amount * product.hinta).toFixed(2)}€
+                  Yhteensä: {riviSumma.toFixed(2)}€
                 </th>
                
                 <th scope='col' className='align-middle'>
@@ -123,14 +135,15 @@ export default function Order({
                   </button>
                 </th>
               </tr>
-            ))}
-
-            <tr></tr>
-          </tbody>
-        </table>
+            )})}
+                </tbody>
+                </table>
+        
+         
         <div id='keskita'>
           <br />
           <br />
+          <p>Tilauksesi loppusumma on {loppuSumma.toFixed(2)} €</p>
           <button
             className='tyhjenna btn btn-primary'
             type='button'
@@ -144,4 +157,7 @@ export default function Order({
       </div>
     </div>
   )
+} else {
+    return (<h3>Thank you for your order!</h3>)
+}
 }
