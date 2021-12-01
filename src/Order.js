@@ -52,16 +52,10 @@ export default function Order({
         <h1 id='keskita'>Ostoskorisi</h1>
         <table className='table'>
           <tbody className='col-12'>
-<<<<<<< HEAD
-            {cart.map((product, index) => (
-            //riviSumma = (product.hinta * product.amount)
-            
-=======
             {cart.map((product, index) => {
             riviSumma=(product.hinta * product.amount)
             loppuSumma+=parseFloat(riviSumma)
             return (
->>>>>>> 277e037e6d731b191648d0e213fe897fe72f41e3
               <tr key={uuid()}>
                 <th scope='col' className='align-middle'>
                   <img src={product.kuva} alt='kirjan kansikuva'></img>
@@ -111,7 +105,6 @@ export default function Order({
                 <th scope='col' className='align-middle' id='notbold'>
                   Yhteensä: {riviSumma.toFixed(2)}€
                 </th>
-               
                 <th scope='col' className='align-middle'>
                   <button
                     className='btn'
