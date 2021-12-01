@@ -128,7 +128,13 @@ function Resource (props) {
             </tr>
             <tr>
               <th scope='col' id='notbold'>
+              <Link
+                to={{
+                  pathname: '/category_admin'
+                }}
+                >
                 * Lisää, muokkaa tai poista tuoteryhmä *
+                </Link>
               </th>
             </tr>
             <tr>

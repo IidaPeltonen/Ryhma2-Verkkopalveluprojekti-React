@@ -17,6 +17,7 @@ import Admin from './Admin'
 import Kirja from './Kirja'
 import User from './User'
 import Asiakas from './Asiakas'
+import CategoryAdmin from './Category_admin'
 
 
 const URL = 'http://localhost/kauppa/'
@@ -127,6 +128,14 @@ function App () {
           path='/kirja' 
           render={() => (
           <Kirja
+            url={URL}
+          />
+          )}
+        />
+        <Route 
+          path='/category_admin' 
+          render={() => (
+          <CategoryAdmin
             url={URL}
           />
           )}
