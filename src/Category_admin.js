@@ -45,8 +45,8 @@ function CategoryAdmin({ url }) {
       })
   }
 
-   //olemassaolevan poisto
-   function remove(id) {
+  //olemassaolevan poisto
+  function remove(id) {
     const json = JSON.stringify({ id: id })
     axios
       .post(url + 'deleteTuoteKategoria.php', json, {
@@ -66,14 +66,14 @@ function CategoryAdmin({ url }) {
   //olemassaolevan päivitys
   function setEditedCategory(kategoria) {
     setEditCategory(kategoria)
-    setEditName(kategoria?.name)  }
+    setEditName(kategoria?.name)
+  }
 
   function paivita(e) {
     e.preventDefault()
     const json = JSON.stringify({
       id: editCategory.id,
       name: editName,
-
     })
     axios
       .post(url + 'updateTuoteKategoria.php', json, {
@@ -94,98 +94,38 @@ function CategoryAdmin({ url }) {
   }
   return (
     <div className='container'>
-      <h2 id='otsikko keskita'>Kaikki pääkäyttäjät</h2>
-      <form onSubmit={tallenna}>
-        <label>Lisää pääkäyttäjä</label>
-        <input
-          value={firstname}
-          placeholder='etunimi'
-          onChange={e => setFirstname(e.target.value)}
-        />
-        <input
-          value={lastname}
-          placeholder='sukunimi'
-          onChange={e => setLastname(e.target.value)}
-        />
-        <input
-          value={username}
-          placeholder='käyttäjätunnus'
-          onChange={e => setUsername(e.target.value)}
-        />
-        <input
-          value={password}
-          placeholder='salasana'
-          onChange={e => setPassword(e.target.value)}
-        />
-        <button>Tallenna</button>
-      </form>
+      <h2 id='otsikko keskita'>Tuoteryhmät</h2>
       <ol>
-        {users?.map(user => (
-          <li key={user.userid}>
-            <p>{editUser?.userid !== user.userid && user.firstname}</p>
-            <p>{editUser?.userid !== user.userid && user.lastname}</p>
-            <p>{editUser?.userid !== user.userid && user.username}</p>
-            <p>{editUser?.userid !== user.userid && user.password}</p>
-            {editUser?.userid === user.userid && (
+        {kategoriat?.map(kategoria => (
+          <li key={kategoria.id}> 
+            <p>{editCategory?.id !== kategoria.id && kategoria.name}</p>
+            {editCategory?.id === kategoria.id && (
               <form onSubmit={paivita}>
                 <input
-                  placeholder='Etunimi'
-                  value={editFirstname}
-                  onChange={e => setEditFirstname(e.target.value)}
-                ></input>
-                <input
-                  placeholder='Sukunimi'
-                  value={editLastname}
-                  onChange={e => setEditLastname(e.target.value)}
-                ></input>
-                <input
-                  placeholder='Käyttäjätunnus'
-                  value={editUsername}
-                  onChange={e => setEditUsername(e.target.value)}
-                ></input>
-                <input
-                  placeholder='Salasana'
-                  value={editPassword}
-                  onChange={e => setEditPassword(e.target.value)}
-                ></input>
+                  type="text"
+                  value={editName}
+                  placeholder='nimi'
+                  onChange={e => setEditName(e.target.value)}
+                />
                 <button>Tallenna</button>
-                <button type="button" onClick={() => setEditedUser(null)}>Peruuta</button>
+                <button type="button" onClick={() => setEditCategory(null)}>Peruuta</button>
               </form>
             )}
-            <button className='delete' onClick={() => remove(user.userid)}>
+            <button className='delete' onClick={() => remove(kategoria.id)}>
               Poista
             </button>
-            {editUser === null && (
-              <button className='edit' onClick={() => setEditedUser(user)}>
+            {editCategory === null && (
+              <button className='edit' onClick={() => setEditedCategory(kategoria)}>
                 Muokkaa
               </button>
             )}
           </li>
         ))}
       </ol>
-    </div>
-  )
-}
-
-  return (
-    <div className='container'>
-      <h2 id='otsikko keskita'>Tuoteryhmät</h2>
-      <ol>
-        {kategoriat?.map(kategoria => (
-          <li key={kategoria.id}>
-              <p>{kategoria.name}</p> 
-              <button className='delete' onClick={() => remove(kategoria.id)}>
-              Poista
-            </button>
-          </li>
-          
-          
-        ))}
-      </ol>
       <form onSubmit={tallenna}>
         <label>Lisää tuoteryhmä</label>&nbsp;
         <input
-        type="text"
+          type="text"
           value={name}
           placeholder='nimi'
           onChange={e => setName(e.target.value)}
