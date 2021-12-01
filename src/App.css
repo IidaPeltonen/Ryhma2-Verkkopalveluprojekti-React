@@ -149,7 +149,7 @@ img {
   text-decoration: none;
 }
 
-.row{
+#homerow{
   display: flex;
   margin-right: -15px;
   margin-bottom: -15px;
@@ -158,7 +158,7 @@ img {
   align-content: stretch;
 }
 
-.col{
+#homecol{
   margin-bottom: 15px;
   padding-right: 15px;
   padding-left: 15px;

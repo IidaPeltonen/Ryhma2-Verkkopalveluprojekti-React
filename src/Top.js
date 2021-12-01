@@ -47,7 +47,7 @@ function Top ({ url, addToCart }) {
           {kirjat?.map(kirja => (
             <div key={kirja.kirjaid}>
 
-              <div className="row"
+              <div className="row" id="homerow"
                 style={{display: 'flex'}}>   
                 <b> {kirja.rownum}. </b>
                 <br />
