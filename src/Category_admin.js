@@ -109,17 +109,7 @@ function CategoryAdmin({ url }) {
 */
   return (
     <div className='container'>
-      <h2 id='otsikko keskita'>Kategoria</h2>
-      <form onSubmit={tallenna}>
-        <label>Lisää tuoteryhmä</label>&nbsp;
-        <input
-        type="text"
-          value={name}
-          placeholder='nimi'
-          onChange={e => setKategoria(e.target.value)}
-        />
-        <button>Tallenna</button>
-      </form>
+      <h2 id='otsikko keskita'>Tuoteryhmät</h2>
       <ol>
         {kategoriat?.map(kategoria => (
           <li key={kategoria.id}>
@@ -165,6 +155,16 @@ function CategoryAdmin({ url }) {
           </li>
         ))}
       </ol>
+      <form onSubmit={tallenna}>
+        <label>Lisää tuoteryhmä</label>&nbsp;
+        <input
+        type="text"
+          value={name}
+          placeholder='nimi'
+          onChange={e => setKategoria(e.target.value)}
+        />
+        <button>Tallenna</button>
+      </form>
     </div>
   )
 }
