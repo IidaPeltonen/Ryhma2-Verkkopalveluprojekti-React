@@ -4,8 +4,11 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './inc/styles/Order.css'
 
-//yhden rivinn summa
-const riviSumma = 0
+//yhden rivin summa
+
+let loppusumma = 0
+
+//riviSumma: (product.hinta * (product.amount)),
 
 export default function Order({
   url,
@@ -13,7 +16,7 @@ export default function Order({
   clear,
   removeFromCart,
   updateAmount
-}) {
+}){
   const [inputs, setInputs] = useState([])
   const [inputIndex, setInputIndex] = useState(-1)
 
@@ -45,7 +48,7 @@ export default function Order({
         <table className='table'>
           <tbody className='col-12'>
             {cart.map((product, index) => (
-              //riviSumma+=parseFloat(product.hinta) MITEN TÄMÄ SAADAAN TOIMIMAAN?
+            //riviSumma = (product.hinta * product.amount)
               <tr key={uuid()}>
                 <th scope='col' className='align-middle'>
                   <img src={product.kuva} alt='kirjan kansikuva'></img>
@@ -93,7 +96,7 @@ export default function Order({
                   />
                 </th>
                 <th scope='col' className='align-middle' id='notbold'>
-                  Yhteensä: {riviSumma}
+                  Yhteensä: {(product.amount * product.hinta).toFixed(2)}€
                 </th>
                 <th scope='col' className='align-middle'>
                   <button
@@ -119,6 +122,7 @@ export default function Order({
                 </th>
               </tr>
             ))}
+
             <tr></tr>
           </tbody>
         </table>

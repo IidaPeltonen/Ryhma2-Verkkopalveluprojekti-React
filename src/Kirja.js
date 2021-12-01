@@ -76,7 +76,7 @@ function Kirja({ url }) {
       kieli: kieli,
       kustantaja: kustantaja,
       kuvaus: kuvaus,
-      hinta: hinta,
+      hinta: hinta.replace(',','.'),
       saldo: saldo,
       kuva: kuva,
       category_id: category_id
@@ -139,7 +139,7 @@ function Kirja({ url }) {
       kieli: editKieli,
       kustantaja: editKustantaja,
       kuvaus: editKuvaus,
-      hinta: editHinta,
+      hinta: editHinta.replace(',','.'),
       saldo: editSaldo,
       kuva: editKuva,
       category_id: editCategory_id
@@ -233,6 +233,7 @@ function Kirja({ url }) {
         <input
           value={hinta}
           placeholder='hinta'
+          
           onChange={e => setHinta(e.target.value)}
         />
         <input
