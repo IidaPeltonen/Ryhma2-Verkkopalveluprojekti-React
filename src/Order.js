@@ -95,9 +95,6 @@ export default function Order({
                   <input
                     ref={inputs[index]}
                     style={{ width: '60px' }}
-                    type='number'
-                    step='1'
-                    min='1'
                     onChange={e => changeAmount(e, product, index)}
                     value={product.amount}
                   />
@@ -105,6 +102,7 @@ export default function Order({
                 <th scope='col' className='align-middle' id='notbold'>
                   Yhteensä: {riviSumma.toFixed(2)}€
                 </th>
+               
                 <th scope='col' className='align-middle'>
                   <button
                     className='btn'
