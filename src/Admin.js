@@ -118,6 +118,7 @@ function Resource (props) {
             <tr col-12>
               <th scope='col' id='notbold'>
               <Link
+              className='adminlinkit'
                     to={{
                       pathname: '/kirja',
                     }}
@@ -129,6 +130,7 @@ function Resource (props) {
             <tr>
               <th scope='col' id='notbold'>
               <Link
+              className='adminlinkit'
                 to={{
                   pathname: '/category_admin'
                 }}
@@ -140,6 +142,7 @@ function Resource (props) {
             <tr>
               <th scope='col' id='notbold'>
               <Link
+              className='adminlinkit'
                     to={{
                       pathname: '/asiakas',
                     }}
@@ -151,6 +154,7 @@ function Resource (props) {
             <tr>
               <th scope='col' id='notbold'>
                 <Link
+                className='adminlinkit'
                     to={{
                       pathname: '/user',
                     }}
