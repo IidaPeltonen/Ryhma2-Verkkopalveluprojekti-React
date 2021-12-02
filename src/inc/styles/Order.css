@@ -4,11 +4,18 @@
 
 .tyhjenna {
     font-weight: bold;
+    max-width: 150px;
+    text-align: center;
 }
 
 #notbold {
     font-weight: normal;
 }
+
+#reuna {
+    align-items: center;
+}
+
 
 
 
