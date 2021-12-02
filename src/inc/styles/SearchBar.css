@@ -1,7 +1,11 @@
 /* tutoriaalista tyylejä Hakutulos-divin näyttämiselle, siis usean hakutuloksen näyttäminen. ei ihan pelitä niinkuin pitää */
 
 .search {
- display: flex;
+ display: block;
+}
+
+.dataResult {
+  display: block;
 }
  
   /*  .dataResult {
