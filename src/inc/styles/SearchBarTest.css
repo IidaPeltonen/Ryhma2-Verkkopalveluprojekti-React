@@ -7,6 +7,15 @@
 .dataResult {
   display: block;
 }
+
+.result{
+  background-color: #447f43;
+  text-decoration: none !important;
+}
+
+/* li {
+  text-decoration: none !important;
+} */
  
   /*  .dataResult {
     margin-top: 300px !important;

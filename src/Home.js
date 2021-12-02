@@ -10,11 +10,11 @@ import karry from './img/karry.png'
 import Top from './Top'
 import { Link } from 'react-router-dom'
 
-function Home ({ url, addToCart }) {
+function Home({ url, addToCart }) {
   const [kirjat, setKirjat] = useState([])
   const [valittuKirja, setValittuKirja] = useState(null)
 
-  function notify () {
+  function notify() {
     toast('Kirja lisätty ostoskoriin!')
   }
 
@@ -41,6 +41,12 @@ function Home ({ url, addToCart }) {
   return (
     <div>
       <div>
+        <Link
+          className='musta'
+          to={{
+            pathname: '/searchbar'
+          }}
+        >testisivu</Link>
         <Top url={url} addToCart={addToCart} />
         <h2 id='heading' className='ms-4'>
           Kaikki kirjat
@@ -50,8 +56,8 @@ function Home ({ url, addToCart }) {
             {kirjat?.map(kirja => (
               <div key={kirja.kirjaid}>
                 <div className="row" id="homerow"
-                style={{display: 'flex'}}> 
-                
+                  style={{ display: 'flex' }}>
+
                   <div onClick={e => setValittuKirja(kirja)}>
                     <Link
                       className='musta'
@@ -94,8 +100,8 @@ function Home ({ url, addToCart }) {
                       <img id='pieni' src={karry} alt='ostoskärry' />
                     </button>
                   </div>
-                  </div>
                 </div>
+              </div>
             ))}
           </Slide>
           <ToastContainer
