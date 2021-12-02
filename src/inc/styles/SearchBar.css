@@ -4,9 +4,20 @@
 
 } */
 
-.dataResult {
+ .dataResult {
   display: block;
+  
 }
+/* 
+.haku1 {
+  display: block;
+} */
+
+/* #result {
+  background-color: #447f43;
+  display: block;
+  position: relative;
+} */
  
   /*  .dataResult {
     margin-top: 300px !important;

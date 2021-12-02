@@ -69,7 +69,7 @@ export default function SearchBarTest({ placeHolder, url }) {
           {/* Näytetään "Hae"- nappi, kun hakukenttään ei olla kirjoitettu vielä mitään eli length === 0  */}
           {filteredData.length === 0 ? (
             <button
-              className='haku btn btn-outline-secondary'
+              className='haku2 btn btn-outline-secondary'
               type='button'
               id='button-addon2'
             >
@@ -79,7 +79,7 @@ export default function SearchBarTest({ placeHolder, url }) {
             /* ...muutoin ":" näytetään "Sulje" -nappi, eli tekstiä on kirjoitettu. clearInput poistaa kirjoitetun tekstin kentästä.*/
             <button
               onClick={clearInput}
-              className='haku btn btn-outline-secondary'
+              className='haku2 btn btn-outline-secondary'
               type='button'
               id='button-addon2'
             >
@@ -88,7 +88,7 @@ export default function SearchBarTest({ placeHolder, url }) {
           )}
         </div>
       </li>
-      <li className='result'>
+      <li className='col-2 result'>
         {filteredData.length !== 0 && (
           <div className='input-group dataResult mb-3'>
             {filteredData?.slice(0, 4).map(kirja => (
