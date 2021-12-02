@@ -97,6 +97,9 @@ export default function Order({
                 <th scope='col' className='align-middle' id='notbold'>
                   <input
                     ref={inputs[index]}
+                    min = '1'
+                    step = '1'
+                    type = 'number'
                     style={{ width: '60px' }}
                     onChange={e => changeAmount(e, product, index)}
                     value={product.amount}
