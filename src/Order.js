@@ -32,15 +32,18 @@ export default function Order({
     }
   }, [cart.length])
 
+  //ostoskorin määräkentän fokuksen määrittely
   useEffect(() => {
     if (
       inputs.length > 0 &&
       inputIndex > -1 &&
-      inputs[inputIndex.current] !== null
+      inputs[inputIndex].current !== null &&
+      inputs[inputIndex].current !== undefined
     ) {
       inputs[inputIndex].current.focus()
     }
   }, [cart])
+
 
   let riviSumma = 0
   let loppuSumma = 0
