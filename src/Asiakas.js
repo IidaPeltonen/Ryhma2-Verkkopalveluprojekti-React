@@ -117,25 +117,25 @@ function Asiakas({ url }) {
       .then(() => {
         asiakkaat[
           asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
-        ].firstname = editAstunnus
+        ].astunnus = editAstunnus
         asiakkaat[
           asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
-        ].lastname = editAsnimi
+        ].asnimi = editAsnimi
         asiakkaat[
           asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
-        ].username = EditAsosoite
+        ].asosoite = EditAsosoite
         asiakkaat[
           asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
-        ].password = EditPostinro
+        ].postinro = EditPostinro
         asiakkaat[
           asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
-        ].password = EditPostitmp
+        ].postitmp = EditPostitmp
         asiakkaat[
           asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
-        ].password = EditPuhelin
+        ].puhelin = EditPuhelin
         asiakkaat[
           asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
-        ].password = EditEmail
+        ].email = EditEmail
         setAsiakkaat([...asiakkaat])
         setEditedAsiakas(null)
       })
