@@ -35,9 +35,9 @@ function App () {
   }, [])
 
   //ostoskorin tyhjennys kokonaan
-  function clear () {
-    localStorage.clear()
-    window.location.reload(true)
+  function clear() {
+    setCart([])
+    localStorage.removeItem('cart')
   }
 
   useEffect(() => {

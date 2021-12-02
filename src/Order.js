@@ -21,6 +21,8 @@ export default function Order({
   const [inputIndex, setInputIndex] = useState(-1)
   const [finished, setFinished] = useState(false)
 
+
+
   function changeAmount(e, product, index) {
     updateAmount(e.target.value, product)
     setInputIndex(index)
@@ -141,6 +143,7 @@ export default function Order({
           <br />
           <br />
           <p>Tilauksesi loppusumma on {loppuSumma.toFixed(2)} €</p>
+
           <button
             className='tyhjenna btn btn-primary'
             type='button'

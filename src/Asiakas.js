@@ -9,7 +9,8 @@ function Asiakas({ url }) {
   const [asiakkaat, setAsiakkaat] = useState([])
   const [asiakas, setAsiakas] = useState('');
   const [astunnus, setAstunnus] = useState('');
-  const [asnimi, setAsnimi] = useState('');
+  const [asetunimi, setAsetunimi] = useState('');
+  const [assukunimi, setAssukunimi] = useState('');
   const [asosoite, setAsosoite] = useState('');
   const [postinro, setPostinro] = useState('');
   const [postitmp, setPostitmp] = useState('');
@@ -17,7 +18,8 @@ function Asiakas({ url }) {
   const [email, setEmail] = useState('');
   const [editAsiakas, setEditAsiakas] = useState(null)
   const [editAstunnus, setEditAstunnus] = useState('');
-  const [editAsnimi, setEditAsnimi] = useState('');
+  const [editAsetunimi, setEditAsetunimi] = useState('');
+  const [editAssukunimi, setEditAssukunimi] = useState('');
   const [EditAsosoite, setEditAsosoite] = useState('');
   const [EditPostinro, setEditPostinro] = useState('');
   const [EditPostitmp, setEditPostitmp] = useState('');
@@ -42,7 +44,8 @@ function Asiakas({ url }) {
     e.preventDefault()
     const json = JSON.stringify({
       astunnus: astunnus,
-      asnimi: asnimi,
+      asetunimi: asetunimi,
+      assukunimi: assukunimi,
       asosoite: asosoite,
       postinro: postinro,
       postitmp: postitmp,
@@ -87,7 +90,8 @@ function Asiakas({ url }) {
   function setEditedAsiakas(asiakas) {
     setEditAsiakas(asiakas)
     setEditAstunnus(asiakas?.astunnus)
-    setEditAsnimi(asiakas?.asnimi)
+    setEditAsetunimi(asiakas?.asetunimi)
+    setEditAssukunimi(asiakas?.assukunimi)
     setEditAsosoite(asiakas?.asosoite)
     setEditPostinro(asiakas?.postinro)
     setEditPostitmp(asiakas?.postitmp)
@@ -101,7 +105,8 @@ function Asiakas({ url }) {
     const json = JSON.stringify({
       asid: editAsiakas.asid,
       astunnus: editAstunnus,
-      asnimi: editAsnimi,
+      asetunimi: editAsetunimi,
+      assukunimi: editAssukunimi,
       asosoite: EditAsosoite,
       postinro: EditPostinro,
       postitmp: EditPostitmp,
@@ -120,7 +125,10 @@ function Asiakas({ url }) {
         ].astunnus = editAstunnus
         asiakkaat[
           asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
-        ].asnimi = editAsnimi
+        ].asetunimi = editAsetunimi
+        asiakkaat[
+          asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
+        ].assukunimi = editAssukunimi
         asiakkaat[
           asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
         ].asosoite = EditAsosoite
@@ -155,9 +163,14 @@ function Asiakas({ url }) {
           onChange={e => setAstunnus(e.target.value)}
         />
         <input
-          value={asnimi}
-          placeholder='nimi'
-          onChange={e => setAsnimi(e.target.value)}
+          value={asetunimi}
+          placeholder='etunimi'
+          onChange={e => setAsetunimi(e.target.value)}
+        />
+        <input
+          value={assukunimi}
+          placeholder='sukunimi'
+          onChange={e => setAssukunimi(e.target.value)}
         />
         <input
           value={asosoite}
@@ -190,7 +203,8 @@ function Asiakas({ url }) {
         {asiakkaat?.map(asiakas => (
           <li key={asiakas.asid}>
             <p>{editAsiakas?.asid !== asiakas.asid && asiakas.astunnus}</p>
-            <p>{editAsiakas?.asid !== asiakas.asid && asiakas.asnimi}</p>
+            <p>{editAsiakas?.asid !== asiakas.asid && asiakas.asetunimi}</p>
+            <p>{editAsiakas?.asid !== asiakas.asid && asiakas.assukunimi}</p>
             <p>{editAsiakas?.asid !== asiakas.asid && asiakas.asosoite}</p>
             <p>{editAsiakas?.asid !== asiakas.asid && asiakas.postinro}</p>
             <p>{editAsiakas?.asid !== asiakas.asid && asiakas.postitmp}</p>
@@ -199,14 +213,19 @@ function Asiakas({ url }) {
             {editAsiakas?.asid === asiakas.asid && (
               <form onSubmit={paivita}>
                 <input
-                  placeholder='Astunnn'
+                  placeholder='Astunnus'
                   value={editAstunnus}
                   onChange={e => setEditAstunnus(e.target.value)}
                 ></input>
                 <input
-                  placeholder='nimi'
-                  value={editAsnimi}
-                  onChange={e => setEditAsnimi(e.target.value)}
+                  placeholder='etunimi'
+                  value={editAsetunimi}
+                  onChange={e => setEditAsetunimi(e.target.value)}
+                ></input>
+                <input
+                  placeholder='sukunimi'
+                  value={editAssukunimi}
+                  onChange={e => setEditAssukunimi(e.target.value)}
                 ></input>
                 <input
                   placeholder='osoite'
