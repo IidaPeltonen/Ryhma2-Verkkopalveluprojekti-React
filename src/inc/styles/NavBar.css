@@ -12,10 +12,17 @@
     text-decoration: none; 
 }
 
+.navbar-collapse.show {
+    background-color: #447F43;
+    border: 1px white solid;
+    border-radius: 7px;
+    margin-top: 7px;
+}
+
 #alasveto {
     background-color: #447F43;
-    border: 2px white;
-    border-style:groove;
+    border: 1px white solid;
+    border-radius: 7px;
 }
 
 .dropdown-divider {

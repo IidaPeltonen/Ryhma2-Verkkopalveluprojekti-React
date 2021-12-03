@@ -1,15 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap');
 
-.backToList {
-  color: white !important;
-  font-weight: bold;
-}
-
 .centerh1 {
   text-align: center;
   font-family: Montserrat;
   font-size: xx-large;
   font-weight:bolder;
+  text-decoration: underline;
 }
 
 .centerh2 {
@@ -19,31 +15,23 @@
   font-weight: bolder;
 }
 
-.btn-primary {
+.detailbutton {
     background-color: #447f43 !important;
     border-color: #FFFFFF;
+    color: white !important;
     font-family: Montserrat;
+    font-weight: bold;
+    
 }
 
-.btn-primary:hover {
+.btn:hover {
   outline: black !important;
-}
-
-#detail {
-    margin-top: 3em;
-    margin-left: 3em;
-    margin-right: 3em;
-    margin-bottom: 2em;
 }
   
 #detailKuva {
-    max-width: 300px;
-    margin-left: 2em;
-}
-  
-#detailKarry {
-    max-width: 50px;
-    margin-bottom: 2em;
+    max-width: 250px;
+    border: 1px black solid;
+    
 }
 
 #detail p{
@@ -51,5 +39,14 @@
   font-family: PT Sans Caption;
   font-size: large;
   font-weight: normal;
+  }
+
+  .detailreuna {
+    border-color: #0C400B;
+    border-style: double;
+    border-width: 1em;
+    padding-top: 2em;
+    padding-bottom: 1em;
+    background-color: #e6e6e6;
   }
 
