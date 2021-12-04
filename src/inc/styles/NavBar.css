@@ -14,7 +14,6 @@
 
 .navbar-collapse.show {
     background-color: #447F43;
-    border: 1px white solid;
     border-radius: 7px;
     margin-top: 7px;
 }
@@ -52,21 +51,13 @@ väri : stroke='rgba(255, 215, 0, 1)' */
     margin-bottom: 0;
   }
 
-  /* Hakupainike */
-.haku {
-    color: white;
-    border-color: #447F43;
-    border: 1px solid white;
-}
+  /* Hakukenttä */
 
-.haku:hover {
-    background-color: #f2f2f2;
-    color: black !important;
-}
-
-/* #hakukenttä {
+#hakukenttä {
     position: absolute;
-    left: 95em;
-    margin-top: 2em;
-} */
+    right: 5em;
+    top: 2em;
+    width: 20em;
+    z-index: 2;
+}
 

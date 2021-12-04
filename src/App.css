@@ -150,12 +150,14 @@ img {
 }
 
 #homerow{
-  display: flex;
+  display:flex;
   margin-right: -15px;
   margin-bottom: -15px;
   margin-left: -15px;
   flex-wrap: wrap;
   align-content: stretch;
+  position: relative;
+  z-index: -1;
 }
 
 #homecol{

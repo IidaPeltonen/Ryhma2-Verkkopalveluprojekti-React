@@ -54,8 +54,8 @@ export default function SearchBar ({ placeHolder, url }) {
   return (
     // <ul className='navbar-nav ms-auto'>
     <>
-      <li className='row haku1 mt-1 ms-2 me-2'>
-        <div className='search input-group mb-3'>
+      <li>
+        <div className='input-group'>
           <input
             type='text'
             className='form-control'
@@ -87,9 +87,9 @@ export default function SearchBar ({ placeHolder, url }) {
           )}
         </div>
       </li>
-      <li id="result" className="row">
+      <li className="row">
         {filteredData.length !== 0 && (
-          <div className='input-group dataResult mb-3'>
+          <div className='input-group dataResult'>
             {filteredData?.slice(0, 4).map(kirja => (
               <div key={kirja.kirjaid}>
                 <div
