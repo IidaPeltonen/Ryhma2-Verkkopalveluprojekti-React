@@ -165,7 +165,14 @@ function Resource (props) {
             </tr>
             <tr>
               <th scope='col' id='notbold'>
+              <Link
+                className='adminlinkit'
+                    to={{
+                      pathname: '/tilaus',
+                    }}
+                >
                  * Lisää, muokkaa tai poista tilaus *
+                </Link>
               </th>
             </tr>
             <tr col-12>

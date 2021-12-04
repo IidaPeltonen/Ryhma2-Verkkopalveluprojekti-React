@@ -3,9 +3,6 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
 import './inc/styles/Admin.css'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-import tyhja from './img/tyhja.png'
 
 function Kirja({ url }) {
   const [items, setItems] = useState([])
@@ -188,11 +185,6 @@ function Kirja({ url }) {
       .catch(error => {
         alert(error.response ? error.response.data.error : error)
       })
-  }
-
-  //toaster
-  function notify() {
-    toast('Uusi kirja lisätty!')
   }
 
   return (
