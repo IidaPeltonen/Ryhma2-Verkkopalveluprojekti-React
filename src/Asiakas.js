@@ -2,8 +2,6 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 
 function Asiakas({ url }) {
   const [asiakkaat, setAsiakkaat] = useState([])

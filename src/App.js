@@ -18,6 +18,7 @@ import Kirja from './Kirja'
 import User from './User'
 import Asiakas from './Asiakas'
 import CategoryAdmin from './Category_admin'
+import Tilaus from './Tilaus'
 import SearchBar from './inc/SearchBar'
 import SearchBarTest from './inc/SearchBarTest'
 
@@ -154,6 +155,14 @@ function App () {
           path='/asiakas' 
           render={() => (
           <Asiakas
+            url={URL}
+          />
+          )}
+        />
+        <Route 
+          path='/tilaus' 
+          render={() => (
+          <Tilaus
             url={URL}
           />
           )}
