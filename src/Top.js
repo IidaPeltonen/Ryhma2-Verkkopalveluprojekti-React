@@ -47,7 +47,7 @@ function Top ({ url, addToCart }) {
           {kirjat?.map(kirja => (
             <div key={kirja.kirjaid}>
 
-              <div className="row" id="homerow">   
+              <div className="row" id="homerow"> 
                 <b> {kirja.rownum}. </b>
                 <br />
                 <div onClick={e => setValittuKirja(kirja)}>
