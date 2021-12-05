@@ -19,9 +19,8 @@ import User from './User'
 import Asiakas from './Asiakas'
 import CategoryAdmin from './Category_admin'
 import Tilaus from './Tilaus'
-import SearchBar from './inc/SearchBar'
+import Tilausrivi from './Tilausrivi'
 import SearchBarTest from './inc/SearchBarTest'
-
 
 const URL = 'http://localhost/kauppa/'
 
@@ -166,6 +165,10 @@ function App () {
             url={URL}
           />
           )}
+        />
+        <Route 
+          path='/tilausrivi' 
+         // render={() => <Tilausrivi tilausnro={tilausnro} />}
         />
         <Route
           path='/detail'

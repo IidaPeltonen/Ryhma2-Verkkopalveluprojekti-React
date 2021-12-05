@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
+import { Link } from 'react-router-dom'
 
 function Tilaus({ url }) {
   const [tilaukset, setTilaukset] = useState([])
@@ -14,6 +15,7 @@ function Tilaus({ url }) {
   const [editTilausnro, setEditTilausnro] = useState('');
   const [editAsid, setEditAsid] = useState('');
   const [EditTila, setEditTila] = useState('');
+  const [valittuTilaus, setValittuTilaus] = useState('');
 
   useEffect(() => {
     axios
@@ -132,7 +134,9 @@ function Tilaus({ url }) {
       </div>
       <ol>
         {tilaukset?.map(tilaus => (
-          <li key={tilaus.asid}>
+          //tän linkin pitää viedä mukanaan tilausnro
+          <div onClick={e => setValittuTilaus(tilaus.tilausnro)}>
+          <Link className='adminlinkit' to={{ pathname: '/tilausrivi', }} ><li key={tilaus.asid}>
             <p>{editTilaus?.tilausnro !== tilaus.tilausnro && tilaus.asid}</p>
              <p>{editTilaus?.tilausnro !== tilaus.tilausnro && tilaus.pvm}</p>  
             <p>{editTilaus?.tilausnro !== tilaus.tilausnro && tilaus.tila}</p>
@@ -160,7 +164,7 @@ function Tilaus({ url }) {
                 Muokkaa
               </button>
             )}
-          </li>
+          </li></Link></div>
         ))}
       </ol>
     </div>

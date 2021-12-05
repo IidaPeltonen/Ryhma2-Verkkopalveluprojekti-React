@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom'
 //yhden kirjan tiedot
 export default function Detail({ kirja, addToCart }) {
   const history = useHistory()
+  
   function notify() {
     toast('Kirja lisätty ostoskoriin!')
   }
