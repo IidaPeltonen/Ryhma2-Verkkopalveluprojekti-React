@@ -13,7 +13,6 @@ function Tilaus({ url }) {
   const [editTilaus, setEditTilaus] = useState(null)
   const [editTilausnro, setEditTilausnro] = useState('');
   const [editAsid, setEditAsid] = useState('');
-  const [editPvm, setEditPvm] = useState(''); //miten tähän määritetään näkyviin nykyinen kellonaika?
   const [EditTila, setEditTila] = useState('');
 
   useEffect(() => {
@@ -35,7 +34,6 @@ function Tilaus({ url }) {
     const json = JSON.stringify({
       tilausnro: tilausnro,
       asid: asid,
-      pvm: pvm,
       tila: tila,
     })
     axios
@@ -77,7 +75,6 @@ function Tilaus({ url }) {
     setEditTilaus(tilaus)
     setEditTilausnro(tilaus?.tilausnro)
     setEditAsid(tilaus?.asid)
-    setEditPvm(tilaus?.pvm)
     setEditTila(tilaus?.tila)
   }
 
@@ -86,7 +83,6 @@ function Tilaus({ url }) {
     const json = JSON.stringify({
       tilausnro: editTilaus.tilausnro,
       asid: editAsid,
-      pvm: editPvm,
       tila: EditTila,
     })
     axios
@@ -99,9 +95,6 @@ function Tilaus({ url }) {
         tilaukset[
             tilaukset.findIndex(tilaus => tilaus.tilausnro === editTilaus.tilausnro)
         ].asid = editAsid
-        tilaukset[
-            tilaukset.findIndex(tilaus => tilaus.tilausnro === editTilaus.tilausnro)
-        ].pvm = editPvm
         tilaukset[
             tilaukset.findIndex(tilaus => tilaus.tilausnro === editTilaus.tilausnro)
         ].tila = EditTila
@@ -126,12 +119,6 @@ function Tilaus({ url }) {
           onChange={e => setAsid(e.target.value)}
         />
         <input
-          value={pvm}
-          className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
-          placeholder='aika'
-          onChange={e => setPvm(e.target.value)}
-        />
-        <input
           value={tila}
           className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
           placeholder='tilauksen tila'
@@ -147,7 +134,7 @@ function Tilaus({ url }) {
         {tilaukset?.map(tilaus => (
           <li key={tilaus.asid}>
             <p>{editTilaus?.tilausnro !== tilaus.tilausnro && tilaus.asid}</p>
-            <p>{editTilaus?.tilausnro !== tilaus.tilausnro && tilaus.pvm}</p>
+             <p>{editTilaus?.tilausnro !== tilaus.tilausnro && tilaus.pvm}</p>  
             <p>{editTilaus?.tilausnro !== tilaus.tilausnro && tilaus.tila}</p>
             {editTilaus?.tilausnro === tilaus.tilausnro && (
               <form onSubmit={paivita}>
@@ -155,11 +142,6 @@ function Tilaus({ url }) {
                   placeholder='Asid'
                   value={editAsid}
                   onChange={e => setEditAsid(e.target.value)}
-                ></input>
-                <input
-                  placeholder='pvm'
-                  value={editPvm}
-                  onChange={e => setEditPvm(e.target.value)}
                 ></input>
                 <input
                   placeholder='tila'
