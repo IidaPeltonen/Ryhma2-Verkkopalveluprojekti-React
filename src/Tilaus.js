@@ -114,27 +114,35 @@ function Tilaus({ url }) {
   }
 
   return (
-    <div className='container'>
+    <div className='container-fluid'>
       <h2 id='otsikko keskita'>Kaikki tilaukset </h2>
+      <div className="row">
       <form onSubmit={tallenna}>
-        <label>Lisää tilaus</label>
+        <label className="col-12 ps-0 mb-2">Lisää tilaus</label>
         <input
           value={asid}
+          className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
           placeholder='asiakasid'
           onChange={e => setAsid(e.target.value)}
         />
         <input
           value={pvm}
+          className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
           placeholder='aika'
           onChange={e => setPvm(e.target.value)}
         />
         <input
           value={tila}
+          className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
           placeholder='tilauksen tila'
           onChange={e => setTila(e.target.value)}
         />
-        <button>Tallenna</button>
+         <div className="row">
+          <button className="btn adminbutton col-sm-2 col-md-1 ms-2 mt-3">Tallenna
+          </button>
+          </div>
       </form>
+      </div>
       <ol>
         {tilaukset?.map(tilaus => (
           <li key={tilaus.asid}>
