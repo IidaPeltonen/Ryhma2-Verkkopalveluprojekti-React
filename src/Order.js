@@ -85,7 +85,7 @@ export default function Order ({
         <div id='reuna' className='row'>
           <div className='col-10'></div>
           <button
-            className='tyhjenna btn btn-primary'
+            className=' tyhjenna orderbutton btn'
             type='button'
             onClick={e => clear()}
           >
@@ -185,47 +185,59 @@ export default function Order ({
           </table>
 
           {cart.length > 0 && (
-            <div>
+            <div className="col">
               <p>Tilauksesi loppusumma on {loppuSumma.toFixed(2)} €</p>
 
-              <form onSubmit={tilaa}>
-                <label>Täytä asiakastiedot</label>
+              <form onSubmit={tilaa} className="container-fluid">
+                <div className="row">
+                <label className="col-12 ps-0 mb-2">Täytä asiakastiedot:</label>
                 <input
                   value={asetunimi}
+                  className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
                   placeholder='etunimi'
                   onChange={e => setAsetunimi(e.target.value)}
                 />
                 <input
                   value={assukunimi}
+                  className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
                   placeholder='sukunimi'
                   onChange={e => setAssukunimi(e.target.value)}
                 />
                 <input
                   value={asosoite}
+                  className="col-sm-10 col-md-3 mt-2 me-2 mb-2"
                   placeholder='osoite'
                   onChange={e => setAsosoite(e.target.value)}
                 />
                 <input
                   value={postinro}
+                  className="col-sm-10 col-md-3 mt-2 me-2 mb-2"
                   placeholder='postinumero'
                   onChange={e => setPostinro(e.target.value)}
                 />
                 <input
                   value={postitmp}
+                  className="col-sm-10 col-md-3 mt-2 me-2 mb-2"
                   placeholder='postitoimipaikka'
                   onChange={e => setPostitmp(e.target.value)}
                 />
                 <input
                   value={puhelin}
+                  className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
                   placeholder='puhelinnumero'
                   onChange={e => setPuhelin(e.target.value)}
                 />
                 <input
                   value={email}
+                  className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
                   placeholder='e-mail'
                   onChange={e => setEmail(e.target.value)}
                 />
-                <button>Tallenna</button>
+                </div>
+                <div className="row">
+                <button className="btn orderbutton col-sm-4 col-md-2 mt-3">Tallenna ja tilaa
+                </button>
+                </div>
               </form>
             </div>
           )}

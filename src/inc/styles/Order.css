@@ -3,7 +3,6 @@
     }
 
 .tyhjenna {
-    font-weight: bold;
     max-width: 150px;
     text-align: center;
 }
@@ -14,6 +13,14 @@
 
 #reuna {
     align-items: center;
+}
+
+.orderbutton {
+    background-color: #447f43 !important;
+    border-color: #FFFFFF;
+    color: white !important;
+    font-family: Montserrat;
+    font-weight: bold;
 }
 
 
