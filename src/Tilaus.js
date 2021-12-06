@@ -1,4 +1,4 @@
-import React from 'react'
+/* import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
@@ -171,9 +171,9 @@ import { Link } from 'react-router-dom'
   )
 } 
 
-export default Tilaus*
+export default Tilaus */
 
-/* import React from 'react'
+ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
@@ -208,13 +208,21 @@ function Tilaus ({ url }) {
         <ol>
           {tilaukset?.map(tilaus => (
             <li key={tilaus.tilausnro}>
-              <p>{asiakas.astunnus}</p>
-              <p>{asiakas.asetunimi}</p>
-              <p>{asiakas.assukunimi}</p>
-              <p>{tilaus.pvm}</p>
-              <p>{tilaus.tila}</p>
-              <p>{kirja.kirjanimi}</p>
-              <p>{tilausrivi.kpl}</p>
+              <p>tilausnro: {tilaus.tilausnro}</p>
+              <p>asid: {tilaus.asid}</p>
+              <p>pvm: {tilaus.pvm}</p>
+              <p>tila: {tilaus.tila}</p>
+              <ol>
+             {tilaukset?.map(rivi => (
+                <li key={tilaus.tilausnro}>
+                <p>astunnus: {tilaus.astunnus}</p>
+                <p>asetunimi: {tilaus.asetunimi}</p>
+                <p>sukunimi: {tilaus.assukunimi}</p>
+                <p>kirjanimi: {tilaus.kirjanimi}</p>
+                <p>kpl: {tilaus.kpl}</p>
+                </li>
+              ))} 
+             </ol>
             </li>
           ))}
         </ol>
@@ -223,4 +231,4 @@ function Tilaus ({ url }) {
   )
 }
 
-export default Tilaus */
+export default Tilaus 
