@@ -4,7 +4,7 @@ import axios from 'axios'
 import './App.css'
 import { Link } from 'react-router-dom'
 
-function Tilaus({ url }) {
+ function Tilaus({ url }) {
   const [tilaukset, setTilaukset] = useState([])
   const [tilaus, setTilaus] = useState('');
   const [tilausnro, setTilausnro] = useState('');
@@ -169,6 +169,58 @@ function Tilaus({ url }) {
       </ol>
     </div>
   )
+} 
+
+export default Tilaus*
+
+/* import React from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import './App.css'
+import './inc/styles/Admin.css'
+
+function Tilaus ({ url }) {
+  const [tilaukset, setTilaukset] = useState([])
+  const [tilaus, setTilaus] = useState('')
+  const [tilausnro, setTilausnro] = useState('')
+  const [asid, setAsid] = useState('')
+  const [pvm, setPvm] = useState('')
+  const [tila, setTila] = useState('')
+  const [asiakas, setAsiakas] = useState('')
+  const [kirja, setKirja] = useState('')
+  const [tilausrivi, setTilausrivi] = useState('')
+
+  useEffect(() => {
+    axios
+      .get(url + 'indexTilaus.php')
+      .then(response => {
+        setTilaukset(response.data)
+      })
+      .catch(error => {
+        alert(error)
+      })
+  }, [])
+
+  return (
+    <div className='container-fluid'>
+      <h2 id='otsikko keskita'>Tilaukset</h2>
+      <div className='row'>
+        <ol>
+          {tilaukset?.map(tilaus => (
+            <li key={tilaus.tilausnro}>
+              <p>{asiakas.astunnus}</p>
+              <p>{asiakas.asetunimi}</p>
+              <p>{asiakas.assukunimi}</p>
+              <p>{tilaus.pvm}</p>
+              <p>{tilaus.tila}</p>
+              <p>{kirja.kirjanimi}</p>
+              <p>{tilausrivi.kpl}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  )
 }
 
-export default Tilaus
+export default Tilaus */
