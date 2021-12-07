@@ -30,27 +30,27 @@ function Tilaus ({ url }) {
     <div className='container'>
       <h2 id='otsikko keskita'>Tilaukset</h2>
       <div className='row'>
-        <ol>
+        <ul>
           {tilaukset?.map(tilaus => (
             <li key={tilaus.tilausnro}>
               <b><p>Tilausnro: {tilaus.tilausnro}</p></b>
               {/* <p>Asiakasid: {tilaus.asid}</p> */}
               <p>Asiakkaan tunnus: {tilaus.astunnus}</p>
               <p>Asiakkaan etunimi: {tilaus.asetunimi}</p>
-              <p>Asiakkaan sukunimi: {tilaus.assukunimi}</p><br />
+              <p>Asiakkaan sukunimi: {tilaus.assukunimi}</p>
               <p>Tilausaika: {tilaus.pvm}</p>
               <p>Tilauksen tila: {tilaus.tila}</p>
-              <ol>
-             {tilaukset?.map(tilaus => (
-                <li key={tilaus.tilausnro}>
-                <p>Tuote: {tilaus.kirjanimi}</p>
-                <p>Kpl: {tilaus.kpl}</p>
-                </li>
-              ))} 
-             </ol>
+              <div className="row">
+                <ul>
+                  <li key={tilaus.tilausnro}>
+                    <p>Tuote: {tilaus.kirjanimi}</p>
+                    <p>Kpl: {tilaus.kpl}</p>
+                  </li>
+                </ul>
+              </div>
             </li>
           ))}
-        </ol>
+        </ul>
       </div>
     </div>
   )
