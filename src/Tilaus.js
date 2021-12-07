@@ -33,13 +33,11 @@ function Tilaus ({ url }) {
         <ul>
           {tilaukset?.map(tilaus => (
             <li key={tilaus.tilausnro}>
-              <b><p>Tilausnro: {tilaus.tilausnro}</p></b>
-              {/* <p>Asiakasid: {tilaus.asid}</p> */}
+              <b><p>Tilausnro: {tilaus.tilausnro}</p></b><p>Tilausaika: {tilaus.pvm}</p><p>Tilauksen tila: {tilaus.tila}</p>
+
               <p>Asiakkaan tunnus: {tilaus.astunnus}</p>
-              <p>Asiakkaan etunimi: {tilaus.asetunimi}</p>
-              <p>Asiakkaan sukunimi: {tilaus.assukunimi}</p>
-              <p>Tilausaika: {tilaus.pvm}</p>
-              <p>Tilauksen tila: {tilaus.tila}</p>
+              <p>Asiakas: {tilaus.asetunimi} {tilaus.assukunimi}</p>
+
               <div className="row">
                 <ul>
                   <li key={tilaus.tilausnro}>
