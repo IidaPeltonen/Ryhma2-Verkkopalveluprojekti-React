@@ -28,4 +28,16 @@ p {
     font-weight: light !important;
 }
 
+.adminlinkit {
+    color:blue;
+}
+
+.adminbutton {
+    background-color: #447f43 !important;
+    border-color: #FFFFFF;
+    color: white !important;
+    font-family: Montserrat;
+    font-weight: bold;
+}
+
 

@@ -2,8 +2,6 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 
 function User({ url }) {
   const [users, setUsers] = useState([])
@@ -120,32 +118,41 @@ function User({ url }) {
   }
 
   return (
-    <div className='container'>
+    <div className='container-fluid'>
       <h2 id='otsikko keskita'>Kaikki pääkäyttäjät</h2>
+      <div className="row">
       <form onSubmit={tallenna}>
-        <label>Lisää pääkäyttäjä</label>
+        <label className="col-12 ps-0 mb-2">Lisää pääkäyttäjä</label>
         <input
           value={firstname}
+          className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
           placeholder='etunimi'
           onChange={e => setFirstname(e.target.value)}
         />
         <input
           value={lastname}
+          className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
           placeholder='sukunimi'
           onChange={e => setLastname(e.target.value)}
         />
         <input
           value={username}
+          className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
           placeholder='käyttäjätunnus'
           onChange={e => setUsername(e.target.value)}
         />
         <input
           value={password}
+          className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
           placeholder='salasana'
           onChange={e => setPassword(e.target.value)}
         />
-        <button>Tallenna</button>
+        <div className="row">
+          <button className="btn adminbutton col-sm-2 col-md-1 ms-2 mt-3">Tallenna
+          </button>
+          </div>
       </form>
+      </div>
       <ol>
         {users?.map(user => (
           <li key={user.userid}>
@@ -175,15 +182,15 @@ function User({ url }) {
                   value={editPassword}
                   onChange={e => setEditPassword(e.target.value)}
                 ></input>
-                <button>Tallenna</button>
-                <button type="button" onClick={() => setEditedUser(null)}>Peruuta</button>
+                <button className="btn adminbutton">Tallenna</button>
+                <button className="btn adminbutton" type="button" onClick={() => setEditedUser(null)}>Peruuta</button>
               </form>
             )}
-            <button className='delete' onClick={() => remove(user.userid)}>
+            <button className='delete btn adminbutton' onClick={() => remove(user.userid)}>
               Poista
             </button>
             {editUser === null && (
-              <button className='edit' onClick={() => setEditedUser(user)}>
+              <button className='edit btn adminbutton' onClick={() => setEditedUser(user)}>
                 Muokkaa
               </button>
             )}

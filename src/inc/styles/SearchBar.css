@@ -1,33 +1,33 @@
-/* tutoriaalista tyylejä Hakutulos-divin näyttämiselle, siis usean hakutuloksen näyttäminen. ei ihan pelitä niinkuin pitää */
 
-.search {
- display: flex;
+a:hover {
+  color: white;
 }
- 
-  /*  .dataResult {
-    margin-top: 300px !important;
-    width: 200px;
-    background-color: #F2f2f2 !important;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
-    overflow:hidden;
-    overflow-y: auto;
-    display: block;
-  } */
+
+.haku {
+  color: white;
+  border-color: #447F43;
+  border: 1px solid white;
+}
+
+.haku:hover {
+  background-color: #f2f2f2;
+  color: black !important;
+}
+
+ .dataResult {
+  display: block;
+  background-color: #447F43;
+  border-radius: 7px;
+  margin-top: 7px;
+  
+}
+
+ul li {
+  list-style-type: none;
+  }
 
 /* Tällä määritetään, ettei näytä scroll baria oikealla */
 
   .dataResult::-webkit-scrollbar {
     display: none;
   }
-/* tutoriaalista jotain tyylejä yksittäisen hakutuloksen näyttämiselle, ei ihan pelitä niinkuin pitää */
-
-/* .dataResult .dataItem {
-    width: 100%;
-    height: 50px;
-    align-items: center;
-    color: black;
-  }
-  
-  .dataItem p {
-    margin-left: 10px;
-  } */

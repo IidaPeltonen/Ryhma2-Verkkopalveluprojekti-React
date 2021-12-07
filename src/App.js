@@ -18,7 +18,9 @@ import Kirja from './Kirja'
 import User from './User'
 import Asiakas from './Asiakas'
 import CategoryAdmin from './Category_admin'
-
+import Tilaus from './Tilaus'
+//import Tilausrivi from './Tilausrivi'
+import SearchBarTest from './inc/SearchBarTest'
 
 const URL = 'http://localhost/kauppa/'
 
@@ -35,9 +37,9 @@ function App () {
   }, [])
 
   //ostoskorin tyhjennys kokonaan
-  function clear () {
-    localStorage.clear()
-    window.location.reload(true)
+  function clear() {
+    setCart([])
+    localStorage.removeItem('cart')
   }
 
   useEffect(() => {
@@ -46,7 +48,7 @@ function App () {
         setCategory({ id: location.state.id, name: location.state.name })
       } else if (location.pathname === '/detail') {
         setKirja({
-          id: location.state.id,
+          kirjaid: location.state.kirjaid,
           kirjanimi: location.state.kirjanimi,
           kirjailija: location.state.kirjailija,
           vuosi: location.state.vuosi,
@@ -156,9 +158,25 @@ function App () {
           />
           )}
         />
+        <Route 
+          path='/tilaus' 
+          render={() => (
+          <Tilaus
+            url={URL}
+          />
+          )}
+        />
+        <Route 
+          path='/tilausrivi' 
+         // render={() => <Tilausrivi tilausnro={tilausnro} />}
+        />
         <Route
           path='/detail'
           render={() => <Detail kirja={kirja} addToCart={addToCart} />}
+        />
+        <Route
+          path='/searchbar'
+          render={() => <SearchBarTest url={URL}  />}
         />
         <Route path='/admin' render={() => < Admin />} />
         <Route path='/contactus' component={ContactUs} />
@@ -166,7 +184,6 @@ function App () {
         <Route path='/ukk' component={UKK} />
         <Route path='/rekisteri' component={Rekisteri} />
         <Route path='/evasteet' component={Evasteet} />
-        
       </Switch>
       <Footer />
     </div>

@@ -2,14 +2,13 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 
 function Asiakas({ url }) {
   const [asiakkaat, setAsiakkaat] = useState([])
   const [asiakas, setAsiakas] = useState('');
   const [astunnus, setAstunnus] = useState('');
-  const [asnimi, setAsnimi] = useState('');
+  const [asetunimi, setAsetunimi] = useState('');
+  const [assukunimi, setAssukunimi] = useState('');
   const [asosoite, setAsosoite] = useState('');
   const [postinro, setPostinro] = useState('');
   const [postitmp, setPostitmp] = useState('');
@@ -17,7 +16,8 @@ function Asiakas({ url }) {
   const [email, setEmail] = useState('');
   const [editAsiakas, setEditAsiakas] = useState(null)
   const [editAstunnus, setEditAstunnus] = useState('');
-  const [editAsnimi, setEditAsnimi] = useState('');
+  const [editAsetunimi, setEditAsetunimi] = useState('');
+  const [editAssukunimi, setEditAssukunimi] = useState('');
   const [EditAsosoite, setEditAsosoite] = useState('');
   const [EditPostinro, setEditPostinro] = useState('');
   const [EditPostitmp, setEditPostitmp] = useState('');
@@ -42,7 +42,8 @@ function Asiakas({ url }) {
     e.preventDefault()
     const json = JSON.stringify({
       astunnus: astunnus,
-      asnimi: asnimi,
+      asetunimi: asetunimi,
+      assukunimi: assukunimi,
       asosoite: asosoite,
       postinro: postinro,
       postitmp: postitmp,
@@ -87,7 +88,8 @@ function Asiakas({ url }) {
   function setEditedAsiakas(asiakas) {
     setEditAsiakas(asiakas)
     setEditAstunnus(asiakas?.astunnus)
-    setEditAsnimi(asiakas?.asnimi)
+    setEditAsetunimi(asiakas?.asetunimi)
+    setEditAssukunimi(asiakas?.assukunimi)
     setEditAsosoite(asiakas?.asosoite)
     setEditPostinro(asiakas?.postinro)
     setEditPostitmp(asiakas?.postitmp)
@@ -101,7 +103,8 @@ function Asiakas({ url }) {
     const json = JSON.stringify({
       asid: editAsiakas.asid,
       astunnus: editAstunnus,
-      asnimi: editAsnimi,
+      asetunimi: editAsetunimi,
+      assukunimi: editAssukunimi,
       asosoite: EditAsosoite,
       postinro: EditPostinro,
       postitmp: EditPostitmp,
@@ -117,25 +120,28 @@ function Asiakas({ url }) {
       .then(() => {
         asiakkaat[
           asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
-        ].firstname = editAstunnus
+        ].astunnus = editAstunnus
         asiakkaat[
           asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
-        ].lastname = editAsnimi
+        ].asetunimi = editAsetunimi
         asiakkaat[
           asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
-        ].username = EditAsosoite
+        ].assukunimi = editAssukunimi
         asiakkaat[
           asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
-        ].password = EditPostinro
+        ].asosoite = EditAsosoite
         asiakkaat[
           asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
-        ].password = EditPostitmp
+        ].postinro = EditPostinro
         asiakkaat[
           asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
-        ].password = EditPuhelin
+        ].postitmp = EditPostitmp
         asiakkaat[
           asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
-        ].password = EditEmail
+        ].puhelin = EditPuhelin
+        asiakkaat[
+          asiakkaat.findIndex(asiakas => asiakas.asid === editAsiakas.asid)
+        ].email = EditEmail
         setAsiakkaat([...asiakkaat])
         setEditedAsiakas(null)
       })
@@ -145,110 +151,137 @@ function Asiakas({ url }) {
   }
 
   return (
-    <div className='container'>
+    <div className='container-fluid'>
       <h2 id='otsikko keskita'>Kaikki asiakkaat</h2>
-      <form onSubmit={tallenna}>
-        <label>Lisää asiakas</label>
-        <input
-          value={astunnus}
-          placeholder='asiakastunnus'
-          onChange={e => setAstunnus(e.target.value)}
-        />
-        <input
-          value={asnimi}
-          placeholder='nimi'
-          onChange={e => setAsnimi(e.target.value)}
-        />
-        <input
-          value={asosoite}
-          placeholder='osoite'
-          onChange={e => setAsosoite(e.target.value)}
-        />
-        <input
-          value={postinro}
-          placeholder='postinumero'
-          onChange={e => setPostinro(e.target.value)}
-        />
-        <input
-          value={postitmp}
-          placeholder='postitoimipaikka'
-          onChange={e => setPostitmp(e.target.value)}
-        />
-        <input
-          value={puhelin}
-          placeholder='puhelinnumero'
-          onChange={e => setPuhelin(e.target.value)}
-        />
-        <input
-          value={email}
-          placeholder='e-mail'
-          onChange={e => setEmail(e.target.value)}
-        />
-        <button>Tallenna</button>
-      </form>
-      <ol>
-        {asiakkaat?.map(asiakas => (
-          <li key={asiakas.asid}>
-            <p>{editAsiakas?.asid !== asiakas.asid && asiakas.astunnus}</p>
-            <p>{editAsiakas?.asid !== asiakas.asid && asiakas.asnimi}</p>
-            <p>{editAsiakas?.asid !== asiakas.asid && asiakas.asosoite}</p>
-            <p>{editAsiakas?.asid !== asiakas.asid && asiakas.postinro}</p>
-            <p>{editAsiakas?.asid !== asiakas.asid && asiakas.postitmp}</p>
-            <p>{editAsiakas?.asid !== asiakas.asid && asiakas.puhelin}</p>
-            <p>{editAsiakas?.asid !== asiakas.asid && asiakas.email}</p>
-            {editAsiakas?.asid === asiakas.asid && (
-              <form onSubmit={paivita}>
-                <input
-                  placeholder='Astunnn'
-                  value={editAstunnus}
-                  onChange={e => setEditAstunnus(e.target.value)}
-                ></input>
-                <input
-                  placeholder='nimi'
-                  value={editAsnimi}
-                  onChange={e => setEditAsnimi(e.target.value)}
-                ></input>
-                <input
-                  placeholder='osoite'
-                  value={EditAsosoite}
-                  onChange={e => setEditAsosoite(e.target.value)}
-                ></input>
-                <input
-                  placeholder='postinumero'
-                  value={EditPostinro}
-                  onChange={e => setEditPostinro(e.target.value)}
-                ></input>
-                <input
-                  placeholder='postitoimipaikka'
-                  value={EditPostitmp}
-                  onChange={e => setEditPostitmp(e.target.value)}
-                ></input>
-                <input
-                  placeholder='puhelin'
-                  value={EditPuhelin}
-                  onChange={e => setEditPuhelin(e.target.value)}
-                ></input>
-                <input
-                  placeholder='email'
-                  value={EditEmail}
-                  onChange={e => setEditEmail(e.target.value)}
-                ></input>
-                <button>Tallenna</button>
-                <button type="button" onClick={() => setEditedAsiakas(null)}>Peruuta</button>
-              </form>
-            )}
-            <button className='delete' onClick={() => remove(asiakas.asid)}>
-              Poista
-            </button>
-            {editAsiakas === null && (
-              <button className='edit' onClick={() => setEditedAsiakas(asiakas)}>
-                Muokkaa
+      <div className="row">
+        <form onSubmit={tallenna}>
+          <label className="col-12 ps-0 mb-2">Lisää asiakas</label>
+          <input
+            value={astunnus}
+            className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
+            placeholder='asiakastunnus'
+            onChange={e => setAstunnus(e.target.value)}
+          />
+          <input
+            value={asetunimi}
+            className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
+            placeholder='etunimi'
+            onChange={e => setAsetunimi(e.target.value)}
+          />
+          <input
+            value={assukunimi}
+            className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
+            placeholder='sukunimi'
+            onChange={e => setAssukunimi(e.target.value)}
+          />
+          <input
+            value={asosoite}
+            className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
+            placeholder='osoite'
+            onChange={e => setAsosoite(e.target.value)}
+          />
+          <input
+            value={postinro}
+            className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
+            placeholder='postinumero'
+            onChange={e => setPostinro(e.target.value)}
+          />
+          <input
+            value={postitmp}
+            className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
+            placeholder='postitoimipaikka'
+            onChange={e => setPostitmp(e.target.value)}
+          />
+          <input
+            value={puhelin}
+            className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
+            placeholder='puhelinnumero'
+            onChange={e => setPuhelin(e.target.value)}
+          />
+          <input
+            value={email}
+            className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
+            placeholder='e-mail'
+            onChange={e => setEmail(e.target.value)}
+          />
+          <div className="row">
+          <button className="btn adminbutton col-sm-2 col-md-1 ms-2 mt-3">Tallenna
+          </button>
+          </div>
+        </form>
+      </div>
+      <div>
+        <ol>
+          {asiakkaat?.map(asiakas => (
+            <li key={asiakas.asid}>
+              <p>{editAsiakas?.asid !== asiakas.asid && asiakas.astunnus}</p>
+              <p>{editAsiakas?.asid !== asiakas.asid && asiakas.asetunimi}</p>
+              <p>{editAsiakas?.asid !== asiakas.asid && asiakas.assukunimi}</p>
+              <p>{editAsiakas?.asid !== asiakas.asid && asiakas.asosoite}</p>
+              <p>{editAsiakas?.asid !== asiakas.asid && asiakas.postinro}</p>
+              <p>{editAsiakas?.asid !== asiakas.asid && asiakas.postitmp}</p>
+              <p>{editAsiakas?.asid !== asiakas.asid && asiakas.puhelin}</p>
+              <p>{editAsiakas?.asid !== asiakas.asid && asiakas.email}</p>
+              {editAsiakas?.asid === asiakas.asid && (
+                <form onSubmit={paivita}>
+                  <input
+                    placeholder='Astunnus'
+                    value={editAstunnus}
+                    onChange={e => setEditAstunnus(e.target.value)}
+                  ></input>
+                  <input
+                    placeholder='etunimi'
+                    value={editAsetunimi}
+                    onChange={e => setEditAsetunimi(e.target.value)}
+                  ></input>
+                  <input
+                    placeholder='sukunimi'
+                    value={editAssukunimi}
+                    onChange={e => setEditAssukunimi(e.target.value)}
+                  ></input>
+                  <input
+                    placeholder='osoite'
+                    value={EditAsosoite}
+                    onChange={e => setEditAsosoite(e.target.value)}
+                  ></input>
+                  <input
+                    placeholder='postinumero'
+                    value={EditPostinro}
+                    onChange={e => setEditPostinro(e.target.value)}
+                  ></input>
+                  <input
+                    placeholder='postitoimipaikka'
+                    value={EditPostitmp}
+                    onChange={e => setEditPostitmp(e.target.value)}
+                  ></input>
+                  <input
+                    placeholder='puhelin'
+                    value={EditPuhelin}
+                    onChange={e => setEditPuhelin(e.target.value)}
+                  ></input>
+                  <input
+                    placeholder='email'
+                    value={EditEmail}
+                    onChange={e => setEditEmail(e.target.value)}
+                  ></input>
+                  <button>Tallenna</button>
+                  <button type="button" onClick={() => setEditedAsiakas(null)}>Peruuta</button>
+                </form>
+
+              )}
+              <button className='delete' onClick={() => remove(asiakas.asid)}>
+                Poista
               </button>
-            )}
-          </li>
-        ))}
-      </ol>
-    </div>
+              {editAsiakas === null && (
+                <button className='edit' onClick={() => setEditedAsiakas(asiakas)}>
+                  Muokkaa
+                </button>
+              )}
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div >
   )
 }
 

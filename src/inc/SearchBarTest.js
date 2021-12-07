@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import './styles/SearchBar.css'
+import '../App.css'
+import './styles/SearchBarTest.css'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-export default function SearchBar({ placeHolder, url }) {
+export default function SearchBarTest({ placeHolder, url }) {
   const [filteredData, setFilteredData] = useState([])
   const [wordEntered, setWordEntered] = useState('')
   const [valittuKirja, setValittuKirja] = useState([])
@@ -52,41 +53,44 @@ export default function SearchBar({ placeHolder, url }) {
     setWordEntered('')
   }
   return (
-    <>
-      <div className='input-group'>
-        <input
-          type='text'
-          className='form-control'
-          value={wordEntered}
-          placeholder={placeHolder}
-          aria-label='Hakupainike'
-          aria-describedby='button-addon2'
-          onChange={handleFilter}
-        ></input>
-        {/* Näytetään "Hae"- nappi, kun hakukenttään ei olla kirjoitettu vielä mitään eli length === 0  */}
-        {filteredData.length === 0 ? (
-          <button
-            className='haku btn btn-outline-secondary'
-            type='button'
-            id='button-addon2'
-          >
-            Hae
-          </button>
-        ) : (
-          /* ...muutoin ":" näytetään "Sulje" -nappi, eli tekstiä on kirjoitettu. clearInput poistaa kirjoitetun tekstin kentästä.*/
-          <button
-            onClick={clearInput}
-            className='haku btn btn-outline-secondary'
-            type='button'
-            id='button-addon2'
-          >
-            Tyhjennä
-          </button>
-        )}
-      </div>
-      <div className="row">
+    // <ul className='navbar-nav ms-auto'>
+    <ul>
+      <li className='col-3'>
+        <div className='search input-group mb-3'>
+          <input
+            type='text'
+            className='form-control'
+            value={wordEntered}
+            placeholder={placeHolder}
+            aria-label='Hakupainike'
+            aria-describedby='button-addon2'
+            onChange={handleFilter}
+          ></input>
+          {/* Näytetään "Hae"- nappi, kun hakukenttään ei olla kirjoitettu vielä mitään eli length === 0  */}
+          {filteredData.length === 0 ? (
+            <button
+              className='haku2 btn btn-outline-secondary'
+              type='button'
+              id='button-addon2'
+            >
+              Hae
+            </button>
+          ) : (
+            /* ...muutoin ":" näytetään "Sulje" -nappi, eli tekstiä on kirjoitettu. clearInput poistaa kirjoitetun tekstin kentästä.*/
+            <button
+              onClick={clearInput}
+              className='haku2 btn btn-outline-secondary'
+              type='button'
+              id='button-addon2'
+            >
+              Tyhjennä
+            </button>
+          )}
+        </div>
+      </li>
+      <li className='col-2 result'>
         {filteredData.length !== 0 && (
-          <div className='input-group dataResult'>
+          <div className='input-group dataResult mb-3'>
             {filteredData?.slice(0, 4).map(kirja => (
               <div key={kirja.kirjaid}>
                 <div
@@ -119,7 +123,8 @@ export default function SearchBar({ placeHolder, url }) {
             ))}
           </div>
         )}
-      </div>
-    </>
+      </li>
+    </ul>
+    // </ul >
   )
 }

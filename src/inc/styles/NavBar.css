@@ -12,10 +12,16 @@
     text-decoration: none; 
 }
 
+.navbar-collapse.show {
+    background-color: #447F43;
+    border-radius: 7px;
+    margin-top: 7px;
+}
+
 #alasveto {
     background-color: #447F43;
-    border: 2px white;
-    border-style:groove;
+    border: 1px white solid;
+    border-radius: 7px;
 }
 
 .dropdown-divider {
@@ -45,15 +51,13 @@ väri : stroke='rgba(255, 215, 0, 1)' */
     margin-bottom: 0;
   }
 
-  /* Hakupainike */
-.haku {
-    color: white;
-    border-color: #447F43;
-    border: 1px solid white;
-}
+  /* Hakukenttä */
 
-.haku:hover {
-    background-color: #f2f2f2;
-    color: black !important;
+#hakukenttä {
+    position: absolute;
+    right: 5em;
+    top: 2em;
+    width: 20em;
+    z-index: 2;
 }
 

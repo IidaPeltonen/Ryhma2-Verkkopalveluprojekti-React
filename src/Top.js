@@ -47,8 +47,7 @@ function Top ({ url, addToCart }) {
           {kirjat?.map(kirja => (
             <div key={kirja.kirjaid}>
 
-              <div className="row" id="homerow"
-                style={{display: 'flex'}}>   
+              <div className="row" id="homerow"> 
                 <b> {kirja.rownum}. </b>
                 <br />
                 <div onClick={e => setValittuKirja(kirja)}>
@@ -57,7 +56,7 @@ function Top ({ url, addToCart }) {
                     to={{
                       pathname: '/detail',
                       state: {
-                        id: kirja.id,
+                        kirjaid: kirja.kirjaid,
                         kirjanimi: kirja.kirjanimi,
                         kirjailija: kirja.kirjailija,
                         vuosi: kirja.vuosi,

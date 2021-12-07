@@ -14,7 +14,7 @@ PT Sans Caption (Leipäteksti)
 
 a {
   text-decoration: none;
-  color: whitegit !important;
+  color: white;
 }
 
 h1 {
@@ -150,7 +150,7 @@ img {
 }
 
 #homerow{
-  display: flex;
+  display:flex;
   margin-right: -15px;
   margin-bottom: -15px;
   margin-left: -15px;
