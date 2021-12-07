@@ -20,7 +20,7 @@ function Tilaus ({ url }) {
       })
   }, [])
 
-  return (
+  /* return (
     <div className='container'>
       <h2 id='otsikko keskita'>Tilaukset</h2><br />
       <div className='row'>
@@ -33,7 +33,7 @@ function Tilaus ({ url }) {
               <hr />
               <p>Tuote: {tilaus.kirjanimi} {tilaus.kpl} kpl</p>
               <hr />
-              {/* <div className="row">
+               <div className="row">
                <ul>
                  {tilaukset?.map(tilaus => (
                    <li key={tilaus.kirjaid}>
@@ -42,13 +42,48 @@ function Tilaus ({ url }) {
                  </li>
                  ))}
                 </ul>
-              </div> */} 
+              </div> 
             </li>
           ))}
         </ul>
       </div>
     </div>
+  ) */
+
+  let tilausnro = 0;
+
+  return (
+    <div className='container'>
+      <h2 id='otsikko keskita'>Tilaukset</h2><br />
+      <div className='row'>
+        {tilaukset?.map(tilaus => {
+          if (tilausnro != tilaus.tilausnro) {
+            {tilausnro = tilaus.tilausnro}
+            return (
+              <>
+              <b><h2>Tilausnro: {tilaus.tilausnro}</h2></b>
+              <p><b>Tilauksen tila:</b> {tilaus.tila}   <b>Tilausaika: </b>{tilaus.pvm} </p>
+              <p><b>Asiakkaan tunnus:</b> {tilaus.astunnus} <b>Asiakas: </b>{tilaus.asetunimi} {tilaus.assukunimi}</p>
+              <hr />
+              </>
+            )
+            } else {
+              return (
+                <div className="row">
+                    {tilaukset?.map(tilaus => (
+                      <>
+                        <p>Tuote: {tilaus.kirjanimi} {tilaus.kpl} kpl</p>
+                        <hr />
+                      </>
+                    ))}
+                </div>
+              )
+              }
+            })}
+      </div>
+    </div>
   )
+
 }
 
 export default Tilaus 
