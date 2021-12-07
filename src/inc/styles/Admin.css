@@ -26,6 +26,8 @@ p {
 
 #notbold {
     font-weight: light !important;
+    padding: 10px 20px;
+    text-align: center;
 }
 
 .adminlinkit {
