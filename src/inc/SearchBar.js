@@ -99,7 +99,7 @@ export default function SearchBar({ placeHolder, url }) {
                     to={{
                       pathname: '/detail',
                       state: {
-                        id: kirja.id,
+                        kirjaid: kirja.kirjaid,
                         kirjanimi: kirja.kirjanimi,
                         kirjailija: kirja.kirjailija,
                         vuosi: kirja.vuosi,

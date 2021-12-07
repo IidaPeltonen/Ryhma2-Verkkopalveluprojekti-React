@@ -107,7 +107,7 @@ export default function Order ({
                         to={{
                           pathname: '/detail',
                           state: {
-                            id: product.id,
+                            kirjaid: product.kirjaid,
                             kirjanimi: product.kirjanimi,
                             kirjailija: product.kirjailija,
                             vuosi: product.vuosi,
