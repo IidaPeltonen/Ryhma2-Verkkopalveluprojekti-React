@@ -77,7 +77,6 @@ function Top ({ url, addToCart }) {
                     </b>
                     <br />
                     Hinta: {kirja.hinta} €<br />
-                    Myyty: {kirja.SUM} kpl <br />
                   </Link>
                 </div>
                 <div>

@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import './App.css'
 import './inc/styles/Admin.css'
 
 function Tilaus ({ url }) {
@@ -23,23 +22,26 @@ function Tilaus ({ url }) {
 
   return (
     <div className='container'>
-      <h2 id='otsikko keskita'>Tilaukset</h2>
+      <h2 id='otsikko keskita'>Tilaukset</h2><br />
       <div className='row'>
         <ul>
           {tilaukset?.map(tilaus => (
             <li key={tilaus.tilausnro}>
-              <b><p>Tilausnro: {tilaus.tilausnro}</p></b><p>Tilausaika: {tilaus.pvm}</p><p>Tilauksen tila: {tilaus.tila}</p>
-              <p>Asiakkaan tunnus: {tilaus.astunnus}</p><p>Asiakas: {tilaus.asetunimi} {tilaus.assukunimi}</p>
-              <div className="row">
+              <b><h2>Tilausnro: {tilaus.tilausnro}</h2></b>
+              <p><b>Tilauksen tila:</b> {tilaus.tila}   <b>Tilausaika: </b>{tilaus.pvm} </p>
+              <p><b>Asiakkaan tunnus:</b> {tilaus.astunnus} <b>Asiakas: </b>{tilaus.asetunimi} {tilaus.assukunimi}</p>
+              <hr />
+              <p>Tuote: {tilaus.kirjanimi} {tilaus.kpl} kpl</p><hr />
+              {/* <div className="row">
                <ul>
                  {tilaukset?.map(tilaus => (
                    <li key={tilaus.kirjaid}>
-                   <p>Tuote: {tilaus.kirjanimi}</p>
-                   <p>Kpl: {tilaus.kpl}</p>
+                   <p>Tuote: {tilaus.kirjanimi} {tilaus.kpl} kpl</p>
+                   <hr />
                  </li>
                  ))}
                 </ul>
-              </div> 
+              </div> */} 
             </li>
           ))}
         </ul>

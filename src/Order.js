@@ -245,6 +245,6 @@ export default function Order ({
       </div>
     )
   } else {
-    return <h3>Kiitos tlauksesta!</h3>
+    return <h3>Kiitos tilauksesta!</h3>
   }
 }

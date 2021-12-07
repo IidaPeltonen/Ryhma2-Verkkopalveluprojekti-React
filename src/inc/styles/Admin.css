@@ -9,6 +9,18 @@ p {
     font-size: large;
 }
 
+h1 {
+    font-family: Montserrat;
+    font-size: xx-large;
+    font-weight: bold;
+  }
+  
+  h2 {
+    font-family: Montserrat;
+    font-size: x-large;
+    font-weight: bold;
+  }
+
 /* Kirjojen muokkausalueen tyyli */
 
 .muokkaus {
