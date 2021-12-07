@@ -69,17 +69,14 @@ function Tilaus ({ url }) {
             )
             } else {
               return (
-                <div className="row">
-                    {tilaukset?.map(tilaus => (
                       <>
                         <p>Tuote: {tilaus.kirjanimi} {tilaus.kpl} kpl</p>
                         <hr />
                       </>
-                    ))}
-                </div>
-              )
+                    )
               }
             })}
+          
       </div>
     </div>
   )
