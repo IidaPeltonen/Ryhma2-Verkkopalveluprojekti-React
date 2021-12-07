@@ -43,7 +43,12 @@ h1 {
 }
 
 .adminlinkit {
-    color:blue;
+    color:black;
+}
+
+.adminlinkit:hover {
+    text-decoration: underline;
+    color: black;
 }
 
 .adminbutton {
