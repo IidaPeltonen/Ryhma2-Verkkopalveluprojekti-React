@@ -105,6 +105,7 @@ export default function Order({
                 <th scope='col' className='align-middle' id='notbold'>
                   Yhteensä: {riviSumma.toFixed(2)}€
                 </th>
+               
                 <th scope='col' className='align-middle'>
                   <button
                     className='btn'

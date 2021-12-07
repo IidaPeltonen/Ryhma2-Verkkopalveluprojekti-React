@@ -53,3 +53,26 @@
   font-weight: normal;
   }
 
+#TodoComponent{
+    width: 300px;
+    margin: 30px auto;
+    background-color: #44014C;
+    min-height: 200px;
+    box-sizing: border-box;
+  }
+  
+  #adminHeader{
+    padding: 10px 20px;
+    text-align: center;
+    background-color: white;
+    font-size: 22px;
+  }
+  
+  #adminBody{
+    
+    padding: 10px 20px;
+    text-align: center;
+    background-color: white;
+    font-size: 13px;
+  }
+
