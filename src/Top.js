@@ -56,7 +56,7 @@ function Top ({ url, addToCart }) {
                     to={{
                       pathname: '/detail',
                       state: {
-                        id: kirja.id,
+                        kirjaid: kirja.kirjaid,
                         kirjanimi: kirja.kirjanimi,
                         kirjailija: kirja.kirjailija,
                         vuosi: kirja.vuosi,

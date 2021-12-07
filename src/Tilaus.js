@@ -8,21 +8,13 @@ function Tilaus ({ url }) {
   const [tilaukset, setTilaukset] = useState([])
   const [tilaus, setTilaus] = useState([])
   const [rivi, setRivi] = useState('')
-/*   const [tilausnro, setTilausnro] = useState('')
-  const [asid, setAsid] = useState('')
-  const [pvm, setPvm] = useState('')
-  const [tila, setTila] = useState('')
-  const [asiakas, setAsiakas] = useState('')
-  const [kirja, setKirja] = useState('')
-  const [tilausrivi, setTilausrivi] = useState('') */
+
 
   useEffect(() => {
     axios
       .get(url + 'indexTilaus.php')
       .then(response => {
         setTilaukset(response.data)
-        console.log(response.data)
-
       })
       .catch(error => {
         alert(error)

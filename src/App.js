@@ -48,7 +48,7 @@ function App () {
         setCategory({ id: location.state.id, name: location.state.name })
       } else if (location.pathname === '/detail') {
         setKirja({
-          id: location.state.id,
+          kirjaid: location.state.kirjaid,
           kirjanimi: location.state.kirjanimi,
           kirjailija: location.state.kirjailija,
           vuosi: location.state.vuosi,
