@@ -19,7 +19,7 @@ import User from './User'
 import Asiakas from './Asiakas'
 import CategoryAdmin from './Category_admin'
 import Tilaus from './Tilaus'
-import Tilausrivi from './Tilausrivi'
+//import Tilausrivi from './Tilausrivi'
 import SearchBarTest from './inc/SearchBarTest'
 
 const URL = 'http://localhost/kauppa/'

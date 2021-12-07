@@ -41,12 +41,6 @@ function Home({ url, addToCart }) {
   return (
     <div>
       <div>
-        <Link
-          className='musta'
-          to={{
-            pathname: '/searchbar'
-          }}
-        >testisivu</Link>
         <Top url={url} addToCart={addToCart} />
         <h2 id='heading' className='ms-4'>
           Kaikki kirjat
