@@ -32,7 +32,7 @@ function Tilaus ({ url }) {
               <p><b>Asiakkaan tunnus:</b> {tilaus.astunnus} <b>Asiakas: </b>{tilaus.asetunimi} {tilaus.assukunimi}</p>
               <hr />
               <p>Tuote: {tilaus.kirjanimi} {tilaus.kpl} kpl</p><hr />
-              <div className="row">
+              {/* <div className="row">
                <ul>
                  {tilaukset?.map(tilaus => (
                    <li key={tilaus.kirjaid}>
@@ -41,7 +41,7 @@ function Tilaus ({ url }) {
                  </li>
                  ))}
                 </ul>
-              </div> 
+              </div> */} 
             </li>
           ))}
         </ul>
