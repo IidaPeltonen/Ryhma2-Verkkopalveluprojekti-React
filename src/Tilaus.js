@@ -6,20 +6,23 @@ import './inc/styles/Admin.css'
 
 function Tilaus ({ url }) {
   const [tilaukset, setTilaukset] = useState([])
-  const [tilaus, setTilaus] = useState('')
-  const [tilausnro, setTilausnro] = useState('')
+  const [tilaus, setTilaus] = useState([])
+  const [rivi, setRivi] = useState('')
+/*   const [tilausnro, setTilausnro] = useState('')
   const [asid, setAsid] = useState('')
   const [pvm, setPvm] = useState('')
   const [tila, setTila] = useState('')
   const [asiakas, setAsiakas] = useState('')
   const [kirja, setKirja] = useState('')
-  const [tilausrivi, setTilausrivi] = useState('')
+  const [tilausrivi, setTilausrivi] = useState('') */
 
   useEffect(() => {
     axios
       .get(url + 'indexTilaus.php')
       .then(response => {
         setTilaukset(response.data)
+        console.log(response.data)
+
       })
       .catch(error => {
         alert(error)
@@ -34,18 +37,17 @@ function Tilaus ({ url }) {
           {tilaukset?.map(tilaus => (
             <li key={tilaus.tilausnro}>
               <b><p>Tilausnro: {tilaus.tilausnro}</p></b><p>Tilausaika: {tilaus.pvm}</p><p>Tilauksen tila: {tilaus.tila}</p>
-
-              <p>Asiakkaan tunnus: {tilaus.astunnus}</p>
-              <p>Asiakas: {tilaus.asetunimi} {tilaus.assukunimi}</p>
-
+              <p>Asiakkaan tunnus: {tilaus.astunnus}</p><p>Asiakas: {tilaus.asetunimi} {tilaus.assukunimi}</p>
               <div className="row">
-                <ul>
-                  <li key={tilaus.tilausnro}>
-                    <p>Tuote: {tilaus.kirjanimi}</p>
-                    <p>Kpl: {tilaus.kpl}</p>
-                  </li>
+               <ul>
+                 {tilaukset?.map(tilaus => (
+                   <li key={tilaus.kirjaid}>
+                   <p>Tuote: {tilaus.kirjanimi}</p>
+                   <p>Kpl: {tilaus.kpl}</p>
+                 </li>
+                 ))}
                 </ul>
-              </div>
+              </div> 
             </li>
           ))}
         </ul>
