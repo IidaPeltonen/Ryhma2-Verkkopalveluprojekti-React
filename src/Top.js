@@ -7,24 +7,27 @@ import 'react-toastify/dist/ReactToastify.css'
 import { Slide } from 'react-slideshow-image'
 import 'react-slideshow-image/dist/styles.css'
 import karry from './img/karry.png'
+import hobitti from './img/hobitti.png'
 import { Link } from 'react-router-dom'
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
 
-function Top ({ url, addToCart }) {
+function Top({ url, addToCart }) {
   const [kirjat, setKirjat] = useState([])
   const [valittuKirja, setValittuKirja] = useState(null)
 
-  function notify () {
+  function notify() {
     toast('Kirja lisätty ostoskoriin!')
   }
 
-  const propertiesTop = {
-    duration: 5000,
-    slidesToShow: 5,
-    slidesToScroll: 2,
-    autoplay: false,
-    indicators: false,
-    arrows: true
-  }
+  // const propertiesTop = {
+  //   duration: 5000,
+  //   slidesToShow: 5,
+  //   slidesToScroll: 2,
+  //   autoplay: false,
+  //   indicators: false,
+  //   arrows: true
+  // }
 
   useEffect(() => {
     axios
@@ -37,17 +40,28 @@ function Top ({ url, addToCart }) {
       })
   }, [])
 
+  const items = kirjat;
+
+  const responsive = {
+    0: { items: 1 },
+    568: { items: 2 },
+    767: { items: 3 },
+    1023: { items: 5 },
+  };
+
+  console.log([kirjat])
+
   return (
     <div id='reuna' className='container-fluid'>
       <h2 id='heading' className='ms-4'>
         Myydyimmät kirjat
       </h2>
       <ol id='top7' className='row'>
-        <Slide {...propertiesTop}>
-          {kirjat?.map(kirja => (
-            <div key={kirja.kirjaid}>
-
-              <div className="row" id="homerow"> 
+        <AliceCarousel mouseTracking
+          responsive={responsive}
+          items={items?.map(kirja => (
+            <div className="item" key={kirja.kirjaid}>
+              <div className="row" id="homerow">
                 <b> {kirja.rownum}. </b>
                 <br />
                 <div onClick={e => setValittuKirja(kirja)}>
@@ -91,25 +105,145 @@ function Top ({ url, addToCart }) {
                     <img id='pieni' src={karry} alt='ostoskärry' />
                   </button>
                 </div>
-            
+
               </div>
             </div>
           ))}
-        </Slide>
-        <ToastContainer
-          position='bottom-right'
-          autoClose={4000}
-          hideProgressBar={true}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
+
+          controlsStrategy="alternate" >
+          {/* {kirjat?.map(kirja => (
+            <div key={kirja.kirjaid}>
+              <div className="row" id="homerow">
+                <b> {kirja.rownum}. </b>
+                <br />
+                <div onClick={e => setValittuKirja(kirja)}>
+                  <Link
+                    className='musta'
+                    to={{
+                      pathname: '/detail',
+                      state: {
+                        kirjaid: kirja.kirjaid,
+                        kirjanimi: kirja.kirjanimi,
+                        kirjailija: kirja.kirjailija,
+                        vuosi: kirja.vuosi,
+                        kieli: kirja.kieli,
+                        kustantaja: kirja.kustantaja,
+                        kuvaus: kirja.kuvaus,
+                        hinta: kirja.hinta,
+                        saldo: kirja.saldo,
+                        kuva: kirja.kuva
+                      }
+                    }}
+                  >
+                    <img id='kirja' src={kirja.kuva} alt='kirjan kansikuva' />
+                    <br />
+                    <b>
+                      {kirja.kirjanimi} <br />
+                      {kirja.kirjailija}
+                    </b>
+                    <br />
+                    Hinta: {kirja.hinta} €<br />
+                  </Link>
+                </div>
+                <div>
+                  <button
+                    className='btn'
+                    type='button'
+                    onClick={function (event) {
+                      addToCart(kirja)
+                      notify()
+                    }}
+                  >
+                    <img id='pieni' src={karry} alt='ostoskärry' />
+                  </button>
+                </div>
+
+              </div>
+            </div>
+          ))} */}
+        </AliceCarousel>
       </ol>
     </div>
-  )
+  );
+
+
+
+
+  // return (
+  //   <div id='reuna' className='container-fluid'>
+  //     <h2 id='heading' className='ms-4'>
+  //       Myydyimmät kirjat
+  //     </h2>
+  //     <ol id='top7' className='row'>
+  // <Slide {...propertiesTop}>
+  //   {kirjat?.map(kirja => (
+  //     <div key={kirja.kirjaid}>
+
+  //       <div className="row" id="homerow">
+  //         <b> {kirja.rownum}. </b>
+  //         <br />
+  //         <div onClick={e => setValittuKirja(kirja)}>
+  //           <Link
+  //             className='musta'
+  //             to={{
+  //               pathname: '/detail',
+  //               state: {
+  //                 kirjaid: kirja.kirjaid,
+  //                 kirjanimi: kirja.kirjanimi,
+  //                 kirjailija: kirja.kirjailija,
+  //                 vuosi: kirja.vuosi,
+  //                 kieli: kirja.kieli,
+  //                 kustantaja: kirja.kustantaja,
+  //                 kuvaus: kirja.kuvaus,
+  //                 hinta: kirja.hinta,
+  //                 saldo: kirja.saldo,
+  //                 kuva: kirja.kuva
+  //               }
+  //             }}
+  //           >
+  //             <img id='kirja' src={kirja.kuva} alt='kirjan kansikuva' />
+  //             <br />
+  //             <b>
+  //               {kirja.kirjanimi} <br />
+  //               {kirja.kirjailija}
+  //             </b>
+  //             <br />
+  //             Hinta: {kirja.hinta} €<br />
+  //           </Link>
+  //         </div>
+  //         <div>
+  //           <button
+  //             className='btn'
+  //             type='button'
+  //             onClick={function (event) {
+  //               addToCart(kirja)
+  //               notify()
+  //             }}
+  //           >
+  //             <img id='pieni' src={karry} alt='ostoskärry' />
+  //           </button>
+  //         </div>
+
+  //       </div>
+  //     </div>
+  //   ))}
+  // </Slide>
+  //     <ToastContainer
+  //       position='bottom-right'
+  //       autoClose={4000}
+  //       hideProgressBar={true}
+  //       newestOnTop={false}
+  //       closeOnClick
+  //       rtl={false}
+  //       pauseOnFocusLoss
+  //       draggable
+  //       pauseOnHover
+  //     />
+  //   </ol>
+  // </div>
+  // )
 }
 
 export default Top
+
+
