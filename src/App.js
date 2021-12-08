@@ -19,7 +19,6 @@ import User from './User'
 import Asiakas from './Asiakas'
 import CategoryAdmin from './Category_admin'
 import Tilaus from './Tilaus'
-import SearchBarTest from './inc/SearchBarTest'
 
 const URL = 'http://localhost/kauppa/'
 
@@ -172,10 +171,6 @@ function App () {
         <Route
           path='/detail'
           render={() => <Detail kirja={kirja} addToCart={addToCart} />}
-        />
-        <Route
-          path='/searchbar'
-          render={() => <SearchBarTest url={URL}  />}
         />
         <Route path='/admin' render={() => < Admin />} />
         <Route path='/contactus' component={ContactUs} />

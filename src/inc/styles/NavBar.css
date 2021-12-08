@@ -53,11 +53,27 @@ väri : stroke='rgba(255, 215, 0, 1)' */
 
   /* Hakukenttä */
 
-#hakukenttä {
-    position: absolute;
-    right: 5em;
-    top: 2em;
-    width: 20em;
-    z-index: 2;
+
+
+@media (min-width: 0) {
+   
+    #hakukenttä {
+        position: absolute;
+        right: 55px;
+        top: 55px;
+        width: 10em;
+    }
 }
+
+@media (min-width: 768px) {
+    #hakukenttä {
+        position: absolute;
+        right: 5em;
+        top: 2em;
+        width: 20em;
+        z-index: 2;
+    }
+ }
+
+
 
