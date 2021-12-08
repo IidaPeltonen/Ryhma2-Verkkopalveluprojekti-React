@@ -7,7 +7,6 @@ import 'react-toastify/dist/ReactToastify.css'
 import { Slide } from 'react-slideshow-image'
 import 'react-slideshow-image/dist/styles.css'
 import karry from './img/karry.png'
-import hobitti from './img/hobitti.png'
 import { Link } from 'react-router-dom'
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
