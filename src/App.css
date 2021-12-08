@@ -174,3 +174,36 @@ img {
   font-weight: 600;
 }
 
+#leftside{
+  margin-bottom: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+  max-width: 50%;
+  flex-basis: 50%;
+  text-align: left;
+}
+
+.uprow{     
+  display: table;
+  width: 100%;
+  color: white; 
+  padding: 10px 24px; 
+  cursor: pointer; 
+  float: left; 
+}
+
+.uprow button:not(:last-child) {
+  border-right: none; 
+}
+
+
+.uprow:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+.uprow button:hover {
+  background-color: #3e8e41;
+}
