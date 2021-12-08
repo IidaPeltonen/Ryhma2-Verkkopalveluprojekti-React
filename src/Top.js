@@ -48,23 +48,22 @@ function Top({ url, addToCart }) {
     1023: { items: 5 },
   };
 
-  console.log([kirjat])
+  const handleDragStart = (e) => e.preventDefault();
 
   return (
     <div id='reuna' className='container-fluid'>
       <h2 id='heading' className='ms-4'>
         Myydyimmät kirjat
       </h2>
-      <ol id='top7' className='row'>
+      <ol id='top7' className='row'>  
         <AliceCarousel mouseTracking
           responsive={responsive}
           disableDotsControls={true}
-          controlsStrategy="alternate"
           infinite={true}
-          autoPlay={true}
-          autoPlayInterval={5000}
+          // autoPlay={true}
+          // autoPlayInterval={5000}
           items={items?.map(kirja => (
-            <div className="item" key={kirja.kirjaid}>
+            <div onDragStart={handleDragStart}  className="item" key={kirja.kirjaid}>
               <div className="row" id="homerow">
                 <b> {kirja.rownum}. </b>
                 <br />
@@ -115,6 +114,17 @@ function Top({ url, addToCart }) {
           ))}
  >
               </AliceCarousel>
+              <ToastContainer
+        position='bottom-right'
+        autoClose={4000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       </ol>
     </div>
   );

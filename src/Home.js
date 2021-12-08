@@ -40,6 +40,8 @@ function Home({ url, addToCart }) {
     1023: { items: 5 },
   };
 
+  const handleDragStart = (e) => e.preventDefault();
+
   useEffect(() => {
     axios
       .get(url)
@@ -63,10 +65,10 @@ function Home({ url, addToCart }) {
           responsive={responsive}
           disableDotsControls={true}
           infinite={true}
-          autoPlay={true}
-          autoPlayInterval={5000}
+          // autoPlay={true}
+          // autoPlayInterval={5000}
           items={items?.map(kirja => (
-              <div key={kirja.kirjaid}>
+              <div onDragStart={handleDragStart} key={kirja.kirjaid}>
                 <div className="row" id="homerow"
                   style={{ display: 'flex' }}>
 
