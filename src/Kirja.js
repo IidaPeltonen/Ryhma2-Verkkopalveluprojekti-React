@@ -295,7 +295,7 @@ function Kirja({ url }) {
               <td id='notbold'>{editItem?.id !== item.kirjaid && item.kuva}</td>
               <td id='notbold'>{editItem?.id !== item.kirjaid && item.category_id}</td>
               <td id='notbold'>{editItem?.kirjaid === item.kirjaid && (
-                <form onSubmit={paivita}>
+                <form onSubmit={paivita} id="leftside">
                   <input
                     placeholder='Kirjan nimi'
                     value={editKirjanimi}
@@ -354,8 +354,12 @@ function Kirja({ url }) {
                       </option>
                     ))}
                   </select>
-                  <button className="btn adminbutton">Tallenna</button>
-                  <button type="button" onClick={() => setEditedItem(null)}>Peruuta</button>
+                  <div className="uprow">
+                    <button className="btn adminbutton">Tallenna</button>
+                    <button className="btn adminbutton" onClick={() => setEditedItem(null)}>Peruuta</button>
+                    
+                    
+                  </div> 
                 </form>
               )}
                 <button className='delete btn adminbutton' onClick={() => remove(item.kirjaid)}>
