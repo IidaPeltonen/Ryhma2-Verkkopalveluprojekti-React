@@ -58,6 +58,7 @@ function Top({ url, addToCart }) {
       <ol id='top7' className='row'>
         <AliceCarousel mouseTracking
           responsive={responsive}
+          disableDotsControls={true}
           items={items?.map(kirja => (
             <div className="item" key={kirja.kirjaid}>
               <div className="row" id="homerow">

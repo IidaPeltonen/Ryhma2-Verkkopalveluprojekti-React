@@ -6,6 +6,8 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Slide } from 'react-slideshow-image'
 import 'react-slideshow-image/dist/styles.css'
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
 import karry from './img/karry.png'
 import Top from './Top'
 import { Link } from 'react-router-dom'
@@ -27,6 +29,15 @@ function Home({ url, addToCart }) {
     arrows: true
   }
 
+  const items = kirjat;
+
+  const responsive = {
+    0: { items: 1 },
+    568: { items: 2 },
+    767: { items: 3 },
+    1023: { items: 5 },
+  };
+
   useEffect(() => {
     axios
       .get(url)
@@ -46,8 +57,10 @@ function Home({ url, addToCart }) {
           Kaikki kirjat
         </h2>
         <ol id='kaikki'>
-          <Slide {...properties}>
-            {kirjat?.map(kirja => (
+        <AliceCarousel mouseTracking
+          responsive={responsive}
+          disableDotsControls={true}
+          items={items?.map(kirja => (
               <div key={kirja.kirjaid}>
                 <div className="row" id="homerow"
                   style={{ display: 'flex' }}>
@@ -104,7 +117,7 @@ function Home({ url, addToCart }) {
                 </div>
               </div>
             ))}
-          </Slide>
+            ></AliceCarousel>
           <ToastContainer
             position='bottom-right'
             autoClose={4000}
