@@ -17,7 +17,6 @@ function Tilaus ({ url }) {
   const [editPvm, setEditPvm] = useState('') //tarvitaanko, jos tulee automaattina?
   const [editTila, setEditTila] = useState('')
   //tilausrivin muuttujat
-  //const [tilausnro2, setTilausnro2] = useState('')
   const [kirjaid, setKirjaid] = useState('') 
   const [kpl, setKpl] = useState('')
   const [editTilausnro2, setEditTilausnro2] = useState('') //tarvitaanko, jos ei saa editoida?
@@ -83,22 +82,31 @@ function Tilaus ({ url }) {
               <>
               <b><h2>Tilausnro: {tilaus.tilausnro}</h2></b>
               <p><b>Tilauksen tila:</b> {tilaus.tila}   <b>Tilausaika: </b>{tilaus.pvm} </p>
-              <p><b>Asiakkaan tunnus:</b> {tilaus.astunnus} <b>Asiakas: </b>{tilaus.asetunimi} {tilaus.assukunimi}</p>
-              <button className='delete btn adminbutton' onClick={() => removeTilaus(tilaus.tilausnro, tilaus.kirjaid)}>
-                  Poista
-              </button>
-              <p>{tilaus.kirjanimi} {tilaus.kpl} kpl</p>
-              <button className='delete btn adminbutton' onClick={() => removeRivi(tilaus.tilausnro, tilaus.kirjaid)}>
-                  Poista
-              </button>  
+              <p><b>Asiakkaan tunnus:</b> {tilaus.astunnus} <b>Asiakas: </b>{tilaus.asetunimi} {tilaus.assukunimi}
+                <button className='delete' onClick={() => removeTilaus(tilaus.tilausnro, tilaus.kirjaid)}>
+                    Poista tilaus
+                </button>
+              </p>
+              <hr />
+              <p>{tilaus.kirjanimi} {tilaus.kpl} kpl 
+                <button className='delete' onClick={() => removeRivi(tilaus.tilausnro, tilaus.kirjaid)}>
+                    Poista rivi
+                </button>  
+              </p>
+              <hr />
+              
               </>
             )
             } else {
               return (
                       <>
-                        <p>{tilaus.kirjanimi} {tilaus.kpl} kpl</p>
-                        <button className='delete btn adminbutton' onClick={() => removeRivi(tilaus.tilausnro, tilaus.kirjaid)}></button>
-                        <hr />
+                        <p>{tilaus.kirjanimi} {tilaus.kpl} kpl
+                          <button className='delete' onClick={() => removeRivi(tilaus.tilausnro, tilaus.kirjaid)}>
+                            Poista rivi
+                          </button>
+                          <hr />
+                        </p>
+                 
                       </>
                     )
               }
