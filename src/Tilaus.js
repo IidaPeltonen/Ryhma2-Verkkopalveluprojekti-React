@@ -8,7 +8,7 @@ function Tilaus ({ url }) {
   const [tilaus, setTilaus] = useState('')
   const [editTilaus, setEditTilaus] = useState(null)
   //tilauksen muuttujat
-  //const [tilausnro, setTilausnro] = useState('')
+  const [tilausnumero, setTilausnro] = useState('')
   const [asid, setAsid] = useState('')
   const [pvm, setPvm] = useState('') //tarvitaanko, jos tulee automaattina?
   const [tila, setTila] = useState('')
@@ -17,7 +17,7 @@ function Tilaus ({ url }) {
   const [editPvm, setEditPvm] = useState('') //tarvitaanko, jos tulee automaattina?
   const [editTila, setEditTila] = useState('')
   //tilausrivin muuttujat
-  const [tilausnro2, setTilausnro2] = useState('')
+  //const [tilausnro2, setTilausnro2] = useState('')
   const [kirjaid, setKirjaid] = useState('') 
   const [kpl, setKpl] = useState('')
   const [editTilausnro2, setEditTilausnro2] = useState('') //tarvitaanko, jos ei saa editoida?
@@ -34,78 +34,70 @@ function Tilaus ({ url }) {
         alert(error)
       })
   }, [])
-
-
-  /*   //TULEEKO NÄMÄ ERIKSEEN VAI OMAAN?
-    //uuden tallennus tilaus
-  function tallennaTilaus(e) {
-    e.preventDefault()
-    const json = JSON.stringify({
-      tilausnro: tilausnro,
-      asid: asid,
-      pvm: pvm,
-      tila: tila,
-    })
+ 
+  //olemassaolevan tilausrivin poisto
+  function removeRivi(tilausnumero, kirjaid) {
+    const json = JSON.stringify({ tilausnro: tilausnumero, kirjaid: kirjaid })
     axios
-      .post(url + 'addTilaus.php', json, {
+      .post(url + 'deleteTilausrivi.php', json, {
         headers: {
           'Content-Type': 'application/json'
-      }
-    })
-    .then(response => {
-      setTilaukset(tilaukset => [...tilaukset, response.data])
-      setTilaus('')
-    })
-    .catch(error => {
-      alert(error.response.data.error)
-    })
+        }
+      })
+      .then(response => {
+        const newListWithoutRemoved = tilaukset.filter(tilaus => tilaus.tilausnro !== tilausnumero && tilaus.kirja !== kirjaid)
+        setTilaukset(newListWithoutRemoved)
+      })
+      .catch(error => {
+        alert(error.response ? error.response.data.error : error)
+      })
+  } 
+
+   //olemassaolevan tilauksen poisto
+   function removeTilaus(tilausnumero) {
+    const json = JSON.stringify({ tilausnro: tilausnumero })
+    axios
+      .post(url + 'deleteTilaus.php', json, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => {
+        const newListWithoutRemoved = tilaukset.filter(tilaus => tilaus.tilausnro !== tilausnumero)
+        setTilaukset(newListWithoutRemoved)
+      })
+      .catch(error => {
+        alert(error.response ? error.response.data.error : error)
+      })
   }
-
-   function tallennaTilausrivi(e) {
-    e.preventDefault()
-    const json = JSON.stringify({
-      tilausnro2: tilausnro, 
-      kirjaid: kirjaid,
-      kpl: kpl
-    })
-    axios
-      .post(url + 'addTilausrivi.php', json, {
-        headers: {
-          'Content-Type': 'application/json'
-      }
-    })
-    .then(response => {
-      setTilaukset(tilaukset => [...tilaukset, response.data])
-      setTilaus('')
-    })
-    .catch(error => {
-      alert(error.response.data.error)
-    })
-  } */
-
-  let tilausnro = 0;
+  let unuunun = 0;
 
   return (
     <div className='container'>
       <h2 id='otsikko keskita'>Tilaukset</h2><br />
       <div className='row'>
         {tilaukset?.map(tilaus => {
-          if (tilausnro != tilaus.tilausnro) {
-            {tilausnro = tilaus.tilausnro}
+          if (unuunun != tilaus.tilausnro) {
+            {unuunun = tilaus.tilausnro}
             return (
               <>
               <b><h2>Tilausnro: {tilaus.tilausnro}</h2></b>
               <p><b>Tilauksen tila:</b> {tilaus.tila}   <b>Tilausaika: </b>{tilaus.pvm} </p>
               <p><b>Asiakkaan tunnus:</b> {tilaus.astunnus} <b>Asiakas: </b>{tilaus.asetunimi} {tilaus.assukunimi}</p>
-              <hr />
+              <button className='delete btn adminbutton' onClick={() => removeTilaus(tilaus.tilausnro, tilaus.kirjaid)}>
+                  Poista
+              </button>
               <p>{tilaus.kirjanimi} {tilaus.kpl} kpl</p>
-              <hr />
+              <button className='delete btn adminbutton' onClick={() => removeRivi(tilaus.tilausnro)}>
+                  Poista
+              </button>  
               </>
             )
             } else {
               return (
                       <>
                         <p>{tilaus.kirjanimi} {tilaus.kpl} kpl</p>
+                        <button className='delete btn adminbutton' onClick={() => removeRivi(tilaus.tilausnro, tilaus.kirjaid)}></button>
                         <hr />
                       </>
                     )
