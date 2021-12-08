@@ -79,7 +79,14 @@ function Home({ url, addToCart }) {
                       </b>
                       <br />
                       Hinta: {kirja.hinta}€<br />
-                      Varastossa: {kirja.saldo} kpl <br />
+                      {kirja.saldo > 0 ? (
+                        <p>Varastossa: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#1b840e" className="bi bi-circle-fill" viewBox="0 0 16 16">
+                          <circle cx="8" cy="8" r="8" />
+                        </svg></p>
+                      )
+                        : (<p>Ei saatavilla: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff0000" className="bi bi-circle-fill" viewBox="0 0 16 16">
+                          <circle cx="8" cy="8" r="8" />
+                        </svg></p>)}
                     </Link>
                   </div>
                   <div>

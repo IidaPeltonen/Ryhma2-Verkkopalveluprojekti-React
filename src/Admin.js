@@ -171,7 +171,7 @@ function Resource (props) {
                       pathname: '/tilaus',
                     }}
                 >
-                 * Lisää, muokkaa tai poista tilaus *
+                 * Muokkaa tai poista tilaus *
                 </Link>
               </th>
             </tr>
