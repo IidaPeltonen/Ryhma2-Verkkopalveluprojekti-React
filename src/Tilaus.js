@@ -44,7 +44,7 @@ function Tilaus ({ url }) {
         }
       })
       .then(response => {
-        const newListWithoutRemoved = tilaukset.filter(tilaus => tilaus.tilausnro !== tilausnumero && tilaus.kirja !== kirjaid)
+        const newListWithoutRemoved = tilaukset.filter(tilaus => tilaus.kirjaid !== kirjaid && tilaus.tilausnro !== tilausnumero)
         setTilaukset(newListWithoutRemoved)
       })
       .catch(error => {
@@ -52,7 +52,7 @@ function Tilaus ({ url }) {
       })
   } 
 
-   //olemassaolevan tilauksen poisto
+  /*  //olemassaolevan tilauksen poisto
    function removeTilaus(tilausnumero) {
     const json = JSON.stringify({ tilausnro: tilausnumero })
     axios
@@ -68,7 +68,7 @@ function Tilaus ({ url }) {
       .catch(error => {
         alert(error.response ? error.response.data.error : error)
       })
-  }
+  } */
   let unuunun = 0;
 
   return (
@@ -82,31 +82,29 @@ function Tilaus ({ url }) {
               <>
               <b><h2>Tilausnro: {tilaus.tilausnro}</h2></b>
               <p><b>Tilauksen tila:</b> {tilaus.tila}   <b>Tilausaika: </b>{tilaus.pvm} </p>
-              <p><b>Asiakkaan tunnus:</b> {tilaus.astunnus} <b>Asiakas: </b>{tilaus.asetunimi} {tilaus.assukunimi}
-                <button className='delete' onClick={() => removeTilaus(tilaus.tilausnro, tilaus.kirjaid)}>
+              <p><b>Asiakkaan tunnus:</b> {tilaus.astunnus} <b>Asiakas: </b>{tilaus.asetunimi} {tilaus.assukunimi} 
+                {/* <button className='delete' onClick={() => removeTilaus(tilaus.tilausnro)}>
                     Poista tilaus
-                </button>
+                </button> */}
               </p>
               <hr />
-              <p>{tilaus.kirjanimi} {tilaus.kpl} kpl 
+              <p>{tilaus.kirjanimi} {tilaus.kpl} kpl  
                 <button className='delete' onClick={() => removeRivi(tilaus.tilausnro, tilaus.kirjaid)}>
                     Poista rivi
                 </button>  
               </p>
               <hr />
-              
               </>
             )
             } else {
               return (
                       <>
-                        <p>{tilaus.kirjanimi} {tilaus.kpl} kpl
+                        <p>{tilaus.kirjanimi} {tilaus.kpl} kpl 
                           <button className='delete' onClick={() => removeRivi(tilaus.tilausnro, tilaus.kirjaid)}>
                             Poista rivi
                           </button>
                           <hr />
                         </p>
-                 
                       </>
                     )
               }
