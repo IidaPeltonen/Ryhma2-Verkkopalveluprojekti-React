@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom'
 //yhden kirjan tiedot
 export default function Detail({ kirja, addToCart }) {
   const history = useHistory()
-  
+
   function notify() {
     toast('Kirja lisätty ostoskoriin!')
   }
@@ -27,6 +27,14 @@ export default function Detail({ kirja, addToCart }) {
           <p>Kieli: {kirja.kieli}</p>
           <p>Kustantaja: {kirja.kustantaja}</p>
           <p>Hinta: {kirja.hinta}€</p>
+          {kirja.saldo > 0 ?(
+            <p>Varastossa: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#1b840e" className="bi bi-circle-fill" viewBox="0 0 16 16">
+              <circle cx="8" cy="8" r="8" />
+            </svg></p>
+          )
+          : ( <p>Ei saatavilla: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#960018" className="bi bi-circle-fill" viewBox="0 0 16 16">
+              <circle cx="8" cy="8" r="8" /> 
+            </svg></p> )}
           <button
             className='btn detailbutton mt-4'
             type='button'
