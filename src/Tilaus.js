@@ -88,7 +88,7 @@ function Tilaus ({ url }) {
                   Poista
               </button>
               <p>{tilaus.kirjanimi} {tilaus.kpl} kpl</p>
-              <button className='delete btn adminbutton' onClick={() => removeRivi(tilaus.tilausnro)}>
+              <button className='delete btn adminbutton' onClick={() => removeRivi(tilaus.tilausnro, tilaus.kirjaid)}>
                   Poista
               </button>  
               </>
