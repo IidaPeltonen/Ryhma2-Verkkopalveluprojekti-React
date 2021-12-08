@@ -4,8 +4,8 @@ import axios from 'axios'
 import './App.css'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { Slide } from 'react-slideshow-image'
-import 'react-slideshow-image/dist/styles.css'
+// import { Slide } from 'react-slideshow-image'
+// import 'react-slideshow-image/dist/styles.css'
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import karry from './img/karry.png'
@@ -20,14 +20,16 @@ function Home({ url, addToCart }) {
     toast('Kirja lisätty ostoskoriin!')
   }
 
-  const properties = {
-    duration: 5000,
-    slidesToShow: 5,
-    slidesToScroll: 4,
-    autoplay: false,
-    indicators: false,
-    arrows: true
-  }
+
+//**  Vanhan sliderin propertiesit */  // 
+// const properties = {
+  //   duration: 5000,
+  //   slidesToShow: 5,
+  //   slidesToScroll: 4,
+  //   autoplay: false,
+  //   indicators: false,
+  //   arrows: true
+  // }
 
   const items = kirjat;
 
@@ -60,6 +62,9 @@ function Home({ url, addToCart }) {
         <AliceCarousel mouseTracking
           responsive={responsive}
           disableDotsControls={true}
+          infinite={true}
+          autoPlay={true}
+          autoPlayInterval={5000}
           items={items?.map(kirja => (
               <div key={kirja.kirjaid}>
                 <div className="row" id="homerow"

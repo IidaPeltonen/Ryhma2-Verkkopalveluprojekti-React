@@ -18,7 +18,7 @@ function Top({ url, addToCart }) {
   function notify() {
     toast('Kirja lisätty ostoskoriin!')
   }
-
+//**  Vanhan sliderin propertiesit */
   // const propertiesTop = {
   //   duration: 5000,
   //   slidesToShow: 5,
@@ -59,6 +59,10 @@ function Top({ url, addToCart }) {
         <AliceCarousel mouseTracking
           responsive={responsive}
           disableDotsControls={true}
+          controlsStrategy="alternate"
+          infinite={true}
+          autoPlay={true}
+          autoPlayInterval={5000}
           items={items?.map(kirja => (
             <div className="item" key={kirja.kirjaid}>
               <div className="row" id="homerow">
@@ -109,65 +113,12 @@ function Top({ url, addToCart }) {
               </div>
             </div>
           ))}
-
-          controlsStrategy="alternate" >
-          {/* {kirjat?.map(kirja => (
-            <div key={kirja.kirjaid}>
-              <div className="row" id="homerow">
-                <b> {kirja.rownum}. </b>
-                <br />
-                <div onClick={e => setValittuKirja(kirja)}>
-                  <Link
-                    className='musta'
-                    to={{
-                      pathname: '/detail',
-                      state: {
-                        kirjaid: kirja.kirjaid,
-                        kirjanimi: kirja.kirjanimi,
-                        kirjailija: kirja.kirjailija,
-                        vuosi: kirja.vuosi,
-                        kieli: kirja.kieli,
-                        kustantaja: kirja.kustantaja,
-                        kuvaus: kirja.kuvaus,
-                        hinta: kirja.hinta,
-                        saldo: kirja.saldo,
-                        kuva: kirja.kuva
-                      }
-                    }}
-                  >
-                    <img id='kirja' src={kirja.kuva} alt='kirjan kansikuva' />
-                    <br />
-                    <b>
-                      {kirja.kirjanimi} <br />
-                      {kirja.kirjailija}
-                    </b>
-                    <br />
-                    Hinta: {kirja.hinta} €<br />
-                  </Link>
-                </div>
-                <div>
-                  <button
-                    className='btn'
-                    type='button'
-                    onClick={function (event) {
-                      addToCart(kirja)
-                      notify()
-                    }}
-                  >
-                    <img id='pieni' src={karry} alt='ostoskärry' />
-                  </button>
-                </div>
-
-              </div>
-            </div>
-          ))} */}
-        </AliceCarousel>
+ >
+              </AliceCarousel>
       </ol>
     </div>
   );
-
-
-
+  //********* VANHA SLIDER ja return *********
 
   // return (
   //   <div id='reuna' className='container-fluid'>
