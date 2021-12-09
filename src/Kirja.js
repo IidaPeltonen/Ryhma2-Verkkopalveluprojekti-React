@@ -359,8 +359,11 @@ function Kirja({ url }) {
                       </option>
                     ))}
                   </select>
+
+                <td id="inrow">
                   <button className="btn adminbutton">Tallenna</button>
                   <button className="btn adminbutton" onClick={() => setEditedItem(null)}>Peruuta</button>
+                  </td> 
               </form>
               </td>
               )}

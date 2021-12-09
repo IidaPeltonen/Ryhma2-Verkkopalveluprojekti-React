@@ -229,3 +229,7 @@ img {
 .uprow button:hover {
   background-color: #3e8e41;
 }
+
+#inrow{
+  display: inline-block;
+}
