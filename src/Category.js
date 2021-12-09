@@ -37,7 +37,7 @@ export default function Category ({ url, category, addToCart }) {
 
   return (
     <div className='container'>
-      <div className='row table-responsive-md'>
+      <div className='row table-responsive'>
         <h2 id='heading'>{category?.name}</h2>
         <table id='kaikki' className='table'>
           <tbody className='col-12'>
