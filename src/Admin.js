@@ -48,7 +48,7 @@ function Admin() {
   if (!auth) {
     return (
       <div className="container">
-        <form id="login" onSubmit={login}>
+        <form onSubmit={login}>
           <div className="col-3 col-md-6 mx-auto mb-4">
             <label className="form-label">Käyttäjätunnus:</label>
             <input
