@@ -20,7 +20,6 @@ export default function SearchBar({ placeHolder, url }) {
       .get(url)
       .then(response => {
         setKirjat(response.data)
-        console.log(response)
       })
       .catch(error => {
         if (error.response === undefined) {
