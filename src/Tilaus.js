@@ -47,31 +47,13 @@ function Tilaus ({ url }) {
         }
       })
       .then(response => {
-        const newListWithoutRemoved = tilaukset.filter(tilaus => tilaus.kirjaid !== kirjaid && tilaus.tilausnro !== tilausnumero)
+        const newListWithoutRemoved = tilaukset.filter(tilaus => tilaus.kirjaid !== kirjaid && tilaus.asid !== asid)
         setTilaukset(newListWithoutRemoved)
       })
       .catch(error => {
         alert(error.response ? error.response.data.error : error)
       })
   } 
-
-  /*  //olemassaolevan tilauksen poisto
-   function removeTilaus(tilausnumero) {
-    const json = JSON.stringify({ tilausnro: tilausnumero })
-    axios
-      .post(url + 'deleteTilaus.php', json, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      .then(response => {
-        const newListWithoutRemoved = tilaukset.filter(tilaus => tilaus.tilausnro !== tilausnumero)
-        setTilaukset(newListWithoutRemoved)
-      })
-      .catch(error => {
-        alert(error.response ? error.response.data.error : error)
-      })
-  } */
 
 //olemassaolevan tilausrivin päivitys
 function setEditedTilaus(tilaus) {
@@ -112,6 +94,7 @@ function paivitaRivi(e) {
   let unuunun = 0;
 
   return (
+    
     <div className='container'>
       <h2 id='otsikko keskita'>Tilaukset</h2><br />
       <div className='row'>
@@ -140,8 +123,8 @@ function paivitaRivi(e) {
                           <button className='delete' onClick={() => removeRivi(tilaus.tilausnro, tilaus.kirjaid)}>
                             Poista rivi
                           </button>
-                          <hr />
                         </p>
+                        <hr />
                       </>
                     )
               }
