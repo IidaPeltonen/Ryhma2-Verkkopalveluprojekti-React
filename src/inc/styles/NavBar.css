@@ -68,6 +68,16 @@ väri : stroke='rgba(255, 215, 0, 1)' */
 @media (min-width: 768px) {
     #hakukenttä {
         position: absolute;
+        right: 1em;
+        top: 4em;
+        width: 10em;
+        z-index: 2;
+    }
+ }
+
+ @media (min-width: 1024px) {
+    #hakukenttä {
+        position: absolute;
         right: 5em;
         top: 2em;
         width: 20em;

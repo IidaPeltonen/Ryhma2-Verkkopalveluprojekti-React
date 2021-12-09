@@ -85,7 +85,7 @@ export default function Order ({
         <div id='reuna' className='row'>
           <div className='col-10'></div>
           <button
-            className=' tyhjenna orderbutton btn'
+            className='tyhjenna orderbutton btn ms-2'
             type='button'
             onClick={e => clear()}
           >
