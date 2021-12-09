@@ -92,7 +92,7 @@ export default function Order ({
             Tyhjennä ostoskori
           </button>
         </div>
-        <div className='row table-responsive-md'>
+        <div className='row table-responsive'>
           <table className='table'>
             <tbody className='col-12'>
               {cart.map((product, index) => {

@@ -19,6 +19,10 @@ p {
 
 /* Painikkeet adminissa */
 
+#login {
+    display: block;
+}
+
 .logout {
     margin-top: 2rem;
     margin-bottom: 2rem;

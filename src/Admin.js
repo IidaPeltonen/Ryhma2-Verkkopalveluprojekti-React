@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 let loginUrl = 'http://localhost/kauppa/login.php'
 let resUrl = 'http://localhost/kauppa/resources.php'
 
-function Admin () {
+function Admin() {
   //Formin tietojen hallinta
   const [username, setUsername] = useState('')
   const [pw, setPw] = useState('')
@@ -47,21 +47,29 @@ function Admin () {
   //Jos käyttäjä ei ole loggautunut, näytetään login-lomake. Muuten näytetään käyttäjän oma resurssi.
   if (!auth) {
     return (
-      <div>
-        <form onSubmit={login}>
-          <label>Käyttäjätunnus:</label>
-          <input
-            type='text'
-            value={username}
-            onChange={e => setUsername(e.target.value)}
-          ></input>
-          <label>Salasana:</label>
-          <input
-            type='password'
-            value={pw}
-            onChange={e => setPw(e.target.value)}
-          ></input>
-          <input type='submit' value='Login'></input>
+      <div className="container">
+        <form id="login" onSubmit={login}>
+          <div className="col-3 col-md-6 mx-auto mb-4">
+            <label className="form-label">Käyttäjätunnus:</label>
+            <input
+              className="form-control"
+              type='text'
+              value={username}
+              onChange={e => setUsername(e.target.value)}
+            ></input>
+          </div>
+          <div className="col-3 col-md-6 mx-auto mb-4">
+            <label className="form-label">Salasana:</label>
+            <input
+              className="form-control"
+              type='password'
+              value={pw}
+              onChange={e => setPw(e.target.value)}
+            ></input>
+          </div>
+          <div className="col-3 col-md-6 mx-auto">
+            <input type='submit' value='Login'></input>
+          </div>
         </form>
       </div>
     )
@@ -73,7 +81,7 @@ function Admin () {
 }
 
 //Komponentti käyttäjän resussin näyttämiseksi
-function Resource (props) {
+function Resource(props) {
   //Käyttäjän henkkoht content
   const [content, setContent] = useState('')
 
@@ -102,7 +110,7 @@ function Resource (props) {
 
   return (
     <div className='container'>
-      <div className='row table-responsive-md'>
+      <div className='row table-responsive'>
         <table>
           <tbody className='col'>
             <tr>
@@ -117,67 +125,67 @@ function Resource (props) {
             </tr>
             <tr col-12>
               <th scope='col' id='notbold'>
-              <Link
-              className='adminlinkit'
-                    to={{
-                      pathname: '/kirja',
-                    }}
-                  >
-                * Lisää, muokkaa tai poista kirja *
-              </Link>
-              </th>
-            </tr>
-            <tr>
-              <th scope='col' id='notbold'>
-              <Link
-              className='adminlinkit'
-                to={{
-                  pathname: '/category_admin'
-                }}
+                <Link
+                  className='adminlinkit'
+                  to={{
+                    pathname: '/kirja',
+                  }}
                 >
-                * Lisää, muokkaa tai poista tuoteryhmä *
+                  * Lisää, muokkaa tai poista kirja *
                 </Link>
-              </th>
-            </tr>
-            <tr>
-              <th scope='col' id='notbold'>
-              <Link
-              className='adminlinkit'
-                    to={{
-                      pathname: '/asiakas',
-                    }}
-                  >
-                * Lisää, muokkaa tai poista asiakas *
-              </Link>
               </th>
             </tr>
             <tr>
               <th scope='col' id='notbold'>
                 <Link
-                className='adminlinkit'
-                    to={{
-                      pathname: '/user',
-                    }}
+                  className='adminlinkit'
+                  to={{
+                    pathname: '/category_admin'
+                  }}
                 >
-                * Lisää, muokkaa tai poista pääkäyttäjä *
+                  * Lisää, muokkaa tai poista tuoteryhmä *
                 </Link>
               </th>
             </tr>
             <tr>
               <th scope='col' id='notbold'>
-              <Link
-                className='adminlinkit'
-                    to={{
-                      pathname: '/tilaus',
-                    }}
+                <Link
+                  className='adminlinkit'
+                  to={{
+                    pathname: '/asiakas',
+                  }}
                 >
-                 * Muokkaa tai poista tilaus *
+                  * Lisää, muokkaa tai poista asiakas *
+                </Link>
+              </th>
+            </tr>
+            <tr>
+              <th scope='col' id='notbold'>
+                <Link
+                  className='adminlinkit'
+                  to={{
+                    pathname: '/user',
+                  }}
+                >
+                  * Lisää, muokkaa tai poista pääkäyttäjä *
+                </Link>
+              </th>
+            </tr>
+            <tr>
+              <th scope='col' id='notbold'>
+                <Link
+                  className='adminlinkit'
+                  to={{
+                    pathname: '/tilaus',
+                  }}
+                >
+                  * Muokkaa tai poista tilaus *
                 </Link>
               </th>
             </tr>
             <tr col-12>
               <th scopes='col'>
-              <button className="logout" col='6' onClick={logout}>Kirjaudu ulos</button>
+                <button className="logout" col='6' onClick={logout}>Kirjaudu ulos</button>
               </th>
             </tr>
             <tr></tr>
