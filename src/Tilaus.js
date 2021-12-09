@@ -1,3 +1,6 @@
+
+// EDITIN NÄYTTÖKENTTIEN TEKO KESKEN, SAA JATKAA
+
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
@@ -8,7 +11,7 @@ function Tilaus ({ url }) {
   const [tilaus, setTilaus] = useState('')
   const [editTilaus, setEditTilaus] = useState(null)
   //tilauksen muuttujat
-  const [tilausnumero, setTilausnro] = useState('')
+  const [tilausnumero, setTilausnumero] = useState('')
   const [asid, setAsid] = useState('')
   const [pvm, setPvm] = useState('') //tarvitaanko, jos tulee automaattina?
   const [tila, setTila] = useState('')
@@ -69,6 +72,43 @@ function Tilaus ({ url }) {
         alert(error.response ? error.response.data.error : error)
       })
   } */
+
+//olemassaolevan tilausrivin päivitys
+function setEditedTilaus(tilaus) {
+  setEditTilaus(tilaus)
+  setEditKirjaid(kirjaid)
+  setEditKpl(tilaus?.kpl)
+}
+
+function paivitaRivi(e) {
+  e.preventDefault()
+  const json = JSON.stringify({
+    tilausnumero: tilausnumero, //ei muuteta
+    kirjaid: kirjaid, //ei muuteta
+    kpl: editKpl
+  })
+  axios
+    .post(url + 'updateTilausrivi.php', json, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      <br></br>
+      tilaukset[
+        tilaukset.findIndex(tilaus => tilaus.tilausnro === editTilaus.tilausnro && tilaus.kirjaid === editTilaus.kirjaid) // eimuuteta
+      ].kpl = editKpl
+     
+      setTilaukset([...tilaukset])
+      setEditedTilaus(null)
+    })
+    .catch(error => {
+      alert(error.response ? error.response.data.error : error)
+    })
+}
+
+
+
   let unuunun = 0;
 
   return (
@@ -81,12 +121,9 @@ function Tilaus ({ url }) {
             return (
               <>
               <b><h2>Tilausnro: {tilaus.tilausnro}</h2></b>
-              <p><b>Tilauksen tila:</b> {tilaus.tila}   <b>Tilausaika: </b>{tilaus.pvm} </p>
-              <p><b>Asiakkaan tunnus:</b> {tilaus.astunnus} <b>Asiakas: </b>{tilaus.asetunimi} {tilaus.assukunimi} 
-                {/* <button className='delete' onClick={() => removeTilaus(tilaus.tilausnro)}>
-                    Poista tilaus
-                </button> */}
-              </p>
+              <p><b>Tilauksen tila:</b> {tilaus.tila}</p>
+              <p><b>Tilausaika: </b>{tilaus.pvm} </p>
+              <p><b>Asiakkaan tunnus:</b> {tilaus.astunnus} <b>Asiakas: </b>{tilaus.asetunimi} {tilaus.assukunimi}</p> 
               <hr />
               <p>{tilaus.kirjanimi} {tilaus.kpl} kpl  
                 <button className='delete' onClick={() => removeRivi(tilaus.tilausnro, tilaus.kirjaid)}>
@@ -109,7 +146,48 @@ function Tilaus ({ url }) {
                     )
               }
             })}
-          
+          {users?.map(user => (
+          <li key={user.userid}>
+            <p>{editUser?.userid !== user.userid && user.firstname}</p>
+            <p>{editUser?.userid !== user.userid && user.lastname}</p>
+            <p>{editUser?.userid !== user.userid && user.username}</p>
+            <p>{editUser?.userid !== user.userid && user.password}</p>
+            {editUser?.userid === user.userid && (
+              <form onSubmit={paivita}>
+                <input
+                  placeholder='Etunimi'
+                  value={editFirstname}
+                  onChange={e => setEditFirstname(e.target.value)}
+                ></input>
+                <input
+                  placeholder='Sukunimi'
+                  value={editLastname}
+                  onChange={e => setEditLastname(e.target.value)}
+                ></input>
+                <input
+                  placeholder='Käyttäjätunnus'
+                  value={editUsername}
+                  onChange={e => setEditUsername(e.target.value)}
+                ></input>
+                <input
+                  placeholder='Salasana'
+                  value={editPassword}
+                  onChange={e => setEditPassword(e.target.value)}
+                ></input>
+                <button className="btn adminbutton">Tallenna</button>
+                <button className="btn adminbutton" type="button" onClick={() => setEditedUser(null)}>Peruuta</button>
+              </form>
+            )}
+            <button className='delete btn adminbutton' onClick={() => remove(user.userid)}>
+              Poista
+            </button>
+            {editUser === null && (
+              <button className='edit btn adminbutton' onClick={() => setEditedUser(user)}>
+                Muokkaa
+              </button>
+            )}
+          </li>
+        ))}
       </div>
     </div>
   )
