@@ -81,6 +81,28 @@ img {
   border-radius: 10px;
 }
 
+.alice-carousel__prev-btn-item, .alice-carousel__next-btn-item {
+  display: inline-block;
+  cursor:crosshair;
+  padding: 0 !important;
+  margin: 0;
+  color: #0C400B !important;
+}
+
+.alice-carousel__next-btn {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 0 !important;
+  padding: 0px 10px !important;
+}
+
+.alice-carousel__prev-btn {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 0 !important;
+  padding: 0px 10px !important;
+}
+
 /*kaikkien kirjojen blokki */
 #kaikki {
   padding: 1em;

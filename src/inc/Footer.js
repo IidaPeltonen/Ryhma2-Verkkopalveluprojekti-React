@@ -22,22 +22,22 @@ export default function Footer () {
       
       
       <footer className='row'>
-        <div className='col-md-2 col-10 my-auto mx-auto'>
+        <div className='col-md-2 my-auto mx-auto'>
           <Link to='/contactus'>Yhteystiedot</Link>
         </div>
-        <div className='col-md-2 col-10 my-auto mx-auto'>
+        <div className='col-md-2 my-auto mx-auto'>
           <Link to='/aboutus'>Tietoa meistä</Link>
         </div>
-        <div className='col-md-2 col-10 my-auto mx-auto'>
+        <div className='col-md-2 my-auto mx-auto'>
           <Link to='/ukk'>UKK</Link>
         </div>
-        <div className='col-md-2 col-10 my-auto mx-auto'>
+        <div className='col-md-2 my-auto mx-auto'>
           <Link to='/rekisteri'>Rekisteriseloste</Link>
         </div>
-        <div className='col-md-2 col-10 my-auto mx-auto'>
+        <div className='col-md-2 my-auto mx-auto'>
           <Link to='/evasteet'>Evästetiedot</Link>
         </div>
-        <div className='col-md-2 col-10 my-auto mx-auto'>
+        <div className='col-md-2 my-auto mx-auto'>
           <p id='uutiskirje'>Tilaa uutiskirje</p>
           <div className='input-group mb-3'>
             <input
