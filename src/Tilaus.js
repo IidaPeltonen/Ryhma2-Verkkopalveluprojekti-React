@@ -146,48 +146,7 @@ function paivitaRivi(e) {
                     )
               }
             })}
-          {users?.map(user => (
-          <li key={user.userid}>
-            <p>{editUser?.userid !== user.userid && user.firstname}</p>
-            <p>{editUser?.userid !== user.userid && user.lastname}</p>
-            <p>{editUser?.userid !== user.userid && user.username}</p>
-            <p>{editUser?.userid !== user.userid && user.password}</p>
-            {editUser?.userid === user.userid && (
-              <form onSubmit={paivita}>
-                <input
-                  placeholder='Etunimi'
-                  value={editFirstname}
-                  onChange={e => setEditFirstname(e.target.value)}
-                ></input>
-                <input
-                  placeholder='Sukunimi'
-                  value={editLastname}
-                  onChange={e => setEditLastname(e.target.value)}
-                ></input>
-                <input
-                  placeholder='Käyttäjätunnus'
-                  value={editUsername}
-                  onChange={e => setEditUsername(e.target.value)}
-                ></input>
-                <input
-                  placeholder='Salasana'
-                  value={editPassword}
-                  onChange={e => setEditPassword(e.target.value)}
-                ></input>
-                <button className="btn adminbutton">Tallenna</button>
-                <button className="btn adminbutton" type="button" onClick={() => setEditedUser(null)}>Peruuta</button>
-              </form>
-            )}
-            <button className='delete btn adminbutton' onClick={() => remove(user.userid)}>
-              Poista
-            </button>
-            {editUser === null && (
-              <button className='edit btn adminbutton' onClick={() => setEditedUser(user)}>
-                Muokkaa
-              </button>
-            )}
-          </li>
-        ))}
+        
       </div>
     </div>
   )
