@@ -183,6 +183,18 @@ function Resource(props) {
                 </Link>
               </th>
             </tr>
+            <tr>
+              <th scope='col' id='notbold'>
+                <Link
+                  className='adminlinkit'
+                  to={{
+                    pathname: '/tilaustesti',
+                  }}
+                >
+                  * Muokkaa tai poista tilaus ****TESTIVERSIO***** *
+                </Link>
+              </th>
+            </tr>
             <tr col-12>
               <th scopes='col'>
                 <button className="logout" col='6' onClick={logout}>Kirjaudu ulos</button>
