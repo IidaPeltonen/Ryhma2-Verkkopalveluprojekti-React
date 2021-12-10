@@ -59,7 +59,7 @@ function Tilaus ({ url }) {
 function setEditedTilaus(tilaus) {
   setEditTilaus(tilaus)
   setEditKirjaid(kirjaid)
-  setEditKpl(tilaus?.kpl)
+  setEditKpl(kpl)
 }
 
 function paivitaRivi(e) {
@@ -89,12 +89,9 @@ function paivitaRivi(e) {
     })
 }
 
-
-
   let unuunun = 0;
 
   return (
-    
     <div className='container'>
       <h2 id='otsikko keskita'>Tilaukset</h2><br />
       <div className='row'>
@@ -106,9 +103,11 @@ function paivitaRivi(e) {
               <b><h2>Tilausnro: {tilaus.tilausnro}</h2></b>
               <p><b>Tilauksen tila:</b> {tilaus.tila}</p>
               <p><b>Tilausaika: </b>{tilaus.pvm} </p>
-              <p><b>Asiakkaan tunnus:</b> {tilaus.astunnus} <b>Asiakas: </b>{tilaus.asetunimi} {tilaus.assukunimi}</p> 
+              <p><b>Asiakkaan tunnus:</b> {tilaus.astunnus} <b>
+                Asiakas: </b>{tilaus.asetunimi} {tilaus.assukunimi}</p> 
               <hr />
-              <p>{tilaus.kirjanimi} {tilaus.kpl} kpl  
+              <p>{tilaus.kirjanimi} 
+              {tilaus.kpl} kpl  
                 <button className='delete' onClick={() => removeRivi(tilaus.tilausnro, tilaus.kirjaid)}>
                     Poista rivi
                 </button>  
@@ -125,6 +124,7 @@ function paivitaRivi(e) {
                           </button>
                         </p>
                         <hr />
+                        
                       </>
                     )
               }
@@ -132,8 +132,7 @@ function paivitaRivi(e) {
         
       </div>
     </div>
-  )
-
+  ) 
 }
 
 export default Tilaus 
