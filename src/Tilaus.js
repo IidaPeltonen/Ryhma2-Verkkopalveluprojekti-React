@@ -10,11 +10,10 @@ function Tilaus ({ url }) {
   //tilauksen muuttujat
   const [tilausnumero, setTilausnumero] = useState('')
   const [asid, setAsid] = useState('')
-  const [tila, setTila] = useState('')
+  const [editTilaus, setEditTilaus] = useState('')
+  const [editTila, setEditTila] = useState('')
 
-  //tilausrivin muuttujat
-  const [kirjaid, setKirjaid] = useState('') 
-  const [kpl, setKpl] = useState('')
+ 
 
 
   useEffect(() => {
@@ -64,6 +63,38 @@ function Tilaus ({ url }) {
       })
   } 
 
+  //olemassaolevan tilauksen päivitys, tilaa vain voi muuttaa
+  function setEditedTilaus(tilaus) {
+    setEditTilaus(tilaus)
+    setEditTila(tilaus?.tila)
+  }
+
+  function paivita(e) {
+    e.preventDefault()
+    const json = JSON.stringify({
+      tilausnro: editTilaus.tilausro,
+      tila: editTila,
+    })
+    axios
+      .post(url + 'updateTilaus.php', json, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => {
+        tilaukset[
+          tilaukset.findIndex(tilaus => tilaus.tilausnro === editTilaus.tilausnro)
+        ].tila = editTila
+        setTilaukset([...tilaukset])
+        setEditedTilaus(null)
+      })
+      .catch(error => {
+        alert(error.response ? error.response.data.error : error)
+      })
+  }
+
+
+
   let unuunun = 0;
 
   return (
@@ -75,11 +106,27 @@ function Tilaus ({ url }) {
             {unuunun = tilaus.tilausnro}
             return (
               <>
-              <b><h2>Tilausnro: {tilaus.tilausnro}</h2></b>
-              <p><b>Tilauksen tila:</b> {tilaus.tila}</p>
-              <p><b>Tilausaika: </b>{tilaus.pvm} </p>
-              <p><b>Asiakkaan tunnus:</b> {tilaus.astunnus} <b>
-                Asiakas: </b>{tilaus.asetunimi} {tilaus.assukunimi}
+              <b><h2>Tilausnro: {editTilaus.tilausnro !== tilaus.tilausnro && tilaus.tilausnro}</h2></b>
+              <p><b>Tilauksen tila:</b> {editTilaus.tilausnro !== tilaus.tilausnro && tilaus.tila}
+              {editTilaus.tilausnro === tilaus.tilausnro && (
+                <form onSubmit={{paivita}}>
+                  <input
+                    placeholder='tila'
+                    value={editTila}
+                    onChange={e => setEditTila(e.target.value)}
+                  ></input>
+                  <button className="btn adminbutton">Päivitä tila</button>
+                  <button className="btn adminbutton" type="button" onClick={() => setEditedTilaus(null)}>Peruuta</button>
+                  </form>
+              )}</p>
+              {editTilaus === null && (
+              <button className='edit btn adminbutton' onClick={() => setEditedTilaus(tilaus)}>
+                Muokkaa
+              </button>
+            )}
+              <p><b>Tilausaika: </b>{editTilaus.tilausnro !== tilaus.tilausnro && tilaus.pvm} </p>
+              <p><b>Asiakkaan tunnus:</b> {editTilaus.tilausnro !== tilaus.tilausnro && tilaus.astunnus} <b>
+                Asiakas: </b>{editTilaus.tilausnro !== tilaus.tilausnro && tilaus.asetunimi} {editTilaus.tilausnro !== tilaus.tilausnro && tilaus.assukunimi}
                 <button className='delete' onClick={() => removeTilaus(tilaus.tilausnro)}>
                     Poista tilaus
                 </button>  </p> 
