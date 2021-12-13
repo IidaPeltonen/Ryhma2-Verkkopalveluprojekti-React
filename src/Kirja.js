@@ -297,13 +297,12 @@ function Kirja({ url }) {
             <tr id='notbold'>{editItem?.kirjaid === item.kirjaid && (
               <td>
               <form onSubmit={paivita}>
-                
                   <input
                     placeholder='Kirjan nimi'
                     value={editKirjanimi}
                     onChange={e => setEditKirjanimi(e.target.value)}
                   ></input>
-
+ 
                   <input
                     placeholder='Kirjailija'
                     value={editKirjailija}

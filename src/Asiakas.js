@@ -2,6 +2,20 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
+function notifyAdd() {
+  toast('Uusi asiakas lisätty!')
+}
+
+function notifyEdit() {
+  toast('Asiakkaan tiedot päivitetty!')
+}
+
+function notifyDel() {
+  toast('Asiakas poistettu!')
+}
 
 function Asiakas({ url }) {
   const [asiakkaat, setAsiakkaat] = useState([])
@@ -206,7 +220,9 @@ function Asiakas({ url }) {
           />
           <div className="row">
             <div className='col-sm-2 col-md-1'>
-              <button className="btn adminbutton mt-3">Tallenna
+              <button className="btn adminbutton mt-3"onClick={function (event) {
+              notifyAdd()
+            }}>Tallenna
               </button>
             </div>
           </div>
@@ -216,14 +232,14 @@ function Asiakas({ url }) {
         <ol>
           {asiakkaat?.map(asiakas => (
             <li key={asiakas.asid}>
-              <p>{editAsiakas?.asid !== asiakas.asid && asiakas.astunnus}</p>
-              <p>{editAsiakas?.asid !== asiakas.asid && asiakas.asetunimi}</p>
-              <p>{editAsiakas?.asid !== asiakas.asid && asiakas.assukunimi}</p>
-              <p>{editAsiakas?.asid !== asiakas.asid && asiakas.asosoite}</p>
-              <p>{editAsiakas?.asid !== asiakas.asid && asiakas.postinro}</p>
-              <p>{editAsiakas?.asid !== asiakas.asid && asiakas.postitmp}</p>
-              <p>{editAsiakas?.asid !== asiakas.asid && asiakas.puhelin}</p>
-              <p>{editAsiakas?.asid !== asiakas.asid && asiakas.email}</p>
+              <p>Asiakastunnus: {editAsiakas?.asid !== asiakas.asid && asiakas.astunnus}</p>
+              <p>Etunimi: {editAsiakas?.asid !== asiakas.asid && asiakas.asetunimi}</p>
+              <p>Sukunimi: {editAsiakas?.asid !== asiakas.asid && asiakas.assukunimi}</p>
+              <p>Osoite: {editAsiakas?.asid !== asiakas.asid && asiakas.asosoite}</p>
+              <p>Postinro: {editAsiakas?.asid !== asiakas.asid && asiakas.postinro}</p>
+              <p>Postitoimipaikka: {editAsiakas?.asid !== asiakas.asid && asiakas.postitmp}</p>
+              <p>Puhelin: {editAsiakas?.asid !== asiakas.asid && asiakas.puhelin}</p>
+              <p>Email: {editAsiakas?.asid !== asiakas.asid && asiakas.email}</p>
               {editAsiakas?.asid === asiakas.asid && (
                 <form onSubmit={paivita}>
                   <input
@@ -274,12 +290,17 @@ function Asiakas({ url }) {
                     value={EditEmail}
                     onChange={e => setEditEmail(e.target.value)}
                   ></input>
-                  <button className='btn adminbutton'>Tallenna</button>
+                  <button className='btn adminbutton' onClick={function (event) {
+              notifyEdit()
+            }}>Tallenna</button>
                   <button className='btn adminbutton' type="button" onClick={() => setEditedAsiakas(null)}>Peruuta</button>
                 </form>
 
               )}
-              <button className='btn adminbutton' onClick={() => remove(asiakas.asid)}>
+              <button className='btn adminbutton' onClick={function (event) {
+              notifyDel()
+              remove(asiakas.asid)
+            }}>
                 Poista
               </button>
               {editAsiakas === null && (

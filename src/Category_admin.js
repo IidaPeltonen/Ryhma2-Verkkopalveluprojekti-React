@@ -2,6 +2,20 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
 import './inc/styles/Admin.css'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
+function notifyAdd() {
+  toast('Uusi kategoria lisätty!')
+}
+
+function notifyEdit() {
+  toast('Kategorian tiedot päivitetty!')
+}
+
+function notifyDel() {
+  toast('Kategoria poistettu!')
+}
 
 function CategoryAdmin({ url }) {
   const [kategoria, setKategoria] = useState('')
@@ -108,11 +122,15 @@ function CategoryAdmin({ url }) {
                   placeholder='nimi'
                   onChange={e => setEditName(e.target.value)}
                 />
-                <button className='btn adminbutton'>Tallenna</button>
+                <button className='btn adminbutton' onClick={function (event) {
+                  notifyEdit()
+                }}>Tallenna</button>
                 <button className='btn adminbutton' type="button" onClick={() => setEditCategory(null)}>Peruuta</button>
               </form>
             )}
-            <button className='btn adminbutton' onClick={() => remove(kategoria.id)}>
+            <button className='btn adminbutton' onClick={function (event) {
+                  notifyDel()
+                  remove(kategoria.id)}}>
               Poista
             </button>
             {editCategory === null && (
@@ -132,7 +150,8 @@ function CategoryAdmin({ url }) {
           placeholder='Tuoteryhmän nimi'
           onChange={e => setName(e.target.value)}
         />
-        <button className='btn adminbutton'>Tallenna</button>
+        <button className='btn adminbutton'onClick={function (event) {
+                  notifyAdd()}}>Tallenna</button>
       </form>
     </div>
   )

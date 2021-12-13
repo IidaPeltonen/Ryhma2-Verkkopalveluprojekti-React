@@ -2,6 +2,20 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './inc/styles/Admin.css'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
+function notifyDelRow() {
+  toast('Tilausrivi poistettu!')
+}
+
+function notifyEdit() {
+  toast('Tilauksen tila vaihdettu!')
+}
+
+function notifyDel() {
+  toast('Tilaus poistettu!')
+}
 
 function Tilaus ({ url }) {
   const [tilaukset, setTilaukset] = useState([])
@@ -128,11 +142,16 @@ function Tilaus ({ url }) {
                   value={editTila}
                   onChange={e => setEditTila(e.target.value)}
                 ></input>
-                <button className="btn adminbutton">Tallenna</button>
+                <button className="btn adminbutton"onClick={function (event) {
+              notifyEdit()
+            }}>Tallenna</button>
                 <button className="btn adminbutton" type="button" onClick={() => setEditedTilaus(null)}>Peruuta</button>
               </form>
             )}
-            <button className='btn adminbutton' onClick={() => remove(tilaus.tilausnro)}>
+            <button className='btn adminbutton' onClick={function (event) {
+              notifyDel()
+              remove(tilaus.tilausnro)
+            }}>
               Poista tilaus
             </button>
             {editTilaus === null && (
@@ -143,7 +162,10 @@ function Tilaus ({ url }) {
              <hr />
               <p>{tilaus.kirjanimi} 
               {tilaus.kpl} kpl  
-                <button className='btn adminbutton ms-2' onClick={() => removeRivi(tilaus.tilausnro, tilaus.kirjaid)}>
+                <button className='btn adminbutton ms-2' onClick={function (event) {
+              notifyDelRow()
+              removeRivi(tilaus.tilausnro, tilaus.kirjaid)
+            }}>
                     Poista rivi
                 </button>  
               </p>
@@ -153,7 +175,10 @@ function Tilaus ({ url }) {
               return (
                 <>
                   <p>{tilaus.kirjanimi} {tilaus.kpl} kpl 
-                    <button className='btn adminbutton ms-2' onClick={() => removeRivi(tilaus.tilausnro, tilaus.kirjaid)}>
+                    <button className='btn adminbutton ms-2' onClick={function (event) {
+              notifyDelRow()
+              removeRivi(tilaus.tilausnro, tilaus.kirjaid)
+            }}>
                       Poista rivi
                     </button>
                   </p>

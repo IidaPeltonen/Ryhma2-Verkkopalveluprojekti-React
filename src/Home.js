@@ -4,8 +4,6 @@ import axios from 'axios'
 import './App.css'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-// import { Slide } from 'react-slideshow-image'
-// import 'react-slideshow-image/dist/styles.css'
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import karry from './img/karry.png'
@@ -54,8 +52,6 @@ function Home({ url, addToCart }) {
           responsive={responsive}
           disableDotsControls={true}
           infinite={true}
-          // autoPlay={true}
-          // autoPlayInterval={5000}
           items={items?.map(kirja => (
               <div onDragStart={handleDragStart} key={kirja.kirjaid}>
                 <div className="row" id="homerow"

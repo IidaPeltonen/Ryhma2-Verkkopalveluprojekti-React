@@ -2,6 +2,20 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
+function notifyAdd() {
+  toast('Uusi pääkäyttäjä lisätty!')
+}
+
+function notifyEdit() {
+  toast('Pääkäyttäjän tiedot päivitetty!')
+}
+
+function notifyDel() {
+  toast('Pääkäyttäjä poistettu!')
+}
 
 function User({ url }) {
   const [users, setUsers] = useState([])
@@ -148,7 +162,9 @@ function User({ url }) {
           />
           <div className="row">
             <div className='col-sm-2 col-md-1'>
-              <button className="btn adminbutton mt-3">Tallenna
+              <button className="btn adminbutton mt-3" onClick={function (event) {
+              notifyAdd()
+            }}>Tallenna
               </button>
             </div>
           </div>
@@ -187,11 +203,16 @@ function User({ url }) {
                   value={editPassword}
                   onChange={e => setEditPassword(e.target.value)}
                 ></input>
-                <button className="btn adminbutton">Tallenna</button>
+                <button className="btn adminbutton" onClick={function (event) {
+                  notifyEdit()
+            }}>Tallenna</button>
                 <button className="btn adminbutton" type="button" onClick={() => setEditedUser(null)}>Peruuta</button>
               </form>
             )}
-            <button className='delete btn adminbutton' onClick={() => remove(user.userid)}>
+            <button className='delete btn adminbutton' onClick={function (event) {
+              remove(user.userid)
+              notifyDel()
+            }}>
               Poista
             </button>
             {editUser === null && (
