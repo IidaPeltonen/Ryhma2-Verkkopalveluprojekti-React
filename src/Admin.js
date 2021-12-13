@@ -179,7 +179,7 @@ function Resource(props) {
                     pathname: '/tilaus',
                   }}
                 >
-                  * Poista tilausrivejä *
+                  * Poista tai muokkaa tilausta *
                 </Link>
               </th>
             </tr>
@@ -188,10 +188,10 @@ function Resource(props) {
                 <Link
                   className='adminlinkit'
                   to={{
-                    pathname: '/tilaustesti',
+                    pathname: '/tilausrivi',
                   }}
                 >
-                  * Muokkaa tai poista tilaus ****TESTIVERSIO***** *
+                  * Poista tilausrivi *
                 </Link>
               </th>
             </tr>

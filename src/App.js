@@ -18,8 +18,8 @@ import Kirja from './Kirja'
 import User from './User'
 import Asiakas from './Asiakas'
 import CategoryAdmin from './Category_admin'
+import Tilausrivi from './Tilausrivi'
 import Tilaus from './Tilaus'
-import Tilaustesti from './Tilaustesti'
 
 const URL = 'http://localhost/kauppa/'
 
@@ -166,16 +166,12 @@ function App () {
           )}
         />
         <Route 
-          path='/tilaustesti' 
+          path='/tilausrivi' 
           render={() => (
-          <Tilaustesti
+          <Tilausrivi
             url={URL}
           />
           )}
-        />
-        <Route 
-          path='/tilausrivi' 
-         // render={() => <Tilausrivi tilausnro={tilausnro} />}
         />
         <Route
           path='/detail'
