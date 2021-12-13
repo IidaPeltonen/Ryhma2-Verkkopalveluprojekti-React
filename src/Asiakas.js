@@ -26,7 +26,7 @@ function Asiakas({ url }) {
 
   useEffect(() => {
     axios
-      .get(url + 'indexAsiakas.php')
+      .get(url + 'php/asiakas/indexAsiakas.php')
       .then(response => {
         setAsiakkaat(response.data)
         console.log(response.data)
@@ -51,7 +51,7 @@ function Asiakas({ url }) {
       email: email
     })
     axios
-      .post(url + 'addAsiakas.php', json, {
+      .post(url + 'php/asiakas/addAsiakas.php', json, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -69,7 +69,7 @@ function Asiakas({ url }) {
   function remove(asid) {
     const json = JSON.stringify({ asid: asid })
     axios
-      .post(url + 'deleteAsiakas.php', json, {
+      .post(url + 'php/asiakas/deleteAsiakas.php', json, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -112,7 +112,7 @@ function Asiakas({ url }) {
       email: EditEmail
     })
     axios
-      .post(url + 'updateAsiakas.php', json, {
+      .post(url + 'php/asiakas/updateAsiakas.php', json, {
         headers: {
           'Content-Type': 'application/json'
         }

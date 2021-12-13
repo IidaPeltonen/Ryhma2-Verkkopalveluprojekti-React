@@ -20,17 +20,6 @@ function Home({ url, addToCart }) {
     toast('Kirja lisätty ostoskoriin!')
   }
 
-
-//**  Vanhan sliderin propertiesit */  // 
-// const properties = {
-  //   duration: 5000,
-  //   slidesToShow: 5,
-  //   slidesToScroll: 4,
-  //   autoplay: false,
-  //   indicators: false,
-  //   arrows: true
-  // }
-
   const items = kirjat;
 
   const responsive = {
@@ -44,7 +33,7 @@ function Home({ url, addToCart }) {
 
   useEffect(() => {
     axios
-      .get(url)
+      .get(url + 'php/kirja/index.php')
       .then(response => {
         setKirjat(response.data)
       })

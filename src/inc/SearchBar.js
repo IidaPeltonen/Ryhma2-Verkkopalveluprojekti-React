@@ -17,7 +17,7 @@ export default function SearchBar({ placeHolder, url }) {
 
   useEffect(() => {
     axios
-      .get(url)
+      .get(url + 'php/kirja/index.php')
       .then(response => {
         setKirjat(response.data)
       })

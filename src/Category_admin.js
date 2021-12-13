@@ -13,7 +13,7 @@ function CategoryAdmin({ url }) {
 
   useEffect(() => {
     axios
-      .get(url + 'tuoteKategoriaLinkit.php')
+      .get(url + 'php/kategoria/tuoteKategoriaLinkit.php')
       .then(response => {
         setKategoriat(response.data)
         console.log(response.data)
@@ -31,7 +31,7 @@ function CategoryAdmin({ url }) {
       name: name
     })
     axios
-      .post(url + 'addTuoteKategoria.php', json, {
+      .post(url + 'php/kategoria/addTuoteKategoria.php', json, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -49,7 +49,7 @@ function CategoryAdmin({ url }) {
   function remove(id) {
     const json = JSON.stringify({ id: id })
     axios
-      .post(url + 'deleteTuoteKategoria.php', json, {
+      .post(url + 'php/kategoria/deleteTuoteKategoria.php', json, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -76,7 +76,7 @@ function CategoryAdmin({ url }) {
       name: editName,
     })
     axios
-      .post(url + 'updateTuoteKategoria.php', json, {
+      .post(url + 'php/kategoria/updateTuoteKategoria.php', json, {
         headers: {
           'Content-Type': 'application/json'
         }

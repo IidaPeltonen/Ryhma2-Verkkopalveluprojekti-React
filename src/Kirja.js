@@ -33,7 +33,7 @@ function Kirja({ url }) {
 
   useEffect(() => {
     axios
-      .get(url)
+      .get(url + 'php/kirja/index.php')
       .then(response => {
         setItems(response.data)
       })
@@ -43,11 +43,10 @@ function Kirja({ url }) {
   }, [])
 
   // hakee olemassa olevat kategoriat
-
   useEffect(() => {
     const json = JSON.stringify({ id: category_id, name: category_name })
     axios
-      .post(url + 'tuoteKategoriaLinkit.php', json, {
+      .post(url + 'php/kategoria/tuoteKategoriaLinkit.php', json, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -79,7 +78,7 @@ function Kirja({ url }) {
       category_id: category_id
     })
     axios
-      .post(url + 'addKirja.php', json, {
+      .post(url + 'php/kirja/addKirja.php', json, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -97,7 +96,7 @@ function Kirja({ url }) {
   function remove(id) {
     const json = JSON.stringify({ kirjaid: id })
     axios
-      .post(url + 'deleteKirja.php', json, {
+      .post(url + 'php/kirja/deleteKirja.php', json, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -142,7 +141,7 @@ function Kirja({ url }) {
       category_id: editCategory_id
     })
     axios
-      .post(url + 'updateKirja.php', json, {
+      .post(url + 'php/kirja/updateKirja.php', json, {
         headers: {
           'Content-Type': 'application/json'
         }

@@ -59,7 +59,7 @@ export default function Order ({
       cart: cart
     })
     axios
-      .post(url + 'tilaus.php', json, {
+      .post(url + 'php/tilaus/tilaus.php', json, {
         headers: {
           'Content-Type': 'application/json'
         }

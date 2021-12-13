@@ -183,7 +183,7 @@ function Resource(props) {
                 </Link>
               </th>
             </tr>
-            <tr col-12>
+            <tr>
               <th scopes='col'>
                 <button className="btn adminbutton logout" col='6' onClick={logout}>Kirjaudu ulos</button>
               </th>

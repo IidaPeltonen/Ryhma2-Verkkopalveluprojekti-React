@@ -12,7 +12,7 @@ export default function NavBar ({ url, setCategory, cart }) {
 
   useEffect(() => {
     axios
-      .get(url + '/tuoteKategoriaLinkit.php')
+      .get(url + 'php/kategoria/tuoteKategoriaLinkit.php')
       .then(response => {
         const json = response.data
         setCategories(json)

@@ -1,11 +1,7 @@
-
-// EDITIN NÄYTTÖKENTTIEN TEKO KESKEN, SAA JATKAA
-
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './inc/styles/Admin.css'
-import uuid from 'react-uuid'
 
 function Tilaus ({ url }) {
   const [tilaukset, setTilaukset] = useState([])
@@ -24,7 +20,7 @@ function Tilaus ({ url }) {
 
   useEffect(() => {
     axios
-      .get(url + 'indexTilaus.php')
+      .get(url + 'php/tilaus/indexTilaus.php')
       .then(response => {
         setTilaukset(response.data)
       })
@@ -37,7 +33,7 @@ function Tilaus ({ url }) {
   function remove(tilausnro) {
     const json = JSON.stringify({ tilausnro: tilausnro })
     axios
-      .post(url + 'deleteTilaus.php', json, {
+      .post(url + 'php/tilaus/deleteTilaus.php', json, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -56,7 +52,7 @@ function Tilaus ({ url }) {
     function removeRivi(tilausnumero, kirjaid) {
       const json = JSON.stringify({ tilausnro: tilausnumero, kirjaid: kirjaid })
       axios
-        .post(url + 'deleteTilausrivi.php', json, {
+        .post(url + 'php/tilaus/deleteTilausrivi.php', json, {
           headers: {
             'Content-Type': 'application/json'
           }
@@ -86,7 +82,7 @@ function Tilaus ({ url }) {
       tila: editTila,
     })
     axios
-      .post(url + 'updateTilaus.php', json, {
+      .post(url + 'php/tilaus/updateTilaus.php', json, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -113,12 +109,12 @@ function Tilaus ({ url }) {
     <div className='container-fluid'>
       <h2 id='otsikko keskita'>Kaikki tilaukset</h2>
       <div className="row">
-      <ol>
+      <ul>
         {tilaukset?.map(tilaus => {
           if (numero != tilaus.tilausnro) {
             {numero = tilaus.tilausnro}
             return (
-          <li key ={uuid}>
+          <li key ={tilaus.tilausnro}>
             <b><p>Tilausnumero: {editTilaus?.tilausnro !== tilaus.tilausnro && tilaus.tilausnro}</p></b>
             <p>Asiakastunnus: {tilaus.astunnus}</p>
             <p>Asiakkaan nimi: {tilaus.asetunimi} {tilaus.assukunimi}</p>
@@ -166,7 +162,7 @@ function Tilaus ({ url }) {
               )
             }
             })}
-      </ol>
+      </ul>
       </div>
     </div>
   )

@@ -18,7 +18,7 @@ function User({ url }) {
 
   useEffect(() => {
     axios
-      .get(url + 'indexUser.php')
+      .get(url + 'php/user/indexUser.php')
       .then(response => {
         setUsers(response.data)
       })
@@ -38,7 +38,7 @@ function User({ url }) {
       password: password
     })
     axios
-      .post(url + 'addUser.php', json, {
+      .post(url + 'php/user/addUser.php', json, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -56,7 +56,7 @@ function User({ url }) {
   function remove(id) {
     const json = JSON.stringify({ userid: id })
     axios
-      .post(url + 'deleteUser.php', json, {
+      .post(url + 'php/user/deleteUser.php', json, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -154,13 +154,13 @@ function User({ url }) {
           </div>
         </form>
       </div>
-      <ol>
+      <ul>
         {users?.map(user => (
           <li key={user.userid}>
-            <p>{editUser?.userid !== user.userid && user.firstname}</p>
-            <p>{editUser?.userid !== user.userid && user.lastname}</p>
-            <p>{editUser?.userid !== user.userid && user.username}</p>
-            <p>{editUser?.userid !== user.userid && user.password}</p>
+            <p>Etunimi: {editUser?.userid !== user.userid && user.firstname}</p>
+            <p>Sukunimi: {editUser?.userid !== user.userid && user.lastname}</p>
+            <p>Käyttäjänimi: {editUser?.userid !== user.userid && user.username}</p>
+            <p>Salasana: {editUser?.userid !== user.userid && user.password}</p>
             {editUser?.userid === user.userid && (
               <form onSubmit={paivita}>
                 <input
@@ -201,7 +201,7 @@ function User({ url }) {
             )}
           </li>
         ))}
-      </ol>
+      </ul>
     </div>
   )
 }

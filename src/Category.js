@@ -20,7 +20,7 @@ export default function Category ({ url, category, addToCart }) {
   useEffect(() => {
     if (category !== null) {
       axios
-        .get(url + '/tuoteKategoriaTuotteet.php/' + category?.id)
+        .get(url + 'php/kategoria/tuoteKategoriaTuotteet.php/' + category?.id)
         .then(response => {
           const json = response.data
           setKirjat(json)

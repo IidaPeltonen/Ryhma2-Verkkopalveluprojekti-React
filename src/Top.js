@@ -16,19 +16,10 @@ function Top({ url, addToCart }) {
   function notify() {
     toast('Kirja lisätty ostoskoriin!')
   }
-//**  Vanhan sliderin propertiesit */
-  // const propertiesTop = {
-  //   duration: 5000,
-  //   slidesToShow: 5,
-  //   slidesToScroll: 2,
-  //   autoplay: false,
-  //   indicators: false,
-  //   arrows: true
-  // }
 
   useEffect(() => {
     axios
-      .get(url + '/Top.php')
+      .get(url + 'php/kirja/Top.php')
       .then(response => {
         setKirjat(response.data)
       })
