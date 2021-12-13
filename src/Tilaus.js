@@ -75,7 +75,6 @@ function Tilaus ({ url }) {
     setEditTilaus(tilaus)
     setEditTilausnro(tilaus?.tilausnro)
     setEditAsid(tilaus?.asid)
-    //setEditPvm(tilaus?.pvm)
     setEditTila(tilaus?.tila)
   }
 
