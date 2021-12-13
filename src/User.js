@@ -104,7 +104,7 @@ function User({ url }) {
       password: editPassword
     })
     axios
-      .post(url + 'updateUser.php', json, {
+      .post(url + 'php/user/updateUser.php', json, {
         headers: {
           'Content-Type': 'application/json'
         }
