@@ -68,7 +68,7 @@ function Admin() {
             ></input>
           </div>
           <div className="col-3 col-md-6 mx-auto">
-            <input type='submit' value='Login'></input>
+            <button className='btn adminbutton' type='submit' value='Login'>Kirjaudu sisään</button>
           </div>
         </form>
       </div>
@@ -185,7 +185,7 @@ function Resource(props) {
             </tr>
             <tr col-12>
               <th scopes='col'>
-                <button className="logout" col='6' onClick={logout}>Kirjaudu ulos</button>
+                <button className="btn adminbutton logout" col='6' onClick={logout}>Kirjaudu ulos</button>
               </th>
             </tr>
             <tr></tr>

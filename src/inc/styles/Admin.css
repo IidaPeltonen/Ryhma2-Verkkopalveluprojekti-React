@@ -47,4 +47,21 @@ p {
     font-weight: bold;
 }
 
+.admininput {
+    height: 35px;
+}
 
+#adminHeader{
+    padding: 10px 20px;
+    text-align: center;
+    background-color: white;
+    font-size: 22px;
+  }
+  
+  #adminBody{
+    
+    padding: 10px 20px;
+    text-align: center;
+    background-color: white;
+    font-size: 13px;
+  } 

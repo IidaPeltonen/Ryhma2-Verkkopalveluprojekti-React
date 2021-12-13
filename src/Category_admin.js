@@ -97,25 +97,26 @@ function CategoryAdmin({ url }) {
       <h2 id='otsikko keskita'>Tuoteryhmät</h2>
       <ol>
         {kategoriat?.map(kategoria => (
-          <li key={kategoria.id}> 
+          <li key={kategoria.id}>
             <p>{editCategory?.id !== kategoria.id && kategoria.name}</p>
             {editCategory?.id === kategoria.id && (
               <form onSubmit={paivita}>
                 <input
                   type="text"
+                  className='me-1 admininput align-middle'
                   value={editName}
                   placeholder='nimi'
                   onChange={e => setEditName(e.target.value)}
                 />
-                <button>Tallenna</button>
-                <button type="button" onClick={() => setEditCategory(null)}>Peruuta</button>
+                <button className='btn adminbutton'>Tallenna</button>
+                <button className='btn adminbutton' type="button" onClick={() => setEditCategory(null)}>Peruuta</button>
               </form>
             )}
-            <button className='delete' onClick={() => remove(kategoria.id)}>
+            <button className='btn adminbutton' onClick={() => remove(kategoria.id)}>
               Poista
             </button>
             {editCategory === null && (
-              <button className='edit' onClick={() => setEditedCategory(kategoria)}>
+              <button className='btn adminbutton' onClick={() => setEditedCategory(kategoria)}>
                 Muokkaa
               </button>
             )}
@@ -123,14 +124,15 @@ function CategoryAdmin({ url }) {
         ))}
       </ol>
       <form onSubmit={tallenna}>
-        <label>Lisää tuoteryhmä</label>&nbsp;
+        <label>Lisää tuoteryhmä:</label>&nbsp;
         <input
           type="text"
+          className='me-1 admininput align-middle'
           value={name}
-          placeholder='nimi'
+          placeholder='Tuoteryhmän nimi'
           onChange={e => setName(e.target.value)}
         />
-        <button>Tallenna</button>
+        <button className='btn adminbutton'>Tallenna</button>
       </form>
     </div>
   )

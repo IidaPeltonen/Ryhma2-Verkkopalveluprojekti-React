@@ -127,26 +127,27 @@ function Tilaus ({ url }) {
             {editTilaus?.tilausnro === tilaus.tilausnro && (
               <form onSubmit={paivita}>
                 Anna uusi tilakoodi: <input
+                className='admininput align-middle'
                   placeholder='tila'
                   value={editTila}
                   onChange={e => setEditTila(e.target.value)}
                 ></input>
-                <button className="btn ">Tallenna</button>
-                <button className="btn " type="button" onClick={() => setEditedTilaus(null)}>Peruuta</button>
+                <button className="btn adminbutton">Tallenna</button>
+                <button className="btn adminbutton" type="button" onClick={() => setEditedTilaus(null)}>Peruuta</button>
               </form>
             )}
-            <button className='delete' onClick={() => remove(tilaus.tilausnro)}>
+            <button className='btn adminbutton' onClick={() => remove(tilaus.tilausnro)}>
               Poista tilaus
             </button>
             {editTilaus === null && (
-              <button className='edit' onClick={() => setEditedTilaus(tilaus)}>
+              <button className='btn adminbutton' onClick={() => setEditedTilaus(tilaus)}>
                 Muokkaa tilaa
               </button>
             )}
              <hr />
               <p>{tilaus.kirjanimi} 
               {tilaus.kpl} kpl  
-                <button className='delete' onClick={() => removeRivi(tilaus.tilausnro, tilaus.kirjaid)}>
+                <button className='btn adminbutton ms-2' onClick={() => removeRivi(tilaus.tilausnro, tilaus.kirjaid)}>
                     Poista rivi
                 </button>  
               </p>
@@ -156,7 +157,7 @@ function Tilaus ({ url }) {
               return (
                 <>
                   <p>{tilaus.kirjanimi} {tilaus.kpl} kpl 
-                    <button className='delete' onClick={() => removeRivi(tilaus.tilausnro, tilaus.kirjaid)}>
+                    <button className='btn adminbutton ms-2' onClick={() => removeRivi(tilaus.tilausnro, tilaus.kirjaid)}>
                       Poista rivi
                     </button>
                   </p>

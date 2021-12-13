@@ -120,37 +120,39 @@ function User({ url }) {
     <div className='container-fluid'>
       <h2 id='otsikko keskita'>Kaikki pääkäyttäjät</h2>
       <div className="row">
-      <form onSubmit={tallenna}>
-        <label className="col-12 ps-0 mb-2">Lisää pääkäyttäjä</label>
-        <input
-          value={firstname}
-          className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
-          placeholder='etunimi'
-          onChange={e => setFirstname(e.target.value)}
-        />
-        <input
-          value={lastname}
-          className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
-          placeholder='sukunimi'
-          onChange={e => setLastname(e.target.value)}
-        />
-        <input
-          value={username}
-          className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
-          placeholder='käyttäjätunnus'
-          onChange={e => setUsername(e.target.value)}
-        />
-        <input
-          value={password}
-          className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
-          placeholder='salasana'
-          onChange={e => setPassword(e.target.value)}
-        />
-        <div className="row">
-          <button className="btn adminbutton col-sm-2 col-md-1 ms-2 mt-3">Tallenna
-          </button>
+        <form onSubmit={tallenna}>
+          <label className="col-12 ps-0 mb-2">Lisää pääkäyttäjä</label>
+          <input
+            value={firstname}
+            className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
+            placeholder='etunimi'
+            onChange={e => setFirstname(e.target.value)}
+          />
+          <input
+            value={lastname}
+            className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
+            placeholder='sukunimi'
+            onChange={e => setLastname(e.target.value)}
+          />
+          <input
+            value={username}
+            className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
+            placeholder='käyttäjätunnus'
+            onChange={e => setUsername(e.target.value)}
+          />
+          <input
+            value={password}
+            className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
+            placeholder='salasana'
+            onChange={e => setPassword(e.target.value)}
+          />
+          <div className="row">
+            <div className='col-sm-2 col-md-1'>
+              <button className="btn adminbutton mt-3">Tallenna
+              </button>
+            </div>
           </div>
-      </form>
+        </form>
       </div>
       <ol>
         {users?.map(user => (
@@ -162,21 +164,25 @@ function User({ url }) {
             {editUser?.userid === user.userid && (
               <form onSubmit={paivita}>
                 <input
+                  className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
                   placeholder='Etunimi'
                   value={editFirstname}
                   onChange={e => setEditFirstname(e.target.value)}
                 ></input>
                 <input
+                  className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
                   placeholder='Sukunimi'
                   value={editLastname}
                   onChange={e => setEditLastname(e.target.value)}
                 ></input>
                 <input
+                  className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
                   placeholder='Käyttäjätunnus'
                   value={editUsername}
                   onChange={e => setEditUsername(e.target.value)}
                 ></input>
                 <input
+                  className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
                   placeholder='Salasana'
                   value={editPassword}
                   onChange={e => setEditPassword(e.target.value)}

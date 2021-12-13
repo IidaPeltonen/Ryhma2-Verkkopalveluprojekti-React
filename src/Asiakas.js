@@ -205,8 +205,10 @@ function Asiakas({ url }) {
             onChange={e => setEmail(e.target.value)}
           />
           <div className="row">
-          <button className="btn adminbutton col-sm-2 col-md-1 ms-2 mt-3">Tallenna
-          </button>
+            <div className='col-sm-2 col-md-1'>
+              <button className="btn adminbutton mt-3">Tallenna
+              </button>
+            </div>
           </div>
         </form>
       </div>
@@ -225,55 +227,63 @@ function Asiakas({ url }) {
               {editAsiakas?.asid === asiakas.asid && (
                 <form onSubmit={paivita}>
                   <input
+                    className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
                     placeholder='Astunnus'
                     value={editAstunnus}
                     onChange={e => setEditAstunnus(e.target.value)}
                   ></input>
                   <input
+                    className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
                     placeholder='etunimi'
                     value={editAsetunimi}
                     onChange={e => setEditAsetunimi(e.target.value)}
                   ></input>
                   <input
+                    className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
                     placeholder='sukunimi'
                     value={editAssukunimi}
                     onChange={e => setEditAssukunimi(e.target.value)}
                   ></input>
                   <input
+                    className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
                     placeholder='osoite'
                     value={EditAsosoite}
                     onChange={e => setEditAsosoite(e.target.value)}
                   ></input>
                   <input
+                    className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
                     placeholder='postinumero'
                     value={EditPostinro}
                     onChange={e => setEditPostinro(e.target.value)}
                   ></input>
                   <input
+                    className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
                     placeholder='postitoimipaikka'
                     value={EditPostitmp}
                     onChange={e => setEditPostitmp(e.target.value)}
                   ></input>
                   <input
+                    className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
                     placeholder='puhelin'
                     value={EditPuhelin}
                     onChange={e => setEditPuhelin(e.target.value)}
                   ></input>
                   <input
+                    className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
                     placeholder='email'
                     value={EditEmail}
                     onChange={e => setEditEmail(e.target.value)}
                   ></input>
-                  <button>Tallenna</button>
-                  <button type="button" onClick={() => setEditedAsiakas(null)}>Peruuta</button>
+                  <button className='btn adminbutton'>Tallenna</button>
+                  <button className='btn adminbutton' type="button" onClick={() => setEditedAsiakas(null)}>Peruuta</button>
                 </form>
 
               )}
-              <button className='delete' onClick={() => remove(asiakas.asid)}>
+              <button className='btn adminbutton' onClick={() => remove(asiakas.asid)}>
                 Poista
               </button>
               {editAsiakas === null && (
-                <button className='edit' onClick={() => setEditedAsiakas(asiakas)}>
+                <button className='btn adminbutton' onClick={() => setEditedAsiakas(asiakas)}>
                   Muokkaa
                 </button>
               )}

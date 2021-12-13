@@ -48,21 +48,6 @@
     box-sizing: border-box;
   }
   
-  #adminHeader{
-    padding: 10px 20px;
-    text-align: center;
-    background-color: white;
-    font-size: 22px;
-  }
-  
-  #adminBody{
-    
-    padding: 10px 20px;
-    text-align: center;
-    background-color: white;
-    font-size: 13px;
-
-  } 
   .detailreuna {
     border-color: #0C400B;
     border-style: solid;
