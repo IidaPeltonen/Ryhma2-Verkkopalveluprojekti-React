@@ -13,9 +13,6 @@ function Tilaus ({ url }) {
   const [editTilaus, setEditTilaus] = useState('')
   const [editTila, setEditTila] = useState('')
 
- 
-
-
   useEffect(() => {
     axios
       .get(url + 'indexTilaus.php')
@@ -108,6 +105,8 @@ function Tilaus ({ url }) {
               <>
               <b><h2>Tilausnro: {editTilaus.tilausnro !== tilaus.tilausnro && tilaus.tilausnro}</h2></b>
               <p><b>Tilauksen tila:</b> {editTilaus.tilausnro !== tilaus.tilausnro && tilaus.tila}
+              </p>
+              {/* EI TOIMI
               {editTilaus.tilausnro === tilaus.tilausnro && (
                 <form onSubmit={{paivita}}>
                   <input
@@ -118,18 +117,19 @@ function Tilaus ({ url }) {
                   <button className="btn adminbutton">Päivitä tila</button>
                   <button className="btn adminbutton" type="button" onClick={() => setEditedTilaus(null)}>Peruuta</button>
                   </form>
-              )}</p>
+              )}
               {editTilaus === null && (
               <button className='edit btn adminbutton' onClick={() => setEditedTilaus(tilaus)}>
                 Muokkaa
-              </button>
-            )}
+              </button> 
+            )}*/}
               <p><b>Tilausaika: </b>{editTilaus.tilausnro !== tilaus.tilausnro && tilaus.pvm} </p>
               <p><b>Asiakkaan tunnus:</b> {editTilaus.tilausnro !== tilaus.tilausnro && tilaus.astunnus} <b>
                 Asiakas: </b>{editTilaus.tilausnro !== tilaus.tilausnro && tilaus.asetunimi} {editTilaus.tilausnro !== tilaus.tilausnro && tilaus.assukunimi}
+                {/* siirretty omalle sivulle
                 <button className='delete' onClick={() => removeTilaus(tilaus.tilausnro)}>
                     Poista tilaus
-                </button>  </p> 
+                </button>   */}</p> 
               <hr />
               <p>{tilaus.kirjanimi} 
               {tilaus.kpl} kpl  
