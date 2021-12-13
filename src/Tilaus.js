@@ -132,16 +132,16 @@ function Tilaus ({ url }) {
                   value={editTila}
                   onChange={e => setEditTila(e.target.value)}
                 ></input>
-                <button className="btn adminbutton">Tallenna</button>
-                <button className="btn adminbutton" type="button" onClick={() => setEditedTilaus(null)}>Peruuta</button>
+                <button className="btn ">Tallenna</button>
+                <button className="btn " type="button" onClick={() => setEditedTilaus(null)}>Peruuta</button>
               </form>
             )}
-            <button className='delete btn adminbutton' onClick={() => remove(tilaus.tilausnro)}>
-              Poista
+            <button className='delete' onClick={() => remove(tilaus.tilausnro)}>
+              Poista tilaus
             </button>
             {editTilaus === null && (
-              <button className='edit btn adminbutton' onClick={() => setEditedTilaus(tilaus)}>
-                Muokkaa
+              <button className='edit' onClick={() => setEditedTilaus(tilaus)}>
+                Muokkaa tilaa
               </button>
             )}
              <hr />
