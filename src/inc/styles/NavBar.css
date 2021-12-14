@@ -1,0 +1,89 @@
+#id {
+    background-color: #447F43 ;
+    color: white !important;
+    height: 7em;
+}
+
+.valkoinen {
+    color: white !important;
+    font-family: Montserrat !important;
+    font-size: large;
+    font-weight: bold;
+    text-decoration: none; 
+}
+
+.navbar-collapse.show {
+    background-color: #447F43;
+    border-radius: 7px;
+    margin-top: 7px;
+}
+
+#alasveto {
+    background-color: #447F43;
+    border: 1px white solid;
+    border-radius: 7px;
+}
+
+.dropdown-divider {
+    color: white;
+}
+
+/* hamburger icon with a different color
+väri : stroke='rgba(255, 215, 0, 1)' */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.25rem #FFFFFF; 
+ }
+
+ .navbar-toggler {
+    border-color: #FFFFFF !important;
+}
+
+/* Logon tyyli */
+.logo {
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    max-height: 6em;
+    margin-bottom: 0;
+  }
+
+  /* Hakukenttä */
+
+
+
+@media (min-width: 0) {
+   
+    #hakukenttä {
+        position: absolute;
+        right: 55px;
+        top: 55px;
+        width: 10em;
+    }
+}
+
+@media (min-width: 768px) {
+    #hakukenttä {
+        position: absolute;
+        right: 1em;
+        top: 4em;
+        width: 10em;
+        z-index: 2;
+    }
+ }
+
+ @media (min-width: 1024px) {
+    #hakukenttä {
+        position: absolute;
+        right: 5em;
+        top: 2em;
+        width: 20em;
+        z-index: 2;
+    }
+ }
+
+
+

@@ -1,0 +1,33 @@
+
+a:hover {
+  color: white;
+}
+
+.haku {
+  color: white;
+  border-color: #447F43;
+  border: 1px solid white;
+}
+
+.haku:hover {
+  background-color: #f2f2f2;
+  color: black !important;
+}
+
+ .dataResult {
+  display: block;
+  background-color: #447F43;
+  border-radius: 7px;
+  margin-top: 7px;
+  
+}
+
+ul li {
+  list-style-type: none;
+  }
+
+/* Tällä määritetään, ettei näytä scroll baria oikealla */
+
+  .dataResult::-webkit-scrollbar {
+    display: none;
+  }

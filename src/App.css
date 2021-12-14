@@ -1,0 +1,235 @@
+/* Sovitut värit:
+Tummin: #0C400B (footerin tausta)
+#447F43 (logo)
+#73B572 (esim vasen sivu)
+#B6D8B6 (hakukenttä)
+Vaalein: FFFFF (headerin tausta, footerin tekstit, valikkotekstit)
+E5E5E5 (mainin tausta)
+
+Sovitut fontit:
+Montserrat (valikot, iso otsikko etusivulla, footer&header)
+PT Sans Caption (Leipäteksti)
+ */
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap');
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+h1 {
+  font-family: Montserrat;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+h2 {
+  font-family: Montserrat;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+#heading {
+  text-decoration: underline;
+}
+
+p {
+  font-family: PT Sans Caption;
+  font-size: large;
+}
+
+/* logo */
+.logo {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.nav-link {
+  color: #447f43;
+}
+
+.header-style ul li a {
+  color: red;
+}
+
+img {
+  max-width: 150px;
+  margin-bottom: 2em;
+}
+
+/* ostoskärryn kuva */
+#pieni {
+  max-width: 2em;
+  background-color: #447f43;
+  padding: 7px;
+  border-radius: 10px;
+}
+
+#pieni:hover {
+  box-shadow: black;
+}
+
+/* top-kirjojen blokki */
+#top7 {
+  background-color: #f2f2f2;
+  padding: 1em;
+  margin: 1em;
+  text-align: center;
+  border-style: solid;
+  border-color: #0c400b;
+  border-width: 5px;
+  border-radius: 10px;
+}
+
+.alice-carousel__prev-btn-item, .alice-carousel__next-btn-item {
+  display: inline-block;
+  cursor:crosshair;
+  padding: 0 !important;
+  margin: 0;
+  color: #0C400B !important;
+}
+
+.alice-carousel__next-btn {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 0 !important;
+  padding: 0px 10px !important;
+}
+
+.alice-carousel__prev-btn {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 0 !important;
+  padding: 0px 10px !important;
+}
+
+/*kaikkien kirjojen blokki */
+#kaikki {
+  padding: 1em;
+  margin: 1em;
+  text-align: center;
+}
+
+/* kirjan detail-tiedot*/
+#kirja {
+  border-style: outset;
+  border-width: thin;
+  border-color: black;
+}
+
+/* UKK- ja Rekisteri-sivujen accordion */
+.accordion,
+.accordion-header {
+  font-family: PT Sans Caption;
+  font-size: large;
+}
+
+.accordion-button:not(.collapsed) {
+  color: black;
+  background-color: #f2f2f2;
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-button:focus {
+  box-shadow: none !important;
+}
+
+/* Buttoneiden muotoilu */
+.btn {
+  box-shadow: none !important;
+}
+
+/* Ostoskorin määrän näyttö */
+.no-underline {
+  text-decoration: none !important;
+  color: white;
+  font-weight: bold;
+  position: fixed;
+}
+
+#keskita {
+  text-align: center;
+}
+
+#ostoskarry {
+  height: 2em;
+  width: 2em;
+}
+
+.tyhjenna {
+  font-weight: bold;
+}
+
+.musta {
+  color: black !important;
+  font-family: PT Sans Caption !important;
+  font-size: normal;
+  text-decoration: none;
+}
+
+#homerow{
+  display:flex;
+  margin-right: -15px;
+  margin-bottom: -15px;
+  margin-left: -15px;
+  flex-wrap: wrap;
+  align-content: stretch;
+}
+
+#homecol{
+  margin-bottom: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
+  flex: 1;
+  max-width: 50%;
+  flex-basis: 50%;
+}
+
+.heading {
+  margin-bottom: 24px;
+  font-size: 48px;
+  line-height: 1.1;
+  font-weight: 600;
+}
+
+#leftside{
+  margin-bottom: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+  max-width: 50%;
+  flex-basis: 50%;
+  text-align: left;
+}
+
+.uprow{     
+  display: table;
+  width: 100%;
+  color: white; 
+  padding: 10px 24px; 
+  cursor: pointer; 
+  float: left; 
+}
+
+.uprow button:not(:last-child) {
+  border-right: none; 
+}
+
+
+.uprow:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+.uprow button:hover {
+  background-color: #3e8e41;
+}
+
+#inrow{
+  display: inline-block;
+}

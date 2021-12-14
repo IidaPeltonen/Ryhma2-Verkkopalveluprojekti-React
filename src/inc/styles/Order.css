@@ -1,0 +1,28 @@
+.order {
+    color:black 
+    }
+
+.tyhjenna {
+    max-width: 150px;
+    text-align: center;
+}
+
+#notbold {
+    font-weight: normal;
+}
+
+#reuna {
+    align-items: center;
+}
+
+.orderbutton {
+    background-color: #447f43 !important;
+    border-color: #FFFFFF;
+    color: white !important;
+    font-family: Montserrat;
+    font-weight: bold;
+}
+
+
+
+
