@@ -88,16 +88,29 @@ export default function NavBar ({ url, setCategory, cart }) {
                   ))}
                 </ul>
               </li>
-              <li className='nav-item ms-2 me-2'>
-                <a className='nav-link valkoinen' href='inc/uutuudet.js'>
+              <li className='nav-item  ms-2 me-2'>
+                <Link
+                  className='nav-link valkoinen'
+                  to={{
+                    pathname: '/uutuudet'
+                  }}
+                >
+                  {' '}
                   Uutuudet
-                </a>
+                </Link>
               </li>
               <li className='nav-item  ms-2 me-2'>
-                <a className='nav-link valkoinen' href='inc/tarjoukset.js'>
+                <Link
+                  className='nav-link valkoinen'
+                  to={{
+                    pathname: '/tarjoukset'
+                  }}
+                >
+                  {' '}
                   Tarjoukset
-                </a>
+                </Link>
               </li>
+              
               <li className='nav-item  ms-2 me-2'>
                 <Link
                   className='nav-link valkoinen'

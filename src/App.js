@@ -19,6 +19,8 @@ import User from './User'
 import Asiakas from './Asiakas'
 import CategoryAdmin from './Category_admin'
 import Tilaus from './Tilaus'
+import Uutuudet from './inc/Uutuudet'
+import Tarjoukset from './inc/Tarjoukset'
 
 const URL = 'http://localhost/kauppa/'
 
@@ -174,6 +176,8 @@ function App () {
         <Route path='/ukk' component={UKK} />
         <Route path='/rekisteri' component={Rekisteri} />
         <Route path='/evasteet' component={Evasteet} />
+        <Route path='/uutuudet' component={Uutuudet} />
+        <Route path='/tarjoukset' component={Tarjoukset} />
       </Switch>
       <Footer />
     </div>
