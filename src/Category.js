@@ -68,16 +68,16 @@ export default function Category ({ url, category, addToCart }) {
                     <img id='kirja' src={kirja.kuva} alt='kirjan kansikuva' />
                   </Link>
                 </th>
-                <th scope='col' className='align-middle' id='notbold'>
+                <th scope='col' className='align-middle d-none d-sm-table-cell' id='notbold'>
                   {kirja.kirjanimi}
                 </th>
-                <th scope='col' className='align-middle' id='notbold'>
+                <th scope='col' className='align-middle d-none d-sm-table-cell' id='notbold'>
                   {kirja.kirjailija}
                 </th>
-                <th scope='col' className='align-middle' id='notbold'>
+                <th scope='col' className='align-middle d-none d-sm-table-cell' id='notbold'>
                   {kirja.kuvaus}
                 </th>
-                <th scope='col' className='align-middle' id='notbold'>
+                <th scope='col' className='align-middle d-none d-sm-table-cell' id='notbold'>
                   {kirja.hinta}€
                 </th>
                 <th scope='col' className='align-middle' id='notbold'>
@@ -89,7 +89,7 @@ export default function Category ({ url, category, addToCart }) {
                       notify()
                     }}
                   >
-                    <img id='pieni' src={karry} alt='ostoskärry' />
+                    <img id='pieni' src={karry} alt='ostoskärry'/>
                   </button>
                   <ToastContainer
                     position='bottom-right'
