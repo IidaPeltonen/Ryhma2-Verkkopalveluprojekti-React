@@ -110,9 +110,6 @@ export default function NavBar ({ url, setCategory, cart }) {
                 </Link>
               </li>
             </ul>
-            {/* <ul id="hakukenttä">
-            <SearchBar placeHolder='Hae tuotteita tästä' url={url} />
-            </ul> */}
             <ul className='navbar-nav ms-auto'>
               <li id="hakukenttä" className="nav-item"><SearchBar placeHolder='Hae tuotteita tästä' url={url} /></li>
               <li className='nav-item  ms-2 me-2'>
