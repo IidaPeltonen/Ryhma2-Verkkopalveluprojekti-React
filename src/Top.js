@@ -38,10 +38,6 @@ function Top ({ url, addToCart }) {
   }
 
   const handleDragStart = e => e.preventDefault()
-<<<<<<< HEAD
-
-=======
->>>>>>> 3c25cd04297f6d365b6370cba20321d81447c5b8
   return (
     <div id='reuna' className='container-fluid'>
       <h2 id='heading' className='ms-4'>
@@ -60,11 +56,7 @@ function Top ({ url, addToCart }) {
               key={kirja.kirjaid}
             >
               <div className='row' id='homerow'>
-<<<<<<< HEAD
-                <b> {kirja.rownum}. </b>
-=======
                 <b> {kirjat.indexOf(kirja)+1}. </b>
->>>>>>> 3c25cd04297f6d365b6370cba20321d81447c5b8
                 <br />
                 <div onClick={e => setValittuKirja(kirja)}>
                   <Link
