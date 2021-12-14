@@ -164,7 +164,7 @@ function Tilaus ({ url }) {
           if (numero !== tilaus.tilausnro) {
             {numero = tilaus.tilausnro}
             return (
-          <li key ={tilaus.tilausnro}>
+          <li key ={tilaus.tilausnro&&tilaus.kirjaid}>
             <b>Tilausnumero: {editTilaus?.tilausnro !== tilaus.tilausnro && tilaus.tilausnro}</b><br />
             Asiakastunnus: {tilaus.astunnus} <br />
             Asiakkaan nimi: {tilaus.asetunimi} {tilaus.assukunimi} <br />

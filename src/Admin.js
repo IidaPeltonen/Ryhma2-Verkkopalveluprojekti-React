@@ -118,12 +118,12 @@ function Resource(props) {
                 {content}
               </th>
             </tr>
-            <tr col-12>
+            <tr className="col-12">
               <th scope='col' id='notbold'>
                 Mitä haluat tehdä?
               </th>
             </tr>
-            <tr col-12>
+            <tr className="col-12">
               <th scope='col' id='notbold'>
                 <Link
                   className='adminlinkit'
