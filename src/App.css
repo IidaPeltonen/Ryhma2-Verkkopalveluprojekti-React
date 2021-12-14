@@ -233,3 +233,8 @@ img {
 #inrow{
   display: inline-block;
 }
+
+/* kesken-kuva */
+#iso {
+  max-width: 5000px;
+}

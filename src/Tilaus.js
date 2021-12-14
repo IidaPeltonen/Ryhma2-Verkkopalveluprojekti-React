@@ -157,14 +157,14 @@ function Tilaus ({ url }) {
 
   return (
     <div className='container-fluid'>
-      <h2 id='otsikko keskita'>Kaikki tilaukset</h2>
+      <h1 id='otsikko keskita'>Kaikki tilaukset</h1>
       <div className="row">
       <ul>
         {tilaukset?.map(tilaus => {
           if (numero !== tilaus.tilausnro) {
             {numero = tilaus.tilausnro}
             return (
-          <li key ={tilaus.tilausnro&&tilaus.kirjaid}>
+          <li key ={tilaus.asid && tilaus.tilausnro && tilaus.kirjaid}>
             <b>Tilausnumero: {editTilaus?.tilausnro !== tilaus.tilausnro && tilaus.tilausnro}</b><br />
             Asiakastunnus: {tilaus.astunnus} <br />
             Asiakkaan nimi: {tilaus.asetunimi} {tilaus.assukunimi} <br />
