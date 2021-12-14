@@ -2,7 +2,11 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
+<<<<<<< HEAD
 import { ToastContainer, toast } from 'react-toastify'
+=======
+import { toast } from 'react-toastify'
+>>>>>>> 3c25cd04297f6d365b6370cba20321d81447c5b8
 import 'react-toastify/dist/ReactToastify.css'
 
 function notifyAdd() {
