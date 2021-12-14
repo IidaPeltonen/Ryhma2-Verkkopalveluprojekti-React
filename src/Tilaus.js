@@ -200,7 +200,7 @@ function Tilaus ({ url }) {
               </button>
             )}
              <hr />
-             <p>{tilaus.kirjanimi} {editTilausrivi?.tilausnro !== tilaus.tilausnro && tilaus.kpl} kpl  
+             {tilaus.kirjanimi} {editTilausrivi?.tilausnro !== tilaus.tilausnro && tilaus.kpl} kpl  
               {editTilausrivi?.tilausnro === tilaus.tilausnro && editTilausrivi?.kirjaid === tilaus.kirjaid && (
               <form onSubmit={paivitaRivi}>
                 Anna uusi kappalemäärä: 
@@ -219,7 +219,7 @@ function Tilaus ({ url }) {
                     Peruuta
                 </button>
               </form>
-              )}</p>
+              )}
               <button className='btn adminbutton ms-2' onClick={function (event) {
                 notifyDelRow()
                 removeRivi(tilaus.tilausnro, tilaus.kirjaid)}}>
