@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './inc/styles/Admin.css'
-import { ToastContainer, toast } from 'react-toastify'
+import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 function notifyDelRow() {
@@ -23,22 +23,14 @@ function notifyDel() {
 
 function Tilaus ({ url }) {
   const [tilaukset, setTilaukset] = useState([])
-  const [tilaus, setTilaus] = useState('')
-  const [tilausrivi, setTilausrivi] = useState('')
   const [editTilaus, setEditTilaus] = useState(null)
   const [editTilausrivi, setEditTilausrivi] = useState(null)
   //tilauksen muuttujat
-  const [tilausnro, setTilausnro] = useState('')
   const [asid, setAsid] = useState('')
-  const [pvm, setPvm] = useState('') //tarvitaanko, jos tulee automaattina?
-  const [tila, setTila] = useState('')
   const [editTilausnro, setEditTilausnro] = useState('')
   const [editAsid, setEditAsid] = useState('')
-  const [editPvm, setEditPvm] = useState('') //tarvitaanko, jos tulee automaattina?
   const [editTila, setEditTila] = useState('')
   //rivin muuttujat
-  const [kirjaid, setKirjaid] = useState('') 
-  const [kpl, setKpl] = useState('')
   const [editKirjaid, setEditKirjaid] = useState('') 
   const [editKpl, setEditKpl] = useState('')
   let numero = 0;
@@ -169,15 +161,15 @@ function Tilaus ({ url }) {
       <div className="row">
       <ul>
         {tilaukset?.map(tilaus => {
-          if (numero != tilaus.tilausnro) {
+          if (numero !== tilaus.tilausnro) {
             {numero = tilaus.tilausnro}
             return (
           <li key ={tilaus.tilausnro}>
-            <b><p>Tilausnumero: {editTilaus?.tilausnro !== tilaus.tilausnro && tilaus.tilausnro}</p></b>
-            <p>Asiakastunnus: {tilaus.astunnus}</p>
-            <p>Asiakkaan nimi: {tilaus.asetunimi} {tilaus.assukunimi}</p>
-            <p>Tilauspvm: {editTilaus?.tilausnro !== tilaus.tilausnro && tilaus.pvm}</p>
-            <p>Tila: {editTilaus?.tilausnro !== tilaus.tilausnro && tilaus.tila}</p>
+            <b>Tilausnumero: {editTilaus?.tilausnro !== tilaus.tilausnro && tilaus.tilausnro}</b><br />
+            Asiakastunnus: {tilaus.astunnus} <br />
+            Asiakkaan nimi: {tilaus.asetunimi} {tilaus.assukunimi} <br />
+            Tilauspvm: {editTilaus?.tilausnro !== tilaus.tilausnro && tilaus.pvm} <br />
+            Tila: {editTilaus?.tilausnro !== tilaus.tilausnro && tilaus.tila} <br />
             {editTilaus?.tilausnro === tilaus.tilausnro && (
               <form onSubmit={paivita}>
                 Anna uusi tilakoodi: 
