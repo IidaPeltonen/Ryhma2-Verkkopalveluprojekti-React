@@ -58,7 +58,8 @@ function Home({ url, addToCart }) {
                   style={{ display: 'flex' }}>
 
                   <div onClick={e => setValittuKirja(kirja)}>
-                    <Link
+                      <img id='kirja' src={kirja.kuva} alt='kirjan kansikuva' />
+                      <Link
                       className='musta'
                       to={{
                         pathname: '/detail',
@@ -76,7 +77,6 @@ function Home({ url, addToCart }) {
                         }
                       }}
                     >
-                      <img id='kirja' src={kirja.kuva} alt='kirjan kansikuva' />
                       <br />
                       <b>
                         {kirja.kirjanimi} <br />
