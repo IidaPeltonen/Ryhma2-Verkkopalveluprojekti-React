@@ -58,8 +58,9 @@ function Top ({ url, addToCart }) {
               <div className='row' id='homerow'>
                 <b> {kirjat.indexOf(kirja)+1}. </b>
                 <br />
-                <div onClick={e => setValittuKirja(kirja)}>
-                  <Link
+                <div onClick={e => setValittuKirja(kirja)} >
+                    <img id='kirja' src={kirja.kuva} alt='kirjan kansikuva' />
+                    <Link
                     className='musta'
                     to={{
                       pathname: '/detail',
@@ -77,7 +78,6 @@ function Top ({ url, addToCart }) {
                       }
                     }}
                   >
-                    <img id='kirja' src={kirja.kuva} alt='kirjan kansikuva' />
                     <br />
                     <b>
                       {kirja.kirjanimi} <br />
