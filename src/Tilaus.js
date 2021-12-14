@@ -9,6 +9,10 @@ function notifyDelRow() {
   toast('Tilausrivi poistettu!')
 }
 
+function notifyEditRow() {
+  toast('Tilausrivi päivitetty!')
+}
+
 function notifyEdit() {
   toast('Tilauksen tila vaihdettu!')
 }
@@ -227,7 +231,9 @@ function Tilaus ({ url }) {
                 Poista rivi
               </button> 
               {editTilaus === null && (
-              <button className='edit btn adminbutton' onClick={() => setEditedTilaus(tilaus)}>
+              <button className='edit btn adminbutton' onClick={function (event) {
+                notifyEditRow()
+                setEditedTilaus(tilaus)}}>
                 Muokkaa riviä
               </button>
             )} 
@@ -262,7 +268,9 @@ function Tilaus ({ url }) {
                 Poista rivi
               </button> 
               {editTilaus === null && (
-              <button className='edit btn adminbutton' onClick={() => setEditedTilaus(tilaus)}>
+              <button className='edit btn adminbutton' onClick={function (event) {
+                notifyEditRow()
+                setEditedTilaus(tilaus)}}>
                 Muokkaa riviä
               </button>
             )} 
