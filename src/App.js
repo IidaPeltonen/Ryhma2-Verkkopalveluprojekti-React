@@ -170,13 +170,17 @@ function App () {
           path='/detail'
           render={() => <Detail kirja={kirja} addToCart={addToCart} />}
         />
+        <Route 
+        path='/uutuudet' 
+        render={() => <Uutuudet url={URL} addToCart={addToCart} />}
+        />
         <Route path='/admin' render={() => < Admin />} />
         <Route path='/contactus' component={ContactUs} />
         <Route path='/aboutus' component={AboutUs} />
         <Route path='/ukk' component={UKK} />
         <Route path='/rekisteri' component={Rekisteri} />
         <Route path='/evasteet' component={Evasteet} />
-        <Route path='/uutuudet' component={Uutuudet} />
+        
         <Route path='/tarjoukset' component={Tarjoukset} />
       </Switch>
       <Footer />
