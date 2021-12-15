@@ -264,12 +264,13 @@ export default function Order ({
     )
   } else {
     return (
-      <div>
-        <h3>Kiitos tilauksesta!</h3>
-        <p>Tilauksesi toimitetaan sivulle kirjekyyhkyllä!</p>
-        <p>Tai ehkä haikaralla.</p>
-        <p>Joku voisi keksiä tähän jotain järkevää. </p>
+      <div className='container'>
+      <div className='col-12 text-center'> 
+        <h3 className='mb-4'>Kiitos tilauksesta!</h3>
+        <p>Tilauksesi toimitetaan sinulle 5 arkipäivän kuluessa.</p>
+        <p>Pienyrittäjä kiittää, että olet asioinut kanssamme!</p>
         <img src="https://cdn.pixabay.com/photo/2017/04/05/08/32/thank-you-2204270_1280.png" alt="kiitos"></img>
+      </div>
       </div>
     )
   }
