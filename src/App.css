@@ -25,8 +25,12 @@ h1 {
 
 h2 {
   font-family: Montserrat;
-  font-size: x-large;
+  font-size: xx-large;
   font-weight: bold;
+}
+
+#heading {
+  text-shadow: 5px 5px 10px grey;
 }
 
 p {
