@@ -211,7 +211,7 @@ function Tilaus ({ url }) {
                   onChange={e => setEditKpl(e.target.value)}
                 ></input>
                 <button className="btn adminbutton"onClick={function (event) {
-                  notifyEdit()}}>
+                  notifyEditRow()}}>
                     Tallenna
                 </button>
                 <button className="btn adminbutton" type="button" onClick={() => 
@@ -247,7 +247,7 @@ function Tilaus ({ url }) {
                   onChange={e => setEditKpl(e.target.value)}
                 ></input>
                 <button className="btn adminbutton"onClick={function (event) {
-                  notifyEdit()}}>
+                  notifyEditRow()}}>
                     Tallenna
                 </button>
                 <button className="btn adminbutton" type="button" onClick={() => 
