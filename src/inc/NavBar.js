@@ -68,7 +68,16 @@ export default function NavBar ({ url, setCategory, cart }) {
                   id='alasveto'
                   className='dropdown-menu ps-2 pe-2'
                   aria-labelledby='navbarDropdown'
-                >
+                ><li>
+                <Link
+                  className='valkoinen'
+                  to={{
+                    pathname: '/'
+                  }}
+                >Kaikki kirjat
+                </Link>
+                <hr className='dropdown-divider' />
+              </li>
                   {categories.map(category => (
                     <li key={category.id}>
                       <Link
