@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 import AliceCarousel from 'react-alice-carousel'
 import 'react-alice-carousel/lib/alice-carousel.css'
 
-function Top ({ url, addToCart }) {
+function Top ({ url, addToCart, info }) {
   const [kirjat, setKirjat] = useState([])
   const [valittuKirja, setValittuKirja] = useState(null)
 
@@ -81,7 +81,7 @@ function Top ({ url, addToCart }) {
                     <br />
                     <b>
                       {kirja.kirjanimi} <br />
-                      {kirja.kirjailija}
+                      {kirja.kirjailija} {info}
                     </b>
                     <br />
                     Hinta: {kirja.hinta} €<br />

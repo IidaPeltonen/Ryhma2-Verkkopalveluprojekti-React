@@ -10,7 +10,7 @@ import karry from './img/karry.png'
 import Top from './Top'
 import { Link } from 'react-router-dom'
 
-function Home({ url, addToCart }) {
+function Home({ url, addToCart, info }) {
   const [kirjat, setKirjat] = useState([])
   const [valittuKirja, setValittuKirja] = useState(null)
 
@@ -43,7 +43,7 @@ function Home({ url, addToCart }) {
   return (
     <div>
       <div>
-        <Top url={url} addToCart={addToCart} />
+        <Top url={url} addToCart={addToCart} info={info} />
         <h2 id='heading' className='ms-4'>
           Kaikki kirjat
         </h2>
@@ -80,7 +80,7 @@ function Home({ url, addToCart }) {
                       <br />
                       <b>
                         {kirja.kirjanimi} <br />
-                        {kirja.kirjailija}
+                        {kirja.kirjailija} {info}
                       </b>
                       <br />
                       Hinta: {kirja.hinta}€<br />
