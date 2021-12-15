@@ -1,12 +1,12 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-// import karry from './img/karry.png'
+import karry from '../img/karry.png'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Link } from 'react-router-dom'
-// import './inc/styles/Order.css'
-// import '../App.css'
+import '../inc/styles/Order.css'
+import '../App.css'
 
 
 export default function Uutuudet ({ url, addToCart }) {
@@ -37,7 +37,7 @@ export default function Uutuudet ({ url, addToCart }) {
   return (
     <div className='container'>
       <div className='row table-responsive'>
-        {/* <h2 id='heading'>{category?.name}</h2> */}
+        <h2 id='heading'>Uudet julkaisut</h2> 
         <table id='kaikki' className='table'>
           <tbody className='col-12'>
             {kirjat.map(kirja => (
@@ -88,7 +88,7 @@ export default function Uutuudet ({ url, addToCart }) {
                       notify()
                     }}
                   >
-                    {/* <img id='pieni' src={karry} alt='ostoskärry'/> */}
+                     <img id='pieni' src={karry} alt='ostoskärry'/> 
                   </button>
                   <ToastContainer
                     position='bottom-right'
