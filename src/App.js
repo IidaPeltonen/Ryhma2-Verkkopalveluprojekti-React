@@ -172,6 +172,7 @@ function App () {
           render={() => (
           <Kaikki
             url={URL}
+            addToCart={addToCart}
           />
           )}
         />
