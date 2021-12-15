@@ -146,7 +146,6 @@ function Tilaus ({ url }) {
           tilaukset.findIndex(tilausrivi => tilausrivi.tilausnro === editTilausrivi.tilausnro && tilausrivi.kirjaid === editTilausrivi.kirjaid)
         ].kpl = editKpl
         setTilaukset([...tilaukset])
-        console.log([tilaukset]);
         setEditedTilausrivi(null)
       })
       .catch(error => {
@@ -164,7 +163,7 @@ function Tilaus ({ url }) {
           if (numero !== tilaus.tilausnro) {
             {numero = tilaus.tilausnro}
             return (
-          <li key ={tilaus.asid && tilaus.tilausnro && tilaus.kirjaid}>
+          <li key ={tilaus.pvm}>
             <b>Tilausnumero: {editTilaus?.tilausnro !== tilaus.tilausnro && tilaus.tilausnro}</b><br />
             Asiakastunnus: {tilaus.astunnus} <br />
             Asiakkaan nimi: {tilaus.asetunimi} {tilaus.assukunimi} <br />

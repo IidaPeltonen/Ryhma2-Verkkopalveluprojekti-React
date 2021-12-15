@@ -4,6 +4,20 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './inc/styles/Order.css'
 import axios from 'axios'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
+function notifyDel() {
+  toast('Tilausrivi poistettu!')
+}
+
+function notifyEdit() {
+  toast('Tilausrivi päivitetty!')
+}
+
+function notifyOk() {
+  toast('Tilaus tallennettu!')
+}
 
 export default function Order ({
   url,
@@ -160,7 +174,9 @@ export default function Order ({
                       <button
                         className='btn'
                         type='button'
-                        onClick={() => removeFromCart(product)}
+                        onClick={function (event) {
+                          removeFromCart(product)
+                          notifyDel()}}
                       >
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
@@ -235,7 +251,9 @@ export default function Order ({
                 />
                 </div>
                 <div className="row">
-                <button className="btn orderbutton col-sm-4 col-md-2 mt-3">Tallenna ja tilaa
+                <button className="btn orderbutton col-sm-4 col-md-2 mt-3" onClick={function (event) {
+                notifyOk()}}>
+                  Tallenna ja tilaa
                 </button>
                 </div>
               </form>
@@ -245,6 +263,14 @@ export default function Order ({
       </div>
     )
   } else {
-    return <h3>Kiitos tilauksesta!</h3>
+    return (
+      <div>
+        <h3>Kiitos tilauksesta!</h3>
+        <p>Tilauksesi toimitetaan sivulle kirjekyyhkyllä!</p>
+        <p>Tai ehkä haikaralla.</p>
+        <p>Joku voisi keksiä tähän jotain järkevää. </p>
+        <img src="https://cdn.pixabay.com/photo/2017/04/05/08/32/thank-you-2204270_1280.png" alt="kiitos"></img>
+      </div>
+    )
   }
 }
