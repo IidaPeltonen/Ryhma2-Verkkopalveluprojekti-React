@@ -40,7 +40,7 @@ function Top ({ url, addToCart, info }) {
   const handleDragStart = e => e.preventDefault()
   return (
     <div id='reuna' className='container-fluid'>
-      <h2 id='heading' className='ms-4'>
+      <h2 id='heading' className=' row ms-4'>
         Myydyimmät kirjat
       </h2>
       <ol id='top7' className='row'>

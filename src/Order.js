@@ -147,13 +147,13 @@ export default function Order ({
                         </svg>
                       </Link>
                     </th>
-                    <th scope='col' className='align-middle' id='notbold'>
+                    <th scope='col' className='align-middle d-none d-sm-table-cell' id='notbold'>
                       {product.kirjailija}
                     </th>
-                    <th scope='col' className='align-middle' id='notbold'>
+                    <th scope='col' className='align-middle d-none d-sm-table-cell' id='notbold'>
                       {product.kirjanimi}
                     </th>
-                    <th scope='col' className='align-middle' id='notbold'>
+                    <th scope='col' className='align-middle d-none d-sm-table-cell' id='notbold'>
                       {product.hinta}€
                     </th>
                     <th scope='col' className='align-middle' id='notbold'>
@@ -269,7 +269,7 @@ export default function Order ({
         <h3 className='mb-4'>Kiitos tilauksesta!</h3>
         <p>Tilauksesi toimitetaan sinulle 5 arkipäivän kuluessa.</p>
         <p>Pienyrittäjä kiittää, että olet asioinut kanssamme!</p>
-        <img src="https://cdn.pixabay.com/photo/2017/04/05/08/32/thank-you-2204270_1280.png" alt="kiitos"></img>
+        <img src="https://cdn.discordapp.com/attachments/904753599203139594/920740307052670976/auto.png" alt="kiitos"></img>
       </div>
       </div>
     )

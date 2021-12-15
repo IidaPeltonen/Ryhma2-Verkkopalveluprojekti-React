@@ -41,7 +41,7 @@ function Home({ url, addToCart, info }) {
   }, [])
 
   return (
-    <div>
+    <div className='container-fluid'>
       <div>
         <Top url={url} addToCart={addToCart} info={info} />
         <h2 id='heading' className='ms-4'>
