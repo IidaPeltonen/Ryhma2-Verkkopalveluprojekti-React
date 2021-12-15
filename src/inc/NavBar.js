@@ -72,7 +72,7 @@ export default function NavBar ({ url, setCategory, cart }) {
                 <Link
                   className='valkoinen'
                   to={{
-                    pathname: '/'
+                    pathname: '/kaikki'
                   }}
                 >Kaikki kirjat
                 </Link>
