@@ -21,6 +21,7 @@ import CategoryAdmin from './Category_admin'
 import Tilaus from './Tilaus'
 import Uutuudet from './inc/Uutuudet'
 import Tarjoukset from './inc/Tarjoukset'
+import Kaikki from './Kaikki'
 
 const URL = 'http://localhost/kauppa/'
 
@@ -162,6 +163,14 @@ function App () {
           path='/tilaus' 
           render={() => (
           <Tilaus
+            url={URL}
+          />
+          )}
+        />
+        <Route 
+          path='/kaikki' 
+          render={() => (
+          <Kaikki
             url={URL}
           />
           )}
