@@ -12,10 +12,6 @@ function notifyDel () {
   toast('Tilausrivi poistettu!')
 }
 
-function notifyEdit () {
-  toast('Tilausrivi päivitetty!')
-}
-
 function notifyOk () {
   toast('Tilaus tallennettu!')
 }

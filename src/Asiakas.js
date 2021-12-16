@@ -45,7 +45,6 @@ function Asiakas ({ url }) {
       .get(url + 'php/asiakas/indexAsiakas.php')
       .then(response => {
         setAsiakkaat(response.data)
-        console.log(response.data)
       })
       .catch(error => {
         alert(error)
