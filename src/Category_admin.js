@@ -5,26 +5,27 @@ import './inc/styles/Admin.css'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-function notifyAdd() {
+//toasterit
+function notifyAdd () {
   toast('Uusi kategoria lisätty!')
 }
 
-function notifyEdit() {
+function notifyEdit () {
   toast('Kategorian tiedot päivitetty!')
 }
 
-function notifyDel() {
+function notifyDel () {
   toast('Kategoria poistettu!')
 }
 
-function CategoryAdmin({ url }) {
+function CategoryAdmin ({ url }) {
   const [kategoria, setKategoria] = useState('')
-  const [kategoriat, setKategoriat] = useState([]);
+  const [kategoriat, setKategoriat] = useState([])
   const [editCategory, setEditCategory] = useState(null)
-  const [editName, setEditName] = useState('');
-  const [name, setName] = useState('');
+  const [editName, setEditName] = useState('')
+  const [name, setName] = useState('')
 
-
+  //hakee kaikki
   useEffect(() => {
     axios
       .get(url + 'php/kategoria/tuoteKategoriaLinkit.php')
@@ -37,9 +38,8 @@ function CategoryAdmin({ url }) {
       })
   }, [])
 
-
   //uuden tallennus
-  function tallenna(e) {
+  function tallenna (e) {
     e.preventDefault()
     const json = JSON.stringify({
       name: name
@@ -60,7 +60,7 @@ function CategoryAdmin({ url }) {
   }
 
   //olemassaolevan poisto
-  function remove(id) {
+  function remove (id) {
     const json = JSON.stringify({ id: id })
     axios
       .post(url + 'php/kategoria/deleteTuoteKategoria.php', json, {
@@ -69,25 +69,28 @@ function CategoryAdmin({ url }) {
         }
       })
       .then(response => {
-        const newListWithoutRemoved = kategoriat.filter(kategoria =>
-          kategoria.id !== id)
+        const newListWithoutRemoved = kategoriat.filter(
+          kategoria => kategoria.id !== id
+        )
         setKategoriat(newListWithoutRemoved)
       })
       .catch(error => {
         alert(error.response ? error.response.data.error : error)
       })
   }
+
   //olemassaolevan päivitys
-  function setEditedCategory(kategoria) {
+  function setEditedCategory (kategoria) {
     setEditCategory(kategoria)
     setEditName(kategoria?.name)
   }
 
-  function paivita(e) {
+  //olemassaolevan päivitys
+  function paivita (e) {
     e.preventDefault()
     const json = JSON.stringify({
       id: editCategory.id,
-      name: editName,
+      name: editName
     })
     axios
       .post(url + 'php/kategoria/updateTuoteKategoria.php', json, {
@@ -106,6 +109,7 @@ function CategoryAdmin({ url }) {
         alert(error.response ? error.response.data.error : error)
       })
   }
+
   return (
     <div className='container'>
       <h2 id='otsikko keskita'>Tuoteryhmät</h2>
@@ -116,25 +120,43 @@ function CategoryAdmin({ url }) {
             {editCategory?.id === kategoria.id && (
               <form onSubmit={paivita}>
                 <input
-                  type="text"
+                  type='text'
                   className='me-1 admininput align-middle'
                   value={editName}
                   placeholder='nimi'
                   onChange={e => setEditName(e.target.value)}
                 />
-                <button className='btn adminbutton' onClick={function (event) {
-                  notifyEdit()
-                }}>Tallenna</button>
-                <button className='btn adminbutton' type="button" onClick={() => setEditCategory(null)}>Peruuta</button>
+                <button
+                  className='btn adminbutton'
+                  onClick={function (event) {
+                    notifyEdit()
+                  }}
+                >
+                  Tallenna
+                </button>
+                <button
+                  className='btn adminbutton'
+                  type='button'
+                  onClick={() => setEditCategory(null)}
+                >
+                  Peruuta
+                </button>
               </form>
             )}
-            <button className='btn adminbutton' onClick={function (event) {
-                  notifyDel()
-                  remove(kategoria.id)}}>
+            <button
+              className='btn adminbutton'
+              onClick={function (event) {
+                notifyDel()
+                remove(kategoria.id)
+              }}
+            >
               Poista
             </button>
             {editCategory === null && (
-              <button className='btn adminbutton' onClick={() => setEditedCategory(kategoria)}>
+              <button
+                className='btn adminbutton'
+                onClick={() => setEditedCategory(kategoria)}
+              >
                 Muokkaa
               </button>
             )}
@@ -144,14 +166,20 @@ function CategoryAdmin({ url }) {
       <form onSubmit={tallenna}>
         <label>Lisää tuoteryhmä:</label>&nbsp;
         <input
-          type="text"
+          type='text'
           className='me-1 admininput align-middle'
           value={name}
           placeholder='Tuoteryhmän nimi'
           onChange={e => setName(e.target.value)}
         />
-        <button className='btn adminbutton'onClick={function (event) {
-                  notifyAdd()}}>Tallenna</button>
+        <button
+          className='btn adminbutton'
+          onClick={function (event) {
+            notifyAdd()
+          }}
+        >
+          Tallenna
+        </button>
       </form>
     </div>
   )

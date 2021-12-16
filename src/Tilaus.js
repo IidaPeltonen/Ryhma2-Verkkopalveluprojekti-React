@@ -5,19 +5,20 @@ import './inc/styles/Admin.css'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-function notifyDelRow() {
+//toasterit
+function notifyDelRow () {
   toast('Tilausrivi poistettu!')
 }
 
-function notifyEditRow() {
+function notifyEditRow () {
   toast('Tilausrivi päivitetty!')
 }
 
-function notifyEdit() {
+function notifyEdit () {
   toast('Tilauksen tila vaihdettu!')
 }
 
-function notifyDel() {
+function notifyDel () {
   toast('Tilaus poistettu!')
 }
 
@@ -31,10 +32,11 @@ function Tilaus ({ url }) {
   const [editAsid, setEditAsid] = useState('')
   const [editTila, setEditTila] = useState('')
   //rivin muuttujat
-  const [editKirjaid, setEditKirjaid] = useState('') 
+  const [editKirjaid, setEditKirjaid] = useState('')
   const [editKpl, setEditKpl] = useState('')
-  let numero = 0;
+  let numero = 0
 
+  //hakee kaikki
   useEffect(() => {
     axios
       .get(url + 'php/tilaus/indexTilaus.php')
@@ -47,7 +49,7 @@ function Tilaus ({ url }) {
   }, [])
 
   //olemassaolevan tilauksen poisto
-  function remove(tilausnro) {
+  function remove (tilausnro) {
     const json = JSON.stringify({ tilausnro: tilausnro })
     axios
       .post(url + 'php/tilaus/deleteTilaus.php', json, {
@@ -56,8 +58,9 @@ function Tilaus ({ url }) {
         }
       })
       .then(response => {
-        const newListWithoutRemoved = tilaukset.filter(tilaus =>
-          tilaus.tilausnro !== tilausnro)
+        const newListWithoutRemoved = tilaukset.filter(
+          tilaus => tilaus.tilausnro !== tilausnro
+        )
         setTilaukset(newListWithoutRemoved)
       })
       .catch(error => {
@@ -65,38 +68,41 @@ function Tilaus ({ url }) {
       })
   }
 
-    //olemassaolevan tilausrivin poisto
-    function removeRivi(tilausnumero, kirjaid) {
-      const json = JSON.stringify({ tilausnro: tilausnumero, kirjaid: kirjaid })
-      axios
-        .post(url + 'php/tilaus/deleteTilausrivi.php', json, {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        })
-        .then(response => {
-          const newListWithoutRemoved = tilaukset.filter(tilaus => tilaus.kirjaid !== kirjaid && tilaus.asid !== asid)
-          setTilaukset(newListWithoutRemoved)
-        })
-        .catch(error => {
-          alert(error.response ? error.response.data.error : error)
-        })
-    }
+  //olemassaolevan tilausrivin poisto
+  function removeRivi (tilausnumero, kirjaid) {
+    const json = JSON.stringify({ tilausnro: tilausnumero, kirjaid: kirjaid })
+    axios
+      .post(url + 'php/tilaus/deleteTilausrivi.php', json, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => {
+        const newListWithoutRemoved = tilaukset.filter(
+          tilaus => tilaus.kirjaid !== kirjaid && tilaus.asid !== asid
+        )
+        setTilaukset(newListWithoutRemoved)
+      })
+      .catch(error => {
+        alert(error.response ? error.response.data.error : error)
+      })
+  }
 
   //olemassaolevan tilauksen päivitys
-  function setEditedTilaus(tilaus) {
+  function setEditedTilaus (tilaus) {
     setEditTilaus(tilaus)
     setEditTilausnro(tilaus?.tilausnro)
     setEditAsid(tilaus?.asid)
     setEditTila(tilaus?.tila)
   }
 
-  function paivita(e) {
+  //olemassaolevan tilauksen päivitys
+  function paivita (e) {
     e.preventDefault()
     const json = JSON.stringify({
       tilausnro: editTilaus.tilausnro,
       asid: editAsid,
-      tila: editTila,
+      tila: editTila
     })
     axios
       .post(url + 'php/tilaus/updateTilaus.php', json, {
@@ -106,13 +112,19 @@ function Tilaus ({ url }) {
       })
       .then(response => {
         tilaukset[
-          tilaukset.findIndex(tilaus => tilaus.tilausnro === editTilaus.tilausnro)
+          tilaukset.findIndex(
+            tilaus => tilaus.tilausnro === editTilaus.tilausnro
+          )
         ].tilausnro = editTilausnro
         tilaukset[
-          tilaukset.findIndex(tilaus => tilaus.tilausnro === editTilaus.tilausnro)
+          tilaukset.findIndex(
+            tilaus => tilaus.tilausnro === editTilaus.tilausnro
+          )
         ].asid = editAsid
         tilaukset[
-          tilaukset.findIndex(tilaus => tilaus.tilausnro === editTilaus.tilausnro)
+          tilaukset.findIndex(
+            tilaus => tilaus.tilausnro === editTilaus.tilausnro
+          )
         ].tila = editTila
         setTilaukset([...tilaukset])
         setEditedTilaus(null)
@@ -122,18 +134,20 @@ function Tilaus ({ url }) {
       })
   }
 
-  function setEditedTilausrivi(tilausrivi) {
-    setEditTilausrivi( tilausrivi)
+  //olemassaolevan tilausrivin päivitys
+  function setEditedTilausrivi (tilausrivi) {
+    setEditTilausrivi(tilausrivi)
     setEditKpl(tilausrivi?.kpl)
     setEditKirjaid(tilausrivi?.kirjaid)
   }
 
-  function paivitaRivi(e) {
+  //olemassaolevan tilausrivin päivitys
+  function paivitaRivi (e) {
     e.preventDefault()
     const json = JSON.stringify({
       tilausnro: editTilausrivi.tilausnro,
       kirjaid: editKirjaid,
-      kpl: editKpl,
+      kpl: editKpl
     })
     axios
       .post(url + 'php/tilaus/updateTilausrivi.php', json, {
@@ -143,7 +157,11 @@ function Tilaus ({ url }) {
       })
       .then(response => {
         tilaukset[
-          tilaukset.findIndex(tilausrivi => tilausrivi.tilausnro === editTilausrivi.tilausnro && tilausrivi.kirjaid === editTilausrivi.kirjaid)
+          tilaukset.findIndex(
+            tilausrivi =>
+              tilausrivi.tilausnro === editTilausrivi.tilausnro &&
+              tilausrivi.kirjaid === editTilausrivi.kirjaid
+          )
         ].kpl = editKpl
         setTilaukset([...tilaukset])
         setEditedTilausrivi(null)
@@ -153,126 +171,190 @@ function Tilaus ({ url }) {
       })
   }
 
-
   return (
     <div className='container-fluid'>
       <h1 id='otsikko keskita'>Kaikki tilaukset</h1>
-      <div className="row">
-      <ul>
-        {tilaukset?.map(tilaus => {
-          if (numero !== tilaus.tilausnro) {
-            {numero = tilaus.tilausnro}
-            return (
-          <li key ={tilaus.pvm}>
-            <b>Tilausnumero: {editTilaus?.tilausnro !== tilaus.tilausnro && tilaus.tilausnro}</b><br />
-            Asiakastunnus: {tilaus.astunnus} <br />
-            Asiakkaan nimi: {tilaus.asetunimi} {tilaus.assukunimi} <br />
-            Tilauspvm: {editTilaus?.tilausnro !== tilaus.tilausnro && tilaus.pvm} <br />
-            Tila: {editTilaus?.tilausnro !== tilaus.tilausnro && tilaus.tila} <br />
-            {editTilaus?.tilausnro === tilaus.tilausnro && (
-              <form onSubmit={paivita}>
-                Anna uusi tilakoodi: 
-                <input
-                  className='admin input align-middle'
-                  placeholder='tila'
-                  value={editTila}
-                  onChange={e => setEditTila(e.target.value)}
-                ></input>
-                <button className="btn adminbutton"onClick={function (event) {
-                    notifyEdit()}}>
-                      Tallenna
-                </button>
-                <button className="btn adminbutton" type="button" onClick={() => 
-                    setEditedTilaus(null)}>
-                      Peruuta
-                </button>
-              </form>
-            )}
-            <button className='btn adminbutton' onClick={function (event) {
-              notifyDel()
-              remove(tilaus.tilausnro)}}>
-              Poista tilaus
-            </button>
-            {editTilaus === null && (
-              <button className='btn adminbutton' onClick={() => setEditedTilaus(tilaus)}>
-                Muokkaa tilaa
-              </button>
-            )}
-             <hr />
-             {tilaus.kirjanimi} {editTilausrivi?.tilausnro !== tilaus.tilausnro && tilaus.kpl} kpl  
-              {editTilausrivi?.tilausnro === tilaus.tilausnro && editTilausrivi?.kirjaid === tilaus.kirjaid && (
-              <form onSubmit={paivitaRivi}>
-                Anna uusi kappalemäärä: 
-                <input
-                  className='admin input align-middle'
-                  placeholder='kpl'
-                  value={editKpl}
-                  onChange={e => setEditKpl(e.target.value)}
-                ></input>
-                <button className="btn adminbutton"onClick={function (event) {
-                  notifyEditRow()}}>
-                    Tallenna
-                </button>
-                <button className="btn adminbutton" type="button" onClick={() => 
-                  setEditedTilausrivi(null)}>
-                    Peruuta
-                </button>
-              </form>
-              )}
-              <button className='btn adminbutton ms-2' onClick={function (event) {
-                notifyDelRow()
-                removeRivi(tilaus.tilausnro, tilaus.kirjaid)}}>
-                Poista rivi
-              </button> 
-              {editTilausrivi === null && (
-              <button className='edit btn adminbutton' onClick={function (event) {
-                setEditedTilausrivi(tilaus)}}>
-                Muokkaa riviä
-              </button>
-            )} 
-              <hr />
-          </li>
-            )} else {
+      <div className='row'>
+        <ul>
+          {tilaukset?.map(tilaus => {
+            if (numero !== tilaus.tilausnro) {
+              {
+                numero = tilaus.tilausnro
+              }
+              return (
+                <li key={tilaus.pvm}>
+                  <b>
+                    Tilausnumero:{' '}
+                    {editTilaus?.tilausnro !== tilaus.tilausnro &&
+                      tilaus.tilausnro}
+                  </b>
+                  <br />
+                  Asiakastunnus: {tilaus.astunnus} <br />
+                  Asiakkaan nimi: {tilaus.asetunimi} {tilaus.assukunimi} <br />
+                  Tilauspvm:{' '}
+                  {editTilaus?.tilausnro !== tilaus.tilausnro &&
+                    tilaus.pvm}{' '}
+                  <br />
+                  Tila:{' '}
+                  {editTilaus?.tilausnro !== tilaus.tilausnro &&
+                    tilaus.tila}{' '}
+                  <br />
+                  {editTilaus?.tilausnro === tilaus.tilausnro && (
+                    <form onSubmit={paivita}>
+                      Anna uusi tilakoodi:
+                      <input
+                        className='admin input align-middle'
+                        placeholder='tila'
+                        value={editTila}
+                        onChange={e => setEditTila(e.target.value)}
+                      ></input>
+                      <button
+                        className='btn adminbutton'
+                        onClick={function (event) {
+                          notifyEdit()
+                        }}
+                      >
+                        Tallenna
+                      </button>
+                      <button
+                        className='btn adminbutton'
+                        type='button'
+                        onClick={() => setEditedTilaus(null)}
+                      >
+                        Peruuta
+                      </button>
+                    </form>
+                  )}
+                  <button
+                    className='btn adminbutton'
+                    onClick={function (event) {
+                      notifyDel()
+                      remove(tilaus.tilausnro)
+                    }}
+                  >
+                    Poista tilaus
+                  </button>
+                  {editTilaus === null && (
+                    <button
+                      className='btn adminbutton'
+                      onClick={() => setEditedTilaus(tilaus)}
+                    >
+                      Muokkaa tilaa
+                    </button>
+                  )}
+                  <hr />
+                  {tilaus.kirjanimi}{' '}
+                  {editTilausrivi?.tilausnro !== tilaus.tilausnro && tilaus.kpl}{' '}
+                  kpl
+                  {editTilausrivi?.tilausnro === tilaus.tilausnro &&
+                    editTilausrivi?.kirjaid === tilaus.kirjaid && (
+                      <form onSubmit={paivitaRivi}>
+                        Anna uusi kappalemäärä:
+                        <input
+                          className='admin input align-middle'
+                          placeholder='kpl'
+                          value={editKpl}
+                          onChange={e => setEditKpl(e.target.value)}
+                        ></input>
+                        <button
+                          className='btn adminbutton'
+                          onClick={function (event) {
+                            notifyEditRow()
+                          }}
+                        >
+                          Tallenna
+                        </button>
+                        <button
+                          className='btn adminbutton'
+                          type='button'
+                          onClick={() => setEditedTilausrivi(null)}
+                        >
+                          Peruuta
+                        </button>
+                      </form>
+                    )}
+                  <button
+                    className='btn adminbutton ms-2'
+                    onClick={function (event) {
+                      notifyDelRow()
+                      removeRivi(tilaus.tilausnro, tilaus.kirjaid)
+                    }}
+                  >
+                    Poista rivi
+                  </button>
+                  {editTilausrivi === null && (
+                    <button
+                      className='edit btn adminbutton'
+                      onClick={function (event) {
+                        setEditedTilausrivi(tilaus)
+                      }}
+                    >
+                      Muokkaa riviä
+                    </button>
+                  )}
+                  <hr />
+                </li>
+              )
+            } else {
               return (
                 <>
-              {tilaus.kirjanimi} {editTilausrivi?.tilausnro !== tilaus?.tilausnro && tilaus?.kpl} kpl  
-              {editTilausrivi?.tilausnro === tilaus?.tilausnro && editTilausrivi?.kirjaid === tilaus.kirjaid && (
-              <form onSubmit={paivitaRivi}>
-                Anna uusi kappalemäärä: 
-                <input
-                  className='admin input align-middle'
-                  placeholder='kpl'
-                  value={editKpl}
-                  onChange={e => setEditKpl(e.target.value)}
-                ></input>
-                <button className="btn adminbutton"onClick={function (event) {
-                  notifyEditRow()}}>
-                    Tallenna
-                </button>
-                <button className="btn adminbutton" type="button" onClick={() => 
-                  setEditedTilausrivi(null)}>
-                    Peruuta
-                </button>
-              </form>
-              )}
-              <button className='btn adminbutton ms-2' onClick={function (event) {
-                notifyDelRow()
-                removeRivi(tilaus.tilausnro, tilaus.kirjaid)}}>
-                Poista rivi
-              </button> 
-              {editTilausrivi === null && (
-              <button className='edit btn adminbutton' onClick={function (event) {
-                notifyEditRow()
-                setEditedTilausrivi(tilaus)}}>
-                Muokkaa riviä
-              </button>
-            )} 
-              <hr />
+                  {tilaus.kirjanimi}{' '}
+                  {editTilausrivi?.tilausnro !== tilaus?.tilausnro &&
+                    tilaus?.kpl}{' '}
+                  kpl
+                  {editTilausrivi?.tilausnro === tilaus?.tilausnro &&
+                    editTilausrivi?.kirjaid === tilaus.kirjaid && (
+                      <form onSubmit={paivitaRivi}>
+                        Anna uusi kappalemäärä:
+                        <input
+                          className='admin input align-middle'
+                          placeholder='kpl'
+                          value={editKpl}
+                          onChange={e => setEditKpl(e.target.value)}
+                        ></input>
+                        <button
+                          className='btn adminbutton'
+                          onClick={function (event) {
+                            notifyEditRow()
+                          }}
+                        >
+                          Tallenna
+                        </button>
+                        <button
+                          className='btn adminbutton'
+                          type='button'
+                          onClick={() => setEditedTilausrivi(null)}
+                        >
+                          Peruuta
+                        </button>
+                      </form>
+                    )}
+                  <button
+                    className='btn adminbutton ms-2'
+                    onClick={function (event) {
+                      notifyDelRow()
+                      removeRivi(tilaus.tilausnro, tilaus.kirjaid)
+                    }}
+                  >
+                    Poista rivi
+                  </button>
+                  {editTilausrivi === null && (
+                    <button
+                      className='edit btn adminbutton'
+                      onClick={function (event) {
+                        notifyEditRow()
+                        setEditedTilausrivi(tilaus)
+                      }}
+                    >
+                      Muokkaa riviä
+                    </button>
+                  )}
+                  <hr />
                 </>
               )
             }
-            })}
-      </ul>
+          })}
+        </ul>
       </div>
     </div>
   )

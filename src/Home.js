@@ -4,31 +4,32 @@ import axios from 'axios'
 import './App.css'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import AliceCarousel from 'react-alice-carousel';
-import 'react-alice-carousel/lib/alice-carousel.css';
+import AliceCarousel from 'react-alice-carousel'
+import 'react-alice-carousel/lib/alice-carousel.css'
 import karry from './img/karry.png'
 import Top from './Top'
 import { Link } from 'react-router-dom'
 
-function Home({ url, addToCart, info }) {
+function Home ({ url, addToCart, info }) {
   const [kirjat, setKirjat] = useState([])
   const [valittuKirja, setValittuKirja] = useState(null)
 
-  function notify() {
+  //toaster
+  function notify () {
     toast('Kirja lisätty ostoskoriin!')
   }
 
-  const items = kirjat;
-
+  //muuttujat karusellille
+  const items = kirjat
   const responsive = {
     0: { items: 1 },
     568: { items: 2 },
     767: { items: 3 },
-    1023: { items: 5 },
-  };
+    1023: { items: 5 }
+  }
+  const handleDragStart = e => e.preventDefault()
 
-  const handleDragStart = (e) => e.preventDefault();
-
+  //hakee kaikki
   useEffect(() => {
     axios
       .get(url + 'php/kirja/index.php')
@@ -48,18 +49,17 @@ function Home({ url, addToCart, info }) {
           Kaikki kirjat
         </h2>
         <ol id='kaikki'>
-        <AliceCarousel mouseTracking
-          responsive={responsive}
-          disableDotsControls={true}
-          infinite={true}
-          items={items?.map(kirja => (
+          <AliceCarousel
+            mouseTracking
+            responsive={responsive}
+            disableDotsControls={true}
+            infinite={true}
+            items={items?.map(kirja => (
               <div onDragStart={handleDragStart} key={kirja.kirjaid}>
-                <div className="row" id="homerow"
-                  style={{ display: 'flex' }}>
-
+                <div className='row' id='homerow' style={{ display: 'flex' }}>
                   <div onClick={e => setValittuKirja(kirja)}>
-                      <img id='kirja' src={kirja.kuva} alt='kirjan kansikuva' />
-                      <Link
+                    <img id='kirja' src={kirja.kuva} alt='kirjan kansikuva' />
+                    <Link
                       className='musta'
                       to={{
                         pathname: '/detail',
@@ -85,13 +85,34 @@ function Home({ url, addToCart, info }) {
                       <br />
                       Hinta: {kirja.hinta}€<br />
                       {kirja.saldo > 0 ? (
-                        <p>Varastossa: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#1b840e" className="bi bi-circle-fill" viewBox="0 0 16 16">
-                          <circle cx="8" cy="8" r="8" />
-                        </svg></p>
-                      )
-                        : (<p>Ei saatavilla: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff0000" className="bi bi-circle-fill" viewBox="0 0 16 16">
-                          <circle cx="8" cy="8" r="8" />
-                        </svg></p>)}
+                        <p>
+                          Varastossa:{' '}
+                          <svg
+                            xmlns='http://www.w3.org/2000/svg'
+                            width='16'
+                            height='16'
+                            fill='#1b840e'
+                            className='bi bi-circle-fill'
+                            viewBox='0 0 16 16'
+                          >
+                            <circle cx='8' cy='8' r='8' />
+                          </svg>
+                        </p>
+                      ) : (
+                        <p>
+                          Ei saatavilla:{' '}
+                          <svg
+                            xmlns='http://www.w3.org/2000/svg'
+                            width='16'
+                            height='16'
+                            fill='#ff0000'
+                            className='bi bi-circle-fill'
+                            viewBox='0 0 16 16'
+                          >
+                            <circle cx='8' cy='8' r='8' />
+                          </svg>
+                        </p>
+                      )}
                     </Link>
                   </div>
                   <div>
@@ -109,7 +130,7 @@ function Home({ url, addToCart, info }) {
                 </div>
               </div>
             ))}
-            ></AliceCarousel>
+          ></AliceCarousel>
           <ToastContainer
             position='bottom-right'
             autoClose={4000}

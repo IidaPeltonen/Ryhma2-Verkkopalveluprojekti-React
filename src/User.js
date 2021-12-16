@@ -5,31 +5,34 @@ import './App.css'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-function notifyAdd() {
+
+//toasterit-ilmoitukset
+function notifyAdd () {
   toast('Uusi pääkäyttäjä lisätty!')
 }
 
-function notifyEdit() {
+function notifyEdit () {
   toast('Pääkäyttäjän tiedot päivitetty!')
 }
 
-function notifyDel() {
+function notifyDel () {
   toast('Pääkäyttäjä poistettu!')
 }
 
-function User({ url }) {
+function User ({ url }) {
   const [users, setUsers] = useState([])
-  const [user, setUser] = useState('');
-  const [firstname, setFirstname] = useState('');
-  const [lastname, setLastname] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [user, setUser] = useState('')
+  const [firstname, setFirstname] = useState('')
+  const [lastname, setLastname] = useState('')
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
   const [editUser, setEditUser] = useState(null)
-  const [editFirstname, setEditFirstname] = useState('');
-  const [editLastname, setEditLastname] = useState('');
-  const [editUsername, setEditUsername] = useState('');
-  const [editPassword, setEditPassword] = useState('');
+  const [editFirstname, setEditFirstname] = useState('')
+  const [editLastname, setEditLastname] = useState('')
+  const [editUsername, setEditUsername] = useState('')
+  const [editPassword, setEditPassword] = useState('')
 
+  //hakee kaikki
   useEffect(() => {
     axios
       .get(url + 'php/user/indexUser.php')
@@ -41,9 +44,8 @@ function User({ url }) {
       })
   }, [])
 
-
   //uuden tallennus
-  function tallenna(e) {
+  function tallenna (e) {
     e.preventDefault()
     const json = JSON.stringify({
       firstname: firstname,
@@ -67,7 +69,7 @@ function User({ url }) {
   }
 
   //olemassaolevan poisto
-  function remove(id) {
+  function remove (id) {
     const json = JSON.stringify({ userid: id })
     axios
       .post(url + 'php/user/deleteUser.php', json, {
@@ -76,8 +78,7 @@ function User({ url }) {
         }
       })
       .then(response => {
-        const newListWithoutRemoved = users.filter(user =>
-          user.userid !== id)
+        const newListWithoutRemoved = users.filter(user => user.userid !== id)
         setUsers(newListWithoutRemoved)
       })
       .catch(error => {
@@ -86,7 +87,7 @@ function User({ url }) {
   }
 
   //olemassaolevan päivitys
-  function setEditedUser(user) {
+  function setEditedUser (user) {
     setEditUser(user)
     setEditFirstname(user?.firstname)
     setEditLastname(user?.lastname)
@@ -94,7 +95,7 @@ function User({ url }) {
     setEditPassword(user?.password)
   }
 
-  function paivita(e) {
+  function paivita (e) {
     e.preventDefault()
     const json = JSON.stringify({
       userid: editUser.userid,
@@ -133,38 +134,42 @@ function User({ url }) {
   return (
     <div className='container-fluid'>
       <h2 id='otsikko keskita'>Kaikki pääkäyttäjät</h2>
-      <div className="row">
+      <div className='row'>
         <form onSubmit={tallenna}>
-          <label className="col-12 ps-0 mb-2">Lisää pääkäyttäjä</label>
+          <label className='col-12 ps-0 mb-2'>Lisää pääkäyttäjä</label>
           <input
             value={firstname}
-            className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
+            className='col-sm-10 col-md-5 mt-2 me-2 mb-2'
             placeholder='etunimi'
             onChange={e => setFirstname(e.target.value)}
           />
           <input
             value={lastname}
-            className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
+            className='col-sm-10 col-md-5 mt-2 me-2 mb-2'
             placeholder='sukunimi'
             onChange={e => setLastname(e.target.value)}
           />
           <input
             value={username}
-            className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
+            className='col-sm-10 col-md-5 mt-2 me-2 mb-2'
             placeholder='käyttäjätunnus'
             onChange={e => setUsername(e.target.value)}
           />
           <input
             value={password}
-            className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
+            className='col-sm-10 col-md-5 mt-2 me-2 mb-2'
             placeholder='salasana'
             onChange={e => setPassword(e.target.value)}
           />
-          <div className="row">
+          <div className='row'>
             <div className='col-sm-2 col-md-1'>
-              <button className="btn adminbutton mt-3" onClick={function (event) {
-              notifyAdd()
-            }}>Tallenna
+              <button
+                className='btn adminbutton mt-3'
+                onClick={function (event) {
+                  notifyAdd()
+                }}
+              >
+                Tallenna
               </button>
             </div>
           </div>
@@ -175,48 +180,67 @@ function User({ url }) {
           <li key={user.userid}>
             <p>Etunimi: {editUser?.userid !== user.userid && user.firstname}</p>
             <p>Sukunimi: {editUser?.userid !== user.userid && user.lastname}</p>
-            <p>Käyttäjänimi: {editUser?.userid !== user.userid && user.username}</p>
+            <p>
+              Käyttäjänimi: {editUser?.userid !== user.userid && user.username}
+            </p>
             <p>Salasana: {editUser?.userid !== user.userid && user.password}</p>
             {editUser?.userid === user.userid && (
               <form onSubmit={paivita}>
                 <input
-                  className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
+                  className='col-sm-10 col-md-5 mt-2 me-2 mb-2'
                   placeholder='Etunimi'
                   value={editFirstname}
                   onChange={e => setEditFirstname(e.target.value)}
                 ></input>
                 <input
-                  className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
+                  className='col-sm-10 col-md-5 mt-2 me-2 mb-2'
                   placeholder='Sukunimi'
                   value={editLastname}
                   onChange={e => setEditLastname(e.target.value)}
                 ></input>
                 <input
-                  className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
+                  className='col-sm-10 col-md-5 mt-2 me-2 mb-2'
                   placeholder='Käyttäjätunnus'
                   value={editUsername}
                   onChange={e => setEditUsername(e.target.value)}
                 ></input>
                 <input
-                  className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
+                  className='col-sm-10 col-md-5 mt-2 me-2 mb-2'
                   placeholder='Salasana'
                   value={editPassword}
                   onChange={e => setEditPassword(e.target.value)}
                 ></input>
-                <button className="btn adminbutton" onClick={function (event) {
-                  notifyEdit()
-            }}>Tallenna</button>
-                <button className="btn adminbutton" type="button" onClick={() => setEditedUser(null)}>Peruuta</button>
+                <button
+                  className='btn adminbutton'
+                  onClick={function (event) {
+                    notifyEdit()
+                  }}
+                >
+                  Tallenna
+                </button>
+                <button
+                  className='btn adminbutton'
+                  type='button'
+                  onClick={() => setEditedUser(null)}
+                >
+                  Peruuta
+                </button>
               </form>
             )}
-            <button className='delete btn adminbutton' onClick={function (event) {
-              remove(user.userid)
-              notifyDel()
-            }}>
+            <button
+              className='delete btn adminbutton'
+              onClick={function (event) {
+                remove(user.userid)
+                notifyDel()
+              }}
+            >
               Poista
             </button>
             {editUser === null && (
-              <button className='edit btn adminbutton' onClick={() => setEditedUser(user)}>
+              <button
+                className='edit btn adminbutton'
+                onClick={() => setEditedUser(user)}
+              >
                 Muokkaa
               </button>
             )}

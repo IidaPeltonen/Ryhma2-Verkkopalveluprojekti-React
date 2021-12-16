@@ -7,15 +7,16 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-function notifyDel() {
+//toasterit
+function notifyDel () {
   toast('Tilausrivi poistettu!')
 }
 
-function notifyEdit() {
+function notifyEdit () {
   toast('Tilausrivi päivitetty!')
 }
 
-function notifyOk() {
+function notifyOk () {
   toast('Tilaus tallennettu!')
 }
 
@@ -37,11 +38,13 @@ export default function Order ({
   const [puhelin, setPuhelin] = useState('')
   const [email, setEmail] = useState('')
 
+  //funktio tilausmäärän muutokseen
   function changeAmount (e, product, index) {
     updateAmount(e.target.value, product)
     setInputIndex(index)
   }
 
+  //hakee kaikki
   useEffect(() => {
     for (let i = 0; i < cart.length; i++) {
       inputs[i] = React.createRef()
@@ -60,6 +63,7 @@ export default function Order ({
     }
   }, [cart])
 
+  //funktio tilaukselle
   function tilaa (e) {
     e.preventDefault()
     const json = JSON.stringify({
@@ -87,9 +91,11 @@ export default function Order ({
       })
   }
 
+  //muuttujat hintoja varten
   let riviSumma = 0
   let loppuSumma = 0
 
+  //jos tilausta ei ole suoritettu loppuun, eli tilaa-nappia ei ole painettu
   if (finished === false) {
     return (
       <div className='container'>
@@ -147,13 +153,25 @@ export default function Order ({
                         </svg>
                       </Link>
                     </th>
-                    <th scope='col' className='align-middle d-none d-sm-table-cell' id='notbold'>
+                    <th
+                      scope='col'
+                      className='align-middle d-none d-sm-table-cell'
+                      id='notbold'
+                    >
                       {product.kirjailija}
                     </th>
-                    <th scope='col' className='align-middle d-none d-sm-table-cell' id='notbold'>
+                    <th
+                      scope='col'
+                      className='align-middle d-none d-sm-table-cell'
+                      id='notbold'
+                    >
                       {product.kirjanimi}
                     </th>
-                    <th scope='col' className='align-middle d-none d-sm-table-cell' id='notbold'>
+                    <th
+                      scope='col'
+                      className='align-middle d-none d-sm-table-cell'
+                      id='notbold'
+                    >
                       {product.hinta}€
                     </th>
                     <th scope='col' className='align-middle' id='notbold'>
@@ -176,7 +194,8 @@ export default function Order ({
                         type='button'
                         onClick={function (event) {
                           removeFromCart(product)
-                          notifyDel()}}
+                          notifyDel()
+                        }}
                       >
                         <svg
                           xmlns='http://www.w3.org/2000/svg'
@@ -201,60 +220,66 @@ export default function Order ({
           </table>
 
           {cart.length > 0 && (
-            <div className="col">
+            <div className='col'>
               <p>Tilauksesi loppusumma on {loppuSumma.toFixed(2)} €</p>
 
-              <form onSubmit={tilaa} className="container-fluid">
-                <div className="row">
-                <label className="col-12 ps-0 mb-2">Täytä asiakastiedot:</label>
-                <input
-                  value={asetunimi}
-                  className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
-                  placeholder='etunimi'
-                  onChange={e => setAsetunimi(e.target.value)}
-                />
-                <input
-                  value={assukunimi}
-                  className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
-                  placeholder='sukunimi'
-                  onChange={e => setAssukunimi(e.target.value)}
-                />
-                <input
-                  value={asosoite}
-                  className="col-sm-10 col-md-3 mt-2 me-2 mb-2"
-                  placeholder='osoite'
-                  onChange={e => setAsosoite(e.target.value)}
-                />
-                <input
-                  value={postinro}
-                  className="col-sm-10 col-md-3 mt-2 me-2 mb-2"
-                  placeholder='postinumero'
-                  onChange={e => setPostinro(e.target.value)}
-                />
-                <input
-                  value={postitmp}
-                  className="col-sm-10 col-md-3 mt-2 me-2 mb-2"
-                  placeholder='postitoimipaikka'
-                  onChange={e => setPostitmp(e.target.value)}
-                />
-                <input
-                  value={puhelin}
-                  className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
-                  placeholder='puhelinnumero'
-                  onChange={e => setPuhelin(e.target.value)}
-                />
-                <input
-                  value={email}
-                  className="col-sm-10 col-md-5 mt-2 me-2 mb-2"
-                  placeholder='e-mail'
-                  onChange={e => setEmail(e.target.value)}
-                />
+              <form onSubmit={tilaa} className='container-fluid'>
+                <div className='row'>
+                  <label className='col-12 ps-0 mb-2'>
+                    Täytä asiakastiedot:
+                  </label>
+                  <input
+                    value={asetunimi}
+                    className='col-sm-10 col-md-5 mt-2 me-2 mb-2'
+                    placeholder='etunimi'
+                    onChange={e => setAsetunimi(e.target.value)}
+                  />
+                  <input
+                    value={assukunimi}
+                    className='col-sm-10 col-md-5 mt-2 me-2 mb-2'
+                    placeholder='sukunimi'
+                    onChange={e => setAssukunimi(e.target.value)}
+                  />
+                  <input
+                    value={asosoite}
+                    className='col-sm-10 col-md-3 mt-2 me-2 mb-2'
+                    placeholder='osoite'
+                    onChange={e => setAsosoite(e.target.value)}
+                  />
+                  <input
+                    value={postinro}
+                    className='col-sm-10 col-md-3 mt-2 me-2 mb-2'
+                    placeholder='postinumero'
+                    onChange={e => setPostinro(e.target.value)}
+                  />
+                  <input
+                    value={postitmp}
+                    className='col-sm-10 col-md-3 mt-2 me-2 mb-2'
+                    placeholder='postitoimipaikka'
+                    onChange={e => setPostitmp(e.target.value)}
+                  />
+                  <input
+                    value={puhelin}
+                    className='col-sm-10 col-md-5 mt-2 me-2 mb-2'
+                    placeholder='puhelinnumero'
+                    onChange={e => setPuhelin(e.target.value)}
+                  />
+                  <input
+                    value={email}
+                    className='col-sm-10 col-md-5 mt-2 me-2 mb-2'
+                    placeholder='e-mail'
+                    onChange={e => setEmail(e.target.value)}
+                  />
                 </div>
-                <div className="row">
-                <button className="btn orderbutton col-sm-4 col-md-2 mt-3" onClick={function (event) {
-                notifyOk()}}>
-                  Tallenna ja tilaa
-                </button>
+                <div className='row'>
+                  <button
+                    className='btn orderbutton col-sm-4 col-md-2 mt-3'
+                    onClick={function (event) {
+                      notifyOk()
+                    }}
+                  >
+                    Tallenna ja tilaa
+                  </button>
                 </div>
               </form>
             </div>
@@ -262,15 +287,19 @@ export default function Order ({
         </div>
       </div>
     )
-  } else {
+  } //tapahtuu, kun tilaus-nappia on painettu
+  else {
     return (
       <div className='container'>
-      <div className='col-12 text-center'> 
-        <h3 className='mb-4'>Kiitos tilauksesta!</h3>
-        <p>Tilauksesi toimitetaan sinulle 5 arkipäivän kuluessa.</p>
-        <p>Pienyrittäjä kiittää, että olet asioinut kanssamme!</p>
-        <img src="https://cdn.discordapp.com/attachments/904753599203139594/920740307052670976/auto.png" alt="kiitos"></img>
-      </div>
+        <div className='col-12 text-center'>
+          <h3 className='mb-4'>Kiitos tilauksesta!</h3>
+          <p>Tilauksesi toimitetaan sinulle 5 arkipäivän kuluessa.</p>
+          <p>Pienyrittäjä kiittää, että olet asioinut kanssamme!</p>
+          <img
+            src='https://cdn.discordapp.com/attachments/904753599203139594/920740307052670976/auto.png'
+            alt='kiitos'
+          ></img>
+        </div>
       </div>
     )
   }

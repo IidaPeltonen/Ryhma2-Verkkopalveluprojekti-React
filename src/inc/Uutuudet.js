@@ -8,36 +8,36 @@ import { Link } from 'react-router-dom'
 import '../inc/styles/Order.css'
 import '../App.css'
 
-
 export default function Uutuudet ({ url, addToCart }) {
   const [kirjat, setKirjat] = useState([])
   const [valittuKirja, setValittuKirja] = useState(null)
 
+  //toaster
   function notify () {
     toast('Kirja lisätty ostoskoriin!')
   }
 
+  //hakee kaikki
   useEffect(() => {
-      axios
-        .get(url + 'php/uutuudet/uutuudet.php')
-        .then(response => {
-          const json = response.data
-          setKirjat(json)
-        })
-        .catch(error => {
-          if (error.response === undefined) {
-            alert(error)
-          } else {
-            alert(error.response.data.error)
-          }
-        })
+    axios
+      .get(url + 'php/uutuudet/uutuudet.php')
+      .then(response => {
+        const json = response.data
+        setKirjat(json)
+      })
+      .catch(error => {
+        if (error.response === undefined) {
+          alert(error)
+        } else {
+          alert(error.response.data.error)
+        }
+      })
   }, [])
-
 
   return (
     <div className='container'>
       <div className='row table-responsive'>
-        <h2 id='heading'>Uudet julkaisut</h2> 
+        <h2 id='heading'>Uudet julkaisut</h2>
         <table id='kaikki' className='table'>
           <tbody className='col-12'>
             {kirjat.map(kirja => (
@@ -67,16 +67,32 @@ export default function Uutuudet ({ url, addToCart }) {
                     <img id='kirja' src={kirja.kuva} alt='kirjan kansikuva' />
                   </Link>
                 </th>
-                <th scope='col' className='align-middle d-none d-sm-table-cell' id='notbold'>
+                <th
+                  scope='col'
+                  className='align-middle d-none d-sm-table-cell'
+                  id='notbold'
+                >
                   {kirja.kirjanimi}
                 </th>
-                <th scope='col' className='align-middle d-none d-sm-table-cell' id='notbold'>
+                <th
+                  scope='col'
+                  className='align-middle d-none d-sm-table-cell'
+                  id='notbold'
+                >
                   {kirja.kirjailija}
                 </th>
-                <th scope='col' className='align-middle d-none d-sm-table-cell' id='notbold'>
+                <th
+                  scope='col'
+                  className='align-middle d-none d-sm-table-cell'
+                  id='notbold'
+                >
                   {kirja.kuvaus}
                 </th>
-                <th scope='col' className='align-middle d-none d-sm-table-cell' id='notbold'>
+                <th
+                  scope='col'
+                  className='align-middle d-none d-sm-table-cell'
+                  id='notbold'
+                >
                   {kirja.hinta}€
                 </th>
                 <th scope='col' className='align-middle' id='notbold'>
@@ -88,7 +104,7 @@ export default function Uutuudet ({ url, addToCart }) {
                       notify()
                     }}
                   >
-                     <img id='pieni' src={karry} alt='ostoskärry'/> 
+                    <img id='pieni' src={karry} alt='ostoskärry' />
                   </button>
                   <ToastContainer
                     position='bottom-right'

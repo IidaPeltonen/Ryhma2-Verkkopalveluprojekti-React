@@ -5,16 +5,17 @@ import 'react-toastify/dist/ReactToastify.css'
 import { useHistory } from 'react-router-dom'
 
 //yhden kirjan tiedot
-export default function Detail({ kirja, addToCart }) {
+export default function Detail ({ kirja, addToCart }) {
   const history = useHistory()
 
-  function notify() {
+  //toaster
+  function notify () {
     toast('Kirja lisätty ostoskoriin!')
   }
 
   return (
     <div className='container'>
-      <div className="row detailreuna">
+      <div className='row detailreuna'>
         <div className='col-1'></div>
         <div className='col-sm-12 col-md-4'>
           <img id='detailKuva' src={kirja.kuva} alt='kirjan kansikuva'></img>
@@ -27,14 +28,35 @@ export default function Detail({ kirja, addToCart }) {
           <p>Kieli: {kirja.kieli}</p>
           <p>Kustantaja: {kirja.kustantaja}</p>
           <p>Hinta: {kirja.hinta}€</p>
-          {kirja.saldo > 0 ?(
-            <p>Varastossa: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#1b840e" className="bi bi-circle-fill" viewBox="0 0 16 16">
-              <circle cx="8" cy="8" r="8" />
-            </svg></p>
-          )
-          : ( <p>Ei saatavilla: <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ff0000" className="bi bi-circle-fill" viewBox="0 0 16 16">
-              <circle cx="8" cy="8" r="8" /> 
-            </svg></p> )}
+          {kirja.saldo > 0 ? (
+            <p>
+              Varastossa:{' '}
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='16'
+                height='16'
+                fill='#1b840e'
+                className='bi bi-circle-fill'
+                viewBox='0 0 16 16'
+              >
+                <circle cx='8' cy='8' r='8' />
+              </svg>
+            </p>
+          ) : (
+            <p>
+              Ei saatavilla:{' '}
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                width='16'
+                height='16'
+                fill='#ff0000'
+                className='bi bi-circle-fill'
+                viewBox='0 0 16 16'
+              >
+                <circle cx='8' cy='8' r='8' />
+              </svg>
+            </p>
+          )}
           <button
             className='btn detailbutton mt-4'
             type='button'
@@ -48,10 +70,13 @@ export default function Detail({ kirja, addToCart }) {
         </div>
         <div className='col-1'></div>
       </div>
-      <div className="row">
-        <div className="col-1 d-none d-md-block"></div>
-        <div className="col-sm-12 col-md-11">
-          <button className='btn detailbutton ms-md-4 mt-3 mb-3 align-middle' onClick={history.goBack}>
+      <div className='row'>
+        <div className='col-1 d-none d-md-block'></div>
+        <div className='col-sm-12 col-md-11'>
+          <button
+            className='btn detailbutton ms-md-4 mt-3 mb-3 align-middle'
+            onClick={history.goBack}
+          >
             Takaisin listaukseen
           </button>
         </div>
@@ -68,7 +93,6 @@ export default function Detail({ kirja, addToCart }) {
           pauseOnHover
         />
       </div>
-
     </div>
   )
 }

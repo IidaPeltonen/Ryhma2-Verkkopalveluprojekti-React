@@ -3,7 +3,7 @@ import './styles/SearchBar.css'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-export default function SearchBar({ placeHolder, url }) {
+export default function SearchBar ({ placeHolder, url }) {
   const [filteredData, setFilteredData] = useState([])
   const [wordEntered, setWordEntered] = useState('')
   const [valittuKirja, setValittuKirja] = useState([])
@@ -13,7 +13,6 @@ export default function SearchBar({ placeHolder, url }) {
   //  Jos syötetty searchWord sisältää samoja sanoja/kirjaimia jne. kuin mitä kirjanimiä tai kirjailijan nimiä tietokannassa on, newFilter suodattaa kaikki ne kirjat
   //  joiden nimessä searchWord esiintyy.
   //  Jos searchWord eli ts. inputissa ei ole mitään, filteredData-taulukko asetetaan tyhjäksi.
-  //  Tän hakukomponentin saa vaihtaa paremmaksi, jos tuntuu siltä että tämä on huono.
 
   useEffect(() => {
     axios
@@ -30,7 +29,7 @@ export default function SearchBar({ placeHolder, url }) {
       })
   }, [])
 
-  function handleFilter(e) {
+  function handleFilter (e) {
     const searchWord = e.target.value
     setWordEntered(searchWord)
     const newFilter = kirjat.filter(value => {
@@ -46,7 +45,7 @@ export default function SearchBar({ placeHolder, url }) {
     }
   }
   // Tyhjentää kentän
-  function clearInput() {
+  function clearInput () {
     setFilteredData([])
     setWordEntered('')
   }
@@ -83,7 +82,7 @@ export default function SearchBar({ placeHolder, url }) {
           </button>
         )}
       </div>
-      <div className="row">
+      <div className='row'>
         {filteredData.length !== 0 && (
           <div className='input-group dataResult'>
             {filteredData?.slice(0, 4).map(kirja => (

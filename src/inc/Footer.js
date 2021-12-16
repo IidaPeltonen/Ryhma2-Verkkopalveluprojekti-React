@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
+//toaster
 function notifyOk () {
   toast('Uutiskirje tilattu, jos syötit toimivan osoitteen! :)')
 }
@@ -19,8 +20,6 @@ export default function Footer () {
   }
   return (
     <div>
-      
-      
       <footer className='row'>
         <div className='col-md-2 my-auto mx-auto'>
           <Link to='/contactus'>Yhteystiedot</Link>

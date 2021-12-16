@@ -13,10 +13,12 @@ function Top ({ url, addToCart, info }) {
   const [kirjat, setKirjat] = useState([])
   const [valittuKirja, setValittuKirja] = useState(null)
 
+  //toaster-ilmoitukset
   function notify () {
     toast('Kirja lisätty ostoskoriin!')
   }
 
+  //hakee kaikki
   useEffect(() => {
     axios
       .get(url + 'php/kirja/Top.php')
@@ -28,16 +30,16 @@ function Top ({ url, addToCart, info }) {
       })
   }, [])
 
+  //muuttujat karusellia varten
   const items = kirjat
-
   const responsive = {
     0: { items: 1 },
     568: { items: 2 },
     767: { items: 3 },
     1023: { items: 5 }
   }
-
   const handleDragStart = e => e.preventDefault()
+
   return (
     <div id='reuna' className='container-fluid'>
       <h2 id='heading' className=' row ms-4'>
@@ -56,11 +58,11 @@ function Top ({ url, addToCart, info }) {
               key={kirja.kirjaid}
             >
               <div className='row' id='homerow'>
-                <b> {kirjat.indexOf(kirja)+1}. </b>
+                <b> {kirjat.indexOf(kirja) + 1}. </b>
                 <br />
-                <div onClick={e => setValittuKirja(kirja)} >
-                    <img id='kirja' src={kirja.kuva} alt='kirjan kansikuva' />
-                    <Link
+                <div onClick={e => setValittuKirja(kirja)}>
+                  <img id='kirja' src={kirja.kuva} alt='kirjan kansikuva' />
+                  <Link
                     className='musta'
                     to={{
                       pathname: '/detail',

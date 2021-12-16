@@ -29,9 +29,18 @@ function App () {
   const [category, setCategory] = useState(null)
   const [cart, setCart] = useState([])
   const [kirja, setKirja] = useState([])
-  const info = <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill=" #447f43" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
-  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
-</svg>
+  const info = (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width='20'
+      height='20'
+      fill=' #447f43'
+      class='bi bi-info-circle-fill'
+      viewBox='0 0 16 16'
+    >
+      <path d='M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z' />
+    </svg>
+  )
   let location = useLocation()
   useEffect(() => {
     if ('cart' in localStorage) {
@@ -40,7 +49,7 @@ function App () {
   }, [])
 
   //ostoskorin tyhjennys kokonaan
-  function clear() {
+  function clear () {
     setCart([])
     localStorage.removeItem('cart')
   }
@@ -107,7 +116,12 @@ function App () {
         <Route
           path='/'
           render={() => (
-            <Home url={URL} category={category} addToCart={addToCart} info={info} />
+            <Home
+              url={URL}
+              category={category}
+              addToCart={addToCart}
+              info={info}
+            />
           )}
           exact
         />
@@ -129,70 +143,33 @@ function App () {
             />
           )}
         />
-        <Route 
-          path='/kirja' 
-          render={() => (
-          <Kirja
-            url={URL}
-          />
-          )}
+        <Route path='/kirja' render={() => <Kirja url={URL} />} />
+        <Route
+          path='/category_admin'
+          render={() => <CategoryAdmin url={URL} />}
         />
-        <Route 
-          path='/category_admin' 
-          render={() => (
-          <CategoryAdmin
-            url={URL}
-          />
-          )}
-        />
-        <Route 
-          path='/user' 
-          render={() => (
-          <User
-            url={URL}
-          />
-          )}
-        />
-        <Route 
-          path='/asiakas' 
-          render={() => (
-          <Asiakas
-            url={URL}
-          />
-          )}
-        />
-        <Route 
-          path='/tilaus' 
-          render={() => (
-          <Tilaus
-            url={URL}
-          />
-          )}
-        />
-        <Route 
-          path='/kaikki' 
-          render={() => (
-          <Kaikki
-            url={URL}
-            addToCart={addToCart}
-          />
-          )}
+        <Route path='/user' render={() => <User url={URL} />} />
+        <Route path='/asiakas' render={() => <Asiakas url={URL} />} />
+        <Route path='/tilaus' render={() => <Tilaus url={URL} />} />
+        <Route
+          path='/kaikki'
+          render={() => <Kaikki url={URL} addToCart={addToCart} />}
         />
         <Route
           path='/detail'
           render={() => <Detail kirja={kirja} addToCart={addToCart} />}
         />
-        <Route 
-        path='/uutuudet' 
-        render={() => <Uutuudet url={URL} addToCart={addToCart} />}
+        <Route
+          path='/uutuudet'
+          render={() => <Uutuudet url={URL} addToCart={addToCart} />}
         />
-        <Route path='/admin' render={() => < Admin />} />
+        <Route path='/admin' render={() => <Admin />} />
         <Route path='/contactus' component={ContactUs} />
         <Route path='/aboutus' component={AboutUs} />
         <Route path='/ukk' component={UKK} />
         <Route path='/rekisteri' component={Rekisteri} />
         <Route path='/evasteet' component={Evasteet} />
-        
+
         <Route path='/tarjoukset' component={Tarjoukset} />
       </Switch>
       <Footer />

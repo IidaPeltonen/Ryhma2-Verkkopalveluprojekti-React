@@ -68,16 +68,18 @@ export default function NavBar ({ url, setCategory, cart }) {
                   id='alasveto'
                   className='dropdown-menu ps-2 pe-2'
                   aria-labelledby='navbarDropdown'
-                ><li>
-                <Link
-                  className='valkoinen'
-                  to={{
-                    pathname: '/kaikki'
-                  }}
-                >Kaikki kirjat
-                </Link>
-                <hr className='dropdown-divider' />
-              </li>
+                >
+                  <li>
+                    <Link
+                      className='valkoinen'
+                      to={{
+                        pathname: '/kaikki'
+                      }}
+                    >
+                      Kaikki kirjat
+                    </Link>
+                    <hr className='dropdown-divider' />
+                  </li>
                   {categories.map(category => (
                     <li key={category.id}>
                       <Link
@@ -119,7 +121,7 @@ export default function NavBar ({ url, setCategory, cart }) {
                   Tarjoukset
                 </Link>
               </li>
-              
+
               <li className='nav-item  ms-2 me-2'>
                 <Link
                   className='nav-link valkoinen'
@@ -133,7 +135,9 @@ export default function NavBar ({ url, setCategory, cart }) {
               </li>
             </ul>
             <ul className='navbar-nav ms-auto'>
-              <li id="hakukenttä" className="nav-item"><SearchBar placeHolder='Hae tuotteita tästä' url={url} /></li>
+              <li id='hakukenttä' className='nav-item'>
+                <SearchBar placeHolder='Hae tuotteita tästä' url={url} />
+              </li>
               <li className='nav-item  ms-2 me-2'>
                 <Cart cart={cart} />
               </li>
