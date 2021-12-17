@@ -36,7 +36,7 @@ function Tilaus ({ url }) {
   const [editKpl, setEditKpl] = useState('')
   let numero = 0
 
-  //hakee kaikki
+  //hakee kaikki tilaukset
   useEffect(() => {
     axios
       .get(url + 'php/tilaus/indexTilaus.php')

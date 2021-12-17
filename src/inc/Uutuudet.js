@@ -17,7 +17,7 @@ export default function Uutuudet ({ url, addToCart }) {
     toast('Kirja lisätty ostoskoriin!')
   }
 
-  //hakee kaikki
+  //hakee kaikki uutuudet
   useEffect(() => {
     axios
       .get(url + 'php/uutuudet/uutuudet.php')
@@ -33,7 +33,7 @@ export default function Uutuudet ({ url, addToCart }) {
         }
       })
   }, [])
-
+// Palautetaan kaikki kuluvalla vuodella julkaistut kirjat
   return (
     <div className='container'>
       <div className='row table-responsive'>

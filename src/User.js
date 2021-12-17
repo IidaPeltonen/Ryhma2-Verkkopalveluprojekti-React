@@ -32,7 +32,7 @@ function User ({ url }) {
   const [editUsername, setEditUsername] = useState('')
   const [editPassword, setEditPassword] = useState('')
 
-  //hakee kaikki
+  //hakee kaikki pääkäyttäjät
   useEffect(() => {
     axios
       .get(url + 'php/user/indexUser.php')
@@ -44,7 +44,7 @@ function User ({ url }) {
       })
   }, [])
 
-  //uuden tallennus
+  //uuden pääkäyttäjän tallennus
   function tallenna (e) {
     e.preventDefault()
     const json = JSON.stringify({
@@ -68,7 +68,7 @@ function User ({ url }) {
       })
   }
 
-  //olemassaolevan poisto
+  //olemassaolevan pääkäyttäjän poisto
   function remove (id) {
     const json = JSON.stringify({ userid: id })
     axios
@@ -86,7 +86,7 @@ function User ({ url }) {
       })
   }
 
-  //olemassaolevan päivitys
+  //olemassaolevan pääkäyttäjän päivitys
   function setEditedUser (user) {
     setEditUser(user)
     setEditFirstname(user?.firstname)

@@ -17,7 +17,7 @@ export default function Category ({ url, category, addToCart }) {
     toast('Kirja lisätty ostoskoriin!')
   }
 
-  //hakee kaikki
+  //hakee kaikki navista valitun kategorian tuotteet, useEffect funktio ajetaan vain, jos kategoria vaihtuu
   useEffect(() => {
     if (category !== null) {
       axios

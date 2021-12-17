@@ -65,7 +65,7 @@ function Kirja ({ url }) {
       })
   }, [])
 
-  //uuden tallennus
+  //uuden kirjan tallennus
   function tallenna (e) {
     e.preventDefault()
     const json = JSON.stringify({
@@ -95,7 +95,7 @@ function Kirja ({ url }) {
       })
   }
 
-  //olemassaolevan poisto
+  //olemassaolevan kirjan poisto
   function remove (id) {
     const json = JSON.stringify({ kirjaid: id })
     axios
@@ -113,7 +113,7 @@ function Kirja ({ url }) {
       })
   }
 
-  //olemassaolevan päivitys
+  //olemassaolevan kirjan päivitys
   function setEditedItem (item) {
     setEditItem(item)
     setEditKirjanimi(item?.kirjanimi)

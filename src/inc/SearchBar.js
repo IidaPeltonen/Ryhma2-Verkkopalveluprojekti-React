@@ -9,11 +9,9 @@ export default function SearchBar ({ placeHolder, url }) {
   const [valittuKirja, setValittuKirja] = useState([])
   const [kirjat, setKirjat] = useState([])
 
-  //  Hakulogiikka-> inputista otetaan wordEntered. wordEntered arvoksi annetaan searchWord.
-  //  Jos syötetty searchWord sisältää samoja sanoja/kirjaimia jne. kuin mitä kirjanimiä tai kirjailijan nimiä tietokannassa on, newFilter suodattaa kaikki ne kirjat
-  //  joiden nimessä searchWord esiintyy.
-  //  Jos searchWord eli ts. inputissa ei ole mitään, filteredData-taulukko asetetaan tyhjäksi.
 
+
+  // haetaan kaikkien kirjojen data tilamuuttujaan
   useEffect(() => {
     axios
       .get(url + 'php/kirja/index.php')
@@ -29,18 +27,29 @@ export default function SearchBar ({ placeHolder, url }) {
       })
   }, [])
 
+  //  Hakulogiikka-> inputista luetaan arvo wordEntered, eli se arvo mitä käyttäjä kenttään syöttää.
+  //  Jos syötetty wordEntered-arvo sisältää samoja sanoja/kirjaimia jne. kuin mitä kirjanimiä tai kirjailijan nimiä tietokannassa on, 
+  //  newFilter suodattaa hakutuloksena reaaliaikaisesti kaikki ne kirjat, joiden nimessä wordEntered esiintyy.
+  //  Jos wordEntered on tyhjä eli ts. inputissa ei ole tekstiä, filteredData-taulukko asetetaan tyhjäksi.
+
+
   function handleFilter (e) {
+    //searchWord muuttuja oikeastaan turha, mutta nopeuttanee ja selkeyttänee koodia, kun sinne annetaan arvoksi e.target.value
     const searchWord = e.target.value
     setWordEntered(searchWord)
     const newFilter = kirjat.filter(value => {
+      // funktiossa otetaan myös huomioon se, että käyttäjä todennäköisesti hakee pienillä alkukirjaimilla
+      // palautetaan joko kirjanimi tai kirjailija, riippuen löytyykö dataa haetulla hakusanalla
       return (
         value.kirjanimi.toLowerCase().includes(searchWord.toLowerCase()) ||
         value.kirjailija.toLowerCase().includes(searchWord.toLowerCase())
       )
     })
+    // jos input on tyhjä, asetetaan taulukko tyhjäksi
     if (searchWord === '') {
       setFilteredData([])
     } else {
+    // muutoin suodatetaan uusi hakutulos 
       setFilteredData(newFilter)
     }
   }
@@ -52,6 +61,7 @@ export default function SearchBar ({ placeHolder, url }) {
   return (
     <>
       <div className='input-group'>
+        {/* Jos kenttässä tapahtuu muutoksia (onChange), ajetaan handleFilter funktio */}
         <input
           type='text'
           className='form-control'
@@ -83,10 +93,13 @@ export default function SearchBar ({ placeHolder, url }) {
         )}
       </div>
       <div className='row'>
+        {/* Kun filteredData taulukon pituus on erisuuri kuin 0 (ts. kenttään on kirjoitettu jotain), näytetään tulokset */}
         {filteredData.length !== 0 && (
           <div className='input-group dataResult'>
+            {/* Näytetään max 4 tulosta */}
             {filteredData?.slice(0, 4).map(kirja => (
               <div key={kirja.kirjaid}>
+                {/* Mahdollisuus avata details-näkymä kirjasta */}
                 <div
                   onClick={function (e) {
                     setValittuKirja(kirja)

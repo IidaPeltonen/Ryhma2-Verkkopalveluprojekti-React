@@ -16,7 +16,7 @@ function Kaikki ({ url, addToCart }) {
     toast('Kirja lisätty ostoskoriin!')
   }
 
-  //hakee kaikki
+  //hakee kaikki kirjat
   useEffect(() => {
     axios
       .get(url + 'php/kirja/index.php')

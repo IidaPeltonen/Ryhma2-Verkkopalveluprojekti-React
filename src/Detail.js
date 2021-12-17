@@ -28,6 +28,7 @@ export default function Detail ({ kirja, addToCart }) {
           <p>Kieli: {kirja.kieli}</p>
           <p>Kustantaja: {kirja.kustantaja}</p>
           <p>Hinta: {kirja.hinta}€</p>
+          {/* Näytetään varastosaldo-indikaattori, jos isompi kun 0 näytetään vihreä pallo */}
           {kirja.saldo > 0 ? (
             <p>
               Varastossa:{' '}
@@ -42,7 +43,8 @@ export default function Detail ({ kirja, addToCart }) {
                 <circle cx='8' cy='8' r='8' />
               </svg>
             </p>
-          ) : (
+           /* Näytetään varastosaldo-indikaattori, jos pienempi kun 0 näytetään punainen pallo */
+          ) : (   
             <p>
               Ei saatavilla:{' '}
               <svg

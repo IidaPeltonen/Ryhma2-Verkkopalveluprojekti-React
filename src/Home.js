@@ -19,8 +19,8 @@ function Home ({ url, addToCart, info }) {
     toast('Kirja lisätty ostoskoriin!')
   }
 
-  //muuttujat karusellille
-  const items = kirjat
+  //muuttujat karusellille ja määritetään, montako kirjaa näytetään, kun resoluutio on x
+  const items = kirjat 
   const responsive = {
     0: { items: 1 },
     568: { items: 2 },
@@ -29,7 +29,7 @@ function Home ({ url, addToCart, info }) {
   }
   const handleDragStart = e => e.preventDefault()
 
-  //hakee kaikki
+  //hakee kaikki kirjat
   useEffect(() => {
     axios
       .get(url + 'php/kirja/index.php')

@@ -18,7 +18,7 @@ function Top ({ url, addToCart, info }) {
     toast('Kirja lisätty ostoskoriin!')
   }
 
-  //hakee kaikki
+  //hakee kaikki top7 - myydyimmät kirjat
   useEffect(() => {
     axios
       .get(url + 'php/kirja/Top.php')

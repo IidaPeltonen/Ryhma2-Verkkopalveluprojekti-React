@@ -107,7 +107,7 @@ function App () {
     setCart(modifiedCart)
     localStorage.setItem('cart', JSON.stringify(modifiedCart))
   }
-
+//routtaukset
   return (
     <div className='container-fluid'>
       <NavBar url={URL} setCategory={setCategory} cart={cart} />

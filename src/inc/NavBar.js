@@ -80,6 +80,7 @@ export default function NavBar ({ url, setCategory, cart }) {
                     </Link>
                     <hr className='dropdown-divider' />
                   </li>
+                  {/* Mapataan olemassa olevat kategoriat linkkeinä */}
                   {categories.map(category => (
                     <li key={category.id}>
                       <Link

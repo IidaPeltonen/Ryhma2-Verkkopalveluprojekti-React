@@ -40,7 +40,7 @@ export default function Order ({
     setInputIndex(index)
   }
 
-  //hakee kaikki
+  //hakee ostoskorin sisällön
   useEffect(() => {
     for (let i = 0; i < cart.length; i++) {
       inputs[i] = React.createRef()
