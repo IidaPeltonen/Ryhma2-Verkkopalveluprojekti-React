@@ -13,6 +13,7 @@ function Admin() {
   const [pw, setPw] = useState('')
   //Pidetään yllä tieto, onko käyttäjä loggautunut sisään
   const [auth, setAuth] = useState(false)
+  
 
   //Asetetaan loggautuneeksi, jos sessionStoragessa on talletettu token
   if (!auth && sessionStorage.getItem('token')) {
@@ -41,7 +42,7 @@ function Admin() {
           setAuth(true)
         }
       })
-      .catch(e => console.log(e))
+      .catch(err => alert("Ei käyttöoikeutta!"))
   }
 
   //Jos käyttäjä ei ole loggautunut, näytetään login-lomake. Muuten näytetään käyttäjän oma resurssi.
