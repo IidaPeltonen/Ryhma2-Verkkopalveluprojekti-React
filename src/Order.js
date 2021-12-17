@@ -98,7 +98,7 @@ export default function Order ({
         <div>
           <h1 id='keskita'>Ostoskorisi</h1>
         </div>
-        <div id='reuna' className='row'>
+        <div className='row'>
           <div className='col-10'></div>
           <button
             className='tyhjenna orderbutton btn ms-2'

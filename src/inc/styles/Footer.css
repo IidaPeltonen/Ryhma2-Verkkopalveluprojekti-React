@@ -1,12 +1,9 @@
+
+/* Footerin perusmääritykset */
+
 footer {
     background-color: #214321;
     min-height: 20vh;
-}
-
-#uutiskirje {
-    color: white;
-    font-size: normal;
-    font-weight: bold;
 }
 
 footer div a {
@@ -17,6 +14,16 @@ footer div a {
     line-height: 50px;
 }
 
+/* Uutiskirjeen tilaus-teksti */
+
+#uutiskirje {
+    color: white;
+    font-size: normal;
+    font-weight: bold;
+}
+
+/* Uutiskirjeen tilaus-button */
+
 .uutiskirje {
     color: white;
 }
@@ -25,6 +32,8 @@ footer div a {
     background-color: #f2f2f2;
     color: black !important;
 }
+
+/* Input-kentän määritys */
 
 .form-control {
     box-shadow: none !important;

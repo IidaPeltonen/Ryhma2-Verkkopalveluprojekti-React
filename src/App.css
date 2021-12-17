@@ -1,3 +1,4 @@
+
 /* Sovitut värit:
 Tummin: #0C400B (footerin tausta)
 #447F43 (logo)
@@ -11,6 +12,8 @@ Montserrat (valikot, iso otsikko etusivulla, footer&header)
 PT Sans Caption (Leipäteksti)
  */
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap');
+
+/* Kaikkien sivujen tekstien, linkkien ja buttoneiden perusmääritykset*/
 
 a {
   text-decoration: none;
@@ -38,48 +41,31 @@ p {
   font-size: large;
 }
 
-/* logo */
-.logo {
-  max-height: 100%;
-  max-width: 100%;
+.btn {
+  box-shadow: none !important;
 }
 
-.nav-link {
-  color: #447f43;
+/* Ostoskorin ja määrän näyttö */
+.no-underline {
+  text-decoration: none !important;
+  color: white;
+  font-weight: bold;
+  position: fixed;
 }
 
-.header-style ul li a {
-  color: red;
+#ostoskarry {
+  height: 2em;
+  width: 2em;
 }
+
+/* Kirjojen kuvien koko */
 
 img {
   max-width: 150px;
   margin-bottom: 2em;
 }
 
-/* ostoskärryn kuva */
-#pieni {
-  max-width: 2em;
-  background-color: #447f43;
-  padding: 7px;
-  border-radius: 10px;
-}
-
-#pieni:hover {
-  box-shadow: black;
-}
-
-/* top-kirjojen blokki */
-#top7 {
-  background-color: #f2f2f2;
-  padding: 1em;
-  margin: 1em;
-  text-align: center;
-  border-style: solid;
-  border-color: #0c400b;
-  border-width: 5px;
-  border-radius: 10px;
-}
+/* Kirjakarusellit */
 
 .alice-carousel__prev-btn-item, .alice-carousel__next-btn-item {
   display: inline-block;
@@ -103,21 +89,63 @@ img {
   padding: 0px 10px !important;
 }
 
-/*kaikkien kirjojen blokki */
+.musta {
+  color: black !important;
+  font-family: PT Sans Caption !important;
+  font-size: normal;
+  text-decoration: none;
+}
+
+/* Top-kirjojen blokki */
+
+#top7 {
+  background-color: #f2f2f2;
+  padding: 1em;
+  margin: 1em;
+  text-align: center;
+  border-style: solid;
+  border-color: #0c400b;
+  border-width: 5px;
+  border-radius: 10px;
+}
+
+/* Kaikkien kirjojen blokki */
+
 #kaikki {
   padding: 1em;
   margin: 1em;
   text-align: center;
 }
 
-/* kirjan detail-tiedot*/
+/* Ostoskärryn kuva */
+
+#pieni {
+  max-width: 2em;
+  background-color: #447f43;
+  padding: 7px;
+  border-radius: 10px;
+}
+
+#pieni:hover {
+  box-shadow: black;
+}
+
+/* Kirjan detail-tiedot*/
+
 #kirja {
   border-style: outset;
   border-width: thin;
   border-color: black;
 }
 
-/* UKK- ja Rekisteri-sivujen accordion */
+/* Tarjoukset-sivun kuva */
+
+#iso {
+  max-width: 500px;
+}
+
+/* Alasivujen accordion */
+
 .accordion,
 .accordion-header {
   font-family: PT Sans Caption;
@@ -138,38 +166,7 @@ img {
   box-shadow: none !important;
 }
 
-/* Buttoneiden muotoilu */
-.btn {
-  box-shadow: none !important;
-}
-
-/* Ostoskorin määrän näyttö */
-.no-underline {
-  text-decoration: none !important;
-  color: white;
-  font-weight: bold;
-  position: fixed;
-}
-
-#keskita {
-  text-align: center;
-}
-
-#ostoskarry {
-  height: 2em;
-  width: 2em;
-}
-
-.tyhjenna {
-  font-weight: bold;
-}
-
-.musta {
-  color: black !important;
-  font-family: PT Sans Caption !important;
-  font-size: normal;
-  text-decoration: none;
-}
+/*Aarne, tästä eteenpäin */
 
 #homerow{
   display:flex;
@@ -218,13 +215,11 @@ img {
   border-right: none; 
 }
 
-
 .uprow:after {
   content: "";
   clear: both;
   display: table;
 }
-
 
 .uprow button:hover {
   background-color: #3e8e41;
@@ -232,9 +227,4 @@ img {
 
 #inrow{
   display: inline-block;
-}
-
-/* kesken-kuva */
-#iso {
-  max-width: 5000px;
 }

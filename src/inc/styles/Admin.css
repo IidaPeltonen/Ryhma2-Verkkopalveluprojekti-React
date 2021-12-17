@@ -1,20 +1,10 @@
+
+/* Lomakkeiden reunat */
+
 form {
     margin-top: 2rem;
     margin-bottom: 2rem;
     margin-left: 2rem;
-}
-
-p {
-    font-family: PT Sans Caption;
-    font-size: large;
-}
-
-/* Kirjojen muokkausalueen tyyli */
-
-.muokkaus {
-    font-family: PT Sans Caption;
-    font-size: large;
-    margin: 1rem;
 }
 
 /* Painikkeet adminissa */
@@ -47,21 +37,24 @@ p {
     font-weight: bold;
 }
 
+/* Input-kentät */
+
 .admininput {
     height: 35px;
 }
 
-#adminHeader{
+/*Aarne, tästä eteenpäin */
+
+#adminHeader {
     padding: 10px 20px;
     text-align: center;
     background-color: white;
     font-size: 22px;
   }
   
-  #adminBody{
-    
+  #adminBody {
     padding: 10px 20px;
     text-align: center;
     background-color: white;
     font-size: 13px;
-  } 
+  }
