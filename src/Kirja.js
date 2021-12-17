@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import './App.css'
 import './inc/styles/Admin.css'
 
 function Kirja ({ url }) {

@@ -173,7 +173,7 @@ function Tilaus ({ url }) {
 
   return (
     <div className='container-fluid'>
-      <h1 id='otsikko keskita'>Kaikki tilaukset</h1>
+      <h1>Kaikki tilaukset</h1>
       <div className='row'>
         <ul>
           {tilaukset?.map(tilaus => {
@@ -203,7 +203,7 @@ function Tilaus ({ url }) {
                     <form onSubmit={paivita}>
                       Anna uusi tilakoodi:
                       <input
-                        className='admin input align-middle'
+                        className='admininput align-middle'
                         placeholder='tila'
                         value={editTila}
                         onChange={e => setEditTila(e.target.value)}
@@ -251,7 +251,7 @@ function Tilaus ({ url }) {
                       <form onSubmit={paivitaRivi}>
                         Anna uusi kappalemäärä:
                         <input
-                          className='admin input align-middle'
+                          className='admininput align-middle'
                           placeholder='kpl'
                           value={editKpl}
                           onChange={e => setEditKpl(e.target.value)}
@@ -307,7 +307,7 @@ function Tilaus ({ url }) {
                       <form onSubmit={paivitaRivi}>
                         Anna uusi kappalemäärä:
                         <input
-                          className='admin input align-middle'
+                          className='admininput align-middle'
                           placeholder='kpl'
                           value={editKpl}
                           onChange={e => setEditKpl(e.target.value)}

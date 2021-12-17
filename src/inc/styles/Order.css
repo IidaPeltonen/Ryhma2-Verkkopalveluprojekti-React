@@ -1,19 +1,24 @@
-.order {
-    color:black 
-    }
+
+/* Otsikon määritys */
+
+#keskita {
+    text-align: center;
+  }
+
+/* Tyhjennä-button */
 
 .tyhjenna {
     max-width: 150px;
     text-align: center;
 }
 
+/* Tekstin muuttaminen normaalikokoiseksi */
+
 #notbold {
     font-weight: normal;
 }
 
-#reuna {
-    align-items: center;
-}
+/* Tilaus-button */
 
 .orderbutton {
     background-color: #447f43 !important;
@@ -22,6 +27,7 @@
     font-family: Montserrat;
     font-weight: bold;
 }
+
 
 
 
