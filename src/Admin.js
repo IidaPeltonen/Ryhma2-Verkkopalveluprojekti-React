@@ -4,8 +4,8 @@ import axios from 'axios'
 import './inc/styles/Admin.css'
 import { Link } from 'react-router-dom'
 
-let loginUrl = 'http://localhost/kauppa/login.php'
-let resUrl = 'http://localhost/kauppa/resources.php'
+let loginUrl = 'http://localhost/kauppa/php/login/login.php'
+let resUrl = 'http://localhost/kauppa/php/login/resources.php'
 
 function Admin() {
   //Formin tietojen hallinta
