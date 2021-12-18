@@ -95,7 +95,7 @@ function Asiakas ({ url }) {
         setAsiakkaat(newListWithoutRemoved)
       })
       .catch(error => {
-        alert(error.response ? error.response.data.error : error)
+        alert("Asiakkaalla on aktiivisia tilauksia, poistoa ei tehty.")
       })
   }
 

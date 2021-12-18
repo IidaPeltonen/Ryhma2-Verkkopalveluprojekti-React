@@ -108,7 +108,7 @@ function Kirja ({ url }) {
         setItems(newListWithoutRemoved)
       })
       .catch(error => {
-        alert(error.response ? error.response.data.error : error)
+        alert("Kirjasta on aktiivisia tilauksia, poistoa ei tehty.")
       })
   }
 

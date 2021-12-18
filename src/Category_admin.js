@@ -75,7 +75,7 @@ function CategoryAdmin ({ url }) {
         setKategoriat(newListWithoutRemoved)
       })
       .catch(error => {
-        alert(error.response ? error.response.data.error : error)
+        alert("Kategoriassa on kirjoja, ei voitu poistaa.")
       })
   }
 
