@@ -90,7 +90,7 @@ function Kirja ({ url }) {
         setItem('')
       })
       .catch(error => {
-        alert(error.response.data.error)
+        alert("Tarkista, että olet täyttänyt jokaisen kentän.")
       })
   }
 
